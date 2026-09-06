@@ -1,0 +1,45 @@
+{
+  "correction_phase": "16.5.57a_q3_probe_method_error_correction",
+  "timestamp": "2026-09-07T02:00:00.000000",
+  "classification": "PROBE_METHOD_ERROR",
+  "supersedes": "16_5_57a_comprehensive_probe.json Q3 observation",
+  "superseded_observation": {
+    "original_q3_finding": "BLOCKED",
+    "original_q3_reason": "Serum2 VST3 not discoverable through AbletonMCP browser interface",
+    "probe_method_used": "search_browser('serum')",
+    "method_limitation": "search_browser() does not search the Plug-Ins category; it searches Instruments, Drums, Audio Effects, MIDI Effects only"
+  },
+  "direct_plug_ins_tree_evidence": {
+    "evidence_source": "Ableton Live 12.3 Suite Plug-Ins browser direct inspection",
+    "evidence_date": "2026-09-07",
+    "browser_path": "Plugins → Xfer Records → Serum 2",
+    "plugin_name_display": "Serum 2",
+    "plugin_publisher": "Xfer Records",
+    "is_loadable": true,
+    "plugin_type": "VST3 Instrument",
+    "system_path": "C:/Program Files/Common Files/VST3/Serum2.vst3/Contents/x86_64-win/Serum2.vst3",
+    "binary_hash": "7978C9BE5B2107E985C24C174000FAEE87E11483EC989D81DC61B5829B45ED70"
+  },
+  "corrected_answer": {
+    "q3_original": "BLOCKED",
+    "q3_corrected": "YES",
+    "method_that_succeeds": "Direct Plug-Ins browser category navigation",
+    "evidence_confidence": "DIRECT_OBSERVATION"
+  },
+  "root_cause_analysis": {
+    "why_original_method_failed": "search_browser('serum') searches a subset of plugin categories (Instruments, Drums, Audio Effects, MIDI Effects) but does NOT include the Plug-Ins category where Serum 2 is categorized",
+    "lesson": "Browser search() method is not exhaustive; category-based navigation is required to locate all available plugins",
+    "implication_for_methodology": "Future probes of plugin availability must use category-based discovery, not search-based discovery alone"
+  },
+  "frontier_integrity": {
+    "count_before": "37 contracts — 26 CAUSAL_VERIFIED, 8 STRUCTURAL_ONLY, 3 NEGATIVE_EVIDENCE",
+    "count_after": "37 contracts — 26 CAUSAL_VERIFIED, 8 STRUCTURAL_ONLY, 3 NEGATIVE_EVIDENCE",
+    "frontier_unchanged": true
+  },
+  "supersession_relationship": {
+    "original_artifact": "16_5_57a_comprehensive_probe.json",
+    "original_commit": "019a648",
+    "correction_preserves_original": true,
+    "status_change": "Q3: BLOCKED → YES (method error, not capability error)"
+  }
+}
