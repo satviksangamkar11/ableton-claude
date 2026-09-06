@@ -205,4 +205,4 @@ These are audit/analysis boundaries, not implementation laziness.
 
 ## No Temporary Rules
 
-Do not add step numbers, experiment IDs, or temporary investigation notes to this file. GATES.md and PROOF_PLAN.md track those. CLAUDE.md is for permanent project rules only.
+Do not add step numbers, experiment IDs, or temporary investigation notes to this file. ROADMAP.md is the authoritative step register and numbering source. CLAUDE.md contains permanent policy only.

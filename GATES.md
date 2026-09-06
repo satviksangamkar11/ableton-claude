@@ -1,4 +1,14 @@
-# GATES — 16.5.14: HYPOTHESIS policy + "make darker" refusal/discovery
+# GATES — Historical Gate Documentation
+
+**⚠️ This is a historical scoped gate/evidence document for 16.5.14 only.**
+
+- Not the authoritative roadmap. See [ROADMAP.md](ROADMAP.md) for the authoritative step register.
+- 16.5.14 content and findings remain valid for their scoped gate and historical context.
+- Do not treat this as the source of truth for current project direction.
+
+---
+
+## 16.5.14: HYPOTHESIS policy + "make darker" refusal/discovery
 
 ## Decision locked
 ```

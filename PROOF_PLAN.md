@@ -1,5 +1,13 @@
 # Serum 2.0.21 v5→v8 Bridge — Proof Plan
 
+**⚠️ This is a historical scoped proof methodology document (v5→v8 bridge era).**
+
+- Not the authoritative roadmap. See [ROADMAP.md](ROADMAP.md) for the authoritative step register.
+- This proof plan's technical methodology and findings remain valid for their scoped context.
+- Do not treat this as the source of truth for current project direction.
+
+---
+
 ## Goal
 
 Determine whether the `.SerumPreset` (v5) → Serum 2.0.21 processor state (v8)
