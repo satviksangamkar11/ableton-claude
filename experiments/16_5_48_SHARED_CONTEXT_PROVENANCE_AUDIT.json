@@ -1,0 +1,96 @@
+{
+  "step": "16.5.48",
+  "authoritative_evidence_id": "16.5.45-CORPUS-ENV-SUSTAIN-REVALIDATION",
+  "authoritative_disposition_fingerprint": "b9484d370ae915b48f6905b91ca8820cb339aefb889f3c83df288a8d2dce8b60",
+  "sustain_contracts": [
+    {
+      "target": "envelope_field_sustain",
+      "status": "CAUSAL_VERIFIED",
+      "scope": {
+        "tested_context_only": true,
+        "condition_signature_hash": "2ad6168671cfac32",
+        "mutation_target_path": "Env0.plainParams.kParamSustain",
+        "mutation_value_used": 0.3
+      },
+      "measurement": {
+        "metric": "sustain_window_rms_db",
+        "target_field": "Env0.plainParams.kParamSustain",
+        "baseline": -50.250373467038386,
+        "treatment": -44.488971611604775,
+        "delta": 5.761401855433611,
+        "expected_direction": "increase",
+        "observed_direction": "increase",
+        "threshold": 3.0,
+        "status": "EFFECT_OBSERVED",
+        "measurement_definition_id": "sustain_window_rms_db:c092f5a1078d"
+      },
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "envelope_field_sustain:4f171978",
+        "condition_signature_hash": "2ad6168671cfac32",
+        "supporting_evidence": [
+          "16.5.43.2-CORPUS-ENV-SUSTAIN-CORRECTED",
+          "16.5.45-CORPUS-ENV-SUSTAIN-REVALIDATION"
+        ],
+        "witness_experiment_id": "16.5.43.2-CORPUS-ENV-SUSTAIN-CORRECTED",
+        "shared_context": {
+          "status": "PARTIAL",
+          "all_records_have_baseline_overrides": false,
+          "records_with_baseline_overrides": [
+            "16.5.45-CORPUS-ENV-SUSTAIN-REVALIDATION"
+          ],
+          "records_missing_baseline_overrides": [
+            "16.5.43.2-CORPUS-ENV-SUSTAIN-CORRECTED"
+          ],
+          "context_fields": [
+            "Env0.plainParams.kParamDecay"
+          ],
+          "baseline_overrides_identical": {
+            "Env0.plainParams.kParamDecay": {
+              "16.5.45-CORPUS-ENV-SUSTAIN-REVALIDATION": 0.02
+            }
+          }
+        },
+        "measurement_definition_ids": [
+          "sustain_window_rms_db:c092f5a1078d"
+        ]
+      },
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "shared_context_exposed": true,
+      "shared_context": {
+        "status": "PARTIAL",
+        "all_have_baseline": false,
+        "records_with": 1,
+        "records_missing": 1,
+        "context_fields": [
+          "Env0.plainParams.kParamDecay"
+        ],
+        "identical": {
+          "Env0.plainParams.kParamDecay": {
+            "16.5.45-CORPUS-ENV-SUSTAIN-REVALIDATION": 0.02
+          }
+        }
+      }
+    }
+  ],
+  "baseline_context_status": "IDENTICAL",
+  "baseline_overrides_exposed": true,
+  "mutation_target_exposed": true,
+  "measurement_definition_exposed": true,
+  "supporting_evidence_preserved": true,
+  "causal_verified_count_before": 13,
+  "causal_verified_count_after": 13,
+  "structural_only_count_before": 0,
+  "structural_only_count_after": 0,
+  "negative_evidence_count_before": 1,
+  "negative_evidence_count_after": 1,
+  "regressions": [],
+  "contract_tests": "PASSED",
+  "admission_tests": "PASSED",
+  "serum_mutated": false,
+  "render_performed": false,
+  "new_evidence_created": false,
+  "decision": "SHARED_CONTEXT_PROVENANCE_COMPLETE"
+}
