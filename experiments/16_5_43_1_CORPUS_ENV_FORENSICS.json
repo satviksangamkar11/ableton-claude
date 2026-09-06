@@ -1,0 +1,1283 @@
+{
+  "experiment": "16.5.43.1",
+  "name": "Corpus Env Forensics",
+  "status": "COMPLETED",
+  "classification": "DIAGNOSTIC_ONLY",
+  "seed": {
+    "source": "experiments/_corpus_cache.pkl bodies[4]",
+    "normalization": "corpus body + native processor component + native metadata",
+    "state_hash": "220cf7ee652d5c4e",
+    "expected_state_hash": "220cf7ee652d5c4e",
+    "hash_match": true
+  },
+  "canonical_env0": {
+    "present": true,
+    "type": "dict",
+    "keys": [
+      "plainParams"
+    ],
+    "plainParams_present": true,
+    "plainParams_keys": [
+      "kParamCurve1",
+      "kParamCurve2",
+      "kParamCurve3"
+    ],
+    "fields": {
+      "kParamAttack": {
+        "present": false,
+        "value": null,
+        "python_type": null
+      },
+      "kParamDecay": {
+        "present": false,
+        "value": null,
+        "python_type": null
+      },
+      "kParamSustain": {
+        "present": false,
+        "value": null,
+        "python_type": null
+      },
+      "kParamRelease": {
+        "present": false,
+        "value": null,
+        "python_type": null
+      }
+    }
+  },
+  "corpus_env0": {
+    "present": true,
+    "type": "dict",
+    "keys": [
+      "plainParams"
+    ],
+    "plainParams_present": true,
+    "plainParams_keys": [
+      "kParamAttack",
+      "kParamCurve1",
+      "kParamCurve2",
+      "kParamCurve3",
+      "kParamDecay",
+      "kParamRelease",
+      "kParamSustain"
+    ],
+    "fields": {
+      "kParamAttack": {
+        "present": true,
+        "value": 0.004875846483662035,
+        "python_type": "float"
+      },
+      "kParamDecay": {
+        "present": true,
+        "value": 3.1898578238230217,
+        "python_type": "float"
+      },
+      "kParamSustain": {
+        "present": true,
+        "value": 0.0,
+        "python_type": "float"
+      },
+      "kParamRelease": {
+        "present": true,
+        "value": 0.8837453206371405,
+        "python_type": "float"
+      }
+    }
+  },
+  "field_comparison": {
+    "kParamAttack": {
+      "canonical": {
+        "present": false,
+        "value": null,
+        "python_type": null
+      },
+      "corpus": {
+        "present": true,
+        "value": 0.004875846483662035,
+        "python_type": "float"
+      },
+      "equal": false
+    },
+    "kParamDecay": {
+      "canonical": {
+        "present": false,
+        "value": null,
+        "python_type": null
+      },
+      "corpus": {
+        "present": true,
+        "value": 3.1898578238230217,
+        "python_type": "float"
+      },
+      "equal": false
+    },
+    "kParamSustain": {
+      "canonical": {
+        "present": false,
+        "value": null,
+        "python_type": null
+      },
+      "corpus": {
+        "present": true,
+        "value": 0.0,
+        "python_type": "float"
+      },
+      "equal": false
+    },
+    "kParamRelease": {
+      "canonical": {
+        "present": false,
+        "value": null,
+        "python_type": null
+      },
+      "corpus": {
+        "present": true,
+        "value": 0.8837453206371405,
+        "python_type": "float"
+      },
+      "equal": false
+    }
+  },
+  "baseline_release_value": 0.8837453206371405,
+  "diagnostic_design": {
+    "A": "corpus baseline",
+    "B": "Sustain=0.3 + Decay=0.02",
+    "C": "explicit Sustain=1.0 + Decay=0.02",
+    "D": "explicit existing corpus Release value + Decay=0.02",
+    "E": "Release=1.0 + Decay=0.02"
+  },
+  "results": {
+    "A_vs_B_sustain_0.3": {
+      "label": "A_vs_B_sustain_0.3",
+      "experiment_id": "16.5.43.1-CORPUS-ENV-SUSTAIN-DIAGNOSTIC",
+      "gates": {
+        "generation": "PASS",
+        "load": "PASS",
+        "render": "PASS",
+        "causal": "FAIL",
+        "persistence": "PASS"
+      },
+      "runtime_verified": true,
+      "matches_intent": true,
+      "causal_measurements": [
+        {
+          "metric": "sustain_window_rms_db",
+          "baseline": -50.250373467038386,
+          "treatment": -44.488971611604775,
+          "delta": 5.761401855433611,
+          "expected_direction": "decrease",
+          "observed_direction": "increase",
+          "threshold": 3.0,
+          "status": "WRONG_DIRECTION",
+          "measurement_definition_id": "sustain_window_rms_db:c092f5a1078d"
+        }
+      ],
+      "persistence": {
+        "status": "PASS",
+        "checked": true,
+        "exact_match": true,
+        "detail": {
+          "Env0.plainParams.kParamSustain": true
+        }
+      },
+      "record": {
+        "experiment_id": "16.5.43.1-CORPUS-ENV-SUSTAIN-DIAGNOSTIC",
+        "gates": {
+          "generation": "PASS",
+          "load": "PASS",
+          "render": "PASS",
+          "causal": "FAIL",
+          "persistence": "PASS"
+        },
+        "runtime_verified": true,
+        "outcome_signature": "NO_OBSERVED_EFFECT",
+        "state_observation": {
+          "status": "PASS",
+          "matches_intent": true,
+          "top_level_ok": true,
+          "fine_grained_ok": true,
+          "diff_keys": [
+            "Env0"
+          ],
+          "intended_targets": [
+            "Env0.plainParams.kParamSustain"
+          ],
+          "control_hash": "a1e04f67de213a59",
+          "treatment_hash": "e511b5c5d824be52"
+        },
+        "load_observation": {
+          "status": "PASS",
+          "ok": true,
+          "control_error": null,
+          "treatment_error": null
+        },
+        "render_observation": {
+          "status": "PASS"
+        },
+        "persistence_observation": {
+          "status": "PASS",
+          "checked": true,
+          "exact_match": true,
+          "detail": {
+            "Env0.plainParams.kParamSustain": true
+          }
+        },
+        "runtime_verifications": [
+          {
+            "verified": true,
+            "failures": [],
+            "observations": []
+          }
+        ],
+        "causal_measurements": [
+          {
+            "metric": "sustain_window_rms_db",
+            "target": {
+              "field_path": "Env0.plainParams.kParamSustain",
+              "module": "Env",
+              "parameter": "kParamSustain"
+            },
+            "baseline": -50.250373467038386,
+            "treatment": -44.488971611604775,
+            "delta": 5.761401855433611,
+            "expected_direction": "decrease",
+            "observed_direction": "increase",
+            "threshold": 3.0,
+            "status": "WRONG_DIRECTION",
+            "measurement_condition_signature": {
+              "experiment_hash": "2ad6168671cfac32",
+              "stimulus": {
+                "note": 60,
+                "note_len": 1.8,
+                "render_seconds": 2.0,
+                "velocity": 110
+              },
+              "hash": "74a16c3bf4ac6bb3"
+            },
+            "measurement_definition_id": "sustain_window_rms_db:c092f5a1078d"
+          }
+        ],
+        "evidence_record": {
+          "experiment_id": "16.5.43.1-CORPUS-ENV-SUSTAIN-DIAGNOSTIC",
+          "epoch": {
+            "serum_binary_sha256": "7978c9be5b2107e985c24c174000faee87e11483ec989d81dc61b5829b45ed70",
+            "execution_harness_revision": "8797efa0cf6c1f7a4540395e36aed503116bffefedec6fd195c5b7c8708b32f3",
+            "dependency_lock": {
+              "dawdreamer": "0.9.0",
+              "cbor2": "unknown",
+              "zstandard": "0.25.0",
+              "numpy": "2.4.4",
+              "python": "3.14.3"
+            },
+            "environment_fingerprint": {
+              "platform": "Windows-11-10.0.26200-SP0",
+              "machine": "AMD64",
+              "processor": "AMD64 Family 25 Model 116 Stepping 1, AuthenticAMD",
+              "python_build": "tags/v3.14.3:323c59a Feb  3 2026 16:04:56",
+              "sample_rate": 44100,
+              "block_size": 512
+            },
+            "execution_epoch_id": "3fbc696f694d8474",
+            "evidence_epoch_id": "3fbc696f694d8474",
+            "derivation_revision": "10f90bc72dd78363"
+          },
+          "experiment": {
+            "mutations": [
+              {
+                "target_path": "Env0.plainParams.kParamSustain",
+                "value": 0.3,
+                "provenance": "Diagnostic Sustain=0.3 after corpus Env forensics"
+              }
+            ],
+            "prerequisites": [],
+            "isolation_level": "single_field",
+            "claim_subject": "diagnostic:Env0.plainParams.kParamSustain",
+            "claim_predicate": "diagnostic_only",
+            "experiment_condition_signature": {
+              "prerequisites": [],
+              "baseline_overrides": [
+                [
+                  "Env0.plainParams.kParamDecay",
+                  "0.02"
+                ]
+              ],
+              "hash": "2ad6168671cfac32"
+            },
+            "measurement_condition_signatures": [
+              {
+                "experiment_hash": "2ad6168671cfac32",
+                "stimulus": {
+                  "note": 60,
+                  "note_len": 1.8,
+                  "render_seconds": 2.0,
+                  "velocity": 110
+                },
+                "hash": "74a16c3bf4ac6bb3"
+              }
+            ],
+            "mutation_signature": "b452a1fd6d6e7ac2",
+            "notes": "16.5.43.1 diagnostic only. No capability promotion."
+          },
+          "arms": [
+            {
+              "arm_id": "arm_control",
+              "role": "control",
+              "declared_context": {},
+              "observed_context": [],
+              "state_observation": {
+                "state_hash": "a1e04f67de213a59"
+              },
+              "load_status": "PASS",
+              "render_status": "PASS",
+              "artifacts": {}
+            },
+            {
+              "arm_id": "arm_treatment",
+              "role": "treatment",
+              "declared_context": {},
+              "observed_context": [],
+              "state_observation": {
+                "state_hash": "e511b5c5d824be52"
+              },
+              "load_status": "PASS",
+              "render_status": "PASS",
+              "artifacts": {}
+            }
+          ],
+          "runtime_verifications": [
+            {
+              "verified": true,
+              "failures": [],
+              "observations": []
+            }
+          ],
+          "state_observation": {
+            "status": "PASS",
+            "matches_intent": true,
+            "top_level_ok": true,
+            "fine_grained_ok": true,
+            "diff_keys": [
+              "Env0"
+            ],
+            "intended_targets": [
+              "Env0.plainParams.kParamSustain"
+            ],
+            "control_hash": "a1e04f67de213a59",
+            "treatment_hash": "e511b5c5d824be52"
+          },
+          "load_observation": {
+            "status": "PASS",
+            "ok": true,
+            "control_error": null,
+            "treatment_error": null
+          },
+          "render_observation": {
+            "status": "PASS"
+          },
+          "causal_measurements": [
+            {
+              "metric": "sustain_window_rms_db",
+              "target": {
+                "field_path": "Env0.plainParams.kParamSustain",
+                "module": "Env",
+                "parameter": "kParamSustain"
+              },
+              "baseline": -50.250373467038386,
+              "treatment": -44.488971611604775,
+              "delta": 5.761401855433611,
+              "expected_direction": "decrease",
+              "observed_direction": "increase",
+              "threshold": 3.0,
+              "status": "WRONG_DIRECTION",
+              "measurement_condition_signature": {
+                "experiment_hash": "2ad6168671cfac32",
+                "stimulus": {
+                  "note": 60,
+                  "note_len": 1.8,
+                  "render_seconds": 2.0,
+                  "velocity": 110
+                },
+                "hash": "74a16c3bf4ac6bb3"
+              },
+              "measurement_definition_id": "sustain_window_rms_db:c092f5a1078d"
+            }
+          ],
+          "persistence_observation": {
+            "status": "PASS",
+            "checked": true,
+            "exact_match": true,
+            "detail": {
+              "Env0.plainParams.kParamSustain": true
+            }
+          },
+          "integrity": {
+            "synthetic": false,
+            "contradictions": [],
+            "relationships": [],
+            "reverify_required": false
+          },
+          "structural_observation": {},
+          "_gate_completeness": {
+            "generation": "PASS",
+            "load": "PASS",
+            "render": "PASS",
+            "causal": "FAIL",
+            "persistence": "PASS"
+          },
+          "_outcome_signature": "NO_OBSERVED_EFFECT"
+        }
+      }
+    },
+    "A_vs_C_sustain_1.0": {
+      "label": "A_vs_C_sustain_1.0",
+      "experiment_id": "16.5.43.1-CORPUS-ENV-SUSTAIN-EXPLICIT-1.0",
+      "gates": {
+        "generation": "PASS",
+        "load": "PASS",
+        "render": "PASS",
+        "causal": "FAIL",
+        "persistence": "FAIL"
+      },
+      "runtime_verified": true,
+      "matches_intent": true,
+      "causal_measurements": [
+        {
+          "metric": "sustain_window_rms_db",
+          "baseline": -50.250373467038386,
+          "treatment": -24.546252439908987,
+          "delta": 25.7041210271294,
+          "expected_direction": "decrease",
+          "observed_direction": "increase",
+          "threshold": 3.0,
+          "status": "WRONG_DIRECTION",
+          "measurement_definition_id": "sustain_window_rms_db:c092f5a1078d"
+        }
+      ],
+      "persistence": {
+        "status": "FAIL",
+        "checked": true,
+        "exact_match": false,
+        "detail": {
+          "Env0.plainParams.kParamSustain": false
+        }
+      },
+      "record": {
+        "experiment_id": "16.5.43.1-CORPUS-ENV-SUSTAIN-EXPLICIT-1.0",
+        "gates": {
+          "generation": "PASS",
+          "load": "PASS",
+          "render": "PASS",
+          "causal": "FAIL",
+          "persistence": "FAIL"
+        },
+        "runtime_verified": true,
+        "outcome_signature": "NO_OBSERVED_EFFECT",
+        "state_observation": {
+          "status": "PASS",
+          "matches_intent": true,
+          "top_level_ok": true,
+          "fine_grained_ok": true,
+          "diff_keys": [
+            "Env0"
+          ],
+          "intended_targets": [
+            "Env0.plainParams.kParamSustain"
+          ],
+          "control_hash": "a1e04f67de213a59",
+          "treatment_hash": "5ee1d70668b9a939"
+        },
+        "load_observation": {
+          "status": "PASS",
+          "ok": true,
+          "control_error": null,
+          "treatment_error": null
+        },
+        "render_observation": {
+          "status": "PASS"
+        },
+        "persistence_observation": {
+          "status": "FAIL",
+          "checked": true,
+          "exact_match": false,
+          "detail": {
+            "Env0.plainParams.kParamSustain": false
+          }
+        },
+        "runtime_verifications": [
+          {
+            "verified": true,
+            "failures": [],
+            "observations": []
+          }
+        ],
+        "causal_measurements": [
+          {
+            "metric": "sustain_window_rms_db",
+            "target": {
+              "field_path": "Env0.plainParams.kParamSustain",
+              "module": "Env",
+              "parameter": "kParamSustain"
+            },
+            "baseline": -50.250373467038386,
+            "treatment": -24.546252439908987,
+            "delta": 25.7041210271294,
+            "expected_direction": "decrease",
+            "observed_direction": "increase",
+            "threshold": 3.0,
+            "status": "WRONG_DIRECTION",
+            "measurement_condition_signature": {
+              "experiment_hash": "2ad6168671cfac32",
+              "stimulus": {
+                "note": 60,
+                "note_len": 1.8,
+                "render_seconds": 2.0,
+                "velocity": 110
+              },
+              "hash": "74a16c3bf4ac6bb3"
+            },
+            "measurement_definition_id": "sustain_window_rms_db:c092f5a1078d"
+          }
+        ],
+        "evidence_record": {
+          "experiment_id": "16.5.43.1-CORPUS-ENV-SUSTAIN-EXPLICIT-1.0",
+          "epoch": {
+            "serum_binary_sha256": "7978c9be5b2107e985c24c174000faee87e11483ec989d81dc61b5829b45ed70",
+            "execution_harness_revision": "8797efa0cf6c1f7a4540395e36aed503116bffefedec6fd195c5b7c8708b32f3",
+            "dependency_lock": {
+              "dawdreamer": "0.9.0",
+              "cbor2": "unknown",
+              "zstandard": "0.25.0",
+              "numpy": "2.4.4",
+              "python": "3.14.3"
+            },
+            "environment_fingerprint": {
+              "platform": "Windows-11-10.0.26200-SP0",
+              "machine": "AMD64",
+              "processor": "AMD64 Family 25 Model 116 Stepping 1, AuthenticAMD",
+              "python_build": "tags/v3.14.3:323c59a Feb  3 2026 16:04:56",
+              "sample_rate": 44100,
+              "block_size": 512
+            },
+            "execution_epoch_id": "3fbc696f694d8474",
+            "evidence_epoch_id": "3fbc696f694d8474",
+            "derivation_revision": "10f90bc72dd78363"
+          },
+          "experiment": {
+            "mutations": [
+              {
+                "target_path": "Env0.plainParams.kParamSustain",
+                "value": 1.0,
+                "provenance": "Diagnostic explicit Sustain=1.0"
+              }
+            ],
+            "prerequisites": [],
+            "isolation_level": "single_field",
+            "claim_subject": "diagnostic:Env0.plainParams.kParamSustain",
+            "claim_predicate": "diagnostic_only",
+            "experiment_condition_signature": {
+              "prerequisites": [],
+              "baseline_overrides": [
+                [
+                  "Env0.plainParams.kParamDecay",
+                  "0.02"
+                ]
+              ],
+              "hash": "2ad6168671cfac32"
+            },
+            "measurement_condition_signatures": [
+              {
+                "experiment_hash": "2ad6168671cfac32",
+                "stimulus": {
+                  "note": 60,
+                  "note_len": 1.8,
+                  "render_seconds": 2.0,
+                  "velocity": 110
+                },
+                "hash": "74a16c3bf4ac6bb3"
+              }
+            ],
+            "mutation_signature": "1688c2368386c425",
+            "notes": "16.5.43.1 diagnostic only. No capability promotion."
+          },
+          "arms": [
+            {
+              "arm_id": "arm_control",
+              "role": "control",
+              "declared_context": {},
+              "observed_context": [],
+              "state_observation": {
+                "state_hash": "a1e04f67de213a59"
+              },
+              "load_status": "PASS",
+              "render_status": "PASS",
+              "artifacts": {}
+            },
+            {
+              "arm_id": "arm_treatment",
+              "role": "treatment",
+              "declared_context": {},
+              "observed_context": [],
+              "state_observation": {
+                "state_hash": "5ee1d70668b9a939"
+              },
+              "load_status": "PASS",
+              "render_status": "PASS",
+              "artifacts": {}
+            }
+          ],
+          "runtime_verifications": [
+            {
+              "verified": true,
+              "failures": [],
+              "observations": []
+            }
+          ],
+          "state_observation": {
+            "status": "PASS",
+            "matches_intent": true,
+            "top_level_ok": true,
+            "fine_grained_ok": true,
+            "diff_keys": [
+              "Env0"
+            ],
+            "intended_targets": [
+              "Env0.plainParams.kParamSustain"
+            ],
+            "control_hash": "a1e04f67de213a59",
+            "treatment_hash": "5ee1d70668b9a939"
+          },
+          "load_observation": {
+            "status": "PASS",
+            "ok": true,
+            "control_error": null,
+            "treatment_error": null
+          },
+          "render_observation": {
+            "status": "PASS"
+          },
+          "causal_measurements": [
+            {
+              "metric": "sustain_window_rms_db",
+              "target": {
+                "field_path": "Env0.plainParams.kParamSustain",
+                "module": "Env",
+                "parameter": "kParamSustain"
+              },
+              "baseline": -50.250373467038386,
+              "treatment": -24.546252439908987,
+              "delta": 25.7041210271294,
+              "expected_direction": "decrease",
+              "observed_direction": "increase",
+              "threshold": 3.0,
+              "status": "WRONG_DIRECTION",
+              "measurement_condition_signature": {
+                "experiment_hash": "2ad6168671cfac32",
+                "stimulus": {
+                  "note": 60,
+                  "note_len": 1.8,
+                  "render_seconds": 2.0,
+                  "velocity": 110
+                },
+                "hash": "74a16c3bf4ac6bb3"
+              },
+              "measurement_definition_id": "sustain_window_rms_db:c092f5a1078d"
+            }
+          ],
+          "persistence_observation": {
+            "status": "FAIL",
+            "checked": true,
+            "exact_match": false,
+            "detail": {
+              "Env0.plainParams.kParamSustain": false
+            }
+          },
+          "integrity": {
+            "synthetic": false,
+            "contradictions": [],
+            "relationships": [],
+            "reverify_required": false
+          },
+          "structural_observation": {},
+          "_gate_completeness": {
+            "generation": "PASS",
+            "load": "PASS",
+            "render": "PASS",
+            "causal": "FAIL",
+            "persistence": "FAIL"
+          },
+          "_outcome_signature": "NO_OBSERVED_EFFECT"
+        }
+      }
+    },
+    "A_vs_D_release_baseline_write": {
+      "label": "A_vs_D_release_baseline_write",
+      "experiment_id": "16.5.43.1-CORPUS-ENV-RELEASE-BASELINE-WRITE",
+      "gates": {
+        "generation": "FAIL",
+        "load": "PASS",
+        "render": "PASS",
+        "causal": "FAIL",
+        "persistence": "PASS"
+      },
+      "runtime_verified": true,
+      "matches_intent": false,
+      "causal_measurements": [
+        {
+          "metric": "tail_rms_db",
+          "baseline": -47.94143813500579,
+          "treatment": -47.94143813500579,
+          "delta": 0.0,
+          "expected_direction": "increase",
+          "observed_direction": "none",
+          "threshold": 3.0,
+          "status": "NO_OBSERVED_EFFECT",
+          "measurement_definition_id": "tail_rms_db:c6a68e551ef9"
+        }
+      ],
+      "persistence": {
+        "status": "PASS",
+        "checked": true,
+        "exact_match": true,
+        "detail": {
+          "Env0.plainParams.kParamRelease": true
+        }
+      },
+      "record": {
+        "experiment_id": "16.5.43.1-CORPUS-ENV-RELEASE-BASELINE-WRITE",
+        "gates": {
+          "generation": "FAIL",
+          "load": "PASS",
+          "render": "PASS",
+          "causal": "FAIL",
+          "persistence": "PASS"
+        },
+        "runtime_verified": true,
+        "outcome_signature": "NO_OBSERVED_EFFECT",
+        "state_observation": {
+          "status": "FAIL",
+          "matches_intent": false,
+          "top_level_ok": false,
+          "fine_grained_ok": false,
+          "diff_keys": [],
+          "intended_targets": [
+            "Env0.plainParams.kParamRelease"
+          ],
+          "control_hash": "a1e04f67de213a59",
+          "treatment_hash": "a1e04f67de213a59"
+        },
+        "load_observation": {
+          "status": "PASS",
+          "ok": true,
+          "control_error": null,
+          "treatment_error": null
+        },
+        "render_observation": {
+          "status": "PASS"
+        },
+        "persistence_observation": {
+          "status": "PASS",
+          "checked": true,
+          "exact_match": true,
+          "detail": {
+            "Env0.plainParams.kParamRelease": true
+          }
+        },
+        "runtime_verifications": [
+          {
+            "verified": true,
+            "failures": [],
+            "observations": []
+          }
+        ],
+        "causal_measurements": [
+          {
+            "metric": "tail_rms_db",
+            "target": {
+              "field_path": "Env0.plainParams.kParamRelease",
+              "module": "Env",
+              "parameter": "kParamRelease"
+            },
+            "baseline": -47.94143813500579,
+            "treatment": -47.94143813500579,
+            "delta": 0.0,
+            "expected_direction": "increase",
+            "observed_direction": "none",
+            "threshold": 3.0,
+            "status": "NO_OBSERVED_EFFECT",
+            "measurement_condition_signature": {
+              "experiment_hash": "2ad6168671cfac32",
+              "stimulus": {
+                "note": 60,
+                "note_len": 0.4,
+                "render_seconds": 2.0,
+                "tail_start": 0.6,
+                "velocity": 110
+              },
+              "hash": "b92aab9d7b4cc326"
+            },
+            "measurement_definition_id": "tail_rms_db:c6a68e551ef9"
+          }
+        ],
+        "evidence_record": {
+          "experiment_id": "16.5.43.1-CORPUS-ENV-RELEASE-BASELINE-WRITE",
+          "epoch": {
+            "serum_binary_sha256": "7978c9be5b2107e985c24c174000faee87e11483ec989d81dc61b5829b45ed70",
+            "execution_harness_revision": "8797efa0cf6c1f7a4540395e36aed503116bffefedec6fd195c5b7c8708b32f3",
+            "dependency_lock": {
+              "dawdreamer": "0.9.0",
+              "cbor2": "unknown",
+              "zstandard": "0.25.0",
+              "numpy": "2.4.4",
+              "python": "3.14.3"
+            },
+            "environment_fingerprint": {
+              "platform": "Windows-11-10.0.26200-SP0",
+              "machine": "AMD64",
+              "processor": "AMD64 Family 25 Model 116 Stepping 1, AuthenticAMD",
+              "python_build": "tags/v3.14.3:323c59a Feb  3 2026 16:04:56",
+              "sample_rate": 44100,
+              "block_size": 512
+            },
+            "execution_epoch_id": "3fbc696f694d8474",
+            "evidence_epoch_id": "3fbc696f694d8474",
+            "derivation_revision": "10f90bc72dd78363"
+          },
+          "experiment": {
+            "mutations": [
+              {
+                "target_path": "Env0.plainParams.kParamRelease",
+                "value": 0.8837453206371405,
+                "provenance": "Diagnostic explicit write of existing corpus Release value"
+              }
+            ],
+            "prerequisites": [],
+            "isolation_level": "single_field",
+            "claim_subject": "diagnostic:Env0.plainParams.kParamRelease",
+            "claim_predicate": "diagnostic_only",
+            "experiment_condition_signature": {
+              "prerequisites": [],
+              "baseline_overrides": [
+                [
+                  "Env0.plainParams.kParamDecay",
+                  "0.02"
+                ]
+              ],
+              "hash": "2ad6168671cfac32"
+            },
+            "measurement_condition_signatures": [
+              {
+                "experiment_hash": "2ad6168671cfac32",
+                "stimulus": {
+                  "note": 60,
+                  "note_len": 0.4,
+                  "render_seconds": 2.0,
+                  "tail_start": 0.6,
+                  "velocity": 110
+                },
+                "hash": "b92aab9d7b4cc326"
+              }
+            ],
+            "mutation_signature": "8676f6815f3f0b09",
+            "notes": "16.5.43.1 diagnostic only. No capability promotion."
+          },
+          "arms": [
+            {
+              "arm_id": "arm_control",
+              "role": "control",
+              "declared_context": {},
+              "observed_context": [],
+              "state_observation": {
+                "state_hash": "a1e04f67de213a59"
+              },
+              "load_status": "PASS",
+              "render_status": "PASS",
+              "artifacts": {}
+            },
+            {
+              "arm_id": "arm_treatment",
+              "role": "treatment",
+              "declared_context": {},
+              "observed_context": [],
+              "state_observation": {
+                "state_hash": "a1e04f67de213a59"
+              },
+              "load_status": "PASS",
+              "render_status": "PASS",
+              "artifacts": {}
+            }
+          ],
+          "runtime_verifications": [
+            {
+              "verified": true,
+              "failures": [],
+              "observations": []
+            }
+          ],
+          "state_observation": {
+            "status": "FAIL",
+            "matches_intent": false,
+            "top_level_ok": false,
+            "fine_grained_ok": false,
+            "diff_keys": [],
+            "intended_targets": [
+              "Env0.plainParams.kParamRelease"
+            ],
+            "control_hash": "a1e04f67de213a59",
+            "treatment_hash": "a1e04f67de213a59"
+          },
+          "load_observation": {
+            "status": "PASS",
+            "ok": true,
+            "control_error": null,
+            "treatment_error": null
+          },
+          "render_observation": {
+            "status": "PASS"
+          },
+          "causal_measurements": [
+            {
+              "metric": "tail_rms_db",
+              "target": {
+                "field_path": "Env0.plainParams.kParamRelease",
+                "module": "Env",
+                "parameter": "kParamRelease"
+              },
+              "baseline": -47.94143813500579,
+              "treatment": -47.94143813500579,
+              "delta": 0.0,
+              "expected_direction": "increase",
+              "observed_direction": "none",
+              "threshold": 3.0,
+              "status": "NO_OBSERVED_EFFECT",
+              "measurement_condition_signature": {
+                "experiment_hash": "2ad6168671cfac32",
+                "stimulus": {
+                  "note": 60,
+                  "note_len": 0.4,
+                  "render_seconds": 2.0,
+                  "tail_start": 0.6,
+                  "velocity": 110
+                },
+                "hash": "b92aab9d7b4cc326"
+              },
+              "measurement_definition_id": "tail_rms_db:c6a68e551ef9"
+            }
+          ],
+          "persistence_observation": {
+            "status": "PASS",
+            "checked": true,
+            "exact_match": true,
+            "detail": {
+              "Env0.plainParams.kParamRelease": true
+            }
+          },
+          "integrity": {
+            "synthetic": false,
+            "contradictions": [],
+            "relationships": [],
+            "reverify_required": false
+          },
+          "structural_observation": {},
+          "_gate_completeness": {
+            "generation": "FAIL",
+            "load": "PASS",
+            "render": "PASS",
+            "causal": "FAIL",
+            "persistence": "PASS"
+          },
+          "_outcome_signature": "NO_OBSERVED_EFFECT"
+        }
+      }
+    },
+    "A_vs_E_release_1.0": {
+      "label": "A_vs_E_release_1.0",
+      "experiment_id": "16.5.43.1-CORPUS-ENV-RELEASE-1.0",
+      "gates": {
+        "generation": "PASS",
+        "load": "PASS",
+        "render": "PASS",
+        "causal": "FAIL",
+        "persistence": "PASS"
+      },
+      "runtime_verified": true,
+      "matches_intent": true,
+      "causal_measurements": [
+        {
+          "metric": "tail_rms_db",
+          "baseline": -47.94143813500579,
+          "treatment": -47.94143813500579,
+          "delta": 0.0,
+          "expected_direction": "increase",
+          "observed_direction": "none",
+          "threshold": 3.0,
+          "status": "NO_OBSERVED_EFFECT",
+          "measurement_definition_id": "tail_rms_db:c6a68e551ef9"
+        }
+      ],
+      "persistence": {
+        "status": "PASS",
+        "checked": true,
+        "exact_match": true,
+        "detail": {
+          "Env0.plainParams.kParamRelease": true
+        }
+      },
+      "record": {
+        "experiment_id": "16.5.43.1-CORPUS-ENV-RELEASE-1.0",
+        "gates": {
+          "generation": "PASS",
+          "load": "PASS",
+          "render": "PASS",
+          "causal": "FAIL",
+          "persistence": "PASS"
+        },
+        "runtime_verified": true,
+        "outcome_signature": "NO_OBSERVED_EFFECT",
+        "state_observation": {
+          "status": "PASS",
+          "matches_intent": true,
+          "top_level_ok": true,
+          "fine_grained_ok": true,
+          "diff_keys": [
+            "Env0"
+          ],
+          "intended_targets": [
+            "Env0.plainParams.kParamRelease"
+          ],
+          "control_hash": "a1e04f67de213a59",
+          "treatment_hash": "675152738bb895d3"
+        },
+        "load_observation": {
+          "status": "PASS",
+          "ok": true,
+          "control_error": null,
+          "treatment_error": null
+        },
+        "render_observation": {
+          "status": "PASS"
+        },
+        "persistence_observation": {
+          "status": "PASS",
+          "checked": true,
+          "exact_match": true,
+          "detail": {
+            "Env0.plainParams.kParamRelease": true
+          }
+        },
+        "runtime_verifications": [
+          {
+            "verified": true,
+            "failures": [],
+            "observations": []
+          }
+        ],
+        "causal_measurements": [
+          {
+            "metric": "tail_rms_db",
+            "target": {
+              "field_path": "Env0.plainParams.kParamRelease",
+              "module": "Env",
+              "parameter": "kParamRelease"
+            },
+            "baseline": -47.94143813500579,
+            "treatment": -47.94143813500579,
+            "delta": 0.0,
+            "expected_direction": "increase",
+            "observed_direction": "none",
+            "threshold": 3.0,
+            "status": "NO_OBSERVED_EFFECT",
+            "measurement_condition_signature": {
+              "experiment_hash": "2ad6168671cfac32",
+              "stimulus": {
+                "note": 60,
+                "note_len": 0.4,
+                "render_seconds": 2.0,
+                "tail_start": 0.6,
+                "velocity": 110
+              },
+              "hash": "b92aab9d7b4cc326"
+            },
+            "measurement_definition_id": "tail_rms_db:c6a68e551ef9"
+          }
+        ],
+        "evidence_record": {
+          "experiment_id": "16.5.43.1-CORPUS-ENV-RELEASE-1.0",
+          "epoch": {
+            "serum_binary_sha256": "7978c9be5b2107e985c24c174000faee87e11483ec989d81dc61b5829b45ed70",
+            "execution_harness_revision": "8797efa0cf6c1f7a4540395e36aed503116bffefedec6fd195c5b7c8708b32f3",
+            "dependency_lock": {
+              "dawdreamer": "0.9.0",
+              "cbor2": "unknown",
+              "zstandard": "0.25.0",
+              "numpy": "2.4.4",
+              "python": "3.14.3"
+            },
+            "environment_fingerprint": {
+              "platform": "Windows-11-10.0.26200-SP0",
+              "machine": "AMD64",
+              "processor": "AMD64 Family 25 Model 116 Stepping 1, AuthenticAMD",
+              "python_build": "tags/v3.14.3:323c59a Feb  3 2026 16:04:56",
+              "sample_rate": 44100,
+              "block_size": 512
+            },
+            "execution_epoch_id": "3fbc696f694d8474",
+            "evidence_epoch_id": "3fbc696f694d8474",
+            "derivation_revision": "10f90bc72dd78363"
+          },
+          "experiment": {
+            "mutations": [
+              {
+                "target_path": "Env0.plainParams.kParamRelease",
+                "value": 1.0,
+                "provenance": "Diagnostic Release=1.0"
+              }
+            ],
+            "prerequisites": [],
+            "isolation_level": "single_field",
+            "claim_subject": "diagnostic:Env0.plainParams.kParamRelease",
+            "claim_predicate": "diagnostic_only",
+            "experiment_condition_signature": {
+              "prerequisites": [],
+              "baseline_overrides": [
+                [
+                  "Env0.plainParams.kParamDecay",
+                  "0.02"
+                ]
+              ],
+              "hash": "2ad6168671cfac32"
+            },
+            "measurement_condition_signatures": [
+              {
+                "experiment_hash": "2ad6168671cfac32",
+                "stimulus": {
+                  "note": 60,
+                  "note_len": 0.4,
+                  "render_seconds": 2.0,
+                  "tail_start": 0.6,
+                  "velocity": 110
+                },
+                "hash": "b92aab9d7b4cc326"
+              }
+            ],
+            "mutation_signature": "34ccff068ef002e7",
+            "notes": "16.5.43.1 diagnostic only. No capability promotion."
+          },
+          "arms": [
+            {
+              "arm_id": "arm_control",
+              "role": "control",
+              "declared_context": {},
+              "observed_context": [],
+              "state_observation": {
+                "state_hash": "a1e04f67de213a59"
+              },
+              "load_status": "PASS",
+              "render_status": "PASS",
+              "artifacts": {}
+            },
+            {
+              "arm_id": "arm_treatment",
+              "role": "treatment",
+              "declared_context": {},
+              "observed_context": [],
+              "state_observation": {
+                "state_hash": "675152738bb895d3"
+              },
+              "load_status": "PASS",
+              "render_status": "PASS",
+              "artifacts": {}
+            }
+          ],
+          "runtime_verifications": [
+            {
+              "verified": true,
+              "failures": [],
+              "observations": []
+            }
+          ],
+          "state_observation": {
+            "status": "PASS",
+            "matches_intent": true,
+            "top_level_ok": true,
+            "fine_grained_ok": true,
+            "diff_keys": [
+              "Env0"
+            ],
+            "intended_targets": [
+              "Env0.plainParams.kParamRelease"
+            ],
+            "control_hash": "a1e04f67de213a59",
+            "treatment_hash": "675152738bb895d3"
+          },
+          "load_observation": {
+            "status": "PASS",
+            "ok": true,
+            "control_error": null,
+            "treatment_error": null
+          },
+          "render_observation": {
+            "status": "PASS"
+          },
+          "causal_measurements": [
+            {
+              "metric": "tail_rms_db",
+              "target": {
+                "field_path": "Env0.plainParams.kParamRelease",
+                "module": "Env",
+                "parameter": "kParamRelease"
+              },
+              "baseline": -47.94143813500579,
+              "treatment": -47.94143813500579,
+              "delta": 0.0,
+              "expected_direction": "increase",
+              "observed_direction": "none",
+              "threshold": 3.0,
+              "status": "NO_OBSERVED_EFFECT",
+              "measurement_condition_signature": {
+                "experiment_hash": "2ad6168671cfac32",
+                "stimulus": {
+                  "note": 60,
+                  "note_len": 0.4,
+                  "render_seconds": 2.0,
+                  "tail_start": 0.6,
+                  "velocity": 110
+                },
+                "hash": "b92aab9d7b4cc326"
+              },
+              "measurement_definition_id": "tail_rms_db:c6a68e551ef9"
+            }
+          ],
+          "persistence_observation": {
+            "status": "PASS",
+            "checked": true,
+            "exact_match": true,
+            "detail": {
+              "Env0.plainParams.kParamRelease": true
+            }
+          },
+          "integrity": {
+            "synthetic": false,
+            "contradictions": [],
+            "relationships": [],
+            "reverify_required": false
+          },
+          "structural_observation": {},
+          "_gate_completeness": {
+            "generation": "PASS",
+            "load": "PASS",
+            "render": "PASS",
+            "causal": "FAIL",
+            "persistence": "PASS"
+          },
+          "_outcome_signature": "NO_OBSERVED_EFFECT"
+        }
+      }
+    }
+  },
+  "guardrails": {
+    "capability_promotion": false,
+    "current_capability_view_update": false,
+    "frontier_update": false,
+    "diagnostic_only": true
+  }
+}
