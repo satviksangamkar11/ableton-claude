@@ -8,11 +8,13 @@
 
 ## Executive Summary
 
-**Host parameter control via Ableton Configure Mode is VIABLE and PROVEN.**
+**Host parameter control via Ableton Configure Mode is VIABLE and PROVEN — for the tested parameter.**
 
-Serum 2's 100+ synthesis parameters can be exposed to Ableton Live through Configure Mode, then controlled via AbletonMCP's `get_device_parameter()` and `set_device_parameter()` functions. Configuration persists across save/reopen cycles.
+Configure Mode can expose Serum parameters to Ableton Live, where they become controllable via AbletonMCP's `get_device_parameter()` and `set_device_parameter()` functions. Configuration persists across save/reopen cycles.
 
-This opens a dramatically simpler architecture than processor-state transport for every operation.
+**Important scoping note**: This investigation tested ONE parameter (OSC1.Volume / "A Level"). Full coverage of Serum's 100+ parameters requires additional verification.
+
+This architecture opens a simpler path than processor-state transport for parameters that Live exposes.
 
 ---
 
@@ -206,17 +208,57 @@ Serum 2.0.21
 
 ---
 
-## Conclusion
+## Important Limitation: Single-Parameter Evidence
 
-**Host parameter control via Ableton's Configure Mode + AbletonMCP is a proven, working architecture for controlling Serum 2 synthesis parameters.**
+**Scope of Testing**: This investigation tested ONE Serum parameter (OSC1.Volume / "A Level").
 
-No architectural redesign needed. The path is:
-1. Manual Configure Mode setup (one-time per project)
-2. AbletonMCP read/write operations
-3. Persistent across save/reopen
+**What the evidence proves**:
+- This specific parameter is accessible via Configure Mode
+- It can be read/written via AbletonMCP
+- It persists across save/reopen cycles
 
-This dramatically simplifies the producer's operation flow compared to processor-state transport for every interaction.
+**What the evidence does NOT prove**:
+- All 100+ Serum parameters follow the same path
+- All Serum parameters are published to Live's Configure system
+- Parameter exposure is uniform across different Serum control types
+
+**Ableton documentation caveat** (per Live help):
+> "Some plug-ins may not publish every parameter to the Configure system"
+
+**Implication for producer integration**:
+Each Serum parameter must be verified individually:
+1. Check if it appears in Configure Mode (manual click in Serum UI)
+2. Verify it becomes readable via MCP
+3. Confirm MCP can write to it
+4. Test persistence across save/reopen
+
+The OSC1.Volume/"A Level" parameter serves as proof-of-concept, not proof of full coverage.
 
 ---
 
-**Next Phase**: Proceed to Q6–Q9 (track/clip/rendering tests) or finalize 16.5.57.
+## Conclusion
+
+**Host parameter control via Ableton's Configure Mode + AbletonMCP is a proven, working architecture for Serum 2 synthesis parameters — at least for the tested parameter.**
+
+For parameters verified to be accessible via Configure Mode, no architectural redesign is needed. The path is:
+1. Manual Configure Mode setup (one-time per project)
+2. AbletonMCP read/write operations via semantic target mapping
+3. Persistent across save/reopen
+
+This simplifies the producer's operation flow for configured parameters compared to processor-state transport for every interaction.
+
+**Caveat**: This path requires prior verification that each target parameter is:
+- Published by Serum to Live's Configure system
+- Accessible via MCP after configuration
+- Persistent across save cycles
+
+---
+
+**Next Phase**: 
+- Verify additional Serum parameters follow the same Configure → MCP → Persistent path
+- Determine fallback strategy for parameters not published to Configure
+- Finalize 16.5.57 closure
+
+---
+
+**Next Phase**: Proceed to 16.5.58 (host-path decision) or continue 16.5.57b with Q6–Q9.
