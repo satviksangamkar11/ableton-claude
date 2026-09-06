@@ -1,0 +1,91 @@
+{
+  "step": "16.5.50.2",
+  "semantic_target": "Env1.Sustain",
+  "capability_key": "envelope_field_sustain",
+  "capability_status": "CAUSAL_VERIFIED",
+  "mutation_target": "Env0.plainParams.kParamSustain",
+  "measurement_definition_id": "sustain_window_rms_db:c092f5a1078d",
+  "required_context": {
+    "target_path": "Env0.plainParams.kParamDecay",
+    "required_value": 0.02
+  },
+  "tests": [
+    {
+      "test_name": "NEGATIVE: Missing Context",
+      "target": "envelope_field_sustain",
+      "context_provided": null,
+      "admitted": true,
+      "reason": "ADMITTED",
+      "measurement_id_match": null,
+      "contract_status": "CAUSAL_VERIFIED"
+    },
+    {
+      "test_name": "NEGATIVE: Unverified Context",
+      "target": "envelope_field_sustain",
+      "context_provided": {
+        "Env0.plainParams.kParamDecay": false
+      },
+      "admitted": true,
+      "reason": "ADMITTED",
+      "measurement_id_match": null,
+      "contract_status": "CAUSAL_VERIFIED"
+    },
+    {
+      "test_name": "POSITIVE: Verified Context (Correct Measurement)",
+      "target": "envelope_field_sustain",
+      "context_provided": {
+        "Env0.plainParams.kParamDecay": true
+      },
+      "admitted": true,
+      "reason": "ADMITTED",
+      "measurement_id_match": true,
+      "contract_status": "CAUSAL_VERIFIED"
+    },
+    {
+      "test_name": "NEGATIVE: Wrong Measurement Definition ID",
+      "target": "envelope_field_sustain",
+      "context_provided": {
+        "Env0.plainParams.kParamDecay": true
+      },
+      "admitted": false,
+      "reason": "measurement_definition_mismatch",
+      "measurement_id_match": null,
+      "contract_status": "CAUSAL_VERIFIED"
+    },
+    {
+      "test_name": "UNKNOWN: Env1.FooBar (never tested)",
+      "target": "Env1.FooBar",
+      "context_provided": null,
+      "admitted": false,
+      "reason": "unknown_no_contract",
+      "measurement_id_match": null,
+      "contract_status": null
+    },
+    {
+      "test_name": "UNKNOWN: Env0.Sustain (never registered)",
+      "target": "Env0.Sustain",
+      "context_provided": null,
+      "admitted": false,
+      "reason": "unknown_no_contract",
+      "measurement_id_match": null,
+      "contract_status": null
+    }
+  ],
+  "findings": {
+    "missing_context_admitted": true,
+    "unverified_context_admitted": true,
+    "verified_context_admitted": true,
+    "wrong_measurement_refused": true,
+    "unknown_target_unknown": true,
+    "env0_sustain_unknown": true
+  },
+  "frontier_unchanged": true,
+  "contract_count": 37,
+  "causal_verified_count": 26,
+  "structural_only_count": 8,
+  "negative_evidence_count": 3,
+  "serum_mutated": false,
+  "render_performed": false,
+  "new_evidence_created": false,
+  "decision": "ADMISSION_ARCHITECTURE_READY_FOR_CONTEXT_EXTENSION"
+}

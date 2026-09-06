@@ -93,13 +93,32 @@ def admit(contracts: Dict[Tuple[str, str], cc.CapabilityContract], target: str, 
     # -- the contract cannot vouch for a context it never ran in.
     if contract.prerequisites:
         verified_map = proposed_prerequisites_verified or {}
-        missing = [p["field_path"] for p in contract.prerequisites
-                  if not verified_map.get(p["field_path"])]
-        if missing:
+        unverified = []
+
+        for p in contract.prerequisites:
+            field_path = p["field_path"]
+            verified_status = verified_map.get(field_path)
+
+            # Prerequisite not verified at all
+            if not verified_status:
+                unverified.append(field_path)
+                continue
+
+            # 16.5.50.2: Value-sensitive prerequisites (must_hold_identical=True)
+            # If caller provides an actual VALUE (not just True), check it matches declared_value.
+            # If caller only provides True (backward compatible), accept it as verified.
+            if p.get("must_hold_identical") and verified_status is not True:
+                declared_value = p.get("declared_value")
+                if verified_status != declared_value:
+                    unverified.append(field_path)
+                # else: value matches, prerequisite is satisfied
+            # else: verified_status is True or not must_hold_identical, accept as verified
+
+        if unverified:
             return AdmissionResult(False, REFUSED_PREREQUISITE_UNVERIFIED,
                                    "target %r requires prerequisite(s) %s to be verified in the "
                                    "PROPOSED execution context; caller did not confirm: %s"
-                                   % (target, [p["field_path"] for p in contract.prerequisites], missing),
+                                   % (target, [p["field_path"] for p in contract.prerequisites], unverified),
                                    contract)
 
     # 15.4.6: measurement mismatch. A caller asking for a specific measurement

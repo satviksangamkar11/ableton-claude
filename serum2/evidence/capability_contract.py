@@ -200,7 +200,14 @@ def build_contract(group: ClaimGroup) -> Optional[CapabilityContract]:
                         % (required_keys, observed, len(records)),),
         )
 
-    rec = qualifying[0]  # SINGLE_FIELD claims admit exactly one mutation per record; take the qualifying witness
+    # Select witness record: prefer one with baseline_overrides (context) if available.
+    # This ensures context-aware contracts use records that established the context.
+    rec_with_context = next(
+        (r for r in qualifying if r.experiment.get("baseline_overrides")),
+        None
+    )
+    rec = rec_with_context or qualifying[0]
+
     mut = _primary_mutation(rec)
     op = _mutation_value_kind(mut["value"]) if mut else UNKNOWN_OPERATION
 
@@ -226,10 +233,27 @@ def build_contract(group: ClaimGroup) -> Optional[CapabilityContract]:
             "measurement_definition_id": m.measurement_definition_id,
         }
 
-    prereqs = tuple(rec.experiment.get("prerequisites", []))
-    # baseline_overrides are not captured in EvidenceRecord.experiment (a real
-    # schema gap, not silently papered over) -- surfaced honestly rather than guessed.
-    has_baseline_ctx = "baseline_overrides" in rec.experiment
+    prereqs = list(rec.experiment.get("prerequisites", []))
+
+    # 16.5.50.2: Infer prerequisites from baseline_overrides if not explicitly set.
+    # baseline_overrides = [{"target_path": "...", "value": ..., ...}, ...]
+    # Convert to prerequisite structure: {"field_path": "...", "declared_value": ..., "must_hold_identical": True}
+    baseline_overrides = rec.experiment.get("baseline_overrides", [])
+    has_baseline_ctx = bool(baseline_overrides)
+
+    if baseline_overrides and not prereqs:
+        for override in baseline_overrides:
+            target_path = override.get("target_path")
+            value = override.get("value")
+            if target_path is not None and value is not None:
+                prereqs.append({
+                    "field_path": target_path,
+                    "declared_value": value,
+                    "must_hold_identical": True,
+                })
+
+    prereqs = tuple(prereqs)
+
     limitations = []
     notes = rec.experiment.get("notes", "") or ""
     for flag in ("CONFOUND", "confound", "KNOWN LIMITATION", "NOT_RUN"):

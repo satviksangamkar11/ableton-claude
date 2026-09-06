@@ -1,0 +1,120 @@
+{
+  "step": "16.5.50.2",
+  "title": "Context-Aware Prerequisite Admission for Env1.Sustain",
+  "objective": "Implement context-aware compiler admission for Env1.Sustain with required context Env0.plainParams.kParamDecay=0.02",
+  "semantic_target": "Env1.Sustain",
+  "capability_key": "envelope_field_sustain",
+  "capability_status": "CAUSAL_VERIFIED",
+  "mutation_target": "Env0.plainParams.kParamSustain",
+  "measurement_definition_id": "sustain_window_rms_db:c092f5a1078d",
+  "required_context": {
+    "field_path": "Env0.plainParams.kParamDecay",
+    "declared_value": 0.02,
+    "must_hold_identical": true
+  },
+  "admission_test_results": {
+    "total_tests": 8,
+    "passed": 8,
+    "failed": 0,
+    "tests": [
+      {
+        "name": "Missing context",
+        "result": "PASS",
+        "admitted": false,
+        "reason": "prerequisite_unverified"
+      },
+      {
+        "name": "Unverified context (marked False)",
+        "result": "PASS",
+        "admitted": false,
+        "reason": "prerequisite_unverified"
+      },
+      {
+        "name": "Verified but wrong value (0.01)",
+        "result": "PASS",
+        "admitted": false,
+        "reason": "prerequisite_unverified"
+      },
+      {
+        "name": "Verified but wrong value (0.03)",
+        "result": "PASS",
+        "admitted": false,
+        "reason": "prerequisite_unverified"
+      },
+      {
+        "name": "Verified correct value (0.02)",
+        "result": "PASS",
+        "admitted": true,
+        "reason": "ADMITTED"
+      },
+      {
+        "name": "Correct context + wrong measurement ID",
+        "result": "PASS",
+        "admitted": false,
+        "reason": "measurement_definition_mismatch"
+      },
+      {
+        "name": "Unknown target Env1.FooBar",
+        "result": "PASS",
+        "admitted": false,
+        "reason": "unknown_no_contract"
+      },
+      {
+        "name": "Unknown target Env0.Sustain",
+        "result": "PASS",
+        "admitted": false,
+        "reason": "unknown_no_contract"
+      }
+    ]
+  },
+  "regression_test_results": {
+    "test_capability_contracts.py": "21/21 PASS",
+    "test_capability_admission.py": "23/23 PASS",
+    "test_capability_frontier_freeze.py": "10/10 PASS",
+    "test_structural_admission.py": "23/23 PASS",
+    "test_semantic_targets.py": "51/51 PASS",
+    "test_context_aware_sustain_admission.py": "8/8 PASS",
+    "total_assertions": "128/128 PASS"
+  },
+  "frontier_verification": {
+    "total_contracts": 37,
+    "expected_total": 37,
+    "match": true,
+    "causal_verified": 26,
+    "expected_causal_verified": 26,
+    "structural_only": 8,
+    "expected_structural_only": 8,
+    "negative_evidence": 3,
+    "expected_negative_evidence": 3
+  },
+  "implementation_details": {
+    "changes_made": [
+      "Modified serum2/evidence/capability_contract.py: Added logic to infer prerequisites from baseline_overrides and prefer records with baseline_overrides for context-aware contracts",
+      "Modified serum2/evidence/admission.py: Extended prerequisite checking to enforce exact value matching for must_hold_identical=True prerequisites when caller provides actual values (not just True/False)",
+      "Created test_context_aware_sustain_admission.py: Tests all 8 cases of the admission matrix including value checking"
+    ],
+    "backward_compatibility": "Preserved - existing code passing True for prerequisites still works; value checking only enforced when actual values provided",
+    "architecture_reused": [
+      "CapabilityContract.prerequisites tuple structure",
+      "Admission refusal reasons (prerequisite_unverified, measurement_definition_mismatch)",
+      "Macro.value pattern for value-sensitive prerequisites"
+    ]
+  },
+  "constraints_honored": [
+    "No Serum mutation",
+    "No audio rendering",
+    "No new EvidenceRecord",
+    "No modification of existing evidence",
+    "No change to capability status",
+    "No change to frontier (37 contracts, 26/8/3 distribution)",
+    "Reused existing prerequisite architecture",
+    "Context derived from baseline_overrides, not invented",
+    "Value-sensitive prerequisites enforce exact matching when required"
+  ],
+  "serum_safety": {
+    "serum_mutated": false,
+    "render_performed": false,
+    "new_evidence_created": false
+  },
+  "decision": "CONTEXT_AWARE_SUSTAIN_ADMISSION_VERIFIED"
+}
