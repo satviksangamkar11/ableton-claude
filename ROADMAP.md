@@ -126,8 +126,9 @@ to *"can compiled Serum state become a reproducible Ableton production artifact?
 |---|---|---|---|
 | 16.5.56 | Roadmap reconciliation + authoritative step register | **FROZEN** | — |
 | 16.5.57 | AbletonMCP feasibility probe | **FROZEN** | 16.5.56 |
-| 16.5.58 | Host-path decision | PROVISIONAL | 16.5.57 |
-| 16.5.59 | End-to-end Ableton vertical slice | PROVISIONAL | 16.5.58 |
+| 16.5.57-Q7c | Processor-state offline injection + Ableton application | PROVISIONAL | 16.5.58 |
+| 16.5.58 | Host architecture decision (Hybrid: state + parameter planes) | **ACTIVE** | 16.5.57 |
+| 16.5.59 | End-to-end Ableton vertical slice | PROVISIONAL | 16.5.57-Q7c |
 | 16.5.60 | Save/reopen + host fidelity verification | PROVISIONAL | 16.5.59 |
 | 16.5.60A | Conditional Ableton-runtime requalification | **RESERVED** | 16.5.57 binary-hash result |
 | 16.5.61 | Typed musical-intent layer | PROVISIONAL / **PARALLEL** | 16.5.41 (met) |
@@ -194,6 +195,27 @@ DawDreamer's `open_editor()` fails. So question 7 is not *"is this possible?"* �
 
 **Gate:** a machine-readable capability matrix with an explicit yes/no per question. No
 inference, no "probably", no "MCP likely exposes this."
+
+### 16.5.58 — Host Architecture Decision `ACTIVE`
+
+Decision artifact: `experiments/16_5_58_host_architecture/ARCHITECTURE_DECISION_16_5_58.md`
+
+**Architecture Selected**: Hybrid (Processor-State Initialization + Configure/MCP Runtime Control)
+
+**Status**: PROVISIONAL — activation conditional on Q7c, Q8, Q9 success
+
+**Basis**: 
+- Option A (Configure-only) rejected as architecturally insufficient (mod topology blocker per PROOF_PLAN.md evidence)
+- Option B (Processor-state only) required candidate but Q7c (offline injection) untested
+- Option C (Hybrid) provisionally selected: use both planes, each for what it can do
+
+**Fallback**: If Q7c fails, revert to Option A (Configure-only) with constrained 16.6 scope
+
+**Critical Next Gate**: Q7c (offline processor-state injection + Ableton application) — determines whether state plane is viable
+
+**Frontier Integrity**: 37 contracts (26 CAUSAL_VERIFIED, 8 STRUCTURAL_ONLY, 3 NEGATIVE_EVIDENCE) — unchanged
+
+---
 
 ### 16.6 — Two-context 16-bar acceptance `FROZEN`
 
