@@ -1,0 +1,71 @@
+{
+  "milestone": "16.4.1a",
+  "title": "First blind demand-pull producer goal",
+  "goal": {
+    "description": "Oscillator + Envelope + Filter + Macro.Value + proven ModSlot->VoiceFilter modulation route, composed against the bare skeleton, using only currently admitted CapabilityContracts.",
+    "targets": ["oscillator_field_OSC-VOLUME", "envelope_field_decay", "filter_field_reso",
+               "macro_field_value", "modulation_route_voicefilter"],
+    "chosen_deliberately_avoiding_known_findings": true,
+    "note": "Not engineered to hit a known weak point -- outcome was not predicted before running."
+  },
+  "blockers_encountered": [
+    {
+      "stage": "dry_run (first attempt)",
+      "reason": "admission_refused / prerequisite_unverified",
+      "detail": "macro_field_value's contract declares prerequisite host:'Filter 1 On', which the caller had not confirmed for this proposed execution context.",
+      "known_to_system_beforehand": true,
+      "classification": "This was NOT a capability gap. It was 15.4.5's prerequisite-refusal mechanism working exactly as designed -- the caller (this compiler-goal script) simply had not yet supplied proposed_prerequisites_verified.",
+      "resolution": "Re-ran dry_run with proposed_prerequisites_verified={'host:Filter 1 On': True}. No new experiment, no new evidence, no capability promotion was needed."
+    }
+  ],
+  "second_dry_run": {
+    "accepted": true,
+    "reason": "ACCEPT",
+    "cross_contract_conflicts": "none",
+    "context_gaps": "none -- ModSlot0 is a plain top-level skeleton key, not a list, so no RequiredContext derivation applied (unlike FXRack0.FX in the earlier FXDistortion.Drive case)."
+  },
+  "construction_result": {
+    "gate_completeness": {"generation": "PASS", "load": "PASS", "render": "PASS", "causal": "PASS", "persistence": "PASS"},
+    "persistence_exact_match_all_5_fields": true,
+    "state_observation_matches_intent": true,
+    "runtime_verified": true,
+    "causal_measurement": {"metric": "overall_rms_db", "status": "EFFECT_OBSERVED", "delta_db": -23.092148561502412},
+    "overall_pass": true
+  },
+  "capability_changes": {
+    "new_evidence_generated": false,
+    "new_claims_promoted": false,
+    "capability_frontier_modified": false,
+    "note": "No discovery was needed -- the goal succeeded entirely within the frozen 15.5 frontier plus the 16.1-16.3 compiler kernel."
+  },
+  "compiler_behavior_observations": [
+    "The prerequisite-verification refusal correctly fired on the FIRST attempt for a genuinely new reason (never previously exercised in this exact combination) -- proving admission.py's prerequisite check works on a live composition, not just in the adversarial unit tests.",
+    "Cross-contract conflict analysis correctly found zero conflicts among 5 real capabilities spanning 4 different top-level modules plus one structured route -- the first time 5 contracts, including a MUTATE_STRUCTURED_VALUE contract, have been composed together.",
+    "RequiredContext correctly did NOT fire for ModSlot0, confirming context-gap detection is scoped precisely to list-index descent (FXRack0.FX-shaped paths) and does not over-trigger on ordinary top-level sparse keys."
+  ],
+  "verification_breakdown": {
+    "construction_state_validity": "PASS (state_observation.status=PASS)",
+    "load": "PASS",
+    "persistence": "PASS (exact match, all 5 fields)",
+    "intent_matching": "PASS (matches_intent=True, top_level_ok=True, fine_grained_ok=True)",
+    "causal_effect": "PASS (EFFECT_OBSERVED, -23.09dB)",
+    "measurement_sensitivity": "No recurrence of 16.3-M1's floor-masking pattern observed here -- overall_rms_db detected a clear effect. Not used to close 16.3-M1 (that finding's closure_condition requires a goal specifically testing near-floor vs non-floor witnesses, which this goal did not control for)."
+  },
+  "open_findings_status": {
+    "16.3-M1": "OPEN, unchanged",
+    "LFO-SOURCE-IDENTITY-1": "OPEN, unchanged -- not touched by this goal",
+    "RANDOMPAN-MASKING-1": "OPEN, unchanged -- not touched by this goal"
+  },
+  "regression_suite_status": {
+    "test_pathmerge_lists": "20/20 PASS",
+    "test_evidence_slice": "31/31 PASS",
+    "test_outcome_invariant": "PASS",
+    "kernel_fidelity": "PASS",
+    "test_capability_contracts": "21/21 PASS",
+    "test_capability_admission": "23/23 PASS",
+    "test_capability_frontier_freeze": "10/10 PASS",
+    "test_required_context": "12/12 PASS",
+    "test_open_findings": "14/14 PASS"
+  },
+  "derived_next_step": "16.4.1a succeeded without exposing a new gap. Per the demand-pull principle, 16.5 is NOT pre-written from this result -- proceed to 16.4.1b (the LFO->cutoff variant of this same goal, explicitly framed as an attempt to close LFO-SOURCE-IDENTITY-1 via the normal pipeline, not as a fresh discovery) to get the system's first real BLOCKED demand-pull cycle."
+}

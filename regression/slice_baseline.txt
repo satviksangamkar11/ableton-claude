@@ -1,0 +1,42 @@
+=== FIXTURES LOADED ===
+  E0                     gates={'generation': 'NOT_RUN', 'load': 'PASS', 'render': 'PASS', 'causal': 'PASS', 'persistence': 'NOT_RUN'} synthetic=False
+  E1                     gates={'generation': 'PASS', 'load': 'PASS', 'render': 'PASS', 'causal': 'PASS', 'persistence': 'PASS'} synthetic=False
+  E2a                    gates={'generation': 'PASS', 'load': 'PASS', 'render': 'PASS', 'causal': 'FAIL', 'persistence': 'PASS'} synthetic=False
+  E2b                    gates={'generation': 'PASS', 'load': 'PASS', 'render': 'PASS', 'causal': 'PASS', 'persistence': 'PASS'} synthetic=False
+  E3                     gates={'generation': 'PASS', 'load': 'PASS', 'render': 'PASS', 'causal': 'PASS', 'persistence': 'PASS'} synthetic=False
+  SYN-E0-contradiction   gates={'generation': 'NOT_RUN', 'load': 'PASS', 'render': 'PASS', 'causal': 'FAIL', 'persistence': 'NOT_RUN'} synthetic=True
+
+=== ASSERTIONS ===
+PASS E0 causal gate = PASS                                      
+PASS E0 carries no interpretation fields                        
+PASS E0 unrecorded generation is explicit, not invented         state_observation.detail=NOT_RECORDED
+PASS E0 alone -> instance scope                                 scope=instance
+PASS E0 alone -> single_instance breadth                        
+PASS E0+E1 share condition signature (same prereqs+stimulus)    
+PASS E0+E1 -> FAMILY scope via slot_index dimension             scope=family supporting=['E0', 'E1']
+PASS E0+E1 -> sampled breadth                                   
+PASS no writable scope field exists on ClaimGroup               
+PASS E0+E1 field attribution allowed (single_field)             
+PASS E3 carries TWO distinct measurement conditions             
+PASS E3 measurements share ONE experiment condition             
+PASS changing a measurement stimulus does NOT change experiment condition 
+PASS E0/E1 share experiment AND measurement condition           
+PASS E2a/E2b differ at EXPERIMENT condition level               
+PASS E2a causal gate = FAIL                                     
+PASS E2a measurement status = NO_OBSERVED_EFFECT                
+PASS E2a does NOT become NON_AUDIBLE_BY_DESIGN                  
+PASS E2b causal gate = PASS                                     
+PASS E2a/E2b land in DIFFERENT claim groups                     
+PASS E2a/E2b produce NO contradiction                           
+PASS dependency NOT derived when runtime verification required (historical runs lack it) relationships=0
+PASS dependency IS derived when rule permits                    relationships=1
+PASS dependency isolates exactly the Macro 8 condition          ['host:Macro 8']
+PASS E3 supports coexistence claim                              
+PASS E3 attribution = interaction, NOT field                    interaction_attribution
+PASS E3 rejected from field-level claim definition              isolation_level 'controlled_multi_field' not permitted by definition, or synthetic
+PASS synthetic contradiction fires                              state=CONTRADICTED
+PASS contradicted group flagged reverify_required               
+PASS reverify names both comparison conditions                  
+PASS synthetic excluded from real-capability claim              
+
+ALL ASSERTIONS: 31/31 PASS

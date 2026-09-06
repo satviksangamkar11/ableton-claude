@@ -1,0 +1,68 @@
+=== g7a.render_windows  vs  windowed_mean_centroid ===
+  silence          orig=      0.000000  kernel=      0.000000  rel=0.00e+00  OK
+  dc               orig=      1.335356  kernel=      1.335356  rel=0.00e+00  OK
+  sine_100hz       orig=    100.000361  kernel=    100.000361  rel=0.00e+00  OK
+  sine_5khz        orig=   5000.000221  kernel=   5000.000221  rel=0.00e+00  OK
+  white_noise      orig=  11011.713194  kernel=  11011.713194  rel=0.00e+00  OK
+  pink_ish         orig=   1938.879950  kernel=   1938.879950  rel=0.00e+00  OK
+  decaying_pluck   orig=    220.004137  kernel=    220.004137  rel=0.00e+00  OK
+  near_clipping    orig=   1371.472593  kernel=   1371.472593  rel=0.00e+00  OK
+  stereo           orig=    600.000470  kernel=    600.000470  rel=0.00e+00  OK
+  -> FIDELITY PASS
+
+=== g8a.render_windows  vs  windowed_mean_centroid ===
+  silence          orig=      0.000000  kernel=      0.000000  rel=0.00e+00  OK
+  dc               orig=      1.335356  kernel=      1.335356  rel=0.00e+00  OK
+  sine_100hz       orig=    100.000361  kernel=    100.000361  rel=0.00e+00  OK
+  sine_5khz        orig=   5000.000221  kernel=   5000.000221  rel=0.00e+00  OK
+  white_noise      orig=  11011.713194  kernel=  11011.713194  rel=0.00e+00  OK
+  pink_ish         orig=   1938.879950  kernel=   1938.879950  rel=0.00e+00  OK
+  decaying_pluck   orig=    220.004137  kernel=    220.004137  rel=0.00e+00  OK
+  near_clipping    orig=   1371.472593  kernel=   1371.472593  rel=0.00e+00  OK
+  stereo           orig=    600.000470  kernel=    600.000470  rel=0.00e+00  OK
+  -> FIDELITY PASS
+
+=== g8e.render_centroid  vs  wholesignal_centroid ===
+  silence          orig=      0.000000  kernel=      0.000000  rel=0.00e+00  OK
+  dc               orig=      0.166706  kernel=      0.166706  rel=0.00e+00  OK
+  sine_100hz       orig=    100.000006  kernel=    100.000006  rel=0.00e+00  OK
+  sine_5khz        orig=   5000.000004  kernel=   5000.000004  rel=0.00e+00  OK
+  white_noise      orig=  11008.949870  kernel=  11008.949870  rel=0.00e+00  OK
+  pink_ish         orig=   2252.991288  kernel=   2252.991288  rel=0.00e+00  OK
+  decaying_pluck   orig=    220.001140  kernel=    220.001140  rel=0.00e+00  OK
+  near_clipping    orig=   1371.478126  kernel=   1371.478126  rel=0.00e+00  OK
+  stereo           orig=    600.000007  kernel=    600.000007  rel=0.00e+00  OK
+  -> FIDELITY PASS
+
+=== g8b.render_tail_energy  vs  tail_rms_db ===
+  silence          orig=   -240.000000  kernel=   -240.000000  rel=0.00e+00  OK
+  dc               orig=     -6.020600  kernel=     -6.020600  rel=0.00e+00  OK
+  sine_100hz       orig=     -4.948500  kernel=     -4.948500  rel=0.00e+00  OK
+  sine_5khz        orig=    -13.467875  kernel=    -13.467875  rel=0.00e+00  OK
+  white_noise      orig=    -14.010223  kernel=    -14.010223  rel=0.00e+00  OK
+  pink_ish         orig=     -1.642256  kernel=     -1.642256  rel=0.00e+00  OK
+  decaying_pluck   orig=    -47.447827  kernel=    -47.447827  rel=0.00e+00  OK
+  near_clipping    orig=     -0.678658  kernel=     -0.678658  rel=0.00e+00  OK
+  stereo           orig=    -12.041200  kernel=    -12.041200  rel=0.00e+00  OK
+  -> FIDELITY PASS
+
+=== g8d.render_tail  vs  tail_rms_db ===
+  silence          orig=   -240.000000  kernel=   -240.000000  rel=0.00e+00  OK
+  dc               orig=     -6.020600  kernel=     -6.020600  rel=0.00e+00  OK
+  sine_100hz       orig=     -4.948500  kernel=     -4.948500  rel=0.00e+00  OK
+  sine_5khz        orig=    -13.467875  kernel=    -13.467875  rel=0.00e+00  OK
+  white_noise      orig=    -14.010223  kernel=    -14.010223  rel=0.00e+00  OK
+  pink_ish         orig=     -1.642256  kernel=     -1.642256  rel=0.00e+00  OK
+  decaying_pluck   orig=    -47.447827  kernel=    -47.447827  rel=0.00e+00  OK
+  near_clipping    orig=     -0.678658  kernel=     -0.678658  rel=0.00e+00  OK
+  stereo           orig=    -12.041200  kernel=    -12.041200  rel=0.00e+00  OK
+  -> FIDELITY PASS
+
+=== STEP 5a: EXTRACTION FIDELITY ===
+  g7a -> windowed_mean_centroid      PASS
+  g8a -> windowed_mean_centroid      PASS
+  g8e -> wholesignal_centroid        PASS
+  g8b -> tail_rms_db                 PASS
+  g8d -> tail_rms_db                 PASS
+
+ALL EXTRACTION FIDELITY: PASS

@@ -1,0 +1,34 @@
+=== IDENTITY ===
+PASS same predicate, different required_measurement -> different claim id modulation_route_effect:5ac7d496 vs modulation_route_effect:a15bdfc2
+
+=== E0 + E1 : same kernel, family claim must SURVIVE ===
+PASS E0/E1 share one cohort                                         ['spectral_centroid_hz:2925164038f5']
+PASS both COMPARABLE                                                
+PASS family scope preserved                                         family
+PASS sampled breadth preserved                                      
+
+=== E1-live style (wholesignal kernel) must be NOT_COMPARABLE ===
+PASS E1-live forms a second cohort                                  ['spectral_centroid_hz:2925164038f5', 'spectral_centroid_hz:f728e198ae8e']
+PASS E1-live is NOT_COMPARABLE                                      {'E0': 'COMPARABLE', 'E1': 'COMPARABLE', 'E1-live': 'NOT_COMPARABLE'}
+PASS E1-live is NOT a contradiction                                 
+PASS family scope still from the comparable cohort                  
+PASS E1-live excluded from qualifying evidence                      
+
+=== E2a + E2b : same kernel, dependency must SURVIVE ===
+PASS E2a/E2b in different claim groups                              
+PASS no contradiction                                               
+PASS prerequisite_dependency survives kernel identity               n=1
+PASS dependency isolates Macro 8                                    
+
+=== E3 : different centroid kernel from E0/E1 ===
+PASS E3 centroid kernel differs from E0/E1 kernel                   
+PASS E3 tail kernel matches E2a/E2b kernel                          
+
+=== admissibility: wrong property cannot support a claim ===
+PASS tail evidence rejected by centroid claim                       
+
+=== synthetic contradiction still fires (same kernel) ===
+PASS synthetic contradiction fires                                  
+PASS reverify required                                              
+
+ALL ASSERTIONS: 19/19 PASS

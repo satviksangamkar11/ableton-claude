@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0.0",
+  "findings": [
+    {
+      "id": "LFO-SOURCE-CANDIDATES-UNVERIFIED-1",
+      "status": "OPEN",
+      "category": "CAPABILITY_IDENTITY_UNRESOLVED",
+      "owner": "evidence",
+      "discovered_at": "16.4.3c",
+      "trigger": "The original 6-candidate LFO-source sweep (SRC-6/25/26/27/29/31) used modulation_frequency_hz/modulation_depth as its discriminator. That discriminator was subsequently shown (16.4.3b-11/12) to report a 'detected' frequency purely as a function of analysis window geometry, identically on a no-route control -- i.e. incapable of distinguishing real periodicity from no periodicity at all, for this specific real-Serum note-envelope-residual task. Source[0]=6 was independently re-verified with a corrected, control-tested discriminator (centroid_zero_crossing_rate, see LFO-RATE-DEP-6/25 EvidenceRecords) and found to be a genuine, rate-dependent causal effect -- the original negative result for candidate 6 was a false negative caused by the discriminator, not a true negative about the candidate.",
+      "observed": "Candidate 6's original NO_OBSERVED_EFFECT result has been superseded by independent, corrected-methodology positive evidence. Candidate 25 has been independently reverified negative via direct raw-audio bit-identity checks (multiple contexts: bare skeleton, explicit LFO0 config, two real full corpus presets) -- NOT dependent on the discredited kernel, so it is excluded from this finding's scope. Candidates 26, 27, 29, and 31 have received NEITHER a raw-audio-level reverification NOR any positive causal evidence; their only evidence remains the original sweep using the now-discredited-for-this-purpose discriminator.",
+      "hypothesized_cause": "N/A -- this finding is not about a mechanism, it is about incomplete verification coverage. The open question is empirical completeness, not causal explanation.",
+      "explicitly_not": ["CAPABILITY_FAILURE", "CONSTRUCTION_FAILURE", "CLAIM_CHANGE",
+                        "A_CLAIM_THAT_26_27_29_31_ARE_ALSO_FALSE_NEGATIVES",
+                        "A_REVISION_OF_LFO-SOURCE-IDENTITY-1_ITS_CLOSURE_CONDITION_IS_UNCHANGED"],
+      "closure_condition": {
+        "description": "Close when each of source[0] in {26, 27, 29, 31} has EITHER independent raw-audio negative evidence under a validated (non-FFT-peak-search) discriminator, matching the rigor already applied to candidate 25, OR positive causal evidence establishing a real effect, matching what was found for candidate 6.",
+        "predicate": {
+          "type": "per_candidate_verification_coverage",
+          "candidates_requiring_resolution": [26, 27, 29, 31],
+          "acceptable_resolution_per_candidate": ["independent_raw_audio_negative", "positive_causal_evidence"]
+        }
+      },
+      "evidence_refs": [
+        {
+          "experiment_id": "SRC-6..SRC-31",
+          "claim_definition_id": "lfo_as_source:e0f31081",
+          "file_path": "experiments/_lfo_source_records.pkl",
+          "content_hash": "4ba99a10ed6a43910a0e3b58d20d9a5d5a4458d4c4699f734915286fd9fa2183"
+        },
+        {
+          "experiment_id": "LFO-RATE-DEP-6..LFO-RATE-DEP-25",
+          "claim_definition_id": null,
+          "file_path": "experiments/_lfo_rate_dependence_records.pkl",
+          "content_hash": "e1204a77e875f1432d965e97a03d6758ef41369f5e0de186d9fdf6917dccaf3b"
+        }
+      ]
+    },
+    {
+      "id": "16.3-M1",
+      "status": "OPEN",
+      "category": "MEASUREMENT_CONFOUND",
+      "owner": "compiler",
+      "discovered_at": "16.3",
+      "trigger": "Compiler-constructed 4-capability patch (Oscillator + Env + Filter + FXDistortion.Drive), composed against a caller-supplied context body containing a real FXDistortion instance.",
+      "observed": "Construction succeeded structurally: load=PASS, persistence exact-match on all 4 composed fields, state_observation.matches_intent=True, correct index resolved via RequiredContext.resolve_path. The aggregate overall_rms_db measurement returned causal status NO_OBSERVED_EFFECT (delta=-0.33dB), so evaluate_construction_goal()['overall_pass']=False.",
+      "hypothesized_cause": "The oscillator capability's witness value (kParamVolume=0.05, the exact value proven in the OSC-VOLUME contract) already puts the whole-signal RMS near its floor before the FX/Env/Filter contributions are added, plausibly masking any aggregate delta they would otherwise produce. NOT confirmed: no isolated experiment has varied the oscillator witness alone and observed the FX contribution reappear.",
+      "explicitly_not": ["CAPABILITY_FAILURE", "CONSTRUCTION_FAILURE", "CLAIM_CHANGE"],
+      "closure_condition": {
+        "description": "Close when a real construction goal composes a non-floor-adjacent oscillator/level witness with an FX or Env capability and the aggregate measurement is shown to reliably detect (or, if still undetected, definitively rules out as a measurement-strategy problem rather than a floor-masking artifact) the composed capabilities' combined effect.",
+        "predicate": {
+          "type": "construction_measurement_observation",
+          "requires": "a construction goal record where no witness value used is within one order of magnitude of overall_rms_db's silent floor",
+          "causal_outcome_to_check": "overall_rms_db status on that record"
+        }
+      },
+      "evidence_refs": [
+        {
+          "experiment_id": "CTX-GOAL-4",
+          "claim_definition_id": null,
+          "file_path": "experiments/_compiler_goal4_ctx_record.pkl",
+          "content_hash": "09365eff245f976afbc7e64c025291db106722f383cd1841d5c17f1165d3f2c9"
+        }
+      ]
+    },
+    {
+      "id": "LFO-SOURCE-IDENTITY-1",
+      "status": "OPEN",
+      "category": "CAPABILITY_IDENTITY_UNRESOLVED",
+      "owner": "evidence",
+      "discovered_at": "15.2.5",
+      "trigger": "Six targeted candidate experiments (SRC-6, SRC-25, SRC-26, SRC-27, SRC-29, SRC-31) attempting to identify the body-level field/ID that makes an LFO usable as a ModSlot modulation source.",
+      "observed": "All 6 candidates produced causal outcome NO_OBSERVED_EFFECT under a periodicity kernel validated on synthetic mono/periodic signals. The lfo_as_modulation_source ClaimGroup carries all 6 as consistent supporting evidence (no contradiction), correctly classified NEGATIVE_EVIDENCE by the capability contract layer -- not promoted, not marked UNSUPPORTED (insufficient breadth/consistency bar for that).",
+      "hypothesized_cause": "The correct source-identifier field or ID scheme for routing an LFO into a ModSlot has not been found among the 6 tested candidates; the true mechanism remains unidentified rather than ruled out (a NOT_TESTED-shaped gap, not a proven absence).",
+      "explicitly_not": ["CAPABILITY_FAILURE", "CONSTRUCTION_FAILURE", "CLAIM_CHANGE", "PROOF_LFO_CANNOT_BE_A_SOURCE"],
+      "closure_condition": {
+        "description": "Close when a new, distinct source-identifier candidate (not among the 6 already tested) produces a causal EFFECT_OBSERVED result under the same validated periodicity kernel, OR when a definitive format-level reference (not guesswork) establishes the correct field.",
+        "predicate": null
+      },
+      "evidence_refs": [
+        {
+          "experiment_id": "SRC-6..SRC-31",
+          "claim_definition_id": "lfo_as_source:e0f31081",
+          "file_path": "experiments/_lfo_source_records.pkl",
+          "content_hash": "4ba99a10ed6a43910a0e3b58d20d9a5d5a4458d4c4699f734915286fd9fa2183"
+        }
+      ]
+    },
+    {
+      "id": "RANDOMPAN-MASKING-1",
+      "status": "OPEN",
+      "category": "MEASUREMENT_CONFOUND",
+      "owner": "evidence",
+      "discovered_at": "15.2.7",
+      "trigger": "VOICE-RANDOMPAN causal experiment: control already showed stereo width=0.503 (the synthetic-validated 'fully decorrelated' level) before the randompan mutation was even applied.",
+      "observed": "Prerequisite('host:A Uni Width', 0.0) was declared and runtime-verified as applied identically in both arms, yet width still read 0.5030 in both -- ruling out 'A Uni Width' specifically as the masking mechanism by direct evidence, not assumption. voice_field_randompan correctly landed STRUCTURAL_ONLY / NO_OBSERVED_EFFECT in the capability contract layer.",
+      "hypothesized_cause": "An unidentified unison/stereo-spread mechanism -- candidates named but not yet tested: A Uni Detune, Blend, Span, Stack -- produces stereo width at the same ceiling RandomPan would, masking any RandomPan-specific contribution in this kernel.",
+      "explicitly_not": ["CAPABILITY_FAILURE", "CONSTRUCTION_FAILURE", "CLAIM_CHANGE"],
+      "closure_condition": {
+        "description": "Close when a systematic sweep of the remaining unison sub-parameters (Detune, Blend, Span, Stack) either identifies which one produces the ceiling width (isolating the true confound) or rules out all of them, at which point the masking mechanism is either found or the finding is escalated to a new, more specific question.",
+        "predicate": null
+      },
+      "evidence_refs": [
+        {
+          "experiment_id": "VOICE-RANDOMPAN",
+          "claim_definition_id": "voice_field_randompan:7f7fcf0e",
+          "file_path": "experiments/_global_voice_records.pkl",
+          "content_hash": "623bd5a8471d9ed1c2679d0204d2221a535eaee1cba36e4596c41e91df04805b"
+        }
+      ]
+    }
+  ]
+}

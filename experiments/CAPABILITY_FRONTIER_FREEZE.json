@@ -1,0 +1,1971 @@
+{
+  "content_hash": "638ea445cac189a88425c7ddbc0d076b0ee1d18138915d32cb33c0f68e666443",
+  "contract_count": 37,
+  "contracts": {
+    "envelope_field_attack:4df5877e|12dc2f522836863e": {
+      "allowed_operation": "mutate_structured_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": {
+        "baseline": -19.113398409784892,
+        "delta": -25.86244873116584,
+        "expected_direction": "decrease",
+        "measurement_definition_id": "attack_onset_rms_db:5369167c8e73",
+        "metric": "attack_onset_rms_db",
+        "observed_direction": "decrease",
+        "status": "EFFECT_OBSERVED",
+        "target_field": "Env0.plainParams.kParamAttack",
+        "threshold": 3.0,
+        "treatment": -44.975847140950734
+      },
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "envelope_field_attack:4df5877e",
+        "condition_signature_hash": "12dc2f522836863e",
+        "supporting_evidence": [
+          "ENV-ATTACK"
+        ],
+        "witness_experiment_id": "ENV-ATTACK"
+      },
+      "scope": {
+        "condition_signature_hash": "12dc2f522836863e",
+        "mutation_target_path": "Env0",
+        "mutation_value_used": {
+          "plainParams": {
+            "kParamAttack": 0.8
+          }
+        },
+        "tested_context_only": true
+      },
+      "status": "CAUSAL_VERIFIED",
+      "target": "envelope_field_attack",
+      "verified": {
+        "causal": "EFFECT_OBSERVED",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "envelope_field_decay:bbb2e94e|c9a4dbc15a3d2fc9": {
+      "allowed_operation": "mutate_numeric_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": {
+        "baseline": -29.196549207007408,
+        "delta": 3.5312873036226478,
+        "expected_direction": "increase",
+        "measurement_definition_id": "decay_window_rms_db:4b8edf26eaa6",
+        "metric": "decay_window_rms_db",
+        "observed_direction": "increase",
+        "status": "EFFECT_OBSERVED",
+        "target_field": "Env0.plainParams.kParamDecay",
+        "threshold": 3.0,
+        "treatment": -25.66526190338476
+      },
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "envelope_field_decay:bbb2e94e",
+        "condition_signature_hash": "c9a4dbc15a3d2fc9",
+        "supporting_evidence": [
+          "ENV-DECAY"
+        ],
+        "witness_experiment_id": "ENV-DECAY"
+      },
+      "scope": {
+        "condition_signature_hash": "c9a4dbc15a3d2fc9",
+        "mutation_target_path": "Env0.plainParams.kParamDecay",
+        "mutation_value_used": 1.5,
+        "tested_context_only": true
+      },
+      "status": "CAUSAL_VERIFIED",
+      "target": "envelope_field_decay",
+      "verified": {
+        "causal": "EFFECT_OBSERVED",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "envelope_field_release:7aab5ce1|2ad6168671cfac32": {
+      "allowed_operation": "mutate_numeric_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": {
+        "baseline": -240.0000000347071,
+        "delta": 204.4772929938693,
+        "expected_direction": "increase",
+        "measurement_definition_id": "tail_rms_db:c6a68e551ef9",
+        "metric": "tail_rms_db",
+        "observed_direction": "increase",
+        "status": "EFFECT_OBSERVED",
+        "target_field": "Env0.plainParams.kParamRelease",
+        "threshold": 3.0,
+        "treatment": -35.52270704083783
+      },
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "envelope_field_release:7aab5ce1",
+        "condition_signature_hash": "2ad6168671cfac32",
+        "supporting_evidence": [
+          "ENV-RELEASE"
+        ],
+        "witness_experiment_id": "ENV-RELEASE"
+      },
+      "scope": {
+        "condition_signature_hash": "2ad6168671cfac32",
+        "mutation_target_path": "Env0.plainParams.kParamRelease",
+        "mutation_value_used": 1.0,
+        "tested_context_only": true
+      },
+      "status": "CAUSAL_VERIFIED",
+      "target": "envelope_field_release",
+      "verified": {
+        "causal": "EFFECT_OBSERVED",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "envelope_field_sustain:4f171978|2ad6168671cfac32": {
+      "allowed_operation": "mutate_numeric_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": {
+        "baseline": -18.833443855249048,
+        "delta": -20.91515053420296,
+        "expected_direction": "decrease",
+        "measurement_definition_id": "sustain_window_rms_db:c092f5a1078d",
+        "metric": "sustain_window_rms_db",
+        "observed_direction": "decrease",
+        "status": "EFFECT_OBSERVED",
+        "target_field": "Env0.plainParams.kParamSustain",
+        "threshold": 3.0,
+        "treatment": -39.74859438945201
+      },
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "envelope_field_sustain:4f171978",
+        "condition_signature_hash": "2ad6168671cfac32",
+        "supporting_evidence": [
+          "ENV-SUSTAIN"
+        ],
+        "witness_experiment_id": "ENV-SUSTAIN"
+      },
+      "scope": {
+        "condition_signature_hash": "2ad6168671cfac32",
+        "mutation_target_path": "Env0.plainParams.kParamSustain",
+        "mutation_value_used": 0.3,
+        "tested_context_only": true
+      },
+      "status": "CAUSAL_VERIFIED",
+      "target": "envelope_field_sustain",
+      "verified": {
+        "causal": "EFFECT_OBSERVED",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "filter_field_reso:6da15f4e|8d8c276adab7ae3a": {
+      "allowed_operation": "mutate_numeric_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": {
+        "baseline": -26.38009085696747,
+        "delta": 18.455100597222085,
+        "expected_direction": "increase",
+        "measurement_definition_id": "overall_rms_db:72c1e35739d9",
+        "metric": "overall_rms_db",
+        "observed_direction": "increase",
+        "status": "EFFECT_OBSERVED",
+        "target_field": "VoiceFilter0.plainParams.kParamReso",
+        "threshold": 1.0,
+        "treatment": -7.924990259745385
+      },
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "filter_field_reso:6da15f4e",
+        "condition_signature_hash": "8d8c276adab7ae3a",
+        "supporting_evidence": [
+          "FILTER-RESONANCE"
+        ],
+        "witness_experiment_id": "FILTER-RESONANCE"
+      },
+      "scope": {
+        "condition_signature_hash": "8d8c276adab7ae3a",
+        "mutation_target_path": "VoiceFilter0.plainParams.kParamReso",
+        "mutation_value_used": 90.0,
+        "tested_context_only": true
+      },
+      "status": "CAUSAL_VERIFIED",
+      "target": "filter_field_reso",
+      "verified": {
+        "causal": "EFFECT_OBSERVED",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "filter_field_type:dbe3b9b0|8d8c276adab7ae3a": {
+      "allowed_operation": "mutate_enum_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": {
+        "baseline": 201.91532643219804,
+        "delta": 206.76193838924806,
+        "expected_direction": "none",
+        "measurement_definition_id": "wholesignal_centroid:30d568a369ba",
+        "metric": "wholesignal_centroid",
+        "observed_direction": "increase",
+        "status": "EFFECT_OBSERVED",
+        "target_field": "VoiceFilter0.plainParams.kParamType",
+        "threshold": 50.0,
+        "treatment": 408.6772648214461
+      },
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "filter_field_type:dbe3b9b0",
+        "condition_signature_hash": "8d8c276adab7ae3a",
+        "supporting_evidence": [
+          "FILTER-TYPE"
+        ],
+        "witness_experiment_id": "FILTER-TYPE"
+      },
+      "scope": {
+        "condition_signature_hash": "8d8c276adab7ae3a",
+        "mutation_target_path": "VoiceFilter0.plainParams.kParamType",
+        "mutation_value_used": "BP12",
+        "tested_context_only": true
+      },
+      "status": "CAUSAL_VERIFIED",
+      "target": "filter_field_type",
+      "verified": {
+        "causal": "EFFECT_OBSERVED",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "fx_field_distortion_drive:f9cd78d8|c8541d5c99dab135": {
+      "allowed_operation": "mutate_numeric_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": {
+        "baseline": 3692.1455946496485,
+        "delta": 708.141391676188,
+        "expected_direction": "increase",
+        "measurement_definition_id": "wholesignal_centroid:7b663eaaffa9",
+        "metric": "wholesignal_centroid",
+        "observed_direction": "increase",
+        "status": "EFFECT_OBSERVED",
+        "target_field": "FXRack0.FX[FXDistortion].plainParams.kParamDrive",
+        "threshold": 50.0,
+        "treatment": 4400.286986325837
+      },
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "fx_field_distortion_drive:f9cd78d8",
+        "condition_signature_hash": "c8541d5c99dab135",
+        "supporting_evidence": [
+          "FXDIST-DRIVE"
+        ],
+        "witness_experiment_id": "FXDIST-DRIVE"
+      },
+      "scope": {
+        "condition_signature_hash": "c8541d5c99dab135",
+        "mutation_target_path": "FXRack0.FX.2.FXDistortion.plainParams.kParamDrive",
+        "mutation_value_used": 100.0,
+        "tested_context_only": true
+      },
+      "status": "CAUSAL_VERIFIED",
+      "target": "fx_field_distortion_drive",
+      "verified": {
+        "causal": "EFFECT_OBSERVED",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "fx_field_distortion_mode:f9cd78d8|c8541d5c99dab135": {
+      "allowed_operation": "mutate_enum_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": {
+        "baseline": 3692.1455946496485,
+        "delta": -63.30650410649696,
+        "expected_direction": "none",
+        "measurement_definition_id": "wholesignal_centroid:5cef2d598a86",
+        "metric": "wholesignal_centroid",
+        "observed_direction": "decrease",
+        "status": "EFFECT_OBSERVED",
+        "target_field": "FXRack0.FX[FXDistortion].plainParams.kParamMode",
+        "threshold": 50.0,
+        "treatment": 3628.8390905431515
+      },
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "fx_field_distortion_mode:f9cd78d8",
+        "condition_signature_hash": "c8541d5c99dab135",
+        "supporting_evidence": [
+          "FXDIST-MODE"
+        ],
+        "witness_experiment_id": "FXDIST-MODE"
+      },
+      "scope": {
+        "condition_signature_hash": "c8541d5c99dab135",
+        "mutation_target_path": "FXRack0.FX.2.FXDistortion.plainParams.kParamMode",
+        "mutation_value_used": "kHardClip",
+        "tested_context_only": true
+      },
+      "status": "CAUSAL_VERIFIED",
+      "target": "fx_field_distortion_mode",
+      "verified": {
+        "causal": "EFFECT_OBSERVED",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "fx_field_eq_freq1:f9cd78d8|243cbc144914bf94": {
+      "allowed_operation": "mutate_numeric_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": {
+        "baseline": 6925.075006496225,
+        "delta": -505.9530090548851,
+        "expected_direction": "none",
+        "measurement_definition_id": "wholesignal_centroid:366a0ddbfa50",
+        "metric": "wholesignal_centroid",
+        "observed_direction": "decrease",
+        "status": "EFFECT_OBSERVED",
+        "target_field": "FXRack0.FX[FXEQ].plainParams.kParamFreq1",
+        "threshold": 50.0,
+        "treatment": 6419.12199744134
+      },
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "fx_field_eq_freq1:f9cd78d8",
+        "condition_signature_hash": "243cbc144914bf94",
+        "supporting_evidence": [
+          "FXEQ-FREQ1"
+        ],
+        "witness_experiment_id": "FXEQ-FREQ1"
+      },
+      "scope": {
+        "condition_signature_hash": "243cbc144914bf94",
+        "mutation_target_path": "FXRack0.FX.1.FXEQ.plainParams.kParamFreq1",
+        "mutation_value_used": 15000.0,
+        "tested_context_only": true
+      },
+      "status": "CAUSAL_VERIFIED",
+      "target": "fx_field_eq_freq1",
+      "verified": {
+        "causal": "EFFECT_OBSERVED",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "fx_field_eq_kParamFreq2:f9cd78d8|243cbc144914bf94": {
+      "allowed_operation": "mutate_numeric_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": {
+        "baseline": 6925.075006496225,
+        "delta": 623.1863577468621,
+        "expected_direction": "none",
+        "measurement_definition_id": "wholesignal_centroid:fcefc9fdbd78",
+        "metric": "wholesignal_centroid",
+        "observed_direction": "increase",
+        "status": "EFFECT_OBSERVED",
+        "target_field": "FXRack0.FX[FXEQ].plainParams.kParamFreq2",
+        "threshold": 50.0,
+        "treatment": 7548.261364243087
+      },
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "fx_field_eq_kParamFreq2:f9cd78d8",
+        "condition_signature_hash": "243cbc144914bf94",
+        "supporting_evidence": [
+          "FXEQ-KPARAMFREQ2"
+        ],
+        "witness_experiment_id": "FXEQ-KPARAMFREQ2"
+      },
+      "scope": {
+        "condition_signature_hash": "243cbc144914bf94",
+        "mutation_target_path": "FXRack0.FX.1.FXEQ.plainParams.kParamFreq2",
+        "mutation_value_used": 15000.0,
+        "tested_context_only": true
+      },
+      "status": "CAUSAL_VERIFIED",
+      "target": "fx_field_eq_kParamFreq2",
+      "verified": {
+        "causal": "EFFECT_OBSERVED",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "fx_field_eq_kParamGain1:f9cd78d8|243cbc144914bf94": {
+      "allowed_operation": "mutate_numeric_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": {
+        "baseline": 6925.075006496225,
+        "delta": -1917.0045477757776,
+        "expected_direction": "none",
+        "measurement_definition_id": "wholesignal_centroid:43de9b2fd037",
+        "metric": "wholesignal_centroid",
+        "observed_direction": "decrease",
+        "status": "EFFECT_OBSERVED",
+        "target_field": "FXRack0.FX[FXEQ].plainParams.kParamGain1",
+        "threshold": 50.0,
+        "treatment": 5008.070458720447
+      },
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "fx_field_eq_kParamGain1:f9cd78d8",
+        "condition_signature_hash": "243cbc144914bf94",
+        "supporting_evidence": [
+          "FXEQ-KPARAMGAIN1"
+        ],
+        "witness_experiment_id": "FXEQ-KPARAMGAIN1"
+      },
+      "scope": {
+        "condition_signature_hash": "243cbc144914bf94",
+        "mutation_target_path": "FXRack0.FX.1.FXEQ.plainParams.kParamGain1",
+        "mutation_value_used": 20.0,
+        "tested_context_only": true
+      },
+      "status": "CAUSAL_VERIFIED",
+      "target": "fx_field_eq_kParamGain1",
+      "verified": {
+        "causal": "EFFECT_OBSERVED",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "fx_field_eq_kParamGain2:f9cd78d8|243cbc144914bf94": {
+      "allowed_operation": "mutate_numeric_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": {
+        "baseline": 6925.075006496225,
+        "delta": -1006.5551738918184,
+        "expected_direction": "none",
+        "measurement_definition_id": "wholesignal_centroid:f079cdffa982",
+        "metric": "wholesignal_centroid",
+        "observed_direction": "decrease",
+        "status": "EFFECT_OBSERVED",
+        "target_field": "FXRack0.FX[FXEQ].plainParams.kParamGain2",
+        "threshold": 50.0,
+        "treatment": 5918.5198326044065
+      },
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "fx_field_eq_kParamGain2:f9cd78d8",
+        "condition_signature_hash": "243cbc144914bf94",
+        "supporting_evidence": [
+          "FXEQ-KPARAMGAIN2"
+        ],
+        "witness_experiment_id": "FXEQ-KPARAMGAIN2"
+      },
+      "scope": {
+        "condition_signature_hash": "243cbc144914bf94",
+        "mutation_target_path": "FXRack0.FX.1.FXEQ.plainParams.kParamGain2",
+        "mutation_value_used": -20.0,
+        "tested_context_only": true
+      },
+      "status": "CAUSAL_VERIFIED",
+      "target": "fx_field_eq_kParamGain2",
+      "verified": {
+        "causal": "EFFECT_OBSERVED",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "fx_field_eq_kParamLevelOut:f9cd78d8|243cbc144914bf94": {
+      "allowed_operation": "mutate_numeric_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": {
+        "baseline": -26.51943985240514,
+        "delta": -27.96689419131798,
+        "expected_direction": "decrease",
+        "measurement_definition_id": "overall_rms_db:4d77b3135594",
+        "metric": "overall_rms_db",
+        "observed_direction": "decrease",
+        "status": "EFFECT_OBSERVED",
+        "target_field": "FXRack0.FX[FXEQ].plainParams.kParamLevelOut",
+        "threshold": 3.0,
+        "treatment": -54.48633404372312
+      },
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "fx_field_eq_kParamLevelOut:f9cd78d8",
+        "condition_signature_hash": "243cbc144914bf94",
+        "supporting_evidence": [
+          "FXEQ-KPARAMLEVELOUT"
+        ],
+        "witness_experiment_id": "FXEQ-KPARAMLEVELOUT"
+      },
+      "scope": {
+        "condition_signature_hash": "243cbc144914bf94",
+        "mutation_target_path": "FXRack0.FX.1.FXEQ.plainParams.kParamLevelOut",
+        "mutation_value_used": 0.1,
+        "tested_context_only": true
+      },
+      "status": "CAUSAL_VERIFIED",
+      "target": "fx_field_eq_kParamLevelOut",
+      "verified": {
+        "causal": "EFFECT_OBSERVED",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "fx_field_eq_kParamReso1:f9cd78d8|243cbc144914bf94": {
+      "allowed_operation": "mutate_numeric_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": {
+        "baseline": 6925.075006496225,
+        "delta": -148.752768148408,
+        "expected_direction": "none",
+        "measurement_definition_id": "wholesignal_centroid:d7325d702503",
+        "metric": "wholesignal_centroid",
+        "observed_direction": "decrease",
+        "status": "EFFECT_OBSERVED",
+        "target_field": "FXRack0.FX[FXEQ].plainParams.kParamReso1",
+        "threshold": 50.0,
+        "treatment": 6776.322238347817
+      },
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "fx_field_eq_kParamReso1:f9cd78d8",
+        "condition_signature_hash": "243cbc144914bf94",
+        "supporting_evidence": [
+          "FXEQ-KPARAMRESO1"
+        ],
+        "witness_experiment_id": "FXEQ-KPARAMRESO1"
+      },
+      "scope": {
+        "condition_signature_hash": "243cbc144914bf94",
+        "mutation_target_path": "FXRack0.FX.1.FXEQ.plainParams.kParamReso1",
+        "mutation_value_used": 90.0,
+        "tested_context_only": true
+      },
+      "status": "CAUSAL_VERIFIED",
+      "target": "fx_field_eq_kParamReso1",
+      "verified": {
+        "causal": "EFFECT_OBSERVED",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "fx_field_eq_kParamReso2:f9cd78d8|243cbc144914bf94": {
+      "allowed_operation": "mutate_numeric_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": {
+        "baseline": 6925.075006496225,
+        "delta": -197.21652277310295,
+        "expected_direction": "none",
+        "measurement_definition_id": "wholesignal_centroid:127c1e46577b",
+        "metric": "wholesignal_centroid",
+        "observed_direction": "decrease",
+        "status": "EFFECT_OBSERVED",
+        "target_field": "FXRack0.FX[FXEQ].plainParams.kParamReso2",
+        "threshold": 50.0,
+        "treatment": 6727.858483723122
+      },
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "fx_field_eq_kParamReso2:f9cd78d8",
+        "condition_signature_hash": "243cbc144914bf94",
+        "supporting_evidence": [
+          "FXEQ-KPARAMRESO2"
+        ],
+        "witness_experiment_id": "FXEQ-KPARAMRESO2"
+      },
+      "scope": {
+        "condition_signature_hash": "243cbc144914bf94",
+        "mutation_target_path": "FXRack0.FX.1.FXEQ.plainParams.kParamReso2",
+        "mutation_value_used": 90.0,
+        "tested_context_only": true
+      },
+      "status": "CAUSAL_VERIFIED",
+      "target": "fx_field_eq_kParamReso2",
+      "verified": {
+        "causal": "EFFECT_OBSERVED",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "fx_field_eq_kParamType1:76d301bf|243cbc144914bf94": {
+      "allowed_operation": "mutate_numeric_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent",
+        "causal measurement WAS run and returned NO_OBSERVED_EFFECT under the tested condition -- this is an honest negative, not NOT_RUN, and this contract does not claim a causal effect"
+      ],
+      "measurement": {
+        "baseline": 6925.075006496225,
+        "delta": 28.271980873493703,
+        "expected_direction": "none",
+        "measurement_definition_id": "wholesignal_centroid:a758f7c2e0c2",
+        "metric": "wholesignal_centroid",
+        "observed_direction": "none",
+        "status": "NO_OBSERVED_EFFECT",
+        "target_field": "FXRack0.FX[FXEQ].plainParams.kParamType1",
+        "threshold": 50.0,
+        "treatment": 6953.346987369719
+      },
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "fx_field_eq_kParamType1:76d301bf",
+        "condition_signature_hash": "243cbc144914bf94",
+        "supporting_evidence": [
+          "FXEQ-KPARAMTYPE1"
+        ],
+        "witness_experiment_id": "FXEQ-KPARAMTYPE1"
+      },
+      "scope": {
+        "condition_signature_hash": "243cbc144914bf94",
+        "mutation_target_path": "FXRack0.FX.1.FXEQ.plainParams.kParamType1",
+        "mutation_value_used": 2.0,
+        "tested_context_only": true
+      },
+      "status": "STRUCTURAL_ONLY",
+      "target": "fx_field_eq_kParamType1",
+      "verified": {
+        "causal": "NO_OBSERVED_EFFECT",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "fx_field_eq_kParamType2:f9cd78d8|243cbc144914bf94": {
+      "allowed_operation": "mutate_numeric_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": {
+        "baseline": 6925.075006496225,
+        "delta": -3131.6733772899884,
+        "expected_direction": "none",
+        "measurement_definition_id": "wholesignal_centroid:f33190a61598",
+        "metric": "wholesignal_centroid",
+        "observed_direction": "decrease",
+        "status": "EFFECT_OBSERVED",
+        "target_field": "FXRack0.FX[FXEQ].plainParams.kParamType2",
+        "threshold": 50.0,
+        "treatment": 3793.4016292062365
+      },
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "fx_field_eq_kParamType2:f9cd78d8",
+        "condition_signature_hash": "243cbc144914bf94",
+        "supporting_evidence": [
+          "FXEQ-KPARAMTYPE2"
+        ],
+        "witness_experiment_id": "FXEQ-KPARAMTYPE2"
+      },
+      "scope": {
+        "condition_signature_hash": "243cbc144914bf94",
+        "mutation_target_path": "FXRack0.FX.1.FXEQ.plainParams.kParamType2",
+        "mutation_value_used": 2.0,
+        "tested_context_only": true
+      },
+      "status": "CAUSAL_VERIFIED",
+      "target": "fx_field_eq_kParamType2",
+      "verified": {
+        "causal": "EFFECT_OBSERVED",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "global_field_mastervolume:f2ce8d90|12dc2f522836863e": {
+      "allowed_operation": "mutate_numeric_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": {
+        "baseline": -19.248245789506942,
+        "delta": -6.985412349324548,
+        "expected_direction": "decrease",
+        "measurement_definition_id": "overall_rms_db:04737aafd28f",
+        "metric": "overall_rms_db",
+        "observed_direction": "decrease",
+        "status": "EFFECT_OBSERVED",
+        "target_field": "Global0.plainParams.kParamMasterVolume",
+        "threshold": 3.0,
+        "treatment": -26.23365813883149
+      },
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "global_field_mastervolume:f2ce8d90",
+        "condition_signature_hash": "12dc2f522836863e",
+        "supporting_evidence": [
+          "GLOBAL-MASTERVOLUME"
+        ],
+        "witness_experiment_id": "GLOBAL-MASTERVOLUME"
+      },
+      "scope": {
+        "condition_signature_hash": "12dc2f522836863e",
+        "mutation_target_path": "Global0.plainParams.kParamMasterVolume",
+        "mutation_value_used": 0.1,
+        "tested_context_only": true
+      },
+      "status": "CAUSAL_VERIFIED",
+      "target": "global_field_mastervolume",
+      "verified": {
+        "causal": "EFFECT_OBSERVED",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "global_field_monotoggle:848a5cca|12dc2f522836863e": {
+      "allowed_operation": "mutate_numeric_value",
+      "limitations": [
+        "KNOWN LIMITATION: mono vs poly voice-stealing behavior is only observable with OVERLAPPING notes; our Stimulus sends exactly one note per render, so no causal claim is attempted here. This is a real harness capability gap, documented not hidden.",
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": null,
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "global_field_monotoggle:848a5cca",
+        "condition_signature_hash": "12dc2f522836863e",
+        "supporting_evidence": [
+          "GLOBAL-MONOTOGGLE"
+        ],
+        "witness_experiment_id": "GLOBAL-MONOTOGGLE"
+      },
+      "scope": {
+        "condition_signature_hash": "12dc2f522836863e",
+        "mutation_target_path": "Global0.plainParams.kParamMonoToggle",
+        "mutation_value_used": 1.0,
+        "tested_context_only": true
+      },
+      "status": "STRUCTURAL_ONLY",
+      "target": "global_field_monotoggle",
+      "verified": {
+        "causal": "NOT_RUN",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "global_field_oversampling:848a5cca|12dc2f522836863e": {
+      "allowed_operation": "mutate_numeric_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": null,
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "global_field_oversampling:848a5cca",
+        "condition_signature_hash": "12dc2f522836863e",
+        "supporting_evidence": [
+          "GLOBAL-OVERSAMPLING"
+        ],
+        "witness_experiment_id": "GLOBAL-OVERSAMPLING"
+      },
+      "scope": {
+        "condition_signature_hash": "12dc2f522836863e",
+        "mutation_target_path": "Global0.plainParams.kParamOversampling",
+        "mutation_value_used": 2.0,
+        "tested_context_only": true
+      },
+      "status": "STRUCTURAL_ONLY",
+      "target": "global_field_oversampling",
+      "verified": {
+        "causal": "NOT_RUN",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "lfo_as_modulation_source:e0f31081|6755cec516c2a243": {
+      "allowed_operation": "unknown_operation",
+      "limitations": [
+        "required gate(s) ['load', 'causal', 'persistence'] observed as {'load': ['PASS'], 'causal': ['FAIL'], 'persistence': ['PASS']} across 6 record(s)"
+      ],
+      "measurement": null,
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "lfo_as_modulation_source:e0f31081",
+        "condition_signature_hash": "6755cec516c2a243",
+        "supporting_evidence": [
+          "SRC-6",
+          "SRC-25",
+          "SRC-26",
+          "SRC-27",
+          "SRC-29",
+          "SRC-31"
+        ]
+      },
+      "scope": {
+        "note": "6 record(s) of real evidence exist for this target, but none met the required gate(s) ['load', 'causal', 'persistence'] -- this is a demonstrated negative result, not an absence of evidence",
+        "tested_context_only": true
+      },
+      "status": "NEGATIVE_EVIDENCE",
+      "target": "lfo_as_modulation_source",
+      "verified": {
+        "causal": "FAIL",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "lfo_field_LFO-MODE:7b358c5a|12dc2f522836863e": {
+      "allowed_operation": "mutate_enum_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": null,
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "lfo_field_LFO-MODE:7b358c5a",
+        "condition_signature_hash": "12dc2f522836863e",
+        "supporting_evidence": [
+          "LFO-MODE"
+        ],
+        "witness_experiment_id": "LFO-MODE"
+      },
+      "scope": {
+        "condition_signature_hash": "12dc2f522836863e",
+        "mutation_target_path": "LFO0.plainParams.kParamMode",
+        "mutation_value_used": "Envelope",
+        "tested_context_only": true
+      },
+      "status": "STRUCTURAL_ONLY",
+      "target": "lfo_field_LFO-MODE",
+      "verified": {
+        "causal": "NOT_RUN",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "lfo_field_LFO-RATE:7b358c5a|12dc2f522836863e": {
+      "allowed_operation": "mutate_numeric_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": null,
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "lfo_field_LFO-RATE:7b358c5a",
+        "condition_signature_hash": "12dc2f522836863e",
+        "supporting_evidence": [
+          "LFO-RATE"
+        ],
+        "witness_experiment_id": "LFO-RATE"
+      },
+      "scope": {
+        "condition_signature_hash": "12dc2f522836863e",
+        "mutation_target_path": "LFO0.plainParams.kParamRate",
+        "mutation_value_used": 12.5,
+        "tested_context_only": true
+      },
+      "status": "STRUCTURAL_ONLY",
+      "target": "lfo_field_LFO-RATE",
+      "verified": {
+        "causal": "NOT_RUN",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "lfo_field_LFO-SHAPE:7b358c5a|12dc2f522836863e": {
+      "allowed_operation": "mutate_structured_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": null,
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "lfo_field_LFO-SHAPE:7b358c5a",
+        "condition_signature_hash": "12dc2f522836863e",
+        "supporting_evidence": [
+          "LFO-SHAPE"
+        ],
+        "witness_experiment_id": "LFO-SHAPE"
+      },
+      "scope": {
+        "condition_signature_hash": "12dc2f522836863e",
+        "mutation_target_path": "LFO0.pathData",
+        "mutation_value_used": {
+          "curveVals": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5023068342202408,
+            0.5,
+            0.5002888736710169
+          ],
+          "isOpen": false,
+          "numPoints": 16,
+          "xVals": [
+            0.005292837356549088,
+            0.125,
+            0.125,
+            0.2974419037552329,
+            0.0,
+            0.2915922510570054,
+            0.3004358845521003,
+            0.6040239045760147,
+            0.9066926044974147,
+            0.2919664986566138,
+            0.6039913604399674,
+            1.0,
+            0.7437891170099764,
+            0.8975072307143032,
+            0.5915191481253617,
+            0.0
+          ],
+          "yVals": [
+            1.0,
+            0.0,
+            0.0,
+            0.17814987837240137,
+            1.0,
+            0.1719950727001326,
+            0.9047192890314022,
+            0.36424097416148893,
+            0.9715583280671334,
+            0.18300893548208774,
+            0.35633689162479154,
+            0.0,
+            0.0,
+            0.979937489425013,
+            0.0173414349292349,
+            0.0
+          ]
+        },
+        "tested_context_only": true
+      },
+      "status": "STRUCTURAL_ONLY",
+      "target": "lfo_field_LFO-SHAPE",
+      "verified": {
+        "causal": "NOT_RUN",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "lfo_rate_dependent_route:6fcebe04|f03b8c8a1d23e2b9": {
+      "allowed_operation": "mutate_structured_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": {
+        "baseline": 3.0,
+        "delta": 5.0,
+        "expected_direction": "increase",
+        "measurement_definition_id": "centroid_zero_crossing_rate:a687ddcd8595",
+        "metric": "centroid_zero_crossing_rate",
+        "observed_direction": "increase",
+        "status": "EFFECT_OBSERVED",
+        "target_field": "VoiceFilter0.plainParams.kParamFreq",
+        "threshold": 3.0,
+        "treatment": 8.0
+      },
+      "prerequisites": [
+        {
+          "declared_value": 1.0,
+          "field_path": "host:Filter 1 On",
+          "must_hold_identical": true
+        }
+      ],
+      "provenance": {
+        "claim_definition_id": "lfo_rate_dependent_route:6fcebe04",
+        "condition_signature_hash": "f03b8c8a1d23e2b9",
+        "supporting_evidence": [
+          "LFO-RATE-DEP-6"
+        ],
+        "witness_experiment_id": "LFO-RATE-DEP-6"
+      },
+      "scope": {
+        "condition_signature_hash": "f03b8c8a1d23e2b9",
+        "mutation_target_path": "ModSlot30",
+        "mutation_value_used": {
+          "destModuleID": 0,
+          "destModuleParamID": 3,
+          "destModuleParamName": "kParamFreq",
+          "destModuleTypeString": "VoiceFilter",
+          "plainParams": {
+            "kParamAmount": 29.682552814483643
+          },
+          "source": [
+            6,
+            0
+          ]
+        },
+        "tested_context_only": true
+      },
+      "status": "CAUSAL_VERIFIED",
+      "target": "lfo_rate_dependent_route",
+      "verified": {
+        "causal": "EFFECT_OBSERVED",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "macro_field_name:6d7200b7|12dc2f522836863e": {
+      "allowed_operation": "unknown_operation",
+      "limitations": [
+        "required gate(s) ['load', 'persistence'] observed as {'load': ['PASS'], 'persistence': ['FAIL']} across 1 record(s)"
+      ],
+      "measurement": null,
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "macro_field_name:6d7200b7",
+        "condition_signature_hash": "12dc2f522836863e",
+        "supporting_evidence": [
+          "MACRO-NAME"
+        ]
+      },
+      "scope": {
+        "note": "1 record(s) of real evidence exist for this target, but none met the required gate(s) ['load', 'persistence'] -- this is a demonstrated negative result, not an absence of evidence",
+        "tested_context_only": true
+      },
+      "status": "NEGATIVE_EVIDENCE",
+      "target": "macro_field_name",
+      "verified": {
+        "causal": null,
+        "load": "PASS",
+        "persistence": "FAIL"
+      }
+    },
+    "macro_field_value:df550d16|d128a67952883804": {
+      "allowed_operation": "mutate_numeric_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": {
+        "baseline": 349.1385457292655,
+        "delta": 3391.630910564769,
+        "expected_direction": "increase",
+        "measurement_definition_id": "wholesignal_centroid:ce18f90079e8",
+        "metric": "wholesignal_centroid",
+        "observed_direction": "increase",
+        "status": "EFFECT_OBSERVED",
+        "target_field": "Macro7.plainParams.kParamValue",
+        "threshold": 100.0,
+        "treatment": 3740.769456294034
+      },
+      "prerequisites": [
+        {
+          "declared_value": 1.0,
+          "field_path": "host:Filter 1 On",
+          "must_hold_identical": true
+        }
+      ],
+      "provenance": {
+        "claim_definition_id": "macro_field_value:df550d16",
+        "condition_signature_hash": "d128a67952883804",
+        "supporting_evidence": [
+          "MACRO-VALUE"
+        ],
+        "witness_experiment_id": "MACRO-VALUE"
+      },
+      "scope": {
+        "condition_signature_hash": "d128a67952883804",
+        "mutation_target_path": "Macro7.plainParams.kParamValue",
+        "mutation_value_used": 100.0,
+        "tested_context_only": true
+      },
+      "status": "CAUSAL_VERIFIED",
+      "target": "macro_field_value",
+      "verified": {
+        "causal": "EFFECT_OBSERVED",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "modulation_route_fxdelay:2d6749fb|7c2a2d56f0b013ba": {
+      "allowed_operation": "mutate_structured_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": {
+        "baseline": -65.54,
+        "delta": -36.08,
+        "expected_direction": "decrease",
+        "measurement_definition_id": "tail_rms_db:5f2968f0262d",
+        "metric": "tail_rms_db",
+        "observed_direction": "decrease",
+        "status": "EFFECT_OBSERVED",
+        "target_field": "FXRack0.FX[FXDelay].plainParams.kParamWet",
+        "threshold": 3.0,
+        "treatment": -101.62
+      },
+      "prerequisites": [
+        {
+          "declared_value": "<Aardvark FXRack0>",
+          "field_path": "body:FXRack0",
+          "must_hold_identical": true
+        },
+        {
+          "declared_value": 1.0,
+          "field_path": "host:Macro 8",
+          "must_hold_identical": true
+        }
+      ],
+      "provenance": {
+        "claim_definition_id": "modulation_route_fxdelay:2d6749fb",
+        "condition_signature_hash": "7c2a2d56f0b013ba",
+        "supporting_evidence": [
+          "E2b"
+        ],
+        "witness_experiment_id": "E2b"
+      },
+      "scope": {
+        "condition_signature_hash": "7c2a2d56f0b013ba",
+        "mutation_target_path": "ModSlot30",
+        "mutation_value_used": {
+          "destModuleID": 1,
+          "destModuleParamID": 1,
+          "destModuleParamName": "kParamWet",
+          "destModuleTypeString": "FXDelay",
+          "plainParams": {
+            "kParamAmount": -22.16377854347229
+          },
+          "source": [
+            32,
+            0
+          ]
+        },
+        "tested_context_only": true
+      },
+      "status": "CAUSAL_VERIFIED",
+      "target": "modulation_route_fxdelay",
+      "verified": {
+        "causal": "EFFECT_OBSERVED",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "modulation_route_fxdelay:2d6749fb|80d8772829f05a43": {
+      "allowed_operation": "unknown_operation",
+      "limitations": [
+        "required gate(s) ['load', 'causal'] observed as {'load': ['PASS'], 'causal': ['FAIL']} across 1 record(s)"
+      ],
+      "measurement": null,
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "modulation_route_fxdelay:2d6749fb",
+        "condition_signature_hash": "80d8772829f05a43",
+        "supporting_evidence": [
+          "E2a"
+        ]
+      },
+      "scope": {
+        "note": "1 record(s) of real evidence exist for this target, but none met the required gate(s) ['load', 'causal'] -- this is a demonstrated negative result, not an absence of evidence",
+        "tested_context_only": true
+      },
+      "status": "NEGATIVE_EVIDENCE",
+      "target": "modulation_route_fxdelay",
+      "verified": {
+        "causal": "FAIL",
+        "load": "PASS",
+        "persistence": null
+      }
+    },
+    "modulation_route_voicefilter:da41f927|6755cec516c2a243": {
+      "allowed_operation": "mutate_structured_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": {
+        "baseline": 348.66527315050166,
+        "delta": 597.3756579592067,
+        "expected_direction": "increase",
+        "measurement_definition_id": "spectral_centroid_hz:2925164038f5",
+        "metric": "spectral_centroid_hz",
+        "observed_direction": "increase",
+        "status": "EFFECT_OBSERVED",
+        "target_field": "VoiceFilter0.plainParams.kParamFreq",
+        "threshold": 100.0,
+        "treatment": 946.0409311097084
+      },
+      "prerequisites": [
+        {
+          "declared_value": 1.0,
+          "field_path": "host:Filter 1 On",
+          "must_hold_identical": true
+        }
+      ],
+      "provenance": {
+        "claim_definition_id": "modulation_route_voicefilter:da41f927",
+        "condition_signature_hash": "6755cec516c2a243",
+        "supporting_evidence": [
+          "E0",
+          "E1"
+        ],
+        "witness_experiment_id": "E0"
+      },
+      "scope": {
+        "condition_signature_hash": "6755cec516c2a243",
+        "mutation_target_path": "ModSlot0",
+        "mutation_value_used": {
+          "destModuleID": 0,
+          "destModuleParamID": 3,
+          "destModuleParamName": "kParamFreq",
+          "destModuleTypeString": "VoiceFilter",
+          "plainParams": {
+            "kParamAmount": 29.682552814483643
+          },
+          "source": [
+            6,
+            0
+          ]
+        },
+        "tested_context_only": true
+      },
+      "status": "CAUSAL_VERIFIED",
+      "target": "modulation_route_voicefilter",
+      "verified": {
+        "causal": "EFFECT_OBSERVED",
+        "load": "PASS",
+        "persistence": "NOT_RUN"
+      }
+    },
+    "oscillator_field_OSC-ENABLE:6b75eaa1|12dc2f522836863e": {
+      "allowed_operation": "mutate_numeric_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": {
+        "baseline": -19.262403263044547,
+        "delta": -220.73759677166257,
+        "expected_direction": "decrease",
+        "measurement_definition_id": "overall_rms_db:95228e41eed4",
+        "metric": "overall_rms_db",
+        "observed_direction": "decrease",
+        "status": "EFFECT_OBSERVED",
+        "target_field": "Oscillator0.plainParams.kParamEnable",
+        "threshold": 6.0,
+        "treatment": -240.0000000347071
+      },
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "oscillator_field_OSC-ENABLE:6b75eaa1",
+        "condition_signature_hash": "12dc2f522836863e",
+        "supporting_evidence": [
+          "OSC-ENABLE"
+        ],
+        "witness_experiment_id": "OSC-ENABLE"
+      },
+      "scope": {
+        "condition_signature_hash": "12dc2f522836863e",
+        "mutation_target_path": "Oscillator0.plainParams.kParamEnable",
+        "mutation_value_used": 0.0,
+        "tested_context_only": true
+      },
+      "status": "CAUSAL_VERIFIED",
+      "target": "oscillator_field_OSC-ENABLE",
+      "verified": {
+        "causal": "EFFECT_OBSERVED",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "oscillator_field_OSC-OCTAVE:19404362|12dc2f522836863e": {
+      "allowed_operation": "mutate_numeric_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": {
+        "baseline": 4382.826728194204,
+        "delta": 1619.2833381921155,
+        "expected_direction": "increase",
+        "measurement_definition_id": "wholesignal_centroid:c3317cea75ac",
+        "metric": "wholesignal_centroid",
+        "observed_direction": "increase",
+        "status": "EFFECT_OBSERVED",
+        "target_field": "Oscillator0.plainParams.kParamOctave",
+        "threshold": 100.0,
+        "treatment": 6002.11006638632
+      },
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "oscillator_field_OSC-OCTAVE:19404362",
+        "condition_signature_hash": "12dc2f522836863e",
+        "supporting_evidence": [
+          "OSC-OCTAVE"
+        ],
+        "witness_experiment_id": "OSC-OCTAVE"
+      },
+      "scope": {
+        "condition_signature_hash": "12dc2f522836863e",
+        "mutation_target_path": "Oscillator0.plainParams.kParamOctave",
+        "mutation_value_used": 2.0,
+        "tested_context_only": true
+      },
+      "status": "CAUSAL_VERIFIED",
+      "target": "oscillator_field_OSC-OCTAVE",
+      "verified": {
+        "causal": "EFFECT_OBSERVED",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "oscillator_field_OSC-VOLUME:1d367221|12dc2f522836863e": {
+      "allowed_operation": "mutate_numeric_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": {
+        "baseline": -19.262403263044547,
+        "delta": -21.023050783332884,
+        "expected_direction": "decrease",
+        "measurement_definition_id": "overall_rms_db:12b120237458",
+        "metric": "overall_rms_db",
+        "observed_direction": "decrease",
+        "status": "EFFECT_OBSERVED",
+        "target_field": "Oscillator0.plainParams.kParamVolume",
+        "threshold": 6.0,
+        "treatment": -40.28545404637743
+      },
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "oscillator_field_OSC-VOLUME:1d367221",
+        "condition_signature_hash": "12dc2f522836863e",
+        "supporting_evidence": [
+          "OSC-VOLUME"
+        ],
+        "witness_experiment_id": "OSC-VOLUME"
+      },
+      "scope": {
+        "condition_signature_hash": "12dc2f522836863e",
+        "mutation_target_path": "Oscillator0.plainParams.kParamVolume",
+        "mutation_value_used": 0.05,
+        "tested_context_only": true
+      },
+      "status": "CAUSAL_VERIFIED",
+      "target": "oscillator_field_OSC-VOLUME",
+      "verified": {
+        "causal": "EFFECT_OBSERVED",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "oscillator_field_OSC-WAVETABLE:516ebf72|12dc2f522836863e": {
+      "allowed_operation": "mutate_structured_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": {
+        "baseline": 4382.826728194204,
+        "delta": -3143.1355104628533,
+        "expected_direction": "none",
+        "measurement_definition_id": "wholesignal_centroid:333b67a2598e",
+        "metric": "wholesignal_centroid",
+        "observed_direction": "decrease",
+        "status": "EFFECT_OBSERVED",
+        "target_field": "Oscillator0.WTOsc0",
+        "threshold": 50.0,
+        "treatment": 1239.6912177313511
+      },
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "oscillator_field_OSC-WAVETABLE:516ebf72",
+        "condition_signature_hash": "12dc2f522836863e",
+        "supporting_evidence": [
+          "OSC-WAVETABLE"
+        ],
+        "witness_experiment_id": "OSC-WAVETABLE"
+      },
+      "scope": {
+        "condition_signature_hash": "12dc2f522836863e",
+        "mutation_target_path": "Oscillator0.WTOsc0",
+        "mutation_value_used": {
+          "flex": {},
+          "numChannels": 1,
+          "numFrames": 251904,
+          "plainParams": {
+            "kParamTablePos": 129.72312396764755
+          },
+          "relativePathToWT": "S2 Tables/Analog/Square Drift 303.wav",
+          "sampleRate": 44100
+        },
+        "tested_context_only": true
+      },
+      "status": "CAUSAL_VERIFIED",
+      "target": "oscillator_field_OSC-WAVETABLE",
+      "verified": {
+        "causal": "EFFECT_OBSERVED",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "route_coexistence:e0c8c3be|93fed3266a501973": {
+      "allowed_operation": "unknown_operation",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": {
+        "baseline": 326.6,
+        "delta": 834.6,
+        "expected_direction": "increase",
+        "measurement_definition_id": "spectral_centroid_hz:f728e198ae8e",
+        "metric": "spectral_centroid_hz",
+        "observed_direction": "increase",
+        "status": "EFFECT_OBSERVED",
+        "target_field": "VoiceFilter0.plainParams.kParamFreq",
+        "threshold": 100.0,
+        "treatment": 1161.2
+      },
+      "prerequisites": [
+        {
+          "declared_value": 1.0,
+          "field_path": "host:Filter 1 On",
+          "must_hold_identical": true
+        },
+        {
+          "declared_value": "<Aardvark FXRack0>",
+          "field_path": "body:FXRack0",
+          "must_hold_identical": true
+        },
+        {
+          "declared_value": 1.0,
+          "field_path": "host:Macro 8",
+          "must_hold_identical": true
+        }
+      ],
+      "provenance": {
+        "claim_definition_id": "route_coexistence:e0c8c3be",
+        "condition_signature_hash": "93fed3266a501973",
+        "supporting_evidence": [
+          "E3"
+        ],
+        "witness_experiment_id": "E3"
+      },
+      "scope": {
+        "condition_signature_hash": "93fed3266a501973",
+        "mutation_target_path": null,
+        "mutation_value_used": null,
+        "tested_context_only": true
+      },
+      "status": "CAUSAL_VERIFIED",
+      "target": "route_coexistence",
+      "verified": {
+        "causal": "EFFECT_OBSERVED",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "voice_field_detune:28445195|12dc2f522836863e": {
+      "allowed_operation": "mutate_numeric_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "measurement": null,
+      "prerequisites": [],
+      "provenance": {
+        "claim_definition_id": "voice_field_detune:28445195",
+        "condition_signature_hash": "12dc2f522836863e",
+        "supporting_evidence": [
+          "VOICE-DETUNE"
+        ],
+        "witness_experiment_id": "VOICE-DETUNE"
+      },
+      "scope": {
+        "condition_signature_hash": "12dc2f522836863e",
+        "mutation_target_path": "VoicePanel0.plainParams.kParamVoice1Detune",
+        "mutation_value_used": 50.0,
+        "tested_context_only": true
+      },
+      "status": "STRUCTURAL_ONLY",
+      "target": "voice_field_detune",
+      "verified": {
+        "causal": "NOT_RUN",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    },
+    "voice_field_randompan:7f7fcf0e|15f13ec9fb316de5": {
+      "allowed_operation": "mutate_numeric_value",
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent",
+        "causal measurement WAS run and returned NO_OBSERVED_EFFECT under the tested condition -- this is an honest negative, not NOT_RUN, and this contract does not claim a causal effect"
+      ],
+      "measurement": {
+        "baseline": 0.5030448461830755,
+        "delta": -0.0030448461842894625,
+        "expected_direction": "increase",
+        "measurement_definition_id": "stereo_width:288e29e3c1eb",
+        "metric": "stereo_width",
+        "observed_direction": "none",
+        "status": "NO_OBSERVED_EFFECT",
+        "target_field": "VoicePanel0.plainParams.kParamGlobalRandomOscPan",
+        "threshold": 0.02,
+        "treatment": 0.4999999999987861
+      },
+      "prerequisites": [
+        {
+          "declared_value": 1.0,
+          "field_path": "host:A Unison",
+          "must_hold_identical": true
+        },
+        {
+          "declared_value": 0.0,
+          "field_path": "host:A Uni Width",
+          "must_hold_identical": true
+        }
+      ],
+      "provenance": {
+        "claim_definition_id": "voice_field_randompan:7f7fcf0e",
+        "condition_signature_hash": "15f13ec9fb316de5",
+        "supporting_evidence": [
+          "VOICE-RANDOMPAN"
+        ],
+        "witness_experiment_id": "VOICE-RANDOMPAN"
+      },
+      "scope": {
+        "condition_signature_hash": "15f13ec9fb316de5",
+        "mutation_target_path": "VoicePanel0.plainParams.kParamGlobalRandomOscPan",
+        "mutation_value_used": 100.0,
+        "tested_context_only": true
+      },
+      "status": "STRUCTURAL_ONLY",
+      "target": "voice_field_randompan",
+      "verified": {
+        "causal": "NO_OBSERVED_EFFECT",
+        "load": "PASS",
+        "persistence": "PASS"
+      }
+    }
+  },
+  "family_count": 32,
+  "family_inventory": {
+    "Arp": {
+      "claim_groups": [],
+      "evidence": [],
+      "family": "Arp",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "UNKNOWN"
+    },
+    "ArpClip": {
+      "claim_groups": [],
+      "evidence": [],
+      "family": "ArpClip",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "UNKNOWN"
+    },
+    "ClipPlayer": {
+      "claim_groups": [],
+      "evidence": [],
+      "family": "ClipPlayer",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "UNKNOWN"
+    },
+    "Env": {
+      "claim_groups": [
+        "envelope_field_attack:4df5877e",
+        "envelope_field_decay:bbb2e94e",
+        "envelope_field_sustain:4f171978",
+        "envelope_field_release:7aab5ce1"
+      ],
+      "evidence": [
+        "ENV-ATTACK",
+        "ENV-DECAY",
+        "ENV-SUSTAIN",
+        "ENV-RELEASE"
+      ],
+      "family": "Env",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "PERSISTENT"
+    },
+    "FXRack": {
+      "claim_groups": [
+        "modulation_route_fxdelay:2d6749fb",
+        "route_coexistence:e0c8c3be",
+        "fx_field_distortion_drive:f9cd78d8",
+        "fx_field_distortion_mode:f9cd78d8",
+        "fx_field_eq_freq1:f9cd78d8",
+        "fx_field_eq_kParamFreq2:f9cd78d8",
+        "fx_field_eq_kParamReso1:f9cd78d8",
+        "fx_field_eq_kParamReso2:f9cd78d8",
+        "fx_field_eq_kParamGain1:f9cd78d8",
+        "fx_field_eq_kParamGain2:f9cd78d8",
+        "fx_field_eq_kParamLevelOut:f9cd78d8",
+        "fx_field_eq_kParamType2:f9cd78d8",
+        "fx_field_eq_kParamType1:76d301bf"
+      ],
+      "evidence": [
+        "E2a",
+        "E2b",
+        "E3",
+        "FXDIST-DRIVE",
+        "FXDIST-MODE",
+        "FXEQ-FREQ1",
+        "FXEQ-KPARAMFREQ2",
+        "FXEQ-KPARAMRESO1",
+        "FXEQ-KPARAMRESO2",
+        "FXEQ-KPARAMGAIN1",
+        "FXEQ-KPARAMGAIN2",
+        "FXEQ-KPARAMLEVELOUT",
+        "FXEQ-KPARAMTYPE2",
+        "FXEQ-KPARAMTYPE1"
+      ],
+      "family": "FXRack",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "PERSISTENT"
+    },
+    "Global": {
+      "claim_groups": [
+        "global_field_mastervolume:f2ce8d90",
+        "global_field_oversampling:848a5cca",
+        "global_field_monotoggle:848a5cca"
+      ],
+      "evidence": [
+        "GLOBAL-MASTERVOLUME",
+        "GLOBAL-OVERSAMPLING",
+        "GLOBAL-MONOTOGGLE"
+      ],
+      "family": "Global",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "PERSISTENT"
+    },
+    "LFO": {
+      "claim_groups": [
+        "lfo_field_LFO-RATE:7b358c5a",
+        "lfo_field_LFO-SHAPE:7b358c5a",
+        "lfo_field_LFO-MODE:7b358c5a"
+      ],
+      "evidence": [
+        "LFO-RATE",
+        "LFO-SHAPE",
+        "LFO-MODE"
+      ],
+      "family": "LFO",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "PERSISTENT_STRUCTURAL"
+    },
+    "LFOPointModBus": {
+      "claim_groups": [],
+      "evidence": [],
+      "family": "LFOPointModBus",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "UNKNOWN"
+    },
+    "Macro": {
+      "claim_groups": [
+        "macro_field_value:df550d16",
+        "macro_field_name:6d7200b7"
+      ],
+      "evidence": [
+        "MACRO-VALUE",
+        "MACRO-NAME"
+      ],
+      "family": "Macro",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "PERSISTENT"
+    },
+    "MidiClip": {
+      "claim_groups": [],
+      "evidence": [],
+      "family": "MidiClip",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "UNKNOWN"
+    },
+    "ModSlot": {
+      "claim_groups": [
+        "modulation_route_voicefilter:da41f927",
+        "modulation_route_fxdelay:2d6749fb",
+        "route_coexistence:e0c8c3be",
+        "lfo_as_modulation_source:e0f31081",
+        "lfo_rate_dependent_route:6fcebe04"
+      ],
+      "evidence": [
+        "E0",
+        "E1",
+        "E2a",
+        "E2b",
+        "E3",
+        "SRC-6",
+        "SRC-25",
+        "SRC-26",
+        "SRC-27",
+        "SRC-29",
+        "SRC-31",
+        "LFO-RATE-DEP-6"
+      ],
+      "family": "ModSlot",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "PERSISTENT"
+    },
+    "Oscillator": {
+      "claim_groups": [
+        "oscillator_field_OSC-ENABLE:6b75eaa1",
+        "oscillator_field_OSC-OCTAVE:19404362",
+        "oscillator_field_OSC-VOLUME:1d367221",
+        "oscillator_field_OSC-WAVETABLE:516ebf72"
+      ],
+      "evidence": [
+        "OSC-ENABLE",
+        "OSC-OCTAVE",
+        "OSC-VOLUME",
+        "OSC-WAVETABLE"
+      ],
+      "family": "Oscillator",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "PERSISTENT"
+    },
+    "PitchQuantizer": {
+      "claim_groups": [],
+      "evidence": [],
+      "family": "PitchQuantizer",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "UNKNOWN"
+    },
+    "RetriggerState": {
+      "claim_groups": [],
+      "evidence": [],
+      "family": "RetriggerState",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "UNKNOWN"
+    },
+    "RoutingSlot": {
+      "claim_groups": [],
+      "evidence": [],
+      "family": "RoutingSlot",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "UNKNOWN"
+    },
+    "VoiceFilter": {
+      "claim_groups": [
+        "modulation_route_voicefilter:da41f927",
+        "route_coexistence:e0c8c3be",
+        "filter_field_reso:6da15f4e",
+        "filter_field_type:dbe3b9b0",
+        "lfo_as_modulation_source:e0f31081",
+        "lfo_rate_dependent_route:6fcebe04"
+      ],
+      "evidence": [
+        "E0",
+        "E1",
+        "E3",
+        "FILTER-RESONANCE",
+        "FILTER-TYPE",
+        "SRC-6",
+        "SRC-25",
+        "SRC-26",
+        "SRC-27",
+        "SRC-29",
+        "SRC-31",
+        "LFO-RATE-DEP-6"
+      ],
+      "family": "VoiceFilter",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "PERSISTENT"
+    },
+    "VoicePanel": {
+      "claim_groups": [
+        "voice_field_randompan:7f7fcf0e",
+        "voice_field_detune:28445195"
+      ],
+      "evidence": [
+        "VOICE-RANDOMPAN",
+        "VOICE-DETUNE"
+      ],
+      "family": "VoicePanel",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "PERSISTENT_STRUCTURAL"
+    },
+    "component": {
+      "claim_groups": [],
+      "evidence": [],
+      "family": "component",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "UNKNOWN"
+    },
+    "lfoPointModAssignments": {
+      "claim_groups": [],
+      "evidence": [],
+      "family": "lfoPointModAssignments",
+      "notes": "",
+      "open_mapping_decision": "v5 top-level 'lfoPointModAssignments' has no established v8 semantic mapping; carried forward as an open decision, not classified unsupported.",
+      "prerequisites": [],
+      "status": "MAPPING_DECISION_REQUIRED"
+    },
+    "lockOversampling": {
+      "claim_groups": [],
+      "evidence": [],
+      "family": "lockOversampling",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "UNKNOWN"
+    },
+    "lockTuning": {
+      "claim_groups": [],
+      "evidence": [],
+      "family": "lockTuning",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "UNKNOWN"
+    },
+    "midiMap": {
+      "claim_groups": [],
+      "evidence": [],
+      "family": "midiMap",
+      "notes": "",
+      "open_mapping_decision": "v5 top-level 'midiMap' has no established v8 semantic mapping; carried forward as an open decision, not classified unsupported.",
+      "prerequisites": [],
+      "status": "MAPPING_DECISION_REQUIRED"
+    },
+    "mpeConfig": {
+      "claim_groups": [],
+      "evidence": [],
+      "family": "mpeConfig",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "UNKNOWN"
+    },
+    "mpeEnabled": {
+      "claim_groups": [],
+      "evidence": [],
+      "family": "mpeEnabled",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "UNKNOWN"
+    },
+    "mpePitchBendRange": {
+      "claim_groups": [],
+      "evidence": [],
+      "family": "mpePitchBendRange",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "UNKNOWN"
+    },
+    "product": {
+      "claim_groups": [],
+      "evidence": [],
+      "family": "product",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "UNKNOWN"
+    },
+    "productVersion": {
+      "claim_groups": [],
+      "evidence": [],
+      "family": "productVersion",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "UNKNOWN"
+    },
+    "scalars": {
+      "claim_groups": [],
+      "evidence": [],
+      "family": "scalars",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "UNKNOWN"
+    },
+    "tags": {
+      "claim_groups": [],
+      "evidence": [],
+      "family": "tags",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "UNKNOWN"
+    },
+    "url": {
+      "claim_groups": [],
+      "evidence": [],
+      "family": "url",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "UNKNOWN"
+    },
+    "vendor": {
+      "claim_groups": [],
+      "evidence": [],
+      "family": "vendor",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "UNKNOWN"
+    },
+    "version": {
+      "claim_groups": [],
+      "evidence": [],
+      "family": "version",
+      "notes": "",
+      "open_mapping_decision": null,
+      "prerequisites": [],
+      "status": "UNKNOWN"
+    }
+  },
+  "freeze_id": "15.5-capability-frontier-freeze-v2",
+  "pipeline": [
+    "Serum 2.0.21",
+    "Experiment",
+    "EvidenceRecord",
+    "ClaimDefinition",
+    "ClaimGroup",
+    "CapabilityContract",
+    "Admission/Refusal"
+  ],
+  "status_counts": {
+    "CAUSAL_VERIFIED": 26,
+    "NEGATIVE_EVIDENCE": 3,
+    "STRUCTURAL_ONLY": 8
+  }
+}
