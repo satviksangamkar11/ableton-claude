@@ -1,0 +1,51 @@
+{
+  "step": "16.5.46",
+  "phase": "ADMIT_REPAIRED_SUSTAIN",
+  "status": "COMPLETE",
+  "date": "2026-09-06",
+  "evidence_id": "16.5.45-CORPUS-ENV-SUSTAIN-REVALIDATION",
+  "evidence_fingerprint": "b9484d370ae915b48f6905b91ca8820cb339aefb889f3c83df288a8d2dce8b60",
+  "assertions": {
+    "baseline_overrides": {
+      "exists": true,
+      "target_path": "Env0.plainParams.kParamDecay",
+      "value": 0.02,
+      "provenance": "16.5.45 shared Decay baseline"
+    },
+    "mutation": {
+      "target_path": "Env0.plainParams.kParamSustain",
+      "value": 0.3,
+      "provenance": "16.5.45 provenance-repaired Sustain"
+    },
+    "gates": {
+      "generation": "PASS",
+      "load": "PASS",
+      "render": "PASS",
+      "causal": "PASS",
+      "persistence": "PASS"
+    },
+    "runtime_verified": true,
+    "causal_measurement": {
+      "metric": "sustain_window_rms_db",
+      "baseline": -50.250373467038386,
+      "treatment": -44.488971611604775,
+      "delta": 5.761401855433611,
+      "expected_direction": "increase",
+      "observed_direction": "increase",
+      "threshold": 3.0,
+      "status": "EFFECT_OBSERVED",
+      "measurement_definition_id": "sustain_window_rms_db:c092f5a1078d"
+    }
+  },
+  "disposition": {
+    "gate_decision": {
+      "evidence_id": "16.5.45-CORPUS-ENV-SUSTAIN-REVALIDATION",
+      "disposition": "VALID",
+      "admissible": true,
+      "fingerprint": "b9484d370ae915b48f6905b91ca8820cb339aefb889f3c83df288a8d2dce8b60"
+    },
+    "ledger_verified": true,
+    "new_entry_created": false
+  },
+  "rationale": "16.5.46 completes admission of the provenance-repaired Sustain EvidenceRecord. The 16.5.45 revalidation successfully reproduced the causal effect from 16.5.43.2 while properly recording baseline_overrides in the EvidenceRecord.experiment field. This ensures the record can be correctly replayed and audited. All gates pass; runtime verification confirms; causal status is EFFECT_OBSERVED with RMS increase. Disposition ledger updated and gate admits the record."
+}

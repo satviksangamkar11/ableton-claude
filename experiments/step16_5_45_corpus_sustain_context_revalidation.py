@@ -46,6 +46,7 @@ CACHE = ROOT / "experiments" / "_corpus_cache.pkl"
 
 EXPECTED_CORPUS_HASH = "220cf7ee652d5c4e"
 ARTIFACT_OUT = ROOT / "experiments" / "16_5_45_CORPUS_SUSTAIN_CONTEXT_REVALIDATION.json"
+RECORD_PICKLE = ROOT / "experiments" / "_env_sustain_corpus_16_5_45_repaired_record.pkl"
 
 
 def main():
@@ -316,6 +317,18 @@ def main():
         json.dump(artifact, f, indent=2, default=str)
 
     print(f"  Artifact written: {ARTIFACT_OUT}")
+
+    # ----------------------------------------------------------------
+    # 9b. PICKLE RECORD
+    # ----------------------------------------------------------------
+
+    print()
+    print("Step 9b: Pickle repaired record...")
+
+    with RECORD_PICKLE.open("wb") as f:
+        pickle.dump(record, f)
+
+    print(f"  Record pickle written: {RECORD_PICKLE}")
 
     # ----------------------------------------------------------------
     # 10. FINAL REPORT

@@ -1,0 +1,29 @@
+{
+  "step": "16.5.47",
+  "repaired_evidence_id": "16.5.45-CORPUS-ENV-SUSTAIN-REVALIDATION",
+  "repaired_evidence_fingerprint": "b789577fafc5a6157a7ed0e204a03f926f3987ea8dd01acf90c96f4277340be9",
+  "sustain_contracts": [
+    {
+      "target": "envelope_field_sustain",
+      "status": "CAUSAL_VERIFIED",
+      "scope": "{'tested_context_only': True, 'condition_signature_hash': '2ad6168671cfac32', 'mutation_target_path': 'Env0.plainParams.kParamSustain', 'mutation_value_used': 0.3}",
+      "measurement": "{'metric': 'sustain_window_rms_db', 'target_field': 'Env0.plainParams.kParamSustain', 'baseline': np.float64(-18.833443855249048), 'treatment': np.float64(-39.74859438945201), 'delta': np.float64(-20.91515053420296), 'expected_direction': 'decrease', 'observed_direction': 'decrease', 'threshold': 3.0, 'status': 'EFFECT_OBSERVED', 'measurement_definition_id': 'sustain_window_rms_db:c092f5a1078d'}",
+      "prerequisites": "()",
+      "provenance": "{'claim_definition_id': 'envelope_field_sustain:4f171978', 'condition_signature_hash': '2ad6168671cfac32', 'supporting_evidence': ['ENV-SUSTAIN', '16.5.43.2-CORPUS-ENV-SUSTAIN-CORRECTED', '16.5.45-CORPUS-ENV-SUSTAIN-REVALIDATION'], 'witness_experiment_id': 'ENV-SUSTAIN'}",
+      "limitations": "(\"baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent\",)"
+    }
+  ],
+  "sustain_status": "CAUSAL_VERIFIED",
+  "mutation_target_exposed": true,
+  "measurement_definition_exposed": true,
+  "baseline_overrides_exposed": false,
+  "causal_verified_count_before": 26,
+  "causal_verified_count_after": 26,
+  "regressions": [],
+  "contract_tests": "21/21 PASS",
+  "admission_tests": "23/23 PASS",
+  "decision": "BLOCKED_SHARED_CONTEXT_PROVENANCE",
+  "serum_mutated": false,
+  "render_performed": false,
+  "new_evidence_created": false
+}
