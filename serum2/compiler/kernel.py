@@ -81,16 +81,45 @@ def dry_run(targets: List[str], contracts: Dict[Tuple[str, str], Any], *,
            proposed_prerequisites_verified: Optional[Dict[str, bool]] = None,
            base_body: Optional[Dict[str, Any]] = None,
            requested_value_overrides: Optional[Dict[str, Any]] = None) -> DryRunResult:
-    """16.1.1-16.1.4, plus 16.3.4 (context admission). Touches nothing outside
-    pure Python -- no Serum interaction happens in this function; base_body is
-    a plain dict the caller supplies (typically the raw skeleton, or a
-    caller-constructed context) purely for structural inspection.
+    """Pre-execution validation: admission, context, composition (16.1.1-16.1.4, 16.3.4).
 
-    16.5.7: requested_value_overrides maps capability_key -> caller-requested value.
-    When a key is present, its value replaces the witness value in the mutation plan
-    (STRUCTURAL_BIND_MODE). The caller is responsible for running structural_admit()
-    BEFORE calling dry_run; this function only records the override in the plan.
-    DryRunResult.execution_mode reports which mode was used.
+    Pure Python operation; NO Serum interaction. Touches nothing outside in-memory
+    data structures. Only construct_and_verify() actually executes Serum.
+
+    Validation pipeline (in order; first failure returns REFUSED result):
+    1. Exact semantic target admission (16.1.1): must be EXACT capability_key.
+       No fuzzy/family matching. Unknown targets are refused with reason "unknown_no_contract".
+    2. Context satisfaction (16.3.4): mutation paths must have required containers.
+       base_body is inspected only; not mutated.
+    3. Cross-contract conflicts (16.1.2): pairwise path relationship checks.
+       Same conflicts() logic used inside ExperimentSpec.validate() but applied across
+       N separate contracts here (not just within one spec).
+    4. Prerequisite composition (16.1.3): union with conflict detection.
+       If two contracts require the same field at different values, refused.
+    5. Mutation plan (16.1.4): deterministic sorted ordering.
+
+    Execution mode (16.5.7):
+    - WITNESS_MODE: all values come from contract.witness_value (caller-supplied overrides).
+    - STRUCTURAL_BIND_MODE: values come from requested_value_overrides (STRUCTURAL_BIND_MODE).
+      The resulting plan's values will differ from witness values; the EvidenceRecord
+      from construct_and_verify will be a FRESH observation, not causal claim inheritance.
+
+    Args:
+        targets: exact semantic capability keys (e.g., "oscillator_field_OSC-VOLUME").
+        contracts: dict of (defid, condition) -> CapabilityContract.
+        required_causal_map: optional {target: bool} to enforce CAUSAL_VERIFIED.
+        proposed_prerequisites_verified: optional {field_path: bool/value} for prerequisite
+          checking. If None and base_body supplied, extracted value-aware from base_body.
+        base_body: optional plain dict to inspect for context satisfaction.
+        requested_value_overrides: optional {capability_key: value} for STRUCTURAL_BIND_MODE.
+          Caller must run structural_admit() BEFORE calling dry_run; this function only
+          records the override in the plan (no validation here).
+
+    Returns:
+        DryRunResult.accepted == True if all gates pass (ready for construct_and_verify).
+        DryRunResult.accepted == False + reason/detail if any gate fails (refuse execution).
+        Even on REFUSED result, all intermediate data (admissions, predicted_paths)
+        is carried for error diagnostics.
     """
     required_causal_map = required_causal_map or {}
 
@@ -226,16 +255,61 @@ def dry_run(targets: List[str], contracts: Dict[Tuple[str, str], Any], *,
 def construct_and_verify(dry_run_result: DryRunResult, *, experiment_id: str,
                          measure_overall_rms: bool = True, skeleton=None,
                          baseline_overrides: Optional[List] = None):
-    """16.1.6/16.1.7. Builds exactly ONE ExperimentSpec from the accepted plan
-    and hands it to the EXISTING harness.run() -- construction (build_arm's
-    pathmerge.apply_path_value, which already carries 16.1.5's sparse/list
-    semantics) and verification (load/runtime/persistence/measurement gates)
-    both come from that single call. This function adds no epistemic logic of
-    its own; it only assembles the spec and reports the result.
+    """Execution: build ExperimentSpec from accepted plan and run harness (16.1.6/16.1.7).
 
-    control = skeleton (raw, unmutated). treatment = skeleton + full plan.
-    Refuses (raises) rather than silently proceeding if called on a REFUSED
-    dry run -- construction must never happen without a prior ACCEPT.
+    This is the ONLY function in the compiler that touches Serum. Calls harness.run()
+    which produces an EvidenceRecord with execution observation (load/persistence/causal gates).
+
+    Precondition: dry_run_result.accepted == True. Raises ValueError if not.
+    This enforces "dry_run BEFORE execute" discipline: no construction happens without
+    a prior ACCEPT, making failures auditable and repeatable.
+
+    Execution flow:
+    1. Assemble ONE ExperimentSpec from dry_run_result.mutation_plan (+ prerequisites, overrides).
+    2. Call harness.run(spec, skeleton=skeleton).
+       - harness builds two arms (control=skeleton, treatment=skeleton+mutations).
+       - renders both with DawDreamer (audio output).
+       - measures gates: load_status (did render), persistence_status (did store),
+         causal_measurements (did we observe effect via measurement).
+    3. Return EvidenceRecord carrying all gates and measurement snapshots.
+
+    Gate semantics (from returned EvidenceRecord):
+    - load_status (PASS/FAIL/NOT_RUN): Did Serum render the spec and produce audio?
+    - persistence_status (PASS/FAIL/NOT_RUN): Did mutations persist to saved state?
+    - causal_status (EFFECT_OBSERVED | NO_OBSERVED_EFFECT | WRONG_DIRECTION | NOT_RUN):
+      Did overall_rms_db (or other measurement) change in the expected direction?
+    - measurement: causal_measurements[0] carries the observation
+      (baseline, treatment, delta, expected_direction, observed_direction, threshold).
+
+    CRITICAL SEMANTIC NOTES:
+    - These gates observe THIS EXECUTION ONLY. They do NOT constitute capability claims.
+    - load_status PASS = Serum accepted the spec. Does NOT prove field works.
+    - persistence_status PASS = value was stored. Does NOT prove field has effect.
+    - causal_status EFFECT_OBSERVED = overall_rms changed. Does NOT prove field caused it.
+      Field causality requires CapabilityContract evidence + producer grounding logic.
+    - measurement dict is execution snapshot, not capability claim.
+      Carries measurement_condition_signature and measurement_definition_id for reproducibility.
+
+    Control vs Treatment:
+    - control: skeleton (baseline state, no mutations applied).
+    - treatment: skeleton + all mutations from mutation_plan (test state).
+    Both arms have prerequisites applied identically, so mutations are the ONLY difference.
+    This isolation is why harness.run() can attribute measurement differences to mutations.
+
+    Args:
+        dry_run_result: DryRunResult from dry_run() with accepted==True.
+        experiment_id: unique identifier for this execution (for EvidenceRecord).
+        measure_overall_rms: if True, add one MeasurementPlan for overall_rms_db metric.
+        skeleton: raw VST3 processor state [meta, body]. If None, captured from live Serum.
+        baseline_overrides: list of path->value overrides applied to BOTH control and treatment.
+
+    Returns:
+        EvidenceRecord: complete observation of this execution, including all gates and
+        measurement snapshots. Carries no interpretation (success/failure verdict is at
+        producer/knowledge loop layer, not here).
+
+    Raises:
+        ValueError: if dry_run_result.accepted == False (construction forbidden without ACCEPT).
     """
     if not dry_run_result.accepted:
         raise ValueError("construct_and_verify called on a REFUSED dry run "

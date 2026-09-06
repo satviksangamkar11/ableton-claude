@@ -33,34 +33,120 @@ from .kernel import (
 
 @dataclass(frozen=True)
 class ProducerResult:
+    """Single-field producer result answering six independent questions.
+
+    CRITICAL SEMANTIC DISTINCTIONS (from AUDIT_16_5_54_SEMANTICS.md):
+
+    1. Admission success (refusal_reason is None) ≠ causality proof
+       Checks resolution, context, bounds. Doesn't prove field effect.
+
+    2. Load success (load_status == PASS) ≠ field works
+       Serum accepted the spec. Doesn't mean field causes effect.
+
+    3. Persistence success (persistence_status == PASS) ≠ field is causal
+       Mutation was stored. May be structural-only or require context.
+
+    4. Execution-level effect (causal_status == EFFECT_OBSERVED) ≠ field caused it
+       Overall_rms changed. Could be this field or interaction. Field causality
+       requires CapabilityContract evidence (CAUSAL_VERIFIED) from knowledge loop.
+
+    5. Measurement dict (this execution) ≠ capability claim
+       Observation of this specific context. Capability claims live at contract layer.
+
+    6. succeeded() == True (gates passed) ≠ field is proven effective
+       Means: resolved+admitted+loaded+persisted+not refused.
+       Actual field causality verified by producer loop (form_prediction grounding).
+
+    Per honesty constraint: multi-field goals share ONE EvidenceRecord from one
+    construction. Per-field causal isolation would require N separate renders.
+    """
     # ---- identity ----
-    requested_name: str           # semantic name, e.g. "FXEQ.Freq1"
-    requested_value: Optional[Any]  # None = witness replay (WITNESS_MODE)
-    execution_mode: str           # WITNESS_MODE | STRUCTURAL_BIND_MODE
+    requested_name: str
+        # Semantic name, e.g. "FXEQ.Freq1" or "OSC1.Volume"
+    requested_value: Optional[Any]
+        # Value to set (STRUCTURAL_BIND_MODE) or None (WITNESS_MODE).
+    execution_mode: str
+        # WITNESS_MODE (value from contract) or STRUCTURAL_BIND_MODE (caller-provided).
 
-    # ---- resolution ----
-    resolved_ref: Optional[SemanticTargetRef]   # None on semantic resolution failure
-    resolved_path: Optional[str]  # concrete path in body, None if context unsatisfied
+    # ---- resolution gates (can I find this semantic target in this body?) ----
+    resolved_ref: Optional[SemanticTargetRef]
+        # SemanticTargetRef if found in SEMANTIC_TARGETS; None if semantic resolution failed.
+        # Prerequisite: must be non-None for all downstream execution.
+    resolved_path: Optional[str]
+        # Concrete path in supplied body (e.g., "Oscillator0.plainParams.kParamVolume").
+        # None means context not satisfied (required container/list element missing in body).
+        # Prerequisite: must be non-None for structural admission and construct_and_verify.
 
-    # ---- structural gate (question 1) ----
-    structural_status: str        # ACCEPT | REFUSE | UNKNOWN | NOT_CHECKED
-    structural_bounds: Optional[Any]  # StructuralProbeResult or None
+    # ---- structural gate (can I set this value?) ----
+    structural_status: str
+        # ACCEPT: value is within provable bounds.
+        # REFUSE: value violates provable bounds (may clamp, may reject).
+        # UNKNOWN: no structural records available to validate (data-driven lower bound).
+        # NOT_CHECKED: WITNESS_MODE (no validation needed; using contract value).
+        # Policy: In STRUCTURAL_BIND_MODE, REFUSE or UNKNOWN → refusal before dry_run/construct.
+    structural_bounds: Optional[Any]
+        # StructuralProbeResult with min/max/observed (STRUCTURAL_BIND_MODE only).
+        # None if WITNESS_MODE or structural admission not run.
 
-    # ---- execution gates (questions 2 & 3) ----
-    # From THIS execution's EvidenceRecord -- never from the witness contract.
-    load_status: str              # PASS | FAIL | NOT_RUN
-    persistence_status: str       # PASS | FAIL | NOT_RUN
-    causal_status: str            # EFFECT_OBSERVED | NO_OBSERVED_EFFECT | NOT_RUN | ...
+    # ---- execution gates (did I actually run Serum and what happened?) ----
+    # Source: From THIS execution's EvidenceRecord only. Never inherited from witness contract.
+    # Honesty: one produce() = one ExperimentSpec = one EvidenceRecord.
+    # Multi-field goals: all fields share ONE EvidenceRecord (one overall measurement, no per-field isolation).
+    load_status: str
+        # PASS: Both control and treatment arms rendered without error.
+        # FAIL: At least one arm failed to load/render (plugin error, invalid spec).
+        # NOT_RUN: construct_and_verify was not called (pre-execution refusal).
+        # Semantic: PASS = Serum accepted the spec. Does NOT prove field effect.
+    persistence_status: str
+        # PASS: All mutations stored exactly (per tolerant_equal) in resaved state.
+        # FAIL: At least one mutation differed (clamped, rejected, or not set).
+        # NOT_RUN: construct_and_verify not called or persistence not checked.
+        # Semantic: PASS = value was stored. Does NOT prove field has intended effect.
+        # Example: persistence PASS + causal NO_OBSERVED_EFFECT = mutation applied, no measured delta.
+    causal_status: str
+        # EFFECT_OBSERVED: delta ≥ threshold, direction matches expected (measurement gate PASS).
+        # NO_OBSERVED_EFFECT: absolute delta < threshold (measurement gate FAIL).
+        # WRONG_DIRECTION: delta ≥ threshold but opposite direction (measurement gate FAIL).
+        # NOT_RUN: measurement not taken (construct_and_verify not called).
+        # Semantic: This is OVERALL effect (usually overall_rms_db), not field-specific causality.
+        # Danger: EFFECT_OBSERVED does NOT prove THIS field caused it.
+        # Field causality requires CapabilityContract.status == CAUSAL_VERIFIED from knowledge loop.
     measurement: Optional[Dict[str, Any]]
+        # Execution snapshot: {"metric": str, "baseline": float, "treatment": float, "delta": float, "status": str}.
+        # None if NOT_RUN (construct_and_verify not called or measurement not taken).
+        # This is EXECUTION OBSERVATION, not a capability claim.
+        # Never automatically launders overall_rms change into field-specific causality.
 
-    # ---- refusal ----
+    # ---- pre-execution refusal gates ----
     refusal_reason: Optional[str]
+        # Structured key if any pre-execution gate failed (e.g., "unknown_no_contract", "CONTEXT_NOT_SATISFIED").
+        # None means: resolved_ref and resolved_path non-None, structural status acceptable, admission passed.
+        # Non-None → construct_and_verify was NOT called, record is None.
     refusal_detail: Optional[str]
+        # Human-readable explanation of refusal_reason.
 
-    # ---- source ----
-    record: Optional[Any]         # EvidenceRecord, or None if refused before execution
+    # ---- source of truth ----
+    record: Optional[Any]
+        # EvidenceRecord from construct_and_verify, or None if refused before execution.
+        # None means: pre-execution refusal (construct_and_verify never called).
+        # Presence of EvidenceRecord does NOT mean field is causal -- it's execution observation only.
+        # Carries measurement_condition_signature and measurement_definition_id for provenance.
 
     def succeeded(self) -> bool:
+        """Did all required execution gates pass?
+
+        Criteria: load_status == PASS AND persistence_status == PASS AND refusal_reason is None.
+
+        CRITICAL: succeeded() == True does NOT mean the field is causal.
+        It means: mutation was resolved, admitted, applied, and stored.
+        Whether that mutation CAUSED the measured effect requires:
+        1. CapabilityContract.status == CAUSAL_VERIFIED (from knowledge loop)
+        2. Producer loop form_prediction() check (grounding logic)
+        3. Matching measurement conditions and definition IDs
+
+        Danger zone: Never assume measurement["delta"] > 0 → field is causal.
+        That requires independent CapabilityContract evidence.
+        """
         return (
             self.load_status == "PASS"
             and self.persistence_status == "PASS"
@@ -245,31 +331,58 @@ class FieldResult:
 
 @dataclass(frozen=True)
 class GoalResult:
-    """Result of a multi-field producer goal.
+    """Result of a multi-field producer goal (2+ targets in one execution).
 
-    Construction is atomic: all fields compiled into one ExperimentSpec, one
-    Serum write, one EvidenceRecord. The per-field outcomes live in `fields`;
-    the shared gates (load/persistence/causal) live here.
+    ATOMIC CONSTRUCTION: All fields compiled into ONE ExperimentSpec, ONE Serum write,
+    ONE EvidenceRecord. Per-field pre-execution outcomes live in `fields`; shared
+    execution gates (load/persistence/causal) live here.
 
-    overall_execution_mode = STRUCTURAL_BIND_MODE if ANY field has a
-    requested_value override; WITNESS_MODE if all fields use witness values.
-    This is a coarse label for the whole plan -- inspect FieldResult.execution_mode
-    for per-field granularity.
+    Semantic separation:
+    - Per-field: semantic resolution, path resolution, structural admission, execution_mode.
+    - Shared: load_status, persistence_status, causal_status (from one EvidenceRecord).
+
+    Per the honesty constraint: goal measurement is OVERALL (usually overall_rms_db),
+    not per-field isolated. Field-level causality claims require CapabilityContract
+    evidence from the knowledge loop, not result measurement alone.
+
+    overall_execution_mode = STRUCTURAL_BIND_MODE if ANY field has a requested_value;
+    WITNESS_MODE if all use witness values. Coarse plan label; inspect
+    FieldResult.execution_mode for per-field granularity.
     """
     fields: Tuple[FieldResult, ...]
-    overall_accepted: bool         # False if any field caused a pre-execution refusal
-    overall_execution_mode: str    # coarse plan-level mode
-    # shared gates from the single EvidenceRecord
+        # Per-field outcomes (semantic, path, structural, execution_mode, refusal).
+    overall_accepted: bool
+        # False if ANY field caused a pre-execution refusal (goal refused entirely).
+    overall_execution_mode: str
+        # STRUCTURAL_BIND_MODE if any field has requested_value; WITNESS_MODE otherwise.
+    # Shared gates from the single EvidenceRecord:
     load_status: str
+        # PASS/FAIL/NOT_RUN: did Serum render both control and treatment arms?
     persistence_status: str
+        # PASS/FAIL/NOT_RUN: did Serum persist the mutations to state?
     causal_status: str
+        # EFFECT_OBSERVED/NO_OBSERVED_EFFECT/WRONG_DIRECTION/NOT_RUN: overall measurement result.
     measurement: Optional[Dict[str, Any]]
-    # refusal (pre-execution, stops construction entirely)
+        # Overall measurement snapshot (one per goal, not per field).
+    # Pre-execution refusal (stops entire goal):
     refusal_reason: Optional[str]
+        # Structured key if goal refused before construction (any field refusal refuses goal).
     refusal_detail: Optional[str]
+        # Human-readable explanation.
     record: Optional[Any]
+        # EvidenceRecord from construct_and_verify, or None if goal refused pre-execution.
 
     def succeeded(self) -> bool:
+        """Did all fields and gates pass?
+
+        Criteria: overall_accepted AND load == PASS AND persistence == PASS AND no refusal.
+
+        CRITICAL: succeeded() == True means all gates passed and fields were compiled.
+        It does NOT mean fields are causal -- that requires per-field CapabilityContract
+        evidence evaluation in the producer loop (form_prediction grounding).
+
+        Shared measurement is OVERALL effect, not per-field proof.
+        """
         return (
             self.overall_accepted
             and self.load_status == "PASS"
