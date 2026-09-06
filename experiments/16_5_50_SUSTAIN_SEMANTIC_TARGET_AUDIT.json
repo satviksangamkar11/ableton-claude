@@ -1,0 +1,22 @@
+{
+  "step": "16.5.50",
+  "semantic_target_added": "Env1.Sustain",
+  "capability_key": "envelope_field_sustain",
+  "capability_status": "CAUSAL_VERIFIED",
+  "semantic_resolution": "RESOLVED",
+  "resolved_contract_target": "envelope_field_sustain",
+  "resolved_mutation_target_path": "Env0.plainParams.kParamSustain",
+  "context_resolution": "RESOLVED",
+  "admission_correct_measurement": true,
+  "admission_wrong_measurement": true,
+  "unknown_target_refused": true,
+  "producer_resolution": "VERIFIED",
+  "serum_mutated": false,
+  "render_performed": false,
+  "new_evidence_created": false,
+  "regressions": [
+    "Capability contracts test",
+    "Capability admission test"
+  ],
+  "decision": "SEMANTIC_TARGET_REGISTERED_CONTEXT_RESOLVED"
+}
