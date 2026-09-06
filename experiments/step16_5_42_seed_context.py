@@ -24,6 +24,9 @@ Gate:
 
 from __future__ import annotations
 
+import sys
+sys.path.insert(0, r"D:\ableton claude")
+
 import copy
 import hashlib
 import json

@@ -1,0 +1,85 @@
+{
+  "step": "16.5.42",
+  "status": "PASS",
+  "environment": {
+    "serum_vst3": "C:\\Program Files\\Common Files\\VST3\\Serum2.vst3",
+    "sample_rate": 44100,
+    "block_size": 512,
+    "stimulus": {
+      "note": 48,
+      "velocity": 110,
+      "note_len": 1.8,
+      "render_seconds": 2.0
+    }
+  },
+  "contexts": {
+    "canonical_native": {
+      "name": "canonical",
+      "state_hash": "fe45bdd8c3518d45",
+      "state_file_sha256": "b8906e8a42c71a365d11743c6b1c70d45686b09bf20078f3d48aaba5eed2e5e0",
+      "state_file_bytes": 1778,
+      "top_level_key_count": 162,
+      "roundtrip_state_hash": "fe45bdd8c3518d45",
+      "roundtrip_processor_state_valid": true,
+      "audio": {
+        "raw_audio_sha256": "8a212ccaf48e6465eda203f320fd30bb13e608c0a36575733a17507c143ceec4",
+        "shape": [
+          2,
+          88200
+        ],
+        "dtype": "float32",
+        "sample_rate": 44100,
+        "channels": 2,
+        "samples": 88200,
+        "duration_seconds": 2.0,
+        "rms_db": -19.248245789427283,
+        "peak": 0.28558236360549927,
+        "spectral_centroid_hz": 3832.015078299351
+      }
+    },
+    "normalized_corpus": {
+      "name": "normalized_corpus",
+      "state_hash": "220cf7ee652d5c4e",
+      "state_file_sha256": "21c3cf4bf04b471185ef702c00bc107e49364600e08d0ef2e64cd04e91fbd3ac",
+      "state_file_bytes": 7528,
+      "top_level_key_count": 176,
+      "roundtrip_state_hash": "d3dc6ca1d7e2b35c",
+      "roundtrip_processor_state_valid": true,
+      "audio": {
+        "raw_audio_sha256": "a9f193ce9fcee6daf1ace65560b66ba847f7e4a34ecd046722536e5d7fcf5d1c",
+        "shape": [
+          2,
+          88200
+        ],
+        "dtype": "float32",
+        "sample_rate": 44100,
+        "channels": 2,
+        "samples": 88200,
+        "duration_seconds": 2.0,
+        "rms_db": -24.50250944006256,
+        "peak": 0.40556538105010986,
+        "spectral_centroid_hz": 3557.8590841642445
+      }
+    }
+  },
+  "comparison": {
+    "state_hashes_differ": true,
+    "raw_audio_identical": false,
+    "max_abs_audio_difference": 0.51521235704422,
+    "audio_distinct": true
+  },
+  "lineage": {
+    "canonical": "fresh Serum 2.0.21 save_state()",
+    "normalized_corpus": "experiments/_corpus_cache.pkl bodies[4] + native processor component, reusing the 16.5.36 processor-flavor boundary"
+  },
+  "admission": {
+    "canonical_valid": true,
+    "normalized_corpus_valid": true,
+    "canonical_roundtrip_valid": true,
+    "normalized_corpus_roundtrip_valid": true,
+    "canonical_rendered": true,
+    "normalized_corpus_rendered": true,
+    "state_distinction_proven": true,
+    "audio_distinction_proven": true
+  }
+}
