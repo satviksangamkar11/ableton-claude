@@ -272,6 +272,7 @@ def run(spec: ExperimentSpec, skeleton=None):
         experiment={
             "mutations": [asdict(m) for m in spec.mutations],
             "prerequisites": [asdict(p) for p in spec.prerequisites],
+            "baseline_overrides": [asdict(m) for m in spec.baseline_overrides],
             "isolation_level": spec.isolation_level,
             "claim_subject": spec.claim_subject,
             "claim_predicate": spec.claim_predicate,
