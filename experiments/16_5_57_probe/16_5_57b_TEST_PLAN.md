@@ -213,69 +213,70 @@ All tests below use ONLY a disposable scratch set created for this purpose. Afte
 
 ---
 
-### Q8: Rendering (Master + Stems)
+### Q8: Audio Capture (Real-Time Resampling)
 
-**Objective**: Verify that the scratch set can be rendered to master audio file and separate stems.
+**⚠️ CRITICAL CORRECTION**: `render_to_file(set_path, master_path, stem_paths)` **DOES NOT EXIST** in AbletonMCP.
+
+AbletonMCP exposes `record_section()`, which captures audio in **real time** by routing Live's Main output to a resampling track and recording into an audio clip. This is fundamentally different from File → Export Audio.
+
+**Objective**: Verify that audio can be captured from the scratch set using the available MCP mechanism (`record_section`).
 
 **Setup**:
 1. Use scratch set from Q6/Q7 with at least one note playing through Serum
-2. Render output paths:
-   - Master: `[scratchpad]/16_5_57b_master.wav`
-   - Stem 1 (track 1): `[scratchpad]/16_5_57b_stem_track1.wav`
+2. Expected audio duration: ~4 bars at 124 BPM ≈ 7.7 seconds (recording duration TBD by implementation)
 
 **Test Steps**:
 
 | Step | Action | Expected | Record |
 |---|---|---|---|
-| 1 | Call `render_to_file(set_path, master_path, stem_paths=[...])` | Render starts | `render_initiated: true`, `render_command: {command_text}` |
-| 2 | Wait for render completion (poll or callback) | Files appear on disk | `render_completed: true`, `completion_time_seconds: {time}` |
-| 3 | Verify master file exists and is non-empty | File size > 100 KB | `master_file_exists: true`, `master_file_size: {bytes}` |
-| 4 | Verify stem files exist and are non-empty | Each stem > 50 KB | `stem_files_exist: true`, `stem_file_sizes: {[sizes]}` |
-| 5 | Calculate file hashes | Track identity across reruns | `master_hash: "<sha256>"`, `stem_hashes: [...]` |
-| 6 | Decode audio frame count from WAV headers | Verify audio content | `master_frame_count: {frames}`, `master_duration_seconds: {seconds}` |
-| 7 | Spot-check: Play master audio and verify Serum sound is audible | Not silent / white noise | `audible_content: true`, `recognizable_as_serum: true` |
+| 1 | Call `record_section(start_time_beats, duration_beats)` | Recording initiated; transport starts | `recording_initiated: true`, `record_command: {details}` |
+| 2 | Wait for recording to complete (duration expires) | Transport stops; audio track appears | `recording_completed: true`, `completion_time_seconds: {time}` |
+| 3 | Verify audio clip exists on resampling track | Clip visible, non-empty | `audio_clip_exists: true`, `clip_duration_beats: {duration}` |
+| 4 | Export audio clip to WAV file (separate File → Export call) | WAV file appears on disk | `export_to_wav_attempted: true`, `file_exists: true`, `file_size: {bytes}` |
+| 5 | Decode WAV frame count and verify non-silent | Frame count > 0, not silent | `duration_seconds: {seconds}`, `is_silent: false` |
+| 6 | Spot-check: Analyze audio content for Serum-recognizable features | Audible, not white noise | `contains_recognizable_audio: true` |
 
 **Success Criteria**:
-- Render completes without error
-- Master file is non-empty and contains audio
-- Stems are recoverable as separate files
-- Audio is audible and recognizable
-- Do NOT accept silent files even if render says "completed successfully"
+- `record_section` call completes without error
+- Audio clip appears on resampling track
+- Exported WAV file is non-empty and non-silent
+- Audio is recognizable as synthesized content
+
+**Known Limitations**:
+- `record_section` captures in real time; production may be time-limited by MCP
+- Master-only capture; individual stem routing not yet confirmed available
+- Requires separate File → Export call for WAV output
+- This mechanism does NOT match 16.6's "render automatically" requirement; marked for follow-up
 
 **Record Template**:
 ```json
 {
   "q8_result": {
-    "interface_discovered": true,
+    "interface_discovered": "record_section exists in MCP",
     "operation_attempted": true,
-    "operation_succeeded": null,  // fill after test
-    "render_initiated": true,
-    "render_command": "<command_text>",
-    "render_completed": true,
-    "completion_time_seconds": <float>,
+    "operation_succeeded": null,
+    "mechanism_used": "record_section (real-time resampling)",
+    "mechanism_limitation": "real-time only; max 5 min per AbletonMCP docs; not equivalent to File→Export",
     "artifacts": [
       {
-        "type": "master",
-        "file_path": "[scratchpad]/16_5_57b_master.wav",
+        "type": "resampling_audio_clip",
+        "track_name": "Resampling Track (created by record_section)",
+        "duration_beats": <float>,
+        "exists": true
+      },
+      {
+        "type": "exported_wav",
+        "file_path": "[scratchpad]/16_5_57b_master_captured.wav",
         "exists": true,
         "file_size_bytes": <int>,
         "sha256": "<hash>",
         "duration_seconds": <float>,
-        "frame_count": <int>,
         "is_silent": false,
         "contains_recognizable_audio": true
-      },
-      {
-        "type": "stem",
-        "stem_name": "track_1",
-        "file_path": "[scratchpad]/16_5_57b_stem_track1.wav",
-        "exists": true,
-        "file_size_bytes": <int>,
-        "sha256": "<hash>"
       }
     ],
-    "limitations": "Ableton render may complete but produce silent file; verify audio content empirically",
-    "exact_mechanism": "render_to_file(set_path, master_path, stem_paths) → wait → verify files → decode WAV headers → spot-check audio"
+    "limitations": "Mechanism used is real-time recording, not File→Export. Unsuitable for 16.6's automatic render requirement unless wrapped in automation.",
+    "exact_mechanism": "record_section(start, duration) → transport runs → export audio clip to WAV"
   }
 }
 ```

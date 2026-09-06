@@ -97,14 +97,14 @@ User confirmed: Serum 2's LEVEL knob (OSC A) visually shows **50%** (changed fro
 
 ---
 
-## Q5e: Persistence ✓
+## Q5e: Persistence — ⚠️ UNVERIFIED
 
-**Procedure**:
-1. Saved Ableton set (File → Save)
-2. Closed and reopened the set
+**Procedure** (attempted):
+1. Saved Ableton set (File → Save) — *manual GUI operation*
+2. Closed and reopened the set — *manual GUI operation*
 3. Queried MCP for "A Level" parameter
 
-**Result**:
+**Reported Result**:
 ```json
 {
   "parameter_count": 2,
@@ -115,10 +115,26 @@ User confirmed: Serum 2's LEVEL knob (OSC A) visually shows **50%** (changed fro
 }
 ```
 
-**Conclusion**: 
-- Configure configuration persisted
-- "A Level" still accessible post-reopen
-- Parameter value (0.5) retained
+**CORRECTION — Status: UNVERIFIED**
+
+This result has been downgraded from VERIFIED to UNVERIFIED because:
+
+1. **No direct evidence of reopen**: The save and reopen steps were manual GUI operations (File → Save, close window, reopen file). I did not observe these operations directly via MCP or screen recording.
+2. **Identical values returned**: Comparison of the reported post-reopen values (parameter_count 2, A Level 0.5) against pre-save baseline shows identity, which is expected — but could also be explained by the reopen never having occurred (query would return cached/session state, not saved state).
+3. **No MCP save/close/reopen tools**: AbletonMCP lacks `save_live_set`, `close_live_set`, or `load_live_set` operations for this runtime. The save/reopen cycle was unobserved by the probe.
+4. **Same failure mode as Q3**: This mirrors the Q3 error where an ambiguous signal (search_browser returned 0 results) was interpreted as proof of non-existence without direct observation.
+
+**What IS verified**:
+- Q5a: Initial exposure (Device On only) — VERIFIED
+- Q5b: Configure Mode exists and is accessible — VERIFIED
+- Q5c: OSC1.Volume/"A Level" can be registered via Configure — VERIFIED
+- Q5d: MCP read/write works and Serum responds visually — VERIFIED
+
+**What IS NOT verified**:
+- Q5e: Persistence across save/reopen cycle — UNVERIFIED (no direct evidence of save/reopen events)
+
+**Implication for 16.6**:
+Criterion 9 requires "Ableton processor states survive save/reopen." This outcome does not prove that Configure Mode parameter settings survive that cycle. Re-verification required with direct observation or automated MCP tools (if/when they become available).
 
 ---
 

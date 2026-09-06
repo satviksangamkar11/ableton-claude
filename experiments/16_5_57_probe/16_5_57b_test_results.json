@@ -117,10 +117,22 @@
   },
   "summary": {
     "q3_correction": "COMPLETE — Q3 corrected from BLOCKED to YES (probe method error fixed)",
-    "q5_results": "COMPLETE — Host parameter control architecture proven viable",
-    "q5_details": "Configure Mode + AbletonMCP enables read/write of Serum parameters; configuration persists; no processor-state workaround needed",
-    "q6_q9_status": "Deferred pending 16.5.57b priority",
+    "q1_binary_hash": "NOT_RE-VERIFIED — Prior observation (019a648) valid for that session only; current-runtime verification deferred to 16.5.60A activation",
+    "q5_results": "COMPLETE with CORRECTIONS — Host parameter control architecture proven viable for tested parameter",
+    "q5_scope_correction": "Q5a-Q5d VERIFIED; Q5e downgraded to UNVERIFIED (no direct evidence of save/reopen cycle)",
+    "q5_details": "Configure Mode + AbletonMCP enables read/write of OSC1.Volume/'A Level' parameter only; persistence across save/reopen cycle UNVERIFIED",
+    "q8_correction": "CRITICAL: render_to_file() does NOT exist in AbletonMCP. Available mechanism is record_section (real-time resampling, max 5 min), not File→Export",
+    "q6_q9_status": "Deferred pending 16.5.57b priority and Q7b processor-state probe results",
     "frontier_impact": "No change (37 contracts; 26 CAUSAL_VERIFIED, 8 STRUCTURAL_ONLY, 3 NEGATIVE_EVIDENCE)",
-    "path_to_q5_complete_results": "experiments/16_5_57_probe/Q5_RESULTS_COMPLETE.md"
+    "corrections_applied": [
+      "16_5_57b_TEST_PLAN.md — Q8 section rewritten to document render_to_file() absence and record_section() alternative",
+      "Q5_RESULTS_COMPLETE.md — Q5e downgraded from VERIFIED to UNVERIFIED with rationale",
+      "Q1_BINARY_HASH_CORRECTION.md — New document marking hash verification as not-re-verified for this runtime"
+    ],
+    "path_to_q5_complete_results": "experiments/16_5_57_probe/Q5_RESULTS_COMPLETE.md",
+    "path_to_corrections": [
+      "experiments/16_5_57_probe/Q1_BINARY_HASH_CORRECTION.md",
+      "experiments/16_5_57_probe/16_5_57b_TEST_PLAN.md (Q8 section)"
+    ]
   }
 }
