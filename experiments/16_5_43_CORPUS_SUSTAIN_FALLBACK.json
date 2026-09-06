@@ -1,0 +1,298 @@
+{
+  "step": "16.5.43",
+  "phase": "CORPUS_SUSTAIN_FALLBACK",
+  "status": "FAIL",
+  "purpose": "Fallback qualification for normalized corpus context after Env Release NO_OBSERVED_EFFECT",
+  "context": "normalized_corpus",
+  "seed_hash": "220cf7ee652d5c4e",
+  "expected_seed_hash": "220cf7ee652d5c4e",
+  "seed_hash_matches": true,
+  "environment": {
+    "serum_vst3": "C:\\Program Files\\Common Files\\VST3\\Serum2.vst3",
+    "sample_rate": 44100,
+    "block_size": 512
+  },
+  "experiment": {
+    "id": "16.5.43-normalized_corpus-ENV-SUSTAIN-FALLBACK",
+    "capability": "Env Sustain",
+    "source": "experiments/step15_2_1_sustain.py",
+    "mutation": "Env0.plainParams.kParamSustain = 0.3",
+    "baseline_override": "Env0.plainParams.kParamDecay = 0.02",
+    "isolation_level": "SINGLE_FIELD",
+    "metric": "sustain_window_rms_db",
+    "direction": "decrease",
+    "threshold": 3.0
+  },
+  "qualification": {
+    "gates": {
+      "generation": "PASS",
+      "load": "PASS",
+      "render": "PASS",
+      "causal": "FAIL",
+      "persistence": "PASS"
+    },
+    "runtime_verified": true,
+    "matches_intent": true,
+    "causal_measurement": {
+      "baseline": -50.250373467038386,
+      "treatment": -44.488971611604775,
+      "delta": 5.761401855433611,
+      "observed_direction": "increase",
+      "status": "WRONG_DIRECTION"
+    },
+    "persistence": "PASS"
+  },
+  "failures": [
+    "causal='FAIL', expected 'PASS'",
+    "causal status='WRONG_DIRECTION'",
+    "observed_direction='increase', expected 'decrease'"
+  ],
+  "record": {
+    "experiment_id": "16.5.43-normalized_corpus-ENV-SUSTAIN-FALLBACK",
+    "gates": {
+      "generation": "PASS",
+      "load": "PASS",
+      "render": "PASS",
+      "causal": "FAIL",
+      "persistence": "PASS"
+    },
+    "runtime_verified": true,
+    "outcome_signature": "NO_OBSERVED_EFFECT",
+    "state_observation": {
+      "status": "PASS",
+      "matches_intent": true,
+      "top_level_ok": true,
+      "fine_grained_ok": true,
+      "diff_keys": [
+        "Env0"
+      ],
+      "intended_targets": [
+        "Env0.plainParams.kParamSustain"
+      ],
+      "control_hash": "a1e04f67de213a59",
+      "treatment_hash": "e511b5c5d824be52"
+    },
+    "load_observation": {
+      "status": "PASS",
+      "ok": true,
+      "control_error": null,
+      "treatment_error": null
+    },
+    "render_observation": {
+      "status": "PASS"
+    },
+    "persistence_observation": {
+      "status": "PASS",
+      "checked": true,
+      "exact_match": true,
+      "detail": {
+        "Env0.plainParams.kParamSustain": true
+      }
+    },
+    "runtime_verifications": [
+      {
+        "verified": true,
+        "failures": [],
+        "observations": []
+      }
+    ],
+    "causal_measurements": [
+      {
+        "metric": "sustain_window_rms_db",
+        "target": {
+          "field_path": "Env0.plainParams.kParamSustain",
+          "module": "Env",
+          "parameter": "kParamSustain"
+        },
+        "baseline": -50.250373467038386,
+        "treatment": -44.488971611604775,
+        "delta": 5.761401855433611,
+        "expected_direction": "decrease",
+        "observed_direction": "increase",
+        "threshold": 3.0,
+        "status": "WRONG_DIRECTION",
+        "measurement_condition_signature": {
+          "experiment_hash": "2ad6168671cfac32",
+          "stimulus": {
+            "note": 60,
+            "note_len": 1.8,
+            "render_seconds": 2.0,
+            "velocity": 110
+          },
+          "hash": "74a16c3bf4ac6bb3"
+        },
+        "measurement_definition_id": "sustain_window_rms_db:c092f5a1078d"
+      }
+    ],
+    "evidence_record": {
+      "experiment_id": "16.5.43-normalized_corpus-ENV-SUSTAIN-FALLBACK",
+      "epoch": {
+        "serum_binary_sha256": "7978c9be5b2107e985c24c174000faee87e11483ec989d81dc61b5829b45ed70",
+        "execution_harness_revision": "8797efa0cf6c1f7a4540395e36aed503116bffefedec6fd195c5b7c8708b32f3",
+        "dependency_lock": {
+          "dawdreamer": "0.9.0",
+          "cbor2": "unknown",
+          "zstandard": "0.25.0",
+          "numpy": "2.4.4",
+          "python": "3.14.3"
+        },
+        "environment_fingerprint": {
+          "platform": "Windows-11-10.0.26200-SP0",
+          "machine": "AMD64",
+          "processor": "AMD64 Family 25 Model 116 Stepping 1, AuthenticAMD",
+          "python_build": "tags/v3.14.3:323c59a Feb  3 2026 16:04:56",
+          "sample_rate": 44100,
+          "block_size": 512
+        },
+        "execution_epoch_id": "3fbc696f694d8474",
+        "evidence_epoch_id": "3fbc696f694d8474",
+        "derivation_revision": "10f90bc72dd78363"
+      },
+      "experiment": {
+        "mutations": [
+          {
+            "target_path": "Env0.plainParams.kParamSustain",
+            "value": 0.3,
+            "provenance": "16.5.43 corpus fallback: sustain after Release NO_OBSERVED_EFFECT"
+          }
+        ],
+        "prerequisites": [],
+        "isolation_level": "single_field",
+        "claim_subject": "envelope_field:Env.kParamSustain",
+        "claim_predicate": "produces_measurable_effect",
+        "experiment_condition_signature": {
+          "prerequisites": [],
+          "baseline_overrides": [
+            [
+              "Env0.plainParams.kParamDecay",
+              "0.02"
+            ]
+          ],
+          "hash": "2ad6168671cfac32"
+        },
+        "measurement_condition_signatures": [
+          {
+            "experiment_hash": "2ad6168671cfac32",
+            "stimulus": {
+              "note": 60,
+              "note_len": 1.8,
+              "render_seconds": 2.0,
+              "velocity": 110
+            },
+            "hash": "74a16c3bf4ac6bb3"
+          }
+        ],
+        "mutation_signature": "b452a1fd6d6e7ac2",
+        "notes": "Exact 15.2.1 specification on normalized corpus seed. Fallback after corpus Release NO_OBSERVED_EFFECT. Control: implicit default Sustain=1.0. Treatment: Sustain=0.3. Both arms use Decay=0.02s."
+      },
+      "arms": [
+        {
+          "arm_id": "arm_control",
+          "role": "control",
+          "declared_context": {},
+          "observed_context": [],
+          "state_observation": {
+            "state_hash": "a1e04f67de213a59"
+          },
+          "load_status": "PASS",
+          "render_status": "PASS",
+          "artifacts": {}
+        },
+        {
+          "arm_id": "arm_treatment",
+          "role": "treatment",
+          "declared_context": {},
+          "observed_context": [],
+          "state_observation": {
+            "state_hash": "e511b5c5d824be52"
+          },
+          "load_status": "PASS",
+          "render_status": "PASS",
+          "artifacts": {}
+        }
+      ],
+      "runtime_verifications": [
+        {
+          "verified": true,
+          "failures": [],
+          "observations": []
+        }
+      ],
+      "state_observation": {
+        "status": "PASS",
+        "matches_intent": true,
+        "top_level_ok": true,
+        "fine_grained_ok": true,
+        "diff_keys": [
+          "Env0"
+        ],
+        "intended_targets": [
+          "Env0.plainParams.kParamSustain"
+        ],
+        "control_hash": "a1e04f67de213a59",
+        "treatment_hash": "e511b5c5d824be52"
+      },
+      "load_observation": {
+        "status": "PASS",
+        "ok": true,
+        "control_error": null,
+        "treatment_error": null
+      },
+      "render_observation": {
+        "status": "PASS"
+      },
+      "causal_measurements": [
+        {
+          "metric": "sustain_window_rms_db",
+          "target": {
+            "field_path": "Env0.plainParams.kParamSustain",
+            "module": "Env",
+            "parameter": "kParamSustain"
+          },
+          "baseline": -50.250373467038386,
+          "treatment": -44.488971611604775,
+          "delta": 5.761401855433611,
+          "expected_direction": "decrease",
+          "observed_direction": "increase",
+          "threshold": 3.0,
+          "status": "WRONG_DIRECTION",
+          "measurement_condition_signature": {
+            "experiment_hash": "2ad6168671cfac32",
+            "stimulus": {
+              "note": 60,
+              "note_len": 1.8,
+              "render_seconds": 2.0,
+              "velocity": 110
+            },
+            "hash": "74a16c3bf4ac6bb3"
+          },
+          "measurement_definition_id": "sustain_window_rms_db:c092f5a1078d"
+        }
+      ],
+      "persistence_observation": {
+        "status": "PASS",
+        "checked": true,
+        "exact_match": true,
+        "detail": {
+          "Env0.plainParams.kParamSustain": true
+        }
+      },
+      "integrity": {
+        "synthetic": false,
+        "contradictions": [],
+        "relationships": [],
+        "reverify_required": false
+      },
+      "structural_observation": {},
+      "_gate_completeness": {
+        "generation": "PASS",
+        "load": "PASS",
+        "render": "PASS",
+        "causal": "FAIL",
+        "persistence": "PASS"
+      },
+      "_outcome_signature": "NO_OBSERVED_EFFECT"
+    }
+  },
+  "rationale": "16.5.43 gate (frozen plan): normalized corpus Env Release produced NO_OBSERVED_EFFECT. Fallback tests Env Sustain using exact 15.2.1 historical spec. Sustain qualifies only if all gates pass (EFFECT_OBSERVED, decrease direction, persistence PASS). If this fails, do not promote any other duration control."
+}

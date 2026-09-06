@@ -1,0 +1,1073 @@
+{
+  "step": "16.5.43",
+  "status": "FAIL",
+  "purpose": "Foundational current capability revalidation in both admitted seed contexts",
+  "environment": {
+    "serum_vst3": "C:\\Program Files\\Common Files\\VST3\\Serum2.vst3",
+    "sample_rate": 44100,
+    "block_size": 512
+  },
+  "seed_contexts": {
+    "canonical_native": {
+      "expected_state_hash": "fe45bdd8c3518d45",
+      "actual_state_hash": "fe45bdd8c3518d45",
+      "artifact_state_hash": "fe45bdd8c3518d45"
+    },
+    "normalized_corpus": {
+      "expected_state_hash": "220cf7ee652d5c4e",
+      "actual_state_hash": "220cf7ee652d5c4e",
+      "artifact_state_hash": "220cf7ee652d5c4e"
+    }
+  },
+  "results": {
+    "canonical_native": {
+      "global_mastervolume": {
+        "qualified": true,
+        "failures": [],
+        "record": {
+          "experiment_id": "16.5.43-canonical_native-GLOBAL-MASTERVOLUME",
+          "gates": {
+            "generation": "PASS",
+            "load": "PASS",
+            "render": "PASS",
+            "causal": "PASS",
+            "persistence": "PASS"
+          },
+          "runtime_verified": true,
+          "outcome_signature": "EFFECT",
+          "state_observation": {
+            "status": "PASS",
+            "matches_intent": true,
+            "top_level_ok": true,
+            "fine_grained_ok": true,
+            "diff_keys": [
+              "Global0"
+            ],
+            "intended_targets": [
+              "Global0.plainParams.kParamMasterVolume"
+            ],
+            "control_hash": "fe45bdd8c3518d45",
+            "treatment_hash": "700aff1c7977f502"
+          },
+          "load_observation": {
+            "status": "PASS",
+            "ok": true,
+            "control_error": null,
+            "treatment_error": null
+          },
+          "render_observation": {
+            "status": "PASS"
+          },
+          "persistence_observation": {
+            "status": "PASS",
+            "checked": true,
+            "exact_match": true,
+            "detail": {
+              "Global0.plainParams.kParamMasterVolume": true
+            }
+          },
+          "runtime_verifications": [
+            {
+              "verified": true,
+              "failures": [],
+              "observations": []
+            }
+          ],
+          "causal_measurements": [
+            {
+              "metric": "overall_rms_db",
+              "target": {
+                "field_path": "Global0.plainParams.kParamMasterVolume",
+                "module": null,
+                "parameter": null
+              },
+              "baseline": -19.248245789506942,
+              "treatment": -26.23365813883149,
+              "delta": -6.985412349324548,
+              "expected_direction": "decrease",
+              "observed_direction": "decrease",
+              "threshold": 3.0,
+              "status": "EFFECT_OBSERVED",
+              "measurement_condition_signature": {
+                "experiment_hash": "12dc2f522836863e",
+                "stimulus": {
+                  "note": 48,
+                  "note_len": 1.8,
+                  "render_seconds": 2.0,
+                  "velocity": 110
+                },
+                "hash": "4e54ff8162b389d9"
+              },
+              "measurement_definition_id": "overall_rms_db:3b6affd5a7fc"
+            }
+          ],
+          "evidence_record": {
+            "experiment_id": "16.5.43-canonical_native-GLOBAL-MASTERVOLUME",
+            "epoch": {
+              "serum_binary_sha256": "7978c9be5b2107e985c24c174000faee87e11483ec989d81dc61b5829b45ed70",
+              "execution_harness_revision": "8797efa0cf6c1f7a4540395e36aed503116bffefedec6fd195c5b7c8708b32f3",
+              "dependency_lock": {
+                "dawdreamer": "0.9.0",
+                "cbor2": "unknown",
+                "zstandard": "0.25.0",
+                "numpy": "2.4.4",
+                "python": "3.14.3"
+              },
+              "environment_fingerprint": {
+                "platform": "Windows-11-10.0.26200-SP0",
+                "machine": "AMD64",
+                "processor": "AMD64 Family 25 Model 116 Stepping 1, AuthenticAMD",
+                "python_build": "tags/v3.14.3:323c59a Feb  3 2026 16:04:56",
+                "sample_rate": 44100,
+                "block_size": 512
+              },
+              "execution_epoch_id": "3fbc696f694d8474",
+              "evidence_epoch_id": "3fbc696f694d8474",
+              "derivation_revision": "10f90bc72dd78363"
+            },
+            "experiment": {
+              "mutations": [
+                {
+                  "target_path": "Global0.plainParams.kParamMasterVolume",
+                  "value": 0.1,
+                  "provenance": "16.5.37 current revalidation"
+                }
+              ],
+              "prerequisites": [],
+              "isolation_level": "single_field",
+              "claim_subject": "global_master_volume",
+              "claim_predicate": "affects_overall_rms_db",
+              "experiment_condition_signature": {
+                "prerequisites": [],
+                "baseline_overrides": [],
+                "hash": "12dc2f522836863e"
+              },
+              "measurement_condition_signatures": [
+                {
+                  "experiment_hash": "12dc2f522836863e",
+                  "stimulus": {
+                    "note": 48,
+                    "note_len": 1.8,
+                    "render_seconds": 2.0,
+                    "velocity": 110
+                  },
+                  "hash": "4e54ff8162b389d9"
+                }
+              ],
+              "mutation_signature": "98c7d43dbbb2df90",
+              "notes": "Exact 16.5.37 specification: Global0.plainParams.kParamMasterVolume=0.1, overall_rms_db, decrease, threshold=3.0, Stimulus(note=48, velocity=110, note_len=1.8, render_seconds=2.0, tail_start=None)."
+            },
+            "arms": [
+              {
+                "arm_id": "arm_control",
+                "role": "control",
+                "declared_context": {},
+                "observed_context": [],
+                "state_observation": {
+                  "state_hash": "fe45bdd8c3518d45"
+                },
+                "load_status": "PASS",
+                "render_status": "PASS",
+                "artifacts": {}
+              },
+              {
+                "arm_id": "arm_treatment",
+                "role": "treatment",
+                "declared_context": {},
+                "observed_context": [],
+                "state_observation": {
+                  "state_hash": "700aff1c7977f502"
+                },
+                "load_status": "PASS",
+                "render_status": "PASS",
+                "artifacts": {}
+              }
+            ],
+            "runtime_verifications": [
+              {
+                "verified": true,
+                "failures": [],
+                "observations": []
+              }
+            ],
+            "state_observation": {
+              "status": "PASS",
+              "matches_intent": true,
+              "top_level_ok": true,
+              "fine_grained_ok": true,
+              "diff_keys": [
+                "Global0"
+              ],
+              "intended_targets": [
+                "Global0.plainParams.kParamMasterVolume"
+              ],
+              "control_hash": "fe45bdd8c3518d45",
+              "treatment_hash": "700aff1c7977f502"
+            },
+            "load_observation": {
+              "status": "PASS",
+              "ok": true,
+              "control_error": null,
+              "treatment_error": null
+            },
+            "render_observation": {
+              "status": "PASS"
+            },
+            "causal_measurements": [
+              {
+                "metric": "overall_rms_db",
+                "target": {
+                  "field_path": "Global0.plainParams.kParamMasterVolume",
+                  "module": null,
+                  "parameter": null
+                },
+                "baseline": -19.248245789506942,
+                "treatment": -26.23365813883149,
+                "delta": -6.985412349324548,
+                "expected_direction": "decrease",
+                "observed_direction": "decrease",
+                "threshold": 3.0,
+                "status": "EFFECT_OBSERVED",
+                "measurement_condition_signature": {
+                  "experiment_hash": "12dc2f522836863e",
+                  "stimulus": {
+                    "note": 48,
+                    "note_len": 1.8,
+                    "render_seconds": 2.0,
+                    "velocity": 110
+                  },
+                  "hash": "4e54ff8162b389d9"
+                },
+                "measurement_definition_id": "overall_rms_db:3b6affd5a7fc"
+              }
+            ],
+            "persistence_observation": {
+              "status": "PASS",
+              "checked": true,
+              "exact_match": true,
+              "detail": {
+                "Global0.plainParams.kParamMasterVolume": true
+              }
+            },
+            "integrity": {
+              "synthetic": false,
+              "contradictions": [],
+              "relationships": [],
+              "reverify_required": false
+            },
+            "structural_observation": {},
+            "_gate_completeness": {
+              "generation": "PASS",
+              "load": "PASS",
+              "render": "PASS",
+              "causal": "PASS",
+              "persistence": "PASS"
+            },
+            "_outcome_signature": "EFFECT"
+          }
+        }
+      },
+      "env_release": {
+        "qualified": true,
+        "failures": [],
+        "record": {
+          "experiment_id": "16.5.43-canonical_native-ENV-RELEASE",
+          "gates": {
+            "generation": "PASS",
+            "load": "PASS",
+            "render": "PASS",
+            "causal": "PASS",
+            "persistence": "PASS"
+          },
+          "runtime_verified": true,
+          "outcome_signature": "EFFECT",
+          "state_observation": {
+            "status": "PASS",
+            "matches_intent": true,
+            "top_level_ok": true,
+            "fine_grained_ok": true,
+            "diff_keys": [
+              "Env0"
+            ],
+            "intended_targets": [
+              "Env0.plainParams.kParamRelease"
+            ],
+            "control_hash": "1250d41da8cf2203",
+            "treatment_hash": "70989e465f3838a4"
+          },
+          "load_observation": {
+            "status": "PASS",
+            "ok": true,
+            "control_error": null,
+            "treatment_error": null
+          },
+          "render_observation": {
+            "status": "PASS"
+          },
+          "persistence_observation": {
+            "status": "PASS",
+            "checked": true,
+            "exact_match": true,
+            "detail": {
+              "Env0.plainParams.kParamRelease": true
+            }
+          },
+          "runtime_verifications": [
+            {
+              "verified": true,
+              "failures": [],
+              "observations": []
+            }
+          ],
+          "causal_measurements": [
+            {
+              "metric": "tail_rms_db",
+              "target": {
+                "field_path": "Env0.plainParams.kParamRelease",
+                "module": "Env",
+                "parameter": "kParamRelease"
+              },
+              "baseline": -240.0000000347071,
+              "treatment": -35.52270704083783,
+              "delta": 204.4772929938693,
+              "expected_direction": "increase",
+              "observed_direction": "increase",
+              "threshold": 3.0,
+              "status": "EFFECT_OBSERVED",
+              "measurement_condition_signature": {
+                "experiment_hash": "2ad6168671cfac32",
+                "stimulus": {
+                  "note": 60,
+                  "note_len": 0.4,
+                  "render_seconds": 2.0,
+                  "tail_start": 0.6,
+                  "velocity": 110
+                },
+                "hash": "b92aab9d7b4cc326"
+              },
+              "measurement_definition_id": "tail_rms_db:c6a68e551ef9"
+            }
+          ],
+          "evidence_record": {
+            "experiment_id": "16.5.43-canonical_native-ENV-RELEASE",
+            "epoch": {
+              "serum_binary_sha256": "7978c9be5b2107e985c24c174000faee87e11483ec989d81dc61b5829b45ed70",
+              "execution_harness_revision": "8797efa0cf6c1f7a4540395e36aed503116bffefedec6fd195c5b7c8708b32f3",
+              "dependency_lock": {
+                "dawdreamer": "0.9.0",
+                "cbor2": "unknown",
+                "zstandard": "0.25.0",
+                "numpy": "2.4.4",
+                "python": "3.14.3"
+              },
+              "environment_fingerprint": {
+                "platform": "Windows-11-10.0.26200-SP0",
+                "machine": "AMD64",
+                "processor": "AMD64 Family 25 Model 116 Stepping 1, AuthenticAMD",
+                "python_build": "tags/v3.14.3:323c59a Feb  3 2026 16:04:56",
+                "sample_rate": 44100,
+                "block_size": 512
+              },
+              "execution_epoch_id": "3fbc696f694d8474",
+              "evidence_epoch_id": "3fbc696f694d8474",
+              "derivation_revision": "10f90bc72dd78363"
+            },
+            "experiment": {
+              "mutations": [
+                {
+                  "target_path": "Env0.plainParams.kParamRelease",
+                  "value": 1.0,
+                  "provenance": "16.5.15 foundational current revalidation"
+                }
+              ],
+              "prerequisites": [],
+              "isolation_level": "single_field",
+              "claim_subject": "envelope_field:Env.kParamRelease",
+              "claim_predicate": "affects_tail_rms_db",
+              "experiment_condition_signature": {
+                "prerequisites": [],
+                "baseline_overrides": [
+                  [
+                    "Env0.plainParams.kParamDecay",
+                    "0.02"
+                  ]
+                ],
+                "hash": "2ad6168671cfac32"
+              },
+              "measurement_condition_signatures": [
+                {
+                  "experiment_hash": "2ad6168671cfac32",
+                  "stimulus": {
+                    "note": 60,
+                    "note_len": 0.4,
+                    "render_seconds": 2.0,
+                    "tail_start": 0.6,
+                    "velocity": 110
+                  },
+                  "hash": "b92aab9d7b4cc326"
+                }
+              ],
+              "mutation_signature": "34ccff068ef002e7",
+              "notes": "Exact source definition recovered from step15_2_1_release.py: both arms use Decay=0.02s; control uses implicit default Release; treatment uses Release=1.0s; note_len=0.4s; tail measurement starts at 0.6s."
+            },
+            "arms": [
+              {
+                "arm_id": "arm_control",
+                "role": "control",
+                "declared_context": {},
+                "observed_context": [],
+                "state_observation": {
+                  "state_hash": "1250d41da8cf2203"
+                },
+                "load_status": "PASS",
+                "render_status": "PASS",
+                "artifacts": {}
+              },
+              {
+                "arm_id": "arm_treatment",
+                "role": "treatment",
+                "declared_context": {},
+                "observed_context": [],
+                "state_observation": {
+                  "state_hash": "70989e465f3838a4"
+                },
+                "load_status": "PASS",
+                "render_status": "PASS",
+                "artifacts": {}
+              }
+            ],
+            "runtime_verifications": [
+              {
+                "verified": true,
+                "failures": [],
+                "observations": []
+              }
+            ],
+            "state_observation": {
+              "status": "PASS",
+              "matches_intent": true,
+              "top_level_ok": true,
+              "fine_grained_ok": true,
+              "diff_keys": [
+                "Env0"
+              ],
+              "intended_targets": [
+                "Env0.plainParams.kParamRelease"
+              ],
+              "control_hash": "1250d41da8cf2203",
+              "treatment_hash": "70989e465f3838a4"
+            },
+            "load_observation": {
+              "status": "PASS",
+              "ok": true,
+              "control_error": null,
+              "treatment_error": null
+            },
+            "render_observation": {
+              "status": "PASS"
+            },
+            "causal_measurements": [
+              {
+                "metric": "tail_rms_db",
+                "target": {
+                  "field_path": "Env0.plainParams.kParamRelease",
+                  "module": "Env",
+                  "parameter": "kParamRelease"
+                },
+                "baseline": -240.0000000347071,
+                "treatment": -35.52270704083783,
+                "delta": 204.4772929938693,
+                "expected_direction": "increase",
+                "observed_direction": "increase",
+                "threshold": 3.0,
+                "status": "EFFECT_OBSERVED",
+                "measurement_condition_signature": {
+                  "experiment_hash": "2ad6168671cfac32",
+                  "stimulus": {
+                    "note": 60,
+                    "note_len": 0.4,
+                    "render_seconds": 2.0,
+                    "tail_start": 0.6,
+                    "velocity": 110
+                  },
+                  "hash": "b92aab9d7b4cc326"
+                },
+                "measurement_definition_id": "tail_rms_db:c6a68e551ef9"
+              }
+            ],
+            "persistence_observation": {
+              "status": "PASS",
+              "checked": true,
+              "exact_match": true,
+              "detail": {
+                "Env0.plainParams.kParamRelease": true
+              }
+            },
+            "integrity": {
+              "synthetic": false,
+              "contradictions": [],
+              "relationships": [],
+              "reverify_required": false
+            },
+            "structural_observation": {},
+            "_gate_completeness": {
+              "generation": "PASS",
+              "load": "PASS",
+              "render": "PASS",
+              "causal": "PASS",
+              "persistence": "PASS"
+            },
+            "_outcome_signature": "EFFECT"
+          }
+        }
+      }
+    },
+    "normalized_corpus": {
+      "global_mastervolume": {
+        "qualified": true,
+        "failures": [],
+        "record": {
+          "experiment_id": "16.5.43-normalized_corpus-GLOBAL-MASTERVOLUME",
+          "gates": {
+            "generation": "PASS",
+            "load": "PASS",
+            "render": "PASS",
+            "causal": "PASS",
+            "persistence": "PASS"
+          },
+          "runtime_verified": true,
+          "outcome_signature": "EFFECT",
+          "state_observation": {
+            "status": "PASS",
+            "matches_intent": true,
+            "top_level_ok": true,
+            "fine_grained_ok": true,
+            "diff_keys": [
+              "Global0"
+            ],
+            "intended_targets": [
+              "Global0.plainParams.kParamMasterVolume"
+            ],
+            "control_hash": "220cf7ee652d5c4e",
+            "treatment_hash": "117b94d68a702eae"
+          },
+          "load_observation": {
+            "status": "PASS",
+            "ok": true,
+            "control_error": null,
+            "treatment_error": null
+          },
+          "render_observation": {
+            "status": "PASS"
+          },
+          "persistence_observation": {
+            "status": "PASS",
+            "checked": true,
+            "exact_match": true,
+            "detail": {
+              "Global0.plainParams.kParamMasterVolume": true
+            }
+          },
+          "runtime_verifications": [
+            {
+              "verified": true,
+              "failures": [],
+              "observations": []
+            }
+          ],
+          "causal_measurements": [
+            {
+              "metric": "overall_rms_db",
+              "target": {
+                "field_path": "Global0.plainParams.kParamMasterVolume",
+                "module": null,
+                "parameter": null
+              },
+              "baseline": -24.50250944020842,
+              "treatment": -30.291689770124414,
+              "delta": -5.789180329915993,
+              "expected_direction": "decrease",
+              "observed_direction": "decrease",
+              "threshold": 3.0,
+              "status": "EFFECT_OBSERVED",
+              "measurement_condition_signature": {
+                "experiment_hash": "12dc2f522836863e",
+                "stimulus": {
+                  "note": 48,
+                  "note_len": 1.8,
+                  "render_seconds": 2.0,
+                  "velocity": 110
+                },
+                "hash": "4e54ff8162b389d9"
+              },
+              "measurement_definition_id": "overall_rms_db:3b6affd5a7fc"
+            }
+          ],
+          "evidence_record": {
+            "experiment_id": "16.5.43-normalized_corpus-GLOBAL-MASTERVOLUME",
+            "epoch": {
+              "serum_binary_sha256": "7978c9be5b2107e985c24c174000faee87e11483ec989d81dc61b5829b45ed70",
+              "execution_harness_revision": "8797efa0cf6c1f7a4540395e36aed503116bffefedec6fd195c5b7c8708b32f3",
+              "dependency_lock": {
+                "dawdreamer": "0.9.0",
+                "cbor2": "unknown",
+                "zstandard": "0.25.0",
+                "numpy": "2.4.4",
+                "python": "3.14.3"
+              },
+              "environment_fingerprint": {
+                "platform": "Windows-11-10.0.26200-SP0",
+                "machine": "AMD64",
+                "processor": "AMD64 Family 25 Model 116 Stepping 1, AuthenticAMD",
+                "python_build": "tags/v3.14.3:323c59a Feb  3 2026 16:04:56",
+                "sample_rate": 44100,
+                "block_size": 512
+              },
+              "execution_epoch_id": "3fbc696f694d8474",
+              "evidence_epoch_id": "3fbc696f694d8474",
+              "derivation_revision": "10f90bc72dd78363"
+            },
+            "experiment": {
+              "mutations": [
+                {
+                  "target_path": "Global0.plainParams.kParamMasterVolume",
+                  "value": 0.1,
+                  "provenance": "16.5.37 current revalidation"
+                }
+              ],
+              "prerequisites": [],
+              "isolation_level": "single_field",
+              "claim_subject": "global_master_volume",
+              "claim_predicate": "affects_overall_rms_db",
+              "experiment_condition_signature": {
+                "prerequisites": [],
+                "baseline_overrides": [],
+                "hash": "12dc2f522836863e"
+              },
+              "measurement_condition_signatures": [
+                {
+                  "experiment_hash": "12dc2f522836863e",
+                  "stimulus": {
+                    "note": 48,
+                    "note_len": 1.8,
+                    "render_seconds": 2.0,
+                    "velocity": 110
+                  },
+                  "hash": "4e54ff8162b389d9"
+                }
+              ],
+              "mutation_signature": "98c7d43dbbb2df90",
+              "notes": "Exact 16.5.37 specification: Global0.plainParams.kParamMasterVolume=0.1, overall_rms_db, decrease, threshold=3.0, Stimulus(note=48, velocity=110, note_len=1.8, render_seconds=2.0, tail_start=None)."
+            },
+            "arms": [
+              {
+                "arm_id": "arm_control",
+                "role": "control",
+                "declared_context": {},
+                "observed_context": [],
+                "state_observation": {
+                  "state_hash": "220cf7ee652d5c4e"
+                },
+                "load_status": "PASS",
+                "render_status": "PASS",
+                "artifacts": {}
+              },
+              {
+                "arm_id": "arm_treatment",
+                "role": "treatment",
+                "declared_context": {},
+                "observed_context": [],
+                "state_observation": {
+                  "state_hash": "117b94d68a702eae"
+                },
+                "load_status": "PASS",
+                "render_status": "PASS",
+                "artifacts": {}
+              }
+            ],
+            "runtime_verifications": [
+              {
+                "verified": true,
+                "failures": [],
+                "observations": []
+              }
+            ],
+            "state_observation": {
+              "status": "PASS",
+              "matches_intent": true,
+              "top_level_ok": true,
+              "fine_grained_ok": true,
+              "diff_keys": [
+                "Global0"
+              ],
+              "intended_targets": [
+                "Global0.plainParams.kParamMasterVolume"
+              ],
+              "control_hash": "220cf7ee652d5c4e",
+              "treatment_hash": "117b94d68a702eae"
+            },
+            "load_observation": {
+              "status": "PASS",
+              "ok": true,
+              "control_error": null,
+              "treatment_error": null
+            },
+            "render_observation": {
+              "status": "PASS"
+            },
+            "causal_measurements": [
+              {
+                "metric": "overall_rms_db",
+                "target": {
+                  "field_path": "Global0.plainParams.kParamMasterVolume",
+                  "module": null,
+                  "parameter": null
+                },
+                "baseline": -24.50250944020842,
+                "treatment": -30.291689770124414,
+                "delta": -5.789180329915993,
+                "expected_direction": "decrease",
+                "observed_direction": "decrease",
+                "threshold": 3.0,
+                "status": "EFFECT_OBSERVED",
+                "measurement_condition_signature": {
+                  "experiment_hash": "12dc2f522836863e",
+                  "stimulus": {
+                    "note": 48,
+                    "note_len": 1.8,
+                    "render_seconds": 2.0,
+                    "velocity": 110
+                  },
+                  "hash": "4e54ff8162b389d9"
+                },
+                "measurement_definition_id": "overall_rms_db:3b6affd5a7fc"
+              }
+            ],
+            "persistence_observation": {
+              "status": "PASS",
+              "checked": true,
+              "exact_match": true,
+              "detail": {
+                "Global0.plainParams.kParamMasterVolume": true
+              }
+            },
+            "integrity": {
+              "synthetic": false,
+              "contradictions": [],
+              "relationships": [],
+              "reverify_required": false
+            },
+            "structural_observation": {},
+            "_gate_completeness": {
+              "generation": "PASS",
+              "load": "PASS",
+              "render": "PASS",
+              "causal": "PASS",
+              "persistence": "PASS"
+            },
+            "_outcome_signature": "EFFECT"
+          }
+        }
+      },
+      "env_release": {
+        "qualified": false,
+        "failures": [
+          "causal='FAIL', expected 'PASS'",
+          "causal status='NO_OBSERVED_EFFECT'"
+        ],
+        "record": {
+          "experiment_id": "16.5.43-normalized_corpus-ENV-RELEASE",
+          "gates": {
+            "generation": "PASS",
+            "load": "PASS",
+            "render": "PASS",
+            "causal": "FAIL",
+            "persistence": "PASS"
+          },
+          "runtime_verified": true,
+          "outcome_signature": "NO_OBSERVED_EFFECT",
+          "state_observation": {
+            "status": "PASS",
+            "matches_intent": true,
+            "top_level_ok": true,
+            "fine_grained_ok": true,
+            "diff_keys": [
+              "Env0"
+            ],
+            "intended_targets": [
+              "Env0.plainParams.kParamRelease"
+            ],
+            "control_hash": "a1e04f67de213a59",
+            "treatment_hash": "675152738bb895d3"
+          },
+          "load_observation": {
+            "status": "PASS",
+            "ok": true,
+            "control_error": null,
+            "treatment_error": null
+          },
+          "render_observation": {
+            "status": "PASS"
+          },
+          "persistence_observation": {
+            "status": "PASS",
+            "checked": true,
+            "exact_match": true,
+            "detail": {
+              "Env0.plainParams.kParamRelease": true
+            }
+          },
+          "runtime_verifications": [
+            {
+              "verified": true,
+              "failures": [],
+              "observations": []
+            }
+          ],
+          "causal_measurements": [
+            {
+              "metric": "tail_rms_db",
+              "target": {
+                "field_path": "Env0.plainParams.kParamRelease",
+                "module": "Env",
+                "parameter": "kParamRelease"
+              },
+              "baseline": -47.94143813500579,
+              "treatment": -47.94143813500579,
+              "delta": 0.0,
+              "expected_direction": "increase",
+              "observed_direction": "none",
+              "threshold": 3.0,
+              "status": "NO_OBSERVED_EFFECT",
+              "measurement_condition_signature": {
+                "experiment_hash": "2ad6168671cfac32",
+                "stimulus": {
+                  "note": 60,
+                  "note_len": 0.4,
+                  "render_seconds": 2.0,
+                  "tail_start": 0.6,
+                  "velocity": 110
+                },
+                "hash": "b92aab9d7b4cc326"
+              },
+              "measurement_definition_id": "tail_rms_db:c6a68e551ef9"
+            }
+          ],
+          "evidence_record": {
+            "experiment_id": "16.5.43-normalized_corpus-ENV-RELEASE",
+            "epoch": {
+              "serum_binary_sha256": "7978c9be5b2107e985c24c174000faee87e11483ec989d81dc61b5829b45ed70",
+              "execution_harness_revision": "8797efa0cf6c1f7a4540395e36aed503116bffefedec6fd195c5b7c8708b32f3",
+              "dependency_lock": {
+                "dawdreamer": "0.9.0",
+                "cbor2": "unknown",
+                "zstandard": "0.25.0",
+                "numpy": "2.4.4",
+                "python": "3.14.3"
+              },
+              "environment_fingerprint": {
+                "platform": "Windows-11-10.0.26200-SP0",
+                "machine": "AMD64",
+                "processor": "AMD64 Family 25 Model 116 Stepping 1, AuthenticAMD",
+                "python_build": "tags/v3.14.3:323c59a Feb  3 2026 16:04:56",
+                "sample_rate": 44100,
+                "block_size": 512
+              },
+              "execution_epoch_id": "3fbc696f694d8474",
+              "evidence_epoch_id": "3fbc696f694d8474",
+              "derivation_revision": "10f90bc72dd78363"
+            },
+            "experiment": {
+              "mutations": [
+                {
+                  "target_path": "Env0.plainParams.kParamRelease",
+                  "value": 1.0,
+                  "provenance": "16.5.15 foundational current revalidation"
+                }
+              ],
+              "prerequisites": [],
+              "isolation_level": "single_field",
+              "claim_subject": "envelope_field:Env.kParamRelease",
+              "claim_predicate": "affects_tail_rms_db",
+              "experiment_condition_signature": {
+                "prerequisites": [],
+                "baseline_overrides": [
+                  [
+                    "Env0.plainParams.kParamDecay",
+                    "0.02"
+                  ]
+                ],
+                "hash": "2ad6168671cfac32"
+              },
+              "measurement_condition_signatures": [
+                {
+                  "experiment_hash": "2ad6168671cfac32",
+                  "stimulus": {
+                    "note": 60,
+                    "note_len": 0.4,
+                    "render_seconds": 2.0,
+                    "tail_start": 0.6,
+                    "velocity": 110
+                  },
+                  "hash": "b92aab9d7b4cc326"
+                }
+              ],
+              "mutation_signature": "34ccff068ef002e7",
+              "notes": "Exact source definition recovered from step15_2_1_release.py: both arms use Decay=0.02s; control uses implicit default Release; treatment uses Release=1.0s; note_len=0.4s; tail measurement starts at 0.6s."
+            },
+            "arms": [
+              {
+                "arm_id": "arm_control",
+                "role": "control",
+                "declared_context": {},
+                "observed_context": [],
+                "state_observation": {
+                  "state_hash": "a1e04f67de213a59"
+                },
+                "load_status": "PASS",
+                "render_status": "PASS",
+                "artifacts": {}
+              },
+              {
+                "arm_id": "arm_treatment",
+                "role": "treatment",
+                "declared_context": {},
+                "observed_context": [],
+                "state_observation": {
+                  "state_hash": "675152738bb895d3"
+                },
+                "load_status": "PASS",
+                "render_status": "PASS",
+                "artifacts": {}
+              }
+            ],
+            "runtime_verifications": [
+              {
+                "verified": true,
+                "failures": [],
+                "observations": []
+              }
+            ],
+            "state_observation": {
+              "status": "PASS",
+              "matches_intent": true,
+              "top_level_ok": true,
+              "fine_grained_ok": true,
+              "diff_keys": [
+                "Env0"
+              ],
+              "intended_targets": [
+                "Env0.plainParams.kParamRelease"
+              ],
+              "control_hash": "a1e04f67de213a59",
+              "treatment_hash": "675152738bb895d3"
+            },
+            "load_observation": {
+              "status": "PASS",
+              "ok": true,
+              "control_error": null,
+              "treatment_error": null
+            },
+            "render_observation": {
+              "status": "PASS"
+            },
+            "causal_measurements": [
+              {
+                "metric": "tail_rms_db",
+                "target": {
+                  "field_path": "Env0.plainParams.kParamRelease",
+                  "module": "Env",
+                  "parameter": "kParamRelease"
+                },
+                "baseline": -47.94143813500579,
+                "treatment": -47.94143813500579,
+                "delta": 0.0,
+                "expected_direction": "increase",
+                "observed_direction": "none",
+                "threshold": 3.0,
+                "status": "NO_OBSERVED_EFFECT",
+                "measurement_condition_signature": {
+                  "experiment_hash": "2ad6168671cfac32",
+                  "stimulus": {
+                    "note": 60,
+                    "note_len": 0.4,
+                    "render_seconds": 2.0,
+                    "tail_start": 0.6,
+                    "velocity": 110
+                  },
+                  "hash": "b92aab9d7b4cc326"
+                },
+                "measurement_definition_id": "tail_rms_db:c6a68e551ef9"
+              }
+            ],
+            "persistence_observation": {
+              "status": "PASS",
+              "checked": true,
+              "exact_match": true,
+              "detail": {
+                "Env0.plainParams.kParamRelease": true
+              }
+            },
+            "integrity": {
+              "synthetic": false,
+              "contradictions": [],
+              "relationships": [],
+              "reverify_required": false
+            },
+            "structural_observation": {},
+            "_gate_completeness": {
+              "generation": "PASS",
+              "load": "PASS",
+              "render": "PASS",
+              "causal": "FAIL",
+              "persistence": "PASS"
+            },
+            "_outcome_signature": "NO_OBSERVED_EFFECT"
+          }
+        }
+      }
+    }
+  },
+  "current_capability_views": {
+    "canonical_native": {
+      "qualified_controls": [
+        {
+          "role": "loudness",
+          "control": "Global MasterVolume",
+          "experiment_id": "16.5.43-canonical_native-GLOBAL-MASTERVOLUME"
+        },
+        {
+          "role": "duration",
+          "control": "Env Release",
+          "experiment_id": "16.5.43-canonical_native-ENV-RELEASE"
+        }
+      ],
+      "loudness_control_qualified": true,
+      "duration_control_qualified": true,
+      "status": "CURRENTLY_QUALIFIED"
+    },
+    "normalized_corpus": {
+      "qualified_controls": [
+        {
+          "role": "loudness",
+          "control": "Global MasterVolume",
+          "experiment_id": "16.5.43-normalized_corpus-GLOBAL-MASTERVOLUME"
+        }
+      ],
+      "loudness_control_qualified": true,
+      "duration_control_qualified": false,
+      "status": "INSUFFICIENT"
+    }
+  },
+  "admission_rules": {
+    "historical_evidence_used_for_current_qualification": false,
+    "cross_context_promotion": false,
+    "claim_engine_mutation": false,
+    "frontier_mutation": false
+  },
+  "final_gate": {
+    "both_contexts_have_loudness": true,
+    "both_contexts_have_duration": false,
+    "passed": false
+  }
+}
