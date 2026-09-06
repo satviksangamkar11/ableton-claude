@@ -7,7 +7,7 @@ import copy, os, tempfile
 import numpy as np
 import dawdreamer as daw
 
-from .. import bridge, codec, vst3_state, pathmerge
+from .. import bridge, codec, vst3_state, pathmerge, processor_state
 from . import epoch as epoch_mod
 from .spec import ExperimentSpec, validate
 from .record import (EvidenceRecord, EvidenceArm, CausalMeasurement, MeasurementTarget,
@@ -46,10 +46,17 @@ def _apply_host_prerequisites(synth, prerequisites):
 
 
 def build_arm(skeleton, spec, apply_mutations: bool):
-    """baseline_overrides apply to BOTH arms (control and treatment) via
-    path-merge, so a treatment mutation on a sibling field of the same body
-    key cannot clobber them. mutations apply ONLY when apply_mutations=True
-    (the treatment arm), on top of the shared baseline."""
+    """Build one experiment arm from a validated VST3 processor skeleton.
+
+    The skeleton is validated BEFORE any mutation is constructed. This is a
+    hard safety boundary: malformed metadata such as the historical
+    16.5.17 ({}, corpus_body) shape must never reach Serum.
+    """
+    processor_state.require_processor_state(
+        skeleton,
+        source="evidence.harness.build_arm",
+    )
+
     meta = copy.deepcopy(skeleton[0])
     body = copy.deepcopy(skeleton[1])
     _apply_body_prerequisites(body, spec.prerequisites)

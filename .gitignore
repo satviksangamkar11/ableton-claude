@@ -2,3 +2,6 @@ experiments/*.pkl
 experiments/*.bin
 *.pkl
 *.bin
+__pycache__/
+*.pyc
+.pytest_cache/
