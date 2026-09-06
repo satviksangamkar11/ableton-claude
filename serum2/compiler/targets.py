@@ -59,6 +59,8 @@ SEMANTIC_TARGETS: Dict[str, SemanticTargetRef] = {
     "OSC1.Octave":        SemanticTargetRef("OSC1.Octave",        "oscillator_field_OSC-OCTAVE"),
     "OSC1.Volume":        SemanticTargetRef("OSC1.Volume",        "oscillator_field_OSC-VOLUME"),
     "OSC1.Wavetable":     SemanticTargetRef("OSC1.Wavetable",     "oscillator_field_OSC-WAVETABLE"),
+    # Filter
+    "Filter.Resonance":   SemanticTargetRef("Filter.Resonance",   "filter_field_reso"),
     # Envelope
     "Env1.Attack":        SemanticTargetRef("Env1.Attack",        "envelope_field_attack"),
     "Env1.Decay":         SemanticTargetRef("Env1.Decay",         "envelope_field_decay"),
