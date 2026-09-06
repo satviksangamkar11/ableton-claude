@@ -79,14 +79,41 @@
     },
     "q7_processor_state_transport": {
       "question": "Can processor state be imported from .SerumPreset and extracted back?",
-      "interface_discovered": false,
-      "operation_attempted": false,
-      "operation_succeeded": "BLOCKED",
-      "artifact_observed": null,
-      "limitations": "AbletonMCP interface not available; cannot load Serum or access processor state APIs",
-      "exact_mechanism": "Would require: (1) Load known .SerumPreset via Serum 2 device, (2) Use get_device_processor_state or equivalent to extract v8 processor state from Serum, (3) Parse extracted XML/hex processor state, (4) Optionally re-import to verify round-trip fidelity",
-      "prior_art_note": "PROOF_PLAN.md records that manual extraction succeeded once: .SerumPreset loaded into Ableton-hosted Serum, saved to .als, state read from embedded <ProcessorState> hex block",
-      "status": "BLOCKED"
+      "q7a_mcp_import": {
+        "question": "Does MCP expose a processor-state import tool?",
+        "result": "NO",
+        "evidence": "Exhaustive AbletonMCP surface search; no set_device_processor_state or equivalent exists",
+        "status": "VERIFIED NO"
+      },
+      "q7b_read_only_extraction": {
+        "question": "Is processor state present and locatable in .als XML?",
+        "result": "YES - PASS",
+        "evidence": "Read-only probe of D:\\ableton claude\\Untitledserum teest 1.als; ProcessorState located at XML path /root/LiveSet/Tracks/MidiTrack/DeviceChain/DeviceChain/Devices/PluginDevice/PluginDesc/Vst3PluginInfo/Preset/Vst3Preset/ProcessorState",
+        "payload": {
+          "format": "Hex-encoded XferJson",
+          "length_chars": 6560,
+          "length_bytes": 3280,
+          "sha256": "c18f5065547f5bfdc3b1f7d7ec4d23b6c7062bc0511073eaabb0aa59812e52b4"
+        },
+        "determinism": "Fully deterministic: gzip decompress → XML parse → path traverse → hex extract → hash",
+        "status": "VERIFIED PASS"
+      },
+      "q7c_offline_injection": {
+        "question": "Can offline .als modification inject processor state and have Ableton apply it on open?",
+        "result": "UNTESTED",
+        "reason": "Requires mutation and Ableton-opening; deferred per task constraints",
+        "status": "UNTESTED"
+      },
+      "q7d_reverse_automation": {
+        "question": "Can automated extraction → modification → reimport → verification complete end-to-end?",
+        "result": "UNTESTED",
+        "reason": "Depends on Q7c success; deferred",
+        "status": "UNTESTED"
+      },
+      "limitations": "Q7a=NO (no MCP tool); Q7b=PASS (structure found); Q7c/Q7d=UNTESTED (mutation required)",
+      "exact_mechanism": "Q7b used: gzip decompress + XML ElementTree parse + recursive search for ProcessorState + hex payload extraction + SHA256 hash",
+      "prior_art_note": "PROOF_PLAN.md records that manual extraction succeeded once: .SerumPreset loaded into Ableton-hosted Serum, saved to .als, state read from embedded <ProcessorState> hex block; Q7b re-verifies this is repeatable",
+      "status": "Q7A/Q7B COMPLETE; Q7C/Q7D UNTESTED"
     },
     "q8_rendering": {
       "question": "Can the scratch set be rendered with master audio and stems recovered?",
@@ -116,23 +143,27 @@
     "reason": "No tests executed; no new capabilities discovered or promoted"
   },
   "summary": {
-    "q3_correction": "COMPLETE — Q3 corrected from BLOCKED to YES (probe method error fixed)",
-    "q1_binary_hash": "NOT_RE-VERIFIED — Prior observation (019a648) valid for that session only; current-runtime verification deferred to 16.5.60A activation",
-    "q5_results": "COMPLETE with CORRECTIONS — Host parameter control architecture proven viable for tested parameter",
-    "q5_scope_correction": "Q5a-Q5d VERIFIED; Q5e downgraded to UNVERIFIED (no direct evidence of save/reopen cycle)",
-    "q5_details": "Configure Mode + AbletonMCP enables read/write of OSC1.Volume/'A Level' parameter only; persistence across save/reopen cycle UNVERIFIED",
-    "q8_correction": "CRITICAL: render_to_file() does NOT exist in AbletonMCP. Available mechanism is record_section (real-time resampling, max 5 min), not File→Export",
-    "q6_q9_status": "Deferred pending 16.5.57b priority and Q7b processor-state probe results",
-    "frontier_impact": "No change (37 contracts; 26 CAUSAL_VERIFIED, 8 STRUCTURAL_ONLY, 3 NEGATIVE_EVIDENCE)",
-    "corrections_applied": [
+    "r1_corrections": "COMPLETE — Retracted render_to_file fabrication, downgraded Q5e to UNVERIFIED, marked Q1 hash as NOT_RE_VERIFIED_RUNTIME",
+    "r1_artifacts_corrected": [
       "16_5_57b_TEST_PLAN.md — Q8 section rewritten to document render_to_file() absence and record_section() alternative",
       "Q5_RESULTS_COMPLETE.md — Q5e downgraded from VERIFIED to UNVERIFIED with rationale",
       "Q1_BINARY_HASH_CORRECTION.md — New document marking hash verification as not-re-verified for this runtime"
     ],
+    "q3_correction": "COMPLETE — Q3 corrected from BLOCKED to YES (probe method error fixed)",
+    "q1_binary_hash": "NOT_RE-VERIFIED — Prior observation (019a648) valid for that session only; current-runtime verification deferred to 16.5.60A activation",
+    "q5_results": "COMPLETE with CORRECTIONS — Host parameter control via Configure Mode viable for tested parameter (OSC1.Volume/A Level) only",
+    "q5_scope_correction": "Q5a-Q5d VERIFIED; Q5e downgraded to UNVERIFIED (no direct evidence of save/reopen cycle)",
+    "q5_details": "Configure Mode + AbletonMCP enables read/write of OSC1.Volume/'A Level' parameter only; persistence across save/reopen cycle UNVERIFIED",
+    "q7_processor_state": "Q7A=NO, Q7B=PASS, Q7C/Q7D=UNTESTED | Read-only probe confirms ProcessorState present in .als XML at deterministic path; extraction repeatable; injection/automation deferred",
+    "q7b_findings": "Processor state located, extracted, hashed deterministically from D:\\ableton claude\\Untitledserum teest 1.als; XferJson format; 3,280 bytes; SHA256 c18f50...",
+    "q8_correction": "CRITICAL: render_to_file() does NOT exist in AbletonMCP. Available mechanism is record_section (real-time resampling, max 5 min), not File→Export",
+    "q6_q9_status": "Deferred until after architecture decision on Q7c/Q7d (processor-state injection feasibility)",
+    "frontier_impact": "No change (37 contracts; 26 CAUSAL_VERIFIED, 8 STRUCTURAL_ONLY, 3 NEGATIVE_EVIDENCE)",
     "path_to_q5_complete_results": "experiments/16_5_57_probe/Q5_RESULTS_COMPLETE.md",
+    "path_to_q7b_findings": "experiments/16_5_57_probe/Q7b_PROCESSOR_STATE_READPROBE.md",
     "path_to_corrections": [
       "experiments/16_5_57_probe/Q1_BINARY_HASH_CORRECTION.md",
-      "experiments/16_5_57_probe/16_5_57b_TEST_PLAN.md (Q8 section)"
+      "experiments/16_5_57_probe/16_5_57b_TEST_PLAN.md"
     ]
   }
 }
