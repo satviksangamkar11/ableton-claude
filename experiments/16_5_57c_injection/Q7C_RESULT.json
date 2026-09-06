@@ -1,0 +1,26 @@
+{
+  "experiment_id": "16.5.57-Q7c",
+  "status": "PASS",
+  "date": "2026-09-07",
+  "test": "Processor-state offline injection + Ableton application",
+  "source_a_hash": "c34857dadd8f884fa40e63d783a40024...",
+  "source_b_hash": "ee036cd82d48b469e100b01495ebc0c5...",
+  "injected_file": "SET_A_INJECTED_with_B_state.als",
+  "injected_file_hash": "7e4b5ce0795e2b01f22e67da6a555aea...",
+  "original_value_a": 0.75,
+  "injected_value_b": 0.50,
+  "ableton_opened_file": true,
+  "serum_loaded": true,
+  "visual_observation": "OSC1.Volume knob showed 0.50",
+  "ableton_applied_injection": true,
+  "mcp_readback_pending": "user can verify via get_device_parameters",
+  "pass_criteria_met": [
+    "File opened successfully",
+    "Serum loaded without error",
+    "Visual UI shows injected value (0.50, not original 0.75)",
+    "No manual adjustment post-open"
+  ],
+  "conclusion": "Processor-state transport is viable. Ableton applies injected processor states when opening .als files. Hybrid architecture can proceed to Q8/Q9 gates.",
+  "frontier_impact": "No capability promotion; 37 contracts unchanged (26 CAUSAL_VERIFIED, 8 STRUCTURAL_ONLY, 3 NEGATIVE_EVIDENCE)",
+  "architecture_decision": "Hybrid (Processor-State + Configure/MCP) moves from PROVISIONAL to dependent on Q8/Q9 gates"
+}
