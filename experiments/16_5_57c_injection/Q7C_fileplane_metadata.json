@@ -1,0 +1,15 @@
+{
+  "source_a": "D:\\ableton claude\\experiments\\16_5_57c_injection\\SET_A_osc1vol_075 Project\\SET_A_osc1vol_075.als",
+  "source_b": "D:\\ableton claude\\experiments\\16_5_57c_injection\\SET_B_osc1vol_050 Project\\SET_B_osc1vol_050.als",
+  "hash_a_als": "c34857dadd8f884fa40e63d783a40024cf5e0ce4f074fb3c5a066823d00a765d",
+  "hash_b_als": "ee036cd82d48b469e100b01495ebc0c5bac684f95734d5aeb06a79af95ce7ae6",
+  "payload_a_hash": "a6decc115666735a6f6554f1f491cef71d41eba3d806d10c1984ef98a16f9a10",
+  "payload_b_hash": "ef5dd5a66949af0d2c45d2d8641a0bf4d15dfb0d6987ec439ccb1e3f1d68f594",
+  "osc1_volume_a": null,
+  "osc1_volume_b": null,
+  "injected_als": "D:\\ableton claude\\experiments\\16_5_57c_injection\\SET_A_INJECTED_with_B_state.als",
+  "hash_injected_als": "7e4b5ce0795e2b01f22e67da6a555aeae595785c1a4fc83d31dfb240ca26edec",
+  "hash_injected_payload": "ef5dd5a66949af0d2c45d2d8641a0bf4d15dfb0d6987ec439ccb1e3f1d68f594",
+  "payload_injection_match": true,
+  "structural_valid": true
+}
