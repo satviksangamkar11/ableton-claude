@@ -1,0 +1,95 @@
+﻿================================================================================
+16.5.43.2 — CONTEXT-CORRECT CORPUS DURATION QUALIFICATION
+================================================================================
+
+[1/5] Reconstructing normalized corpus seed...
+  hash: 220cf7ee652d5c4e
+  expected: 220cf7ee652d5c4e
+  match: True
+
+[2/5] Running Sustain ceiling structural probe FIRST...
+
+================================================================================
+SUSTAIN_CEILING_PROBE
+================================================================================
+gates: {'generation': 'PASS', 'load': 'PASS', 'render': 'PASS', 'causal': 'PASS', 'persistence': 'FAIL'}
+runtime_verified: True
+matches_intent: True
+causal: metric=sustain_window_rms_db baseline=-50.250373 treatment=-24.546252 delta=+25.704121 expected=increase observed=increase status=EFFECT_OBSERVED
+persistence: FAIL
+
+================================================================================
+SUSTAIN PROBE RAW FORENSIC OUTPUT
+================================================================================
+
+STRUCTURAL OBSERVATION:
+{}
+
+PERSISTENCE OBSERVATION:
+{
+  "status": "FAIL",
+  "checked": true,
+  "exact_match": false,
+  "detail": {
+    "Env0.plainParams.kParamSustain": false
+  }
+}
+
+STATE OBSERVATION:
+{
+  "status": "PASS",
+  "matches_intent": true,
+  "top_level_ok": true,
+  "fine_grained_ok": true,
+  "diff_keys": [
+    "Env0"
+  ],
+  "intended_targets": [
+    "Env0.plainParams.kParamSustain"
+  ],
+  "control_hash": "a1e04f67de213a59",
+  "treatment_hash": "5ee1d70668b9a939"
+}
+
+  requested Sustain: 1.0
+  recovered context: 0.3
+  context source: fallback to independently persisted corpus value from 16.5.43.1; Sustain=1.0 persistence finding recorded separately
+
+[3/5] Running corrected-context Env Release...
+
+================================================================================
+CORRECTED_RELEASE
+================================================================================
+gates: {'generation': 'PASS', 'load': 'PASS', 'render': 'PASS', 'causal': 'FAIL', 'persistence': 'PASS'}
+runtime_verified: True
+matches_intent: True
+causal: metric=tail_rms_db baseline=-45.543892 treatment=-45.436326 delta=+0.107566 expected=increase observed=none status=NO_OBSERVED_EFFECT
+persistence: PASS
+
+  RELEASE LOCAL QUALIFICATION: FAIL
+   - causal='FAIL', expected 'PASS'
+   - causal status='NO_OBSERVED_EFFECT'
+   - observed_direction='none', expected 'increase'
+   - delta=np.float64(0.10756643953784106) below threshold=3.0
+
+[4/5] Release did not qualify; running corrected Sustain fallback...
+
+================================================================================
+CORRECTED_SUSTAIN_FALLBACK
+================================================================================
+gates: {'generation': 'PASS', 'load': 'PASS', 'render': 'PASS', 'causal': 'PASS', 'persistence': 'PASS'}
+runtime_verified: True
+matches_intent: True
+causal: metric=sustain_window_rms_db baseline=-50.250373 treatment=-44.488972 delta=+5.761402 expected=increase observed=increase status=EFFECT_OBSERVED
+persistence: PASS
+
+  SUSTAIN LOCAL QUALIFICATION: PASS
+
+[5/5] Writing qualification artifact...
+
+================================================================================
+16.5.43.2 RESULT: PASS
+qualifying control: Env Sustain
+Artifact: D:\ableton claude\experiments\16_5_43_2_CORPUS_DURATION_QUALIFICATION.json
+================================================================================
+16.5.43.2 COMPLETE

@@ -1,0 +1,828 @@
+{
+  "step": "16.5.43.2",
+  "name": "Context-Correct Corpus Duration Qualification",
+  "status": "PASS",
+  "classification": "EXPERIMENT_RESULT_ONLY",
+  "context": "normalized_corpus",
+  "seed": {
+    "source": "experiments/_corpus_cache.pkl bodies[4]",
+    "normalization": "corpus body + native processor component + native metadata",
+    "state_hash": "220cf7ee652d5c4e",
+    "expected_state_hash": "220cf7ee652d5c4e",
+    "hash_match": true
+  },
+  "forensic_basis": {
+    "prior_experiment": "16.5.43.1_CORPUS_ENV_FORENSICS.json",
+    "prior_corpus_env0": {
+      "Attack": 0.004875846483662035,
+      "Decay": 3.1898578238230217,
+      "Sustain": 0.0,
+      "Release": 0.8837453206371405
+    },
+    "old_release_negative_disposition": "CONTEXT_INCOMPLETE",
+    "reason": "shared Decay override was unsuitable for the zero-Sustain corpus baseline"
+  },
+  "sustain_context_recovery": {
+    "probe_experiment_id": "16.5.43.2-CORPUS-SUSTAIN-CEILING-PROBE",
+    "requested_value": 1.0,
+    "recovered_context_value": 0.3,
+    "source": "fallback to independently persisted corpus value from 16.5.43.1; Sustain=1.0 persistence finding recorded separately",
+    "structural_observation": {},
+    "persistence": {
+      "status": "FAIL",
+      "checked": true,
+      "exact_match": false,
+      "detail": {
+        "Env0.plainParams.kParamSustain": false
+      }
+    },
+    "record": {
+      "experiment_id": "16.5.43.2-CORPUS-SUSTAIN-CEILING-PROBE",
+      "gates": {
+        "generation": "PASS",
+        "load": "PASS",
+        "render": "PASS",
+        "causal": "PASS",
+        "persistence": "FAIL"
+      },
+      "runtime_verified": true,
+      "outcome_signature": "EFFECT",
+      "state_observation": {
+        "status": "PASS",
+        "matches_intent": true,
+        "top_level_ok": true,
+        "fine_grained_ok": true,
+        "diff_keys": [
+          "Env0"
+        ],
+        "intended_targets": [
+          "Env0.plainParams.kParamSustain"
+        ],
+        "control_hash": "a1e04f67de213a59",
+        "treatment_hash": "5ee1d70668b9a939"
+      },
+      "load_observation": {
+        "status": "PASS",
+        "ok": true,
+        "control_error": null,
+        "treatment_error": null
+      },
+      "render_observation": {
+        "status": "PASS"
+      },
+      "persistence_observation": {
+        "status": "FAIL",
+        "checked": true,
+        "exact_match": false,
+        "detail": {
+          "Env0.plainParams.kParamSustain": false
+        }
+      },
+      "structural_observation": {},
+      "runtime_verifications": [
+        {
+          "verified": true,
+          "failures": [],
+          "observations": []
+        }
+      ],
+      "causal_measurements": [
+        {
+          "metric": "sustain_window_rms_db",
+          "target": {
+            "field_path": "Env0.plainParams.kParamSustain",
+            "module": "Env",
+            "parameter": "kParamSustain"
+          },
+          "baseline": -50.250373467038386,
+          "treatment": -24.546252439908987,
+          "delta": 25.7041210271294,
+          "expected_direction": "increase",
+          "observed_direction": "increase",
+          "threshold": 3.0,
+          "status": "EFFECT_OBSERVED",
+          "measurement_condition_signature": {
+            "experiment_hash": "2ad6168671cfac32",
+            "stimulus": {
+              "note": 60,
+              "note_len": 1.8,
+              "render_seconds": 2.0,
+              "velocity": 110
+            },
+            "hash": "74a16c3bf4ac6bb3"
+          },
+          "measurement_definition_id": "sustain_window_rms_db:c092f5a1078d"
+        }
+      ],
+      "evidence_record": {
+        "experiment_id": "16.5.43.2-CORPUS-SUSTAIN-CEILING-PROBE",
+        "epoch": {
+          "serum_binary_sha256": "7978c9be5b2107e985c24c174000faee87e11483ec989d81dc61b5829b45ed70",
+          "execution_harness_revision": "8797efa0cf6c1f7a4540395e36aed503116bffefedec6fd195c5b7c8708b32f3",
+          "dependency_lock": {
+            "dawdreamer": "0.9.0",
+            "cbor2": "unknown",
+            "zstandard": "0.25.0",
+            "numpy": "2.4.4",
+            "python": "3.14.3"
+          },
+          "environment_fingerprint": {
+            "platform": "Windows-11-10.0.26200-SP0",
+            "machine": "AMD64",
+            "processor": "AMD64 Family 25 Model 116 Stepping 1, AuthenticAMD",
+            "python_build": "tags/v3.14.3:323c59a Feb  3 2026 16:04:56",
+            "sample_rate": 44100,
+            "block_size": 512
+          },
+          "execution_epoch_id": "3fbc696f694d8474",
+          "evidence_epoch_id": "3fbc696f694d8474",
+          "derivation_revision": "10f90bc72dd78363"
+        },
+        "experiment": {
+          "mutations": [
+            {
+              "target_path": "Env0.plainParams.kParamSustain",
+              "value": 1.0,
+              "provenance": "16.5.43.2 structural Sustain ceiling probe"
+            }
+          ],
+          "prerequisites": [],
+          "isolation_level": "single_field",
+          "claim_subject": "structural_probe:Env.kParamSustain",
+          "claim_predicate": "numeric_clamp_range",
+          "experiment_condition_signature": {
+            "prerequisites": [],
+            "baseline_overrides": [
+              [
+                "Env0.plainParams.kParamDecay",
+                "0.02"
+              ]
+            ],
+            "hash": "2ad6168671cfac32"
+          },
+          "measurement_condition_signatures": [
+            {
+              "experiment_hash": "2ad6168671cfac32",
+              "stimulus": {
+                "note": 60,
+                "note_len": 1.8,
+                "render_seconds": 2.0,
+                "velocity": 110
+              },
+              "hash": "74a16c3bf4ac6bb3"
+            }
+          ],
+          "mutation_signature": "1688c2368386c425",
+          "notes": "16.5.43.2 structural-only probe. Requested Sustain=1.0 to recover the maximum persisted value through harness structural_observation. Not a capability qualification experiment."
+        },
+        "arms": [
+          {
+            "arm_id": "arm_control",
+            "role": "control",
+            "declared_context": {},
+            "observed_context": [],
+            "state_observation": {
+              "state_hash": "a1e04f67de213a59"
+            },
+            "load_status": "PASS",
+            "render_status": "PASS",
+            "artifacts": {}
+          },
+          {
+            "arm_id": "arm_treatment",
+            "role": "treatment",
+            "declared_context": {},
+            "observed_context": [],
+            "state_observation": {
+              "state_hash": "5ee1d70668b9a939"
+            },
+            "load_status": "PASS",
+            "render_status": "PASS",
+            "artifacts": {}
+          }
+        ],
+        "runtime_verifications": [
+          {
+            "verified": true,
+            "failures": [],
+            "observations": []
+          }
+        ],
+        "state_observation": {
+          "status": "PASS",
+          "matches_intent": true,
+          "top_level_ok": true,
+          "fine_grained_ok": true,
+          "diff_keys": [
+            "Env0"
+          ],
+          "intended_targets": [
+            "Env0.plainParams.kParamSustain"
+          ],
+          "control_hash": "a1e04f67de213a59",
+          "treatment_hash": "5ee1d70668b9a939"
+        },
+        "load_observation": {
+          "status": "PASS",
+          "ok": true,
+          "control_error": null,
+          "treatment_error": null
+        },
+        "render_observation": {
+          "status": "PASS"
+        },
+        "causal_measurements": [
+          {
+            "metric": "sustain_window_rms_db",
+            "target": {
+              "field_path": "Env0.plainParams.kParamSustain",
+              "module": "Env",
+              "parameter": "kParamSustain"
+            },
+            "baseline": -50.250373467038386,
+            "treatment": -24.546252439908987,
+            "delta": 25.7041210271294,
+            "expected_direction": "increase",
+            "observed_direction": "increase",
+            "threshold": 3.0,
+            "status": "EFFECT_OBSERVED",
+            "measurement_condition_signature": {
+              "experiment_hash": "2ad6168671cfac32",
+              "stimulus": {
+                "note": 60,
+                "note_len": 1.8,
+                "render_seconds": 2.0,
+                "velocity": 110
+              },
+              "hash": "74a16c3bf4ac6bb3"
+            },
+            "measurement_definition_id": "sustain_window_rms_db:c092f5a1078d"
+          }
+        ],
+        "persistence_observation": {
+          "status": "FAIL",
+          "checked": true,
+          "exact_match": false,
+          "detail": {
+            "Env0.plainParams.kParamSustain": false
+          }
+        },
+        "integrity": {
+          "synthetic": false,
+          "contradictions": [],
+          "relationships": [],
+          "reverify_required": false
+        },
+        "structural_observation": {},
+        "_gate_completeness": {
+          "generation": "PASS",
+          "load": "PASS",
+          "render": "PASS",
+          "causal": "PASS",
+          "persistence": "FAIL"
+        },
+        "_outcome_signature": "EFFECT"
+      }
+    }
+  },
+  "corrected_release": {
+    "experiment_id": "16.5.43.2-CORPUS-ENV-RELEASE-CORRECTED",
+    "shared_context": {
+      "Decay": 0.02,
+      "Sustain": 0.3
+    },
+    "local_qualification": {
+      "passed": false,
+      "failures": [
+        "causal='FAIL', expected 'PASS'",
+        "causal status='NO_OBSERVED_EFFECT'",
+        "observed_direction='none', expected 'increase'",
+        "delta=np.float64(0.10756643953784106) below threshold=3.0"
+      ]
+    },
+    "record": {
+      "experiment_id": "16.5.43.2-CORPUS-ENV-RELEASE-CORRECTED",
+      "gates": {
+        "generation": "PASS",
+        "load": "PASS",
+        "render": "PASS",
+        "causal": "FAIL",
+        "persistence": "PASS"
+      },
+      "runtime_verified": true,
+      "outcome_signature": "NO_OBSERVED_EFFECT",
+      "state_observation": {
+        "status": "PASS",
+        "matches_intent": true,
+        "top_level_ok": true,
+        "fine_grained_ok": true,
+        "diff_keys": [
+          "Env0"
+        ],
+        "intended_targets": [
+          "Env0.plainParams.kParamRelease"
+        ],
+        "control_hash": "e511b5c5d824be52",
+        "treatment_hash": "318f1cb4aa17a31e"
+      },
+      "load_observation": {
+        "status": "PASS",
+        "ok": true,
+        "control_error": null,
+        "treatment_error": null
+      },
+      "render_observation": {
+        "status": "PASS"
+      },
+      "persistence_observation": {
+        "status": "PASS",
+        "checked": true,
+        "exact_match": true,
+        "detail": {
+          "Env0.plainParams.kParamRelease": true
+        }
+      },
+      "structural_observation": {},
+      "runtime_verifications": [
+        {
+          "verified": true,
+          "failures": [],
+          "observations": []
+        }
+      ],
+      "causal_measurements": [
+        {
+          "metric": "tail_rms_db",
+          "target": {
+            "field_path": "Env0.plainParams.kParamRelease",
+            "module": "Env",
+            "parameter": "kParamRelease"
+          },
+          "baseline": -45.54389241321812,
+          "treatment": -45.436325973680276,
+          "delta": 0.10756643953784106,
+          "expected_direction": "increase",
+          "observed_direction": "none",
+          "threshold": 3.0,
+          "status": "NO_OBSERVED_EFFECT",
+          "measurement_condition_signature": {
+            "experiment_hash": "3c0cb4639411b993",
+            "stimulus": {
+              "note": 60,
+              "note_len": 0.4,
+              "render_seconds": 2.0,
+              "tail_start": 0.6,
+              "velocity": 110
+            },
+            "hash": "a66a66869c472e62"
+          },
+          "measurement_definition_id": "tail_rms_db:c6a68e551ef9"
+        }
+      ],
+      "evidence_record": {
+        "experiment_id": "16.5.43.2-CORPUS-ENV-RELEASE-CORRECTED",
+        "epoch": {
+          "serum_binary_sha256": "7978c9be5b2107e985c24c174000faee87e11483ec989d81dc61b5829b45ed70",
+          "execution_harness_revision": "8797efa0cf6c1f7a4540395e36aed503116bffefedec6fd195c5b7c8708b32f3",
+          "dependency_lock": {
+            "dawdreamer": "0.9.0",
+            "cbor2": "unknown",
+            "zstandard": "0.25.0",
+            "numpy": "2.4.4",
+            "python": "3.14.3"
+          },
+          "environment_fingerprint": {
+            "platform": "Windows-11-10.0.26200-SP0",
+            "machine": "AMD64",
+            "processor": "AMD64 Family 25 Model 116 Stepping 1, AuthenticAMD",
+            "python_build": "tags/v3.14.3:323c59a Feb  3 2026 16:04:56",
+            "sample_rate": 44100,
+            "block_size": 512
+          },
+          "execution_epoch_id": "3fbc696f694d8474",
+          "evidence_epoch_id": "3fbc696f694d8474",
+          "derivation_revision": "10f90bc72dd78363"
+        },
+        "experiment": {
+          "mutations": [
+            {
+              "target_path": "Env0.plainParams.kParamRelease",
+              "value": 1.0,
+              "provenance": "16.5.43.2 corrected-context long release"
+            }
+          ],
+          "prerequisites": [],
+          "isolation_level": "single_field",
+          "claim_subject": "envelope_field:Env.kParamRelease",
+          "claim_predicate": "produces_measurable_effect",
+          "experiment_condition_signature": {
+            "prerequisites": [],
+            "baseline_overrides": [
+              [
+                "Env0.plainParams.kParamDecay",
+                "0.02"
+              ],
+              [
+                "Env0.plainParams.kParamSustain",
+                "0.3"
+              ]
+            ],
+            "hash": "3c0cb4639411b993"
+          },
+          "measurement_condition_signatures": [
+            {
+              "experiment_hash": "3c0cb4639411b993",
+              "stimulus": {
+                "note": 60,
+                "note_len": 0.4,
+                "render_seconds": 2.0,
+                "tail_start": 0.6,
+                "velocity": 110
+              },
+              "hash": "a66a66869c472e62"
+            }
+          ],
+          "mutation_signature": "34ccff068ef002e7",
+          "notes": "Corrected normalized-corpus Release context. Shared Sustain=0.3; shared Decay=0.02s; only Release is mutated."
+        },
+        "arms": [
+          {
+            "arm_id": "arm_control",
+            "role": "control",
+            "declared_context": {},
+            "observed_context": [],
+            "state_observation": {
+              "state_hash": "e511b5c5d824be52"
+            },
+            "load_status": "PASS",
+            "render_status": "PASS",
+            "artifacts": {}
+          },
+          {
+            "arm_id": "arm_treatment",
+            "role": "treatment",
+            "declared_context": {},
+            "observed_context": [],
+            "state_observation": {
+              "state_hash": "318f1cb4aa17a31e"
+            },
+            "load_status": "PASS",
+            "render_status": "PASS",
+            "artifacts": {}
+          }
+        ],
+        "runtime_verifications": [
+          {
+            "verified": true,
+            "failures": [],
+            "observations": []
+          }
+        ],
+        "state_observation": {
+          "status": "PASS",
+          "matches_intent": true,
+          "top_level_ok": true,
+          "fine_grained_ok": true,
+          "diff_keys": [
+            "Env0"
+          ],
+          "intended_targets": [
+            "Env0.plainParams.kParamRelease"
+          ],
+          "control_hash": "e511b5c5d824be52",
+          "treatment_hash": "318f1cb4aa17a31e"
+        },
+        "load_observation": {
+          "status": "PASS",
+          "ok": true,
+          "control_error": null,
+          "treatment_error": null
+        },
+        "render_observation": {
+          "status": "PASS"
+        },
+        "causal_measurements": [
+          {
+            "metric": "tail_rms_db",
+            "target": {
+              "field_path": "Env0.plainParams.kParamRelease",
+              "module": "Env",
+              "parameter": "kParamRelease"
+            },
+            "baseline": -45.54389241321812,
+            "treatment": -45.436325973680276,
+            "delta": 0.10756643953784106,
+            "expected_direction": "increase",
+            "observed_direction": "none",
+            "threshold": 3.0,
+            "status": "NO_OBSERVED_EFFECT",
+            "measurement_condition_signature": {
+              "experiment_hash": "3c0cb4639411b993",
+              "stimulus": {
+                "note": 60,
+                "note_len": 0.4,
+                "render_seconds": 2.0,
+                "tail_start": 0.6,
+                "velocity": 110
+              },
+              "hash": "a66a66869c472e62"
+            },
+            "measurement_definition_id": "tail_rms_db:c6a68e551ef9"
+          }
+        ],
+        "persistence_observation": {
+          "status": "PASS",
+          "checked": true,
+          "exact_match": true,
+          "detail": {
+            "Env0.plainParams.kParamRelease": true
+          }
+        },
+        "integrity": {
+          "synthetic": false,
+          "contradictions": [],
+          "relationships": [],
+          "reverify_required": false
+        },
+        "structural_observation": {},
+        "_gate_completeness": {
+          "generation": "PASS",
+          "load": "PASS",
+          "render": "PASS",
+          "causal": "FAIL",
+          "persistence": "PASS"
+        },
+        "_outcome_signature": "NO_OBSERVED_EFFECT"
+      }
+    }
+  },
+  "corrected_sustain_fallback": {
+    "ran": true,
+    "local_qualification": {
+      "passed": true,
+      "failures": []
+    },
+    "record": {
+      "experiment_id": "16.5.43.2-CORPUS-ENV-SUSTAIN-CORRECTED",
+      "gates": {
+        "generation": "PASS",
+        "load": "PASS",
+        "render": "PASS",
+        "causal": "PASS",
+        "persistence": "PASS"
+      },
+      "runtime_verified": true,
+      "outcome_signature": "EFFECT",
+      "state_observation": {
+        "status": "PASS",
+        "matches_intent": true,
+        "top_level_ok": true,
+        "fine_grained_ok": true,
+        "diff_keys": [
+          "Env0"
+        ],
+        "intended_targets": [
+          "Env0.plainParams.kParamSustain"
+        ],
+        "control_hash": "a1e04f67de213a59",
+        "treatment_hash": "e511b5c5d824be52"
+      },
+      "load_observation": {
+        "status": "PASS",
+        "ok": true,
+        "control_error": null,
+        "treatment_error": null
+      },
+      "render_observation": {
+        "status": "PASS"
+      },
+      "persistence_observation": {
+        "status": "PASS",
+        "checked": true,
+        "exact_match": true,
+        "detail": {
+          "Env0.plainParams.kParamSustain": true
+        }
+      },
+      "structural_observation": {},
+      "runtime_verifications": [
+        {
+          "verified": true,
+          "failures": [],
+          "observations": []
+        }
+      ],
+      "causal_measurements": [
+        {
+          "metric": "sustain_window_rms_db",
+          "target": {
+            "field_path": "Env0.plainParams.kParamSustain",
+            "module": "Env",
+            "parameter": "kParamSustain"
+          },
+          "baseline": -50.250373467038386,
+          "treatment": -44.488971611604775,
+          "delta": 5.761401855433611,
+          "expected_direction": "increase",
+          "observed_direction": "increase",
+          "threshold": 3.0,
+          "status": "EFFECT_OBSERVED",
+          "measurement_condition_signature": {
+            "experiment_hash": "2ad6168671cfac32",
+            "stimulus": {
+              "note": 60,
+              "note_len": 1.8,
+              "render_seconds": 2.0,
+              "velocity": 110
+            },
+            "hash": "74a16c3bf4ac6bb3"
+          },
+          "measurement_definition_id": "sustain_window_rms_db:c092f5a1078d"
+        }
+      ],
+      "evidence_record": {
+        "experiment_id": "16.5.43.2-CORPUS-ENV-SUSTAIN-CORRECTED",
+        "epoch": {
+          "serum_binary_sha256": "7978c9be5b2107e985c24c174000faee87e11483ec989d81dc61b5829b45ed70",
+          "execution_harness_revision": "8797efa0cf6c1f7a4540395e36aed503116bffefedec6fd195c5b7c8708b32f3",
+          "dependency_lock": {
+            "dawdreamer": "0.9.0",
+            "cbor2": "unknown",
+            "zstandard": "0.25.0",
+            "numpy": "2.4.4",
+            "python": "3.14.3"
+          },
+          "environment_fingerprint": {
+            "platform": "Windows-11-10.0.26200-SP0",
+            "machine": "AMD64",
+            "processor": "AMD64 Family 25 Model 116 Stepping 1, AuthenticAMD",
+            "python_build": "tags/v3.14.3:323c59a Feb  3 2026 16:04:56",
+            "sample_rate": 44100,
+            "block_size": 512
+          },
+          "execution_epoch_id": "3fbc696f694d8474",
+          "evidence_epoch_id": "3fbc696f694d8474",
+          "derivation_revision": "10f90bc72dd78363"
+        },
+        "experiment": {
+          "mutations": [
+            {
+              "target_path": "Env0.plainParams.kParamSustain",
+              "value": 0.3,
+              "provenance": "16.5.43.2 corrected corpus Sustain fallback"
+            }
+          ],
+          "prerequisites": [],
+          "isolation_level": "single_field",
+          "claim_subject": "envelope_field:Env.kParamSustain",
+          "claim_predicate": "produces_measurable_effect",
+          "experiment_condition_signature": {
+            "prerequisites": [],
+            "baseline_overrides": [
+              [
+                "Env0.plainParams.kParamDecay",
+                "0.02"
+              ]
+            ],
+            "hash": "2ad6168671cfac32"
+          },
+          "measurement_condition_signatures": [
+            {
+              "experiment_hash": "2ad6168671cfac32",
+              "stimulus": {
+                "note": 60,
+                "note_len": 1.8,
+                "render_seconds": 2.0,
+                "velocity": 110
+              },
+              "hash": "74a16c3bf4ac6bb3"
+            }
+          ],
+          "mutation_signature": "b452a1fd6d6e7ac2",
+          "notes": "Corrected normalized-corpus Sustain fallback. Expected direction is increase because corpus Sustain baseline is 0.0. Shared Decay=0.02s."
+        },
+        "arms": [
+          {
+            "arm_id": "arm_control",
+            "role": "control",
+            "declared_context": {},
+            "observed_context": [],
+            "state_observation": {
+              "state_hash": "a1e04f67de213a59"
+            },
+            "load_status": "PASS",
+            "render_status": "PASS",
+            "artifacts": {}
+          },
+          {
+            "arm_id": "arm_treatment",
+            "role": "treatment",
+            "declared_context": {},
+            "observed_context": [],
+            "state_observation": {
+              "state_hash": "e511b5c5d824be52"
+            },
+            "load_status": "PASS",
+            "render_status": "PASS",
+            "artifacts": {}
+          }
+        ],
+        "runtime_verifications": [
+          {
+            "verified": true,
+            "failures": [],
+            "observations": []
+          }
+        ],
+        "state_observation": {
+          "status": "PASS",
+          "matches_intent": true,
+          "top_level_ok": true,
+          "fine_grained_ok": true,
+          "diff_keys": [
+            "Env0"
+          ],
+          "intended_targets": [
+            "Env0.plainParams.kParamSustain"
+          ],
+          "control_hash": "a1e04f67de213a59",
+          "treatment_hash": "e511b5c5d824be52"
+        },
+        "load_observation": {
+          "status": "PASS",
+          "ok": true,
+          "control_error": null,
+          "treatment_error": null
+        },
+        "render_observation": {
+          "status": "PASS"
+        },
+        "causal_measurements": [
+          {
+            "metric": "sustain_window_rms_db",
+            "target": {
+              "field_path": "Env0.plainParams.kParamSustain",
+              "module": "Env",
+              "parameter": "kParamSustain"
+            },
+            "baseline": -50.250373467038386,
+            "treatment": -44.488971611604775,
+            "delta": 5.761401855433611,
+            "expected_direction": "increase",
+            "observed_direction": "increase",
+            "threshold": 3.0,
+            "status": "EFFECT_OBSERVED",
+            "measurement_condition_signature": {
+              "experiment_hash": "2ad6168671cfac32",
+              "stimulus": {
+                "note": 60,
+                "note_len": 1.8,
+                "render_seconds": 2.0,
+                "velocity": 110
+              },
+              "hash": "74a16c3bf4ac6bb3"
+            },
+            "measurement_definition_id": "sustain_window_rms_db:c092f5a1078d"
+          }
+        ],
+        "persistence_observation": {
+          "status": "PASS",
+          "checked": true,
+          "exact_match": true,
+          "detail": {
+            "Env0.plainParams.kParamSustain": true
+          }
+        },
+        "integrity": {
+          "synthetic": false,
+          "contradictions": [],
+          "relationships": [],
+          "reverify_required": false
+        },
+        "structural_observation": {},
+        "_gate_completeness": {
+          "generation": "PASS",
+          "load": "PASS",
+          "render": "PASS",
+          "causal": "PASS",
+          "persistence": "PASS"
+        },
+        "_outcome_signature": "EFFECT"
+      }
+    }
+  },
+  "final_local_duration_result": {
+    "duration_control_qualified": true,
+    "qualifying_control": "Env Sustain"
+  },
+  "guardrails": {
+    "frontier_mutated": false,
+    "current_capability_view_mutated": false,
+    "capability_promoted_by_script": false,
+    "historical_evidence_used_as_current_verification": false,
+    "old_16_5_43_1_artifact_modified": false,
+    "a_vs_d_used_as_causal_evidence": false,
+    "structural_probe_used_as_causal_qualification": false
+  },
+  "notes": "Local experiment qualification is not equivalent to capability admission. Evidence must proceed through the normal EvidenceRecord -> ClaimGroup -> CapabilityContract -> context-scoped admission path."
+}
