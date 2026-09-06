@@ -1,0 +1,23 @@
+{
+  "16.5.57a_question_1_serum_binary_hash": {
+    "question": "Determine exact Serum2 binary Ableton resolves and compare with harness epoch",
+    "harness_epoch": "7978c9be5b2107e9...",
+    "observed_serum2_hash": "7978C9BE5B2107E985C24C174000FAEE87E11483EC989D81DC61B5829B45ED70",
+    "match": true,
+    "conclusion": "MATCH - Serum2 binary hash starts with harness epoch. Same Serum version."
+  },
+  "16.5.57a_question_2_ableton_instance": {
+    "question": "Reachable Ableton Live instance and version",
+    "live_version": "12.3",
+    "reachable": true,
+    "interface": "AbletonMCP"
+  },
+  "16.5.57a_question_3_serum_browser": {
+    "question": "Can locate/load Serum2 and enumerate/read parameters",
+    "serum_in_browser_search": "NOT FOUND (search returned 0 matches)",
+    "serum_in_instruments": "NOT FOUND (only Ableton built-in instruments visible)",
+    "serum_installed_on_system": true,
+    "serum_path": "C:\\Program Files\\Common Files\\VST3\\Serum2.vst3",
+    "status": "INSTALLED but NOT visible in Ableton browser"
+  }
+}

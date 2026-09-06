@@ -1,0 +1,62 @@
+{
+  "probe_phase": "16.5.57a_read_only",
+  "timestamp": "2026-09-07T01:37:24.749567",
+  "runtime_identity": {
+    "platform": "Windows 11",
+    "python": "3.14",
+    "ableton_version": "12.3",
+    "interface": "AbletonMCP"
+  },
+  "questions": {
+    "q1_serum2_binary_identity": {
+      "question": "Determine exact Serum2 binary Ableton resolves vs harness epoch 7978c9be5b2107e9",
+      "harness_epoch_prefix": "7978c9be5b2107e9",
+      "observed_serum2_sha256": "7978C9BE5B2107E985C24C174000FAEE87E11483EC989D81DC61B5829B45ED70",
+      "serum2_path": "C:/Program Files/Common Files/VST3/Serum2.vst3/Contents/x86_64-win/Serum2.vst3",
+      "binary_matches_harness_epoch": true,
+      "status": "YES",
+      "conclusion": "Same Serum2 version as harness qualified"
+    },
+    "q2_ableton_connectivity": {
+      "question": "Determine reachable Ableton Live instance and version",
+      "live_version": "12.3",
+      "reachable": true,
+      "interface_used": "AbletonMCP Remote Script",
+      "status": "YES",
+      "conclusion": "Ableton Live 12.3 Suite is reachable via MCP"
+    },
+    "q3_serum2_locate_load": {
+      "question": "Can locate and load Serum2, enumerate and read device parameters",
+      "browser_search_serum": "No results (0 matches)",
+      "serum_in_instruments_browser": false,
+      "serum_installed_on_system": true,
+      "serum_in_vst3_directory": true,
+      "serum_discoverable_by_ableton_mcp": false,
+      "status": "BLOCKED",
+      "reason": "Serum2 in VST3 directory but NOT visible in AbletonMCP browser"
+    },
+    "q4_processor_state_interface": {
+      "question": "Does interface exist for processor-state import/extraction",
+      "status": "BLOCKED",
+      "reason": "Cannot load Serum2 to test"
+    },
+    "q5_midi_track_device_creation": {
+      "question": "Do MIDI/track/device/clip interfaces exist",
+      "status": "YES",
+      "tools": [
+        "create_midi_track",
+        "create_audio_track",
+        "create_clip",
+        "add_notes_to_clip"
+      ]
+    },
+    "q6_render_export_interface": {
+      "question": "Do render/export interfaces exist",
+      "status": "UNKNOWN"
+    }
+  },
+  "blocker_summary": {
+    "blocking_issue": "Serum2 VST3 not discoverable in AbletonMCP browser",
+    "status": "BLOCKED"
+  }
+}
