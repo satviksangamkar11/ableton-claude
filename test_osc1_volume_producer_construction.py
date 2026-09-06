@@ -186,15 +186,21 @@ passed = (
     producer_result.refusal_reason is None and
     producer_result.load_status == "PASS" and
     producer_result.persistence_status == "PASS" and
+    producer_result.causal_status == "EFFECT_OBSERVED" and
+    producer_result.measurement is not None and
     producer_result.record is not None
 )
 
 if passed:
     print("[PASS] DECISION: OSC1_VOLUME_PRODUCER_CONSTRUCTION_VERIFIED")
-    print("       Full path: semantic -> resolve -> admission -> construct_and_verify [OK]")
+    print("       All gates: resolution, path, admission, load, persistence, causal, measurement")
 else:
     print("[FAIL] DECISION: OSC1_VOLUME_PRODUCER_CONSTRUCTION_INCOMPLETE")
     print("       One or more verification gates failed")
+    if producer_result.causal_status != "EFFECT_OBSERVED":
+        print(f"       (causal_status = {producer_result.causal_status}, expected EFFECT_OBSERVED)")
+    if producer_result.measurement is None:
+        print(f"       (measurement missing)")
     sys.exit(1)
 
 print("=" * 80)

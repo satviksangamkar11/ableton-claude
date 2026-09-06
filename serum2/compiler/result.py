@@ -23,7 +23,7 @@ from .targets import (
     CONTEXT_NOT_SATISFIED, resolve_semantic_target, resolve_path,
 )
 from .structural_admission import (
-    StructuralAdmissionResult, structural_admit, NOT_CHECKED, REFUSE as SA_REFUSE,
+    StructuralAdmissionResult, structural_admit, NOT_CHECKED, REFUSE as SA_REFUSE, UNKNOWN as SA_UNKNOWN,
 )
 from .kernel import (
     dry_run, construct_and_verify,
@@ -125,7 +125,7 @@ def produce(
     if execution_mode == STRUCTURAL_BIND_MODE:
         struct_result = structural_admit(resolved, requested_value, structural_records)
         struct_status = struct_result.status
-        if struct_status == SA_REFUSE:
+        if struct_status in (SA_REFUSE, SA_UNKNOWN):
             return ProducerResult(
                 requested_name=name, requested_value=requested_value,
                 execution_mode=execution_mode,
