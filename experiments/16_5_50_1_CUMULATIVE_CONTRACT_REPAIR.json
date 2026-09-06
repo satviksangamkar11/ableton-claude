@@ -1,0 +1,18 @@
+{
+  "step": "16.5.50.1",
+  "current_contract_count_before": 14,
+  "rebuilt_contract_count": 37,
+  "causal_verified_count": 26,
+  "structural_only_count": 8,
+  "negative_evidence_count": 3,
+  "expected_causal_verified": 26,
+  "expected_structural_only": 8,
+  "expected_negative_evidence": 3,
+  "expected_total": 37,
+  "sustain_found": true,
+  "regressions": [],
+  "serum_mutated": false,
+  "render_performed": false,
+  "new_evidence_created": false,
+  "decision": "CUMULATIVE_CONTRACT_STATE_RESTORED"
+}
