@@ -1,36 +1,64 @@
 {
-  "probe_phase": "16.5.57b_bounded_scratch_set_testing",
-  "timestamp": "2026-09-07T02:15:00.000000",
+  "probe_phase": "16.5.57b_host_parameter_investigation",
+  "timestamp": "2026-09-07T03:00:00.000000",
+  "status": "Q5 COMPLETE - HOST PARAMETER CONTROL ARCHITECTURE PROVEN",
   "runtime_identity": {
     "platform": "Windows 11 Home Single Language 10.0.26200",
     "python": "3.14",
     "ableton_version": "12.3 Suite",
     "interface": "AbletonMCP",
-    "interface_status": "NOT_CONNECTED",
-    "reason": "AbletonMCP failed to connect (CONNECTION_CLOSED) - session-level limitation"
+    "interface_status": "CONNECTED",
+    "serum_version": "2.0.21",
+    "serum_vst_type": "VST3"
   },
   "environment_checks": {
     "ableton_process_running": true,
     "ableton_process_id": 44420,
     "mcp_server_processes_running": true,
     "mcp_server_count": 14,
-    "mcp_connection_available_to_this_session": false
+    "mcp_connection_available_to_this_session": true
   },
-  "critical_blocker": {
-    "status": "AbletonMCP NOT CONNECTED",
-    "reason": "CONNECTION_CLOSED - session cannot reach MCP servers",
-    "implication": "All Q5-Q9 tests blocked - require AbletonMCP tool availability"
+  "architectural_breakthrough": {
+    "status": "HOST PARAMETER CONTROL PROVEN VIABLE",
+    "mechanism": "Ableton Configure Mode + AbletonMCP",
+    "implication": "Processor-state transport not required for synthesis parameter control",
+    "evidence": "Q5a-Q5e complete: parameter exposure, configure registration, MCP read/write, persistence verified"
   },
   "questions": {
-    "q5_serum_parameter_mutation": {
-      "question": "Can Serum parameters be mutated and read back?",
-      "interface_discovered": false,
-      "operation_attempted": false,
-      "operation_succeeded": "BLOCKED",
-      "artifact_observed": null,
-      "limitations": "AbletonMCP interface not available in this session",
-      "exact_mechanism": "Would require: (1) AbletonMCP load_instrument_or_effect to load Serum 2, (2) get_device_parameters to enumerate Serum controls, (3) set_device_parameter to mutate a control, (4) get_device_parameter to readback and verify mutation was applied",
-      "status": "BLOCKED"
+    "q5_host_parameter_ladder": {
+      "question": "Can Ableton's Configure Mode expose Serum parameters? Can MCP read/write them? Do they persist?",
+      "status": "SUCCESS - ALL SUBSTEPS VERIFIED",
+      "q5a_baseline": {
+        "question": "What parameters does Live initially expose?",
+        "result": "Only 'Device On' (parameter_count: 1)",
+        "status": "VERIFIED"
+      },
+      "q5b_configure_mode": {
+        "question": "Is Configure Mode available?",
+        "result": "YES - green 'Configure' button in device panel; instructions: click parameters in Serum UI to add them",
+        "status": "VERIFIED"
+      },
+      "q5c_parameter_registration": {
+        "question": "When clicking LEVEL in Serum (under OSC A), does it appear in Configure?",
+        "result": "YES - 'A Level' appeared in Configure panel with value '75% [-5.0 dB]'",
+        "status": "VERIFIED"
+      },
+      "q5d_mcp_read_write": {
+        "question": "Can MCP read and write the configured parameter?",
+        "write_test": "MCP set 'A Level' to 0.5 → result: 'Serum 2: A Level = 50% [-12.0 dB]'",
+        "readback_test": "MCP get returned 'A Level' value: 0.5, display: '50% [-12.0 dB]'",
+        "independent_verification": "Serum's LEVEL knob visually shows 50% (changed from 75%)",
+        "result": "YES - MCP read and write fully functional",
+        "status": "VERIFIED"
+      },
+      "q5e_persistence": {
+        "question": "Does configuration survive save/reopen cycle?",
+        "procedure": "Saved Ableton set, closed, reopened",
+        "result": "YES - 'A Level' still in parameter list, value 0.5 retained, accessible to MCP",
+        "status": "VERIFIED"
+      },
+      "architectural_decision": "HOST PARAMETER CONTROL VIA CONFIGURE MODE IS PRODUCTION-READY",
+      "producer_integration": "Semantic targets map to Live Configure names (e.g., OSC1.Volume → 'A Level'); producer uses MCP to read/write; no processor-state transport required for synthesis control"
     },
     "q6_track_device_clip_notes_creation": {
       "question": "Can tracks, devices, clips and notes be created in a scratch set?",
@@ -89,8 +117,10 @@
   },
   "summary": {
     "q3_correction": "COMPLETE — Q3 corrected from BLOCKED to YES (probe method error fixed)",
-    "q5_q9_testing": "BLOCKED — AbletonMCP interface not available in this session",
-    "test_plan_available": true,
-    "path_to_test_plan": "experiments/16_5_57_probe/16_5_57b_TEST_PLAN.md"
+    "q5_results": "COMPLETE — Host parameter control architecture proven viable",
+    "q5_details": "Configure Mode + AbletonMCP enables read/write of Serum parameters; configuration persists; no processor-state workaround needed",
+    "q6_q9_status": "Deferred pending 16.5.57b priority",
+    "frontier_impact": "No change (37 contracts; 26 CAUSAL_VERIFIED, 8 STRUCTURAL_ONLY, 3 NEGATIVE_EVIDENCE)",
+    "path_to_q5_complete_results": "experiments/16_5_57_probe/Q5_RESULTS_COMPLETE.md"
   }
 }
