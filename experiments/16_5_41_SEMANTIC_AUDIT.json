@@ -1,0 +1,586 @@
+{
+  "contracts": {
+    "('envelope_field_attack:4df5877e', '12dc2f522836863e')": {
+      "admissible_evidence": [],
+      "blocked_evidence": [],
+      "capability_status": "CAUSAL_VERIFIED",
+      "contract_key": "('envelope_field_attack:4df5877e', '12dc2f522836863e')",
+      "current_runtime_candidate": false,
+      "current_runtime_status": "CURRENT_RUNTIME_REQUALIFICATION_REQUIRED",
+      "historical_admissible": true,
+      "historical_only_evidence": [
+        "ENV-ATTACK"
+      ],
+      "reason": "historical evidence is admissible, but no VALID supporting evidence establishes a current-runtime candidate",
+      "semantic_class": "CAUSAL",
+      "target": "envelope_field_attack"
+    },
+    "('envelope_field_decay:bbb2e94e', 'c9a4dbc15a3d2fc9')": {
+      "admissible_evidence": [],
+      "blocked_evidence": [],
+      "capability_status": "CAUSAL_VERIFIED",
+      "contract_key": "('envelope_field_decay:bbb2e94e', 'c9a4dbc15a3d2fc9')",
+      "current_runtime_candidate": false,
+      "current_runtime_status": "CURRENT_RUNTIME_REQUALIFICATION_REQUIRED",
+      "historical_admissible": true,
+      "historical_only_evidence": [
+        "ENV-DECAY"
+      ],
+      "reason": "historical evidence is admissible, but no VALID supporting evidence establishes a current-runtime candidate",
+      "semantic_class": "CAUSAL",
+      "target": "envelope_field_decay"
+    },
+    "('envelope_field_release:7aab5ce1', '2ad6168671cfac32')": {
+      "admissible_evidence": [],
+      "blocked_evidence": [],
+      "capability_status": "CAUSAL_VERIFIED",
+      "contract_key": "('envelope_field_release:7aab5ce1', '2ad6168671cfac32')",
+      "current_runtime_candidate": false,
+      "current_runtime_status": "CURRENT_RUNTIME_REQUALIFICATION_REQUIRED",
+      "historical_admissible": true,
+      "historical_only_evidence": [
+        "ENV-RELEASE"
+      ],
+      "reason": "historical evidence is admissible, but no VALID supporting evidence establishes a current-runtime candidate",
+      "semantic_class": "CAUSAL",
+      "target": "envelope_field_release"
+    },
+    "('envelope_field_sustain:4f171978', '2ad6168671cfac32')": {
+      "admissible_evidence": [],
+      "blocked_evidence": [],
+      "capability_status": "CAUSAL_VERIFIED",
+      "contract_key": "('envelope_field_sustain:4f171978', '2ad6168671cfac32')",
+      "current_runtime_candidate": false,
+      "current_runtime_status": "CURRENT_RUNTIME_REQUALIFICATION_REQUIRED",
+      "historical_admissible": true,
+      "historical_only_evidence": [
+        "ENV-SUSTAIN"
+      ],
+      "reason": "historical evidence is admissible, but no VALID supporting evidence establishes a current-runtime candidate",
+      "semantic_class": "CAUSAL",
+      "target": "envelope_field_sustain"
+    },
+    "('filter_field_reso:6da15f4e', '8d8c276adab7ae3a')": {
+      "admissible_evidence": [],
+      "blocked_evidence": [],
+      "capability_status": "CAUSAL_VERIFIED",
+      "contract_key": "('filter_field_reso:6da15f4e', '8d8c276adab7ae3a')",
+      "current_runtime_candidate": false,
+      "current_runtime_status": "CURRENT_RUNTIME_REQUALIFICATION_REQUIRED",
+      "historical_admissible": true,
+      "historical_only_evidence": [
+        "FILTER-RESONANCE"
+      ],
+      "reason": "historical evidence is admissible, but no VALID supporting evidence establishes a current-runtime candidate",
+      "semantic_class": "CAUSAL",
+      "target": "filter_field_reso"
+    },
+    "('filter_field_type:dbe3b9b0', '8d8c276adab7ae3a')": {
+      "admissible_evidence": [],
+      "blocked_evidence": [],
+      "capability_status": "CAUSAL_VERIFIED",
+      "contract_key": "('filter_field_type:dbe3b9b0', '8d8c276adab7ae3a')",
+      "current_runtime_candidate": false,
+      "current_runtime_status": "CURRENT_RUNTIME_REQUALIFICATION_REQUIRED",
+      "historical_admissible": true,
+      "historical_only_evidence": [
+        "FILTER-TYPE"
+      ],
+      "reason": "historical evidence is admissible, but no VALID supporting evidence establishes a current-runtime candidate",
+      "semantic_class": "CAUSAL",
+      "target": "filter_field_type"
+    },
+    "('fx_field_distortion_drive:f9cd78d8', 'c8541d5c99dab135')": {
+      "admissible_evidence": [],
+      "blocked_evidence": [],
+      "capability_status": "CAUSAL_VERIFIED",
+      "contract_key": "('fx_field_distortion_drive:f9cd78d8', 'c8541d5c99dab135')",
+      "current_runtime_candidate": false,
+      "current_runtime_status": "CURRENT_RUNTIME_REQUALIFICATION_REQUIRED",
+      "historical_admissible": true,
+      "historical_only_evidence": [
+        "FXDIST-DRIVE"
+      ],
+      "reason": "historical evidence is admissible, but no VALID supporting evidence establishes a current-runtime candidate",
+      "semantic_class": "CAUSAL",
+      "target": "fx_field_distortion_drive"
+    },
+    "('fx_field_distortion_mode:f9cd78d8', 'c8541d5c99dab135')": {
+      "admissible_evidence": [],
+      "blocked_evidence": [],
+      "capability_status": "CAUSAL_VERIFIED",
+      "contract_key": "('fx_field_distortion_mode:f9cd78d8', 'c8541d5c99dab135')",
+      "current_runtime_candidate": false,
+      "current_runtime_status": "CURRENT_RUNTIME_REQUALIFICATION_REQUIRED",
+      "historical_admissible": true,
+      "historical_only_evidence": [
+        "FXDIST-MODE"
+      ],
+      "reason": "historical evidence is admissible, but no VALID supporting evidence establishes a current-runtime candidate",
+      "semantic_class": "CAUSAL",
+      "target": "fx_field_distortion_mode"
+    },
+    "('fx_field_eq_freq1:f9cd78d8', '243cbc144914bf94')": {
+      "admissible_evidence": [
+        "FXEQ-FREQ1"
+      ],
+      "blocked_evidence": [],
+      "capability_status": "CAUSAL_VERIFIED",
+      "contract_key": "('fx_field_eq_freq1:f9cd78d8', '243cbc144914bf94')",
+      "current_runtime_candidate": true,
+      "current_runtime_status": "CURRENT_RUNTIME_CANDIDATE",
+      "historical_admissible": true,
+      "historical_only_evidence": [],
+      "reason": "contract is semantically usable and has VALID supporting evidence, but current-runtime verification is not established",
+      "semantic_class": "CAUSAL",
+      "target": "fx_field_eq_freq1"
+    },
+    "('fx_field_eq_kParamFreq2:f9cd78d8', '243cbc144914bf94')": {
+      "admissible_evidence": [],
+      "blocked_evidence": [],
+      "capability_status": "CAUSAL_VERIFIED",
+      "contract_key": "('fx_field_eq_kParamFreq2:f9cd78d8', '243cbc144914bf94')",
+      "current_runtime_candidate": false,
+      "current_runtime_status": "CURRENT_RUNTIME_REQUALIFICATION_REQUIRED",
+      "historical_admissible": true,
+      "historical_only_evidence": [
+        "FXEQ-KPARAMFREQ2"
+      ],
+      "reason": "historical evidence is admissible, but no VALID supporting evidence establishes a current-runtime candidate",
+      "semantic_class": "CAUSAL",
+      "target": "fx_field_eq_kParamFreq2"
+    },
+    "('fx_field_eq_kParamGain1:f9cd78d8', '243cbc144914bf94')": {
+      "admissible_evidence": [],
+      "blocked_evidence": [],
+      "capability_status": "CAUSAL_VERIFIED",
+      "contract_key": "('fx_field_eq_kParamGain1:f9cd78d8', '243cbc144914bf94')",
+      "current_runtime_candidate": false,
+      "current_runtime_status": "CURRENT_RUNTIME_REQUALIFICATION_REQUIRED",
+      "historical_admissible": true,
+      "historical_only_evidence": [
+        "FXEQ-KPARAMGAIN1"
+      ],
+      "reason": "historical evidence is admissible, but no VALID supporting evidence establishes a current-runtime candidate",
+      "semantic_class": "CAUSAL",
+      "target": "fx_field_eq_kParamGain1"
+    },
+    "('fx_field_eq_kParamGain2:f9cd78d8', '243cbc144914bf94')": {
+      "admissible_evidence": [],
+      "blocked_evidence": [],
+      "capability_status": "CAUSAL_VERIFIED",
+      "contract_key": "('fx_field_eq_kParamGain2:f9cd78d8', '243cbc144914bf94')",
+      "current_runtime_candidate": false,
+      "current_runtime_status": "CURRENT_RUNTIME_REQUALIFICATION_REQUIRED",
+      "historical_admissible": true,
+      "historical_only_evidence": [
+        "FXEQ-KPARAMGAIN2"
+      ],
+      "reason": "historical evidence is admissible, but no VALID supporting evidence establishes a current-runtime candidate",
+      "semantic_class": "CAUSAL",
+      "target": "fx_field_eq_kParamGain2"
+    },
+    "('fx_field_eq_kParamLevelOut:f9cd78d8', '243cbc144914bf94')": {
+      "admissible_evidence": [],
+      "blocked_evidence": [],
+      "capability_status": "CAUSAL_VERIFIED",
+      "contract_key": "('fx_field_eq_kParamLevelOut:f9cd78d8', '243cbc144914bf94')",
+      "current_runtime_candidate": false,
+      "current_runtime_status": "CURRENT_RUNTIME_REQUALIFICATION_REQUIRED",
+      "historical_admissible": true,
+      "historical_only_evidence": [
+        "FXEQ-KPARAMLEVELOUT"
+      ],
+      "reason": "historical evidence is admissible, but no VALID supporting evidence establishes a current-runtime candidate",
+      "semantic_class": "CAUSAL",
+      "target": "fx_field_eq_kParamLevelOut"
+    },
+    "('fx_field_eq_kParamReso1:f9cd78d8', '243cbc144914bf94')": {
+      "admissible_evidence": [],
+      "blocked_evidence": [],
+      "capability_status": "CAUSAL_VERIFIED",
+      "contract_key": "('fx_field_eq_kParamReso1:f9cd78d8', '243cbc144914bf94')",
+      "current_runtime_candidate": false,
+      "current_runtime_status": "CURRENT_RUNTIME_REQUALIFICATION_REQUIRED",
+      "historical_admissible": true,
+      "historical_only_evidence": [
+        "FXEQ-KPARAMRESO1"
+      ],
+      "reason": "historical evidence is admissible, but no VALID supporting evidence establishes a current-runtime candidate",
+      "semantic_class": "CAUSAL",
+      "target": "fx_field_eq_kParamReso1"
+    },
+    "('fx_field_eq_kParamReso2:f9cd78d8', '243cbc144914bf94')": {
+      "admissible_evidence": [],
+      "blocked_evidence": [],
+      "capability_status": "CAUSAL_VERIFIED",
+      "contract_key": "('fx_field_eq_kParamReso2:f9cd78d8', '243cbc144914bf94')",
+      "current_runtime_candidate": false,
+      "current_runtime_status": "CURRENT_RUNTIME_REQUALIFICATION_REQUIRED",
+      "historical_admissible": true,
+      "historical_only_evidence": [
+        "FXEQ-KPARAMRESO2"
+      ],
+      "reason": "historical evidence is admissible, but no VALID supporting evidence establishes a current-runtime candidate",
+      "semantic_class": "CAUSAL",
+      "target": "fx_field_eq_kParamReso2"
+    },
+    "('fx_field_eq_kParamType1:76d301bf', '243cbc144914bf94')": {
+      "admissible_evidence": [],
+      "blocked_evidence": [],
+      "capability_status": "STRUCTURAL_ONLY",
+      "contract_key": "('fx_field_eq_kParamType1:76d301bf', '243cbc144914bf94')",
+      "current_runtime_candidate": false,
+      "current_runtime_status": "CURRENT_RUNTIME_REQUALIFICATION_REQUIRED",
+      "historical_admissible": true,
+      "historical_only_evidence": [
+        "FXEQ-KPARAMTYPE1"
+      ],
+      "reason": "historical evidence is admissible, but no VALID supporting evidence establishes a current-runtime candidate",
+      "semantic_class": "STRUCTURAL",
+      "target": "fx_field_eq_kParamType1"
+    },
+    "('fx_field_eq_kParamType2:f9cd78d8', '243cbc144914bf94')": {
+      "admissible_evidence": [],
+      "blocked_evidence": [],
+      "capability_status": "CAUSAL_VERIFIED",
+      "contract_key": "('fx_field_eq_kParamType2:f9cd78d8', '243cbc144914bf94')",
+      "current_runtime_candidate": false,
+      "current_runtime_status": "CURRENT_RUNTIME_REQUALIFICATION_REQUIRED",
+      "historical_admissible": true,
+      "historical_only_evidence": [
+        "FXEQ-KPARAMTYPE2"
+      ],
+      "reason": "historical evidence is admissible, but no VALID supporting evidence establishes a current-runtime candidate",
+      "semantic_class": "CAUSAL",
+      "target": "fx_field_eq_kParamType2"
+    },
+    "('global_field_mastervolume:f2ce8d90', '12dc2f522836863e')": {
+      "admissible_evidence": [],
+      "blocked_evidence": [],
+      "capability_status": "CAUSAL_VERIFIED",
+      "contract_key": "('global_field_mastervolume:f2ce8d90', '12dc2f522836863e')",
+      "current_runtime_candidate": false,
+      "current_runtime_status": "CURRENT_RUNTIME_REQUALIFICATION_REQUIRED",
+      "historical_admissible": true,
+      "historical_only_evidence": [
+        "GLOBAL-MASTERVOLUME"
+      ],
+      "reason": "historical evidence is admissible, but no VALID supporting evidence establishes a current-runtime candidate",
+      "semantic_class": "CAUSAL",
+      "target": "global_field_mastervolume"
+    },
+    "('global_field_monotoggle:848a5cca', '12dc2f522836863e')": {
+      "admissible_evidence": [
+        "GLOBAL-MONOTOGGLE"
+      ],
+      "blocked_evidence": [],
+      "capability_status": "STRUCTURAL_ONLY",
+      "contract_key": "('global_field_monotoggle:848a5cca', '12dc2f522836863e')",
+      "current_runtime_candidate": true,
+      "current_runtime_status": "CURRENT_RUNTIME_CANDIDATE",
+      "historical_admissible": true,
+      "historical_only_evidence": [],
+      "reason": "contract is semantically usable and has VALID supporting evidence, but current-runtime verification is not established",
+      "semantic_class": "STRUCTURAL",
+      "target": "global_field_monotoggle"
+    },
+    "('global_field_oversampling:848a5cca', '12dc2f522836863e')": {
+      "admissible_evidence": [
+        "GLOBAL-OVERSAMPLING"
+      ],
+      "blocked_evidence": [],
+      "capability_status": "STRUCTURAL_ONLY",
+      "contract_key": "('global_field_oversampling:848a5cca', '12dc2f522836863e')",
+      "current_runtime_candidate": true,
+      "current_runtime_status": "CURRENT_RUNTIME_CANDIDATE",
+      "historical_admissible": true,
+      "historical_only_evidence": [],
+      "reason": "contract is semantically usable and has VALID supporting evidence, but current-runtime verification is not established",
+      "semantic_class": "STRUCTURAL",
+      "target": "global_field_oversampling"
+    },
+    "('lfo_as_modulation_source:e0f31081', '6755cec516c2a243')": {
+      "admissible_evidence": [],
+      "blocked_evidence": [],
+      "capability_status": "NEGATIVE_EVIDENCE",
+      "contract_key": "('lfo_as_modulation_source:e0f31081', '6755cec516c2a243')",
+      "current_runtime_candidate": false,
+      "current_runtime_status": "CURRENT_RUNTIME_REQUALIFICATION_REQUIRED",
+      "historical_admissible": false,
+      "historical_only_evidence": [
+        "SRC-6",
+        "SRC-25",
+        "SRC-26",
+        "SRC-27",
+        "SRC-29",
+        "SRC-31"
+      ],
+      "reason": "contract status itself is not usable for producer capability semantics",
+      "semantic_class": "REJECTED",
+      "target": "lfo_as_modulation_source"
+    },
+    "('lfo_field_LFO-MODE:7b358c5a', '12dc2f522836863e')": {
+      "admissible_evidence": [
+        "LFO-MODE"
+      ],
+      "blocked_evidence": [],
+      "capability_status": "STRUCTURAL_ONLY",
+      "contract_key": "('lfo_field_LFO-MODE:7b358c5a', '12dc2f522836863e')",
+      "current_runtime_candidate": true,
+      "current_runtime_status": "CURRENT_RUNTIME_CANDIDATE",
+      "historical_admissible": true,
+      "historical_only_evidence": [],
+      "reason": "contract is semantically usable and has VALID supporting evidence, but current-runtime verification is not established",
+      "semantic_class": "STRUCTURAL",
+      "target": "lfo_field_LFO-MODE"
+    },
+    "('lfo_field_LFO-RATE:7b358c5a', '12dc2f522836863e')": {
+      "admissible_evidence": [
+        "LFO-RATE"
+      ],
+      "blocked_evidence": [],
+      "capability_status": "STRUCTURAL_ONLY",
+      "contract_key": "('lfo_field_LFO-RATE:7b358c5a', '12dc2f522836863e')",
+      "current_runtime_candidate": true,
+      "current_runtime_status": "CURRENT_RUNTIME_CANDIDATE",
+      "historical_admissible": true,
+      "historical_only_evidence": [],
+      "reason": "contract is semantically usable and has VALID supporting evidence, but current-runtime verification is not established",
+      "semantic_class": "STRUCTURAL",
+      "target": "lfo_field_LFO-RATE"
+    },
+    "('lfo_field_LFO-SHAPE:7b358c5a', '12dc2f522836863e')": {
+      "admissible_evidence": [
+        "LFO-SHAPE"
+      ],
+      "blocked_evidence": [],
+      "capability_status": "STRUCTURAL_ONLY",
+      "contract_key": "('lfo_field_LFO-SHAPE:7b358c5a', '12dc2f522836863e')",
+      "current_runtime_candidate": true,
+      "current_runtime_status": "CURRENT_RUNTIME_CANDIDATE",
+      "historical_admissible": true,
+      "historical_only_evidence": [],
+      "reason": "contract is semantically usable and has VALID supporting evidence, but current-runtime verification is not established",
+      "semantic_class": "STRUCTURAL",
+      "target": "lfo_field_LFO-SHAPE"
+    },
+    "('lfo_rate_dependent_route:6fcebe04', 'f03b8c8a1d23e2b9')": {
+      "admissible_evidence": [],
+      "blocked_evidence": [],
+      "capability_status": "CAUSAL_VERIFIED",
+      "contract_key": "('lfo_rate_dependent_route:6fcebe04', 'f03b8c8a1d23e2b9')",
+      "current_runtime_candidate": false,
+      "current_runtime_status": "CURRENT_RUNTIME_REQUALIFICATION_REQUIRED",
+      "historical_admissible": true,
+      "historical_only_evidence": [
+        "LFO-RATE-DEP-6"
+      ],
+      "reason": "historical evidence is admissible, but no VALID supporting evidence establishes a current-runtime candidate",
+      "semantic_class": "CAUSAL",
+      "target": "lfo_rate_dependent_route"
+    },
+    "('macro_field_name:6d7200b7', '12dc2f522836863e')": {
+      "admissible_evidence": [
+        "MACRO-NAME"
+      ],
+      "blocked_evidence": [],
+      "capability_status": "NEGATIVE_EVIDENCE",
+      "contract_key": "('macro_field_name:6d7200b7', '12dc2f522836863e')",
+      "current_runtime_candidate": false,
+      "current_runtime_status": "CURRENT_RUNTIME_REQUALIFICATION_REQUIRED",
+      "historical_admissible": false,
+      "historical_only_evidence": [],
+      "reason": "contract status itself is not usable for producer capability semantics",
+      "semantic_class": "REJECTED",
+      "target": "macro_field_name"
+    },
+    "('macro_field_value:df550d16', 'd128a67952883804')": {
+      "admissible_evidence": [],
+      "blocked_evidence": [],
+      "capability_status": "CAUSAL_VERIFIED",
+      "contract_key": "('macro_field_value:df550d16', 'd128a67952883804')",
+      "current_runtime_candidate": false,
+      "current_runtime_status": "CURRENT_RUNTIME_REQUALIFICATION_REQUIRED",
+      "historical_admissible": true,
+      "historical_only_evidence": [
+        "MACRO-VALUE"
+      ],
+      "reason": "historical evidence is admissible, but no VALID supporting evidence establishes a current-runtime candidate",
+      "semantic_class": "CAUSAL",
+      "target": "macro_field_value"
+    },
+    "('modulation_route_fxdelay:2d6749fb', '7c2a2d56f0b013ba')": {
+      "admissible_evidence": [
+        "E2b"
+      ],
+      "blocked_evidence": [],
+      "capability_status": "CAUSAL_VERIFIED",
+      "contract_key": "('modulation_route_fxdelay:2d6749fb', '7c2a2d56f0b013ba')",
+      "current_runtime_candidate": true,
+      "current_runtime_status": "CURRENT_RUNTIME_CANDIDATE",
+      "historical_admissible": true,
+      "historical_only_evidence": [],
+      "reason": "contract is semantically usable and has VALID supporting evidence, but current-runtime verification is not established",
+      "semantic_class": "CAUSAL",
+      "target": "modulation_route_fxdelay"
+    },
+    "('modulation_route_fxdelay:2d6749fb', '80d8772829f05a43')": {
+      "admissible_evidence": [
+        "E2a"
+      ],
+      "blocked_evidence": [],
+      "capability_status": "NEGATIVE_EVIDENCE",
+      "contract_key": "('modulation_route_fxdelay:2d6749fb', '80d8772829f05a43')",
+      "current_runtime_candidate": false,
+      "current_runtime_status": "CURRENT_RUNTIME_REQUALIFICATION_REQUIRED",
+      "historical_admissible": false,
+      "historical_only_evidence": [],
+      "reason": "contract status itself is not usable for producer capability semantics",
+      "semantic_class": "REJECTED",
+      "target": "modulation_route_fxdelay"
+    },
+    "('modulation_route_voicefilter:da41f927', '6755cec516c2a243')": {
+      "admissible_evidence": [
+        "E0",
+        "E1"
+      ],
+      "blocked_evidence": [],
+      "capability_status": "CAUSAL_VERIFIED",
+      "contract_key": "('modulation_route_voicefilter:da41f927', '6755cec516c2a243')",
+      "current_runtime_candidate": true,
+      "current_runtime_status": "CURRENT_RUNTIME_CANDIDATE",
+      "historical_admissible": true,
+      "historical_only_evidence": [],
+      "reason": "contract is semantically usable and has VALID supporting evidence, but current-runtime verification is not established",
+      "semantic_class": "CAUSAL",
+      "target": "modulation_route_voicefilter"
+    },
+    "('oscillator_field_OSC-ENABLE:6b75eaa1', '12dc2f522836863e')": {
+      "admissible_evidence": [],
+      "blocked_evidence": [],
+      "capability_status": "CAUSAL_VERIFIED",
+      "contract_key": "('oscillator_field_OSC-ENABLE:6b75eaa1', '12dc2f522836863e')",
+      "current_runtime_candidate": false,
+      "current_runtime_status": "CURRENT_RUNTIME_REQUALIFICATION_REQUIRED",
+      "historical_admissible": true,
+      "historical_only_evidence": [
+        "OSC-ENABLE"
+      ],
+      "reason": "historical evidence is admissible, but no VALID supporting evidence establishes a current-runtime candidate",
+      "semantic_class": "CAUSAL",
+      "target": "oscillator_field_OSC-ENABLE"
+    },
+    "('oscillator_field_OSC-OCTAVE:19404362', '12dc2f522836863e')": {
+      "admissible_evidence": [],
+      "blocked_evidence": [],
+      "capability_status": "CAUSAL_VERIFIED",
+      "contract_key": "('oscillator_field_OSC-OCTAVE:19404362', '12dc2f522836863e')",
+      "current_runtime_candidate": false,
+      "current_runtime_status": "CURRENT_RUNTIME_REQUALIFICATION_REQUIRED",
+      "historical_admissible": true,
+      "historical_only_evidence": [
+        "OSC-OCTAVE"
+      ],
+      "reason": "historical evidence is admissible, but no VALID supporting evidence establishes a current-runtime candidate",
+      "semantic_class": "CAUSAL",
+      "target": "oscillator_field_OSC-OCTAVE"
+    },
+    "('oscillator_field_OSC-VOLUME:1d367221', '12dc2f522836863e')": {
+      "admissible_evidence": [],
+      "blocked_evidence": [],
+      "capability_status": "CAUSAL_VERIFIED",
+      "contract_key": "('oscillator_field_OSC-VOLUME:1d367221', '12dc2f522836863e')",
+      "current_runtime_candidate": false,
+      "current_runtime_status": "CURRENT_RUNTIME_REQUALIFICATION_REQUIRED",
+      "historical_admissible": true,
+      "historical_only_evidence": [
+        "OSC-VOLUME"
+      ],
+      "reason": "historical evidence is admissible, but no VALID supporting evidence establishes a current-runtime candidate",
+      "semantic_class": "CAUSAL",
+      "target": "oscillator_field_OSC-VOLUME"
+    },
+    "('oscillator_field_OSC-WAVETABLE:516ebf72', '12dc2f522836863e')": {
+      "admissible_evidence": [],
+      "blocked_evidence": [],
+      "capability_status": "CAUSAL_VERIFIED",
+      "contract_key": "('oscillator_field_OSC-WAVETABLE:516ebf72', '12dc2f522836863e')",
+      "current_runtime_candidate": false,
+      "current_runtime_status": "CURRENT_RUNTIME_REQUALIFICATION_REQUIRED",
+      "historical_admissible": true,
+      "historical_only_evidence": [
+        "OSC-WAVETABLE"
+      ],
+      "reason": "historical evidence is admissible, but no VALID supporting evidence establishes a current-runtime candidate",
+      "semantic_class": "CAUSAL",
+      "target": "oscillator_field_OSC-WAVETABLE"
+    },
+    "('route_coexistence:e0c8c3be', '93fed3266a501973')": {
+      "admissible_evidence": [
+        "E3"
+      ],
+      "blocked_evidence": [],
+      "capability_status": "CAUSAL_VERIFIED",
+      "contract_key": "('route_coexistence:e0c8c3be', '93fed3266a501973')",
+      "current_runtime_candidate": true,
+      "current_runtime_status": "CURRENT_RUNTIME_CANDIDATE",
+      "historical_admissible": true,
+      "historical_only_evidence": [],
+      "reason": "contract is semantically usable and has VALID supporting evidence, but current-runtime verification is not established",
+      "semantic_class": "CAUSAL",
+      "target": "route_coexistence"
+    },
+    "('voice_field_detune:28445195', '12dc2f522836863e')": {
+      "admissible_evidence": [
+        "VOICE-DETUNE"
+      ],
+      "blocked_evidence": [],
+      "capability_status": "STRUCTURAL_ONLY",
+      "contract_key": "('voice_field_detune:28445195', '12dc2f522836863e')",
+      "current_runtime_candidate": true,
+      "current_runtime_status": "CURRENT_RUNTIME_CANDIDATE",
+      "historical_admissible": true,
+      "historical_only_evidence": [],
+      "reason": "contract is semantically usable and has VALID supporting evidence, but current-runtime verification is not established",
+      "semantic_class": "STRUCTURAL",
+      "target": "voice_field_detune"
+    },
+    "('voice_field_randompan:7f7fcf0e', '15f13ec9fb316de5')": {
+      "admissible_evidence": [],
+      "blocked_evidence": [],
+      "capability_status": "STRUCTURAL_ONLY",
+      "contract_key": "('voice_field_randompan:7f7fcf0e', '15f13ec9fb316de5')",
+      "current_runtime_candidate": false,
+      "current_runtime_status": "CURRENT_RUNTIME_REQUALIFICATION_REQUIRED",
+      "historical_admissible": true,
+      "historical_only_evidence": [
+        "VOICE-RANDOMPAN"
+      ],
+      "reason": "historical evidence is admissible, but no VALID supporting evidence establishes a current-runtime candidate",
+      "semantic_class": "STRUCTURAL",
+      "target": "voice_field_randompan"
+    }
+  },
+  "schema_version": "16.5.41.1",
+  "summary": {
+    "capability_status_counts": {
+      "CAUSAL_VERIFIED": 26,
+      "NEGATIVE_EVIDENCE": 3,
+      "STRUCTURAL_ONLY": 8
+    },
+    "contract_count": 37,
+    "counts": {
+      "current_runtime_candidates": 10,
+      "current_runtime_requalification_required": 27,
+      "historical_admissible": 34
+    },
+    "current_runtime_verified_contracts": 0,
+    "note": "16.5.41 intentionally cannot establish CURRENT_RUNTIME_VERIFIED",
+    "semantic_class_counts": {
+      "CAUSAL": 26,
+      "REJECTED": 3,
+      "STRUCTURAL": 8
+    }
+  }
+}
