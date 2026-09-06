@@ -246,8 +246,11 @@ def build_contract(group: ClaimGroup) -> Optional[CapabilityContract]:
             target_path = override.get("target_path")
             value = override.get("value")
             if target_path is not None and value is not None:
+                # 16.5.51: Add 'body:' prefix for harness compatibility
+                # baseline_overrides contain plain paths; harness requires prefixed format
+                field_path = "body:" + target_path if not target_path.startswith(("body:", "host:")) else target_path
                 prereqs.append({
-                    "field_path": target_path,
+                    "field_path": field_path,
                     "declared_value": value,
                     "must_hold_identical": True,
                 })

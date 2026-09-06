@@ -165,10 +165,20 @@ def extract_prerequisite_value(body: Dict[str, Any], field_path: str) -> Any:
     a boolean success flag.
 
     field_path examples: "Env0.plainParams.kParamDecay", "FXRack0.FX.0.FXDistortion.plainParams.kParamDrive"
+
+    16.5.51: Prerequisites may be prefixed with 'body:' or 'host:'; strip it.
     """
     if not body:
         return None
-    parts = field_path.split(".")
+
+    # Strip 'body:' or 'host:' prefix if present (added for harness compatibility)
+    path = field_path
+    if path.startswith("body:"):
+        path = path[5:]
+    elif path.startswith("host:"):
+        path = path[5:]
+
+    parts = path.split(".")
     node = body
     for part in parts:
         if isinstance(node, dict):
