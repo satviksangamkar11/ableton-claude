@@ -1,0 +1,4 @@
+experiments/*.pkl
+experiments/*.bin
+*.pkl
+*.bin
