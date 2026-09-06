@@ -1,4 +1,4 @@
-"""Test that Env1.Attack is properly registered and resolvable."""
+"""Test that Env1.Release is properly registered and resolvable."""
 import sys
 import pickle
 from pathlib import Path
@@ -17,19 +17,19 @@ def load_contracts():
         return pickle.load(f)
 
 print("=" * 80)
-print("16.5.52.B: Env1.Attack Semantic Registration Test")
+print("16.5.52.A: Env1.Release Semantic Registration Test")
 print("=" * 80)
 print()
 
 # Step 1: Check registration
 print("[STEP 1] Check semantic target registration")
-if "Env1.Attack" in SEMANTIC_TARGETS:
-    ref = SEMANTIC_TARGETS["Env1.Attack"]
-    print(f"  [PASS] Env1.Attack registered")
+if "Env1.Release" in SEMANTIC_TARGETS:
+    ref = SEMANTIC_TARGETS["Env1.Release"]
+    print(f"  [PASS] Env1.Release registered")
     print(f"    - Semantic name: {ref.name}")
     print(f"    - Capability key: {ref.capability_key}")
 else:
-    print(f"  [FAIL] Env1.Attack NOT registered")
+    print(f"  [FAIL] Env1.Release NOT registered")
     sys.exit(1)
 
 print()
@@ -37,7 +37,7 @@ print()
 # Step 2: Load contracts and resolve
 print("[STEP 2] Resolve semantic target to contract")
 contracts = load_contracts()
-resolved = resolve_semantic_target("Env1.Attack", contracts)
+resolved = resolve_semantic_target("Env1.Release", contracts)
 
 if hasattr(resolved, 'ref'):  # ResolvedTarget
     print(f"  [PASS] Resolved successfully")
@@ -56,11 +56,13 @@ print()
 print("[STEP 3] Test admission layer via dry_run (no Serum/harness)")
 
 test_body = {
-    "Env0": {}
+    "Env0": {
+        "plainParams": {}
+    }
 }
 
 # Reconstruct what produce() does up to dry_run()
-resolved2 = resolve_semantic_target("Env1.Attack", contracts)
+resolved2 = resolve_semantic_target("Env1.Release", contracts)
 if isinstance(resolved2, TargetRefusal):
     print(f"  [FAIL] Semantic resolution failed: {resolved2.reason}")
     sys.exit(1)
@@ -79,7 +81,7 @@ dry_result = dry_run(
 )
 
 if dry_result.accepted:
-    print(f"  [PASS] Admission ACCEPTED for Env1.Attack")
+    print(f"  [PASS] Admission ACCEPTED for Env1.Release")
     print(f"    - Resolved path: {concrete_path}")
     print(f"    - Contract target: {resolved2.contract.target}")
     print(f"    - Execution mode: {dry_result.execution_mode}")
@@ -94,5 +96,5 @@ else:
 
 print()
 print("=" * 80)
-print("[PASS] DECISION: ENV1_ATTACK_SEMANTIC_REGISTRATION_VERIFIED")
+print("[PASS] DECISION: ENV1_RELEASE_SEMANTIC_REGISTRATION_VERIFIED")
 print("=" * 80)
