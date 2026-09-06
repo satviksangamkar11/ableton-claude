@@ -1,0 +1,37 @@
+{
+  "step": "16.5.44",
+  "semantic_target_present": false,
+  "sustain_contract_count": 1,
+  "causal_verified_count": 1,
+  "contracts": [
+    {
+      "key": "('envelope_field_sustain:4f171978', '2ad6168671cfac32')",
+      "target": "envelope_field_sustain",
+      "status": "CAUSAL_VERIFIED",
+      "is_causal_verified": true,
+      "mutation_target_path": null,
+      "mutation_value_used": null,
+      "prerequisites": [],
+      "measurement_definition_id": null,
+      "limitations": [
+        "baseline_overrides not captured in this EvidenceRecord's schema (predates this field being added) -- shared-context prerequisites for this contract are UNDERSTATED, not absent"
+      ],
+      "provenance": {
+        "claim_definition_id": "envelope_field_sustain:4f171978",
+        "condition_signature_hash": "2ad6168671cfac32",
+        "supporting_evidence": [
+          "ENV-SUSTAIN",
+          "16.5.43.2-CORPUS-ENV-SUSTAIN-CORRECTED"
+        ],
+        "witness_experiment_id": "ENV-SUSTAIN"
+      }
+    }
+  ],
+  "resolver_result": null,
+  "context_provenance": {},
+  "decision": "BLOCKED_SEMANTIC_TARGET",
+  "execution_performed": false,
+  "serum_mutated": false,
+  "evidence_created": false,
+  "capability_promoted": false
+}
