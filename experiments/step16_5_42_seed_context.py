@@ -1,265 +1,201 @@
-"""
+﻿"""
 16.5.42 — Native Serum seed-context admission.
 
-This is a fresh current-runtime experiment.
-
 Purpose:
-    Prove that the native Serum 2.0.21 seed context captured from Serum's own
-    save_state() is suitable as the producer's current starting state.
+    Establish a fresh current-runtime EvidenceRecord starting from Serum's
+    own native save_state() output.
 
-This does NOT promote any control capability.
+This is NOT a new capability claim. The mutation uses an already-established
+control only as an actuator for validating the seed/execution path.
 
-It proves:
-    native state capture
-    state mutation
-    state loading
-    state readback
-    audio distinction
-    persistence / reload
+Acceptance:
+    1. native Serum skeleton capture succeeds
+    2. harness state-diff gate passes
+    3. both arms load
+    4. measurable audio difference is observed
+    5. persistence survives Serum save_state()
+    6. resulting EvidenceRecord is written separately for later disposition
 """
 
-from __future__ import annotations
-
-import hashlib
-import json
-import os
-import tempfile
 from pathlib import Path
+import pickle
+import json
 
-import dawdreamer as daw
-
-from serum2 import bridge, codec, vst3_state
-
+from serum2 import bridge
+from serum2.evidence import harness
+from serum2.evidence.spec import (
+    ExperimentSpec,
+    Mutation,
+    MeasurementPlan,
+    TargetSpec,
+    Stimulus,
+    CONTROLLED_MULTI_FIELD,
+)
 
 VST3 = r"C:\Program Files\Common Files\VST3\Serum2.vst3"
 
-OUTPUT = Path(
-    r"D:\ableton claude\experiments\16_5_42_SEED_CONTEXT.json"
-)
+ROOT = Path(r"D:\ableton claude")
+OUT_RECORD = ROOT / "experiments" / "16_5_42_seed_context_record.pkl"
+OUT_SUMMARY = ROOT / "experiments" / "16_5_42_SEED_CONTEXT.json"
 
 
-def sha256_bytes(data: bytes) -> str:
-    return hashlib.sha256(data).hexdigest()
-
-
-def save_state_bytes(synth) -> bytes:
-    fd, path = tempfile.mkstemp(suffix=".bin")
-    os.close(fd)
-
-    try:
-        synth.save_state(path)
-        return Path(path).read_bytes()
-    finally:
-        try:
-            os.remove(path)
-        except FileNotFoundError:
-            pass
-
-
-def load_state_bytes(synth, data: bytes) -> None:
-    fd, path = tempfile.mkstemp(suffix=".bin")
-    os.close(fd)
-
-    try:
-        Path(path).write_bytes(data)
-        synth.load_state(path)
-    finally:
-        try:
-            os.remove(path)
-        except FileNotFoundError:
-            pass
-
-
-def render_note(synth, seconds: float = 2.0):
-    engine = synth._engine if hasattr(synth, "_engine") else None
-    raise RuntimeError(
-        "render_note requires the explicit RenderEngine used to create "
-        "the synth; this helper is intentionally not used."
-    )
-
-
-def make_engine_and_synth():
-    engine = daw.RenderEngine(44100, 512)
-    synth = engine.make_plugin_processor(
-        "serum",
-        VST3,
-    )
-    return engine, synth
-
-
-def main() -> int:
-    print("=" * 80)
-    print("16.5.42 — Native Serum Seed Context Admission")
-    print("=" * 80)
-
+def main():
     if not Path(VST3).exists():
-        raise RuntimeError(
-            f"Serum VST3 not found: {VST3}"
-        )
+        raise RuntimeError(f"Serum VST3 not found: {VST3}")
 
-    # ------------------------------------------------------------------
-    # 1. Capture Serum's own native seed state.
-    # ------------------------------------------------------------------
-    meta0, body0 = bridge.capture_v8_skeleton(VST3)
+    print("16.5.42 — capturing native Serum seed context...")
 
-    native_state_hash = bridge.state_hash(
-        meta0,
-        body0,
-    )
+    # IMPORTANT:
+    # This is Serum's own freshly captured processor state.
+    skeleton = bridge.capture_v8_skeleton(VST3)
 
-    print("Native state hash:", native_state_hash)
+    # Sanity check the exact native seed before handing it to the harness.
+    meta, body = skeleton
+    if not meta or not body:
+        raise RuntimeError("native Serum seed is empty")
 
-    # ------------------------------------------------------------------
-    # 2. Make a controlled mutation on an otherwise identical copy.
-    #
-    # MasterVolume is already historically proven and is deliberately
-    # used here as a seed-context actuator, not as a new capability claim.
-    # ------------------------------------------------------------------
-    meta1 = dict(meta0)
-    body1 = json.loads(
-        json.dumps(
-            body0
-        )
-    )
+    print("Native seed captured.")
+    print("Native seed hash:", bridge.state_hash(meta, body))
 
-    global0 = body1.get("Global0")
-
+    # Use a previously established actuator solely to validate that the
+    # native seed can be mutated, loaded, rendered and persisted.
+    global0 = body.get("Global0")
     if not isinstance(global0, dict):
-        raise RuntimeError(
-            "Native seed does not contain Global0"
-        )
+        raise RuntimeError("native seed missing Global0")
 
     plain = global0.get("plainParams")
-
     if not isinstance(plain, dict):
+        raise RuntimeError("native seed Global0 missing plainParams")
+
+    original = plain.get("kParamMasterVolume")
+    if not isinstance(original, (int, float)):
         raise RuntimeError(
-            "Native seed Global0 lacks plainParams"
+            f"native seed MasterVolume is not numeric: {original!r}"
         )
 
-    original_volume = plain.get(
-        "kParamMasterVolume"
+    treatment = max(0.0, min(1.0, float(original) * 0.5))
+
+    print("MasterVolume:", original, "->", treatment)
+
+    spec = ExperimentSpec(
+        experiment_id="SEED-CONTEXT-16.5.42",
+        mutations=[
+            Mutation(
+                target_path="Global0.plainParams.kParamMasterVolume",
+                value=treatment,
+                provenance="16.5.42 native-seed validation actuator",
+            )
+        ],
+        prerequisites=[],
+        isolation_level=CONTROLLED_MULTI_FIELD,
+        claim_subject="seed_context",
+        claim_predicate="native_seed_current_runtime_executable",
+        measurement_plans=[
+            MeasurementPlan(
+                metric="overall_rms_db",
+                target=TargetSpec(
+                    field_path="Global0.plainParams.kParamMasterVolume",
+                    module="Global0",
+                    parameter="kParamMasterVolume",
+                ),
+                expected_direction="decrease",
+                threshold=0.5,
+                stimulus=Stimulus(
+                    note=48,
+                    velocity=110,
+                    note_len=1.8,
+                    render_seconds=2.0,
+                ),
+                kernel_artifact="overall_rms_db.py",
+            )
+        ],
+        notes=(
+            "Fresh native Serum 2.0.21 seed-context validation. "
+            "The MasterVolume mutation is an existing actuator only; "
+            "this experiment does not promote a new capability."
+        ),
     )
 
-    if not isinstance(original_volume, (int, float)):
-        raise RuntimeError(
-            "Native seed MasterVolume is not numeric"
-        )
+    rec = harness.run(spec, skeleton=skeleton)
 
-    treatment_volume = max(
-        0.0,
-        float(original_volume) * 0.5,
+    # ---------------------------------------------------------------
+    # Explicit acceptance checks.
+    # ---------------------------------------------------------------
+    gate = rec.gate_completeness()
+
+    load_pass = (
+        rec.load_observation.get("status") == "PASS"
+        and rec.load_observation.get("ok") is True
     )
 
-    plain["kParamMasterVolume"] = treatment_volume
-
-    treatment_state_hash = bridge.state_hash(
-        meta1,
-        body1,
+    persistence_pass = (
+        rec.persistence_observation.get("status") == "PASS"
+        and rec.persistence_observation.get("exact_match") is True
     )
 
-    if treatment_state_hash == native_state_hash:
-        raise RuntimeError(
-            "seed mutation did not change encoded v8 state"
-        )
-
-    print("Treatment state hash:", treatment_state_hash)
-
-    # ------------------------------------------------------------------
-    # 3. Write both native processor states.
-    # ------------------------------------------------------------------
-    with tempfile.TemporaryDirectory() as tmp:
-        control_path = Path(tmp) / "control.bin"
-        treatment_path = Path(tmp) / "treatment.bin"
-
-        bridge.write_state_file(
-            str(control_path),
-            meta0,
-            body0,
-        )
-
-        bridge.write_state_file(
-            str(treatment_path),
-            meta1,
-            body1,
-        )
-
-        control_bytes = control_path.read_bytes()
-        treatment_bytes = treatment_path.read_bytes()
-
-    # ------------------------------------------------------------------
-    # 4. Load both states into fresh Serum instances.
-    # ------------------------------------------------------------------
-    control_engine, control_synth = make_engine_and_synth()
-    treatment_engine, treatment_synth = make_engine_and_synth()
-
-    load_state_bytes(
-        control_synth,
-        control_bytes,
+    state_pass = (
+        rec.state_observation.get("status") == "PASS"
+        and rec.state_observation.get("matches_intent") is True
     )
 
-    load_state_bytes(
-        treatment_synth,
-        treatment_bytes,
+    effect_observed = any(
+        m.status == "EFFECT_OBSERVED"
+        for m in rec.causal_measurements
     )
 
-    # ------------------------------------------------------------------
-    # 5. Verify actual host parameter readback.
-    # ------------------------------------------------------------------
-    control_readback = control_synth.get_parameter(
-        "Master Volume"
-    )
-    treatment_readback = treatment_synth.get_parameter(
-        "Master Volume"
+    overall_pass = (
+        state_pass
+        and load_pass
+        and persistence_pass
+        and effect_observed
     )
 
-    print(
-        "Master Volume readback:",
-        control_readback,
-        "->",
-        treatment_readback,
-    )
+    print()
+    print("=== 16.5.42 acceptance ===")
+    print("state_pass:", state_pass)
+    print("load_pass:", load_pass)
+    print("persistence_pass:", persistence_pass)
+    print("effect_observed:", effect_observed)
+    print("overall_pass:", overall_pass)
+    print("gate:", gate)
 
-    # Do not demand exact normalized GUI naming semantics unless the host
-    # actually exposes that parameter. The processor-state state hash is
-    # the primary identity check.
-    readback_changed = (
-        control_readback != treatment_readback
-    )
+    # Store the EvidenceRecord independently. Do NOT promote it into the
+    # claim/capability chain here.
+    with open(OUT_RECORD, "wb") as f:
+        pickle.dump(rec, f, protocol=pickle.HIGHEST_PROTOCOL)
 
-    # ------------------------------------------------------------------
-    # 6. Render control and treatment from fresh engines.
-    #
-    # Use the simplest possible note stimulus. Audio distinction is a seed
-    # context requirement, not evidence for the capability itself.
-    # ------------------------------------------------------------------
-    midi = [
-        {
-            "type": "note_on",
-            "time": 0.0,
-            "note": 48,
-            "velocity": 110,
+    summary = {
+        "step": "16.5.42",
+        "experiment_id": spec.experiment_id,
+        "native_seed_hash": bridge.state_hash(meta, body),
+        "mutation": {
+            "target": "Global0.plainParams.kParamMasterVolume",
+            "baseline": original,
+            "treatment": treatment,
         },
-        {
-            "type": "note_off",
-            "time": 1.8,
-            "note": 48,
-            "velocity": 0,
-        },
-    ]
+        "state_pass": state_pass,
+        "load_pass": load_pass,
+        "persistence_pass": persistence_pass,
+        "effect_observed": effect_observed,
+        "overall_pass": overall_pass,
+        "record_file": str(OUT_RECORD),
+    }
 
-    control_engine.midi_note = None
-    treatment_engine.midi_note = None
-
-    # DawDreamer MIDI APIs vary across existing project harness versions;
-    # use the same rendering abstraction as the current harness.
-    from serum2.evidence.harness import render_arm  # local project authority
-
-    raise RuntimeError(
-        "STOP: wire this experiment through the existing harness.render_arm() "
-        "using the current local harness signature rather than inventing a "
-        "second MIDI/render path."
+    OUT_SUMMARY.write_text(
+        json.dumps(summary, indent=2),
+        encoding="utf-8",
     )
+
+    print()
+    print("EvidenceRecord:", OUT_RECORD)
+    print("Summary:", OUT_SUMMARY)
+
+    if not overall_pass:
+        raise SystemExit("16.5.42 FAILED")
+
+    print()
+    print("16.5.42 PASS")
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    main()
