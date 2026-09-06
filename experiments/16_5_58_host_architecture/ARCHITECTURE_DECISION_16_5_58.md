@@ -1,9 +1,10 @@
 # 16.5.58 — Host Architecture Decision
 
-**Status**: PROVISIONAL  
+**Status**: SELECTED_CONSTRAINED (Option A: Configure/MCP Only)  
 **Date**: 2026-09-07  
-**Decision Basis**: 16.5.57 host capability boundary audit  
+**Decision Basis**: 16.5.57 host capability boundary audit + Q7c/Q8/Q9 gate results  
 **Scope**: Architecture selection for Ableton Live 12.3 + Serum 2.0.21 integration  
+**Revision**: 16.5.58-FINAL (Hybrid rejected; Option A selected after Q9 failure)  
 
 ---
 
@@ -77,9 +78,9 @@
 - Persistence across save/reopen unverified
 - Coverage limited to what VST3 exposes + what Ableton publishes
 
-**Verdict**: INSUFFICIENT for 16.6 requirement of "three Serum roles" (bass, pad, lead). Professional Serum patches require custom mod topology, which this architecture cannot provide.
+**Verdict**: Scope-constrained. Cannot construct mod topology. Suitable for parameter-only patches and real-time control via MCP.
 
-**Status**: **REJECTED_AS_SUFFICIENT**
+**Status**: **SELECTED_CONSTRAINED** (as of 2026-09-07 Q9 failure, Hybrid rejected)
 
 ---
 
@@ -127,46 +128,61 @@
 - Requires custom automation layer to coordinate both planes
 - Depends on Q7c success
 
-**Verdict**: PROVISIONALLY SELECTED. Represents the most complete architecture if Q7c succeeds. If Q7c fails, reverts to Option A (Configure-only) with constrained scope.
+**Verdict**: REJECTED_FOR_PRODUCTION. Q7c initial application passes but Q9 (save/reopen cycle) fails with file corruption. Processor-state persistence is not reliable; file becomes unloadable after save/close/reopen. One-time initialization only; not viable for production state persistence requirement.
 
-**Status**: **PROVISIONAL**
+**Status**: **REJECTED_FOR_PRODUCTION** (as of 2026-09-07, Q9 failure)
 
 ---
 
-## Architecture Decision
+## Architecture Decision (Revised 2026-09-07)
+
+### Selected
+
+**Option A (Configure/MCP Only)**: **SELECTED_CONSTRAINED**
+
+**Reason**: Hybrid (Option C) rejected due to Q9 failure (file corruption on save/close/reopen cycle). Processor-state persistence is not reliable for production. Option A is the only viable architecture; scope constrained to parameters exposed through VST3 Configure Mode.
 
 ### Rejected
 
-**Option A (Configure/MCP Only)**: REJECTED_AS_SUFFICIENT
+**Option B (Processor-State Only)**: REJECTED_FOR_PRODUCTION
 
-**Reason**: The demonstrated plane boundary (fact 2-3) means Configure/MCP cannot construct Serum mod topology. Any 16.6 arrangement requiring deep Serum patches will fail. This is architecturally insufficient.
+**Reason**: Q7c proves initial application works (file opens, Serum loads with injected state), but Q9 proves persistence fails (file becomes unloadable after save/reopen). One-time initialization only; not suitable for production requiring state fidelity across save cycles.
 
-### Required Candidate
+### Rejected
 
-**Option B (Processor-State Only)**: REQUIRED_CANDIDATE
+**Option C (Hybrid: State + Configure/MCP)**: **REJECTED_FOR_PRODUCTION**
 
-**Reason**: Only pathway for deep Serum state construction. However, NOT YET PROVEN VIABLE because Q7c (offline injection + Ableton application) is UNTESTED. B is not selected as the final architecture; it is the required validation path.
+**Reason**: Q9 failure proves processor-state persistence is not reliable. File SET_A_INJECTED_with_B_state.als opened successfully in Q7c (visual observation: knob showed 0.50), but reopening fails with corruption error: "Unknown Compound Stream Type". Processor-state transport viable for initialization only; cannot be relied upon for save/close/reopen cycles required by production 16.6.
 
-### Provisional
+**Gate Results**:
+- Q7c: PASS (initial application; file opens, Serum loads with injected state 0.50)
+- Q8: PARTIAL (audio capture works; sequential real-time only)
+- Q9: **FAIL** (reopen attempt: file corruption; state persistence unreliable)
 
-**Option C (Hybrid: State + Configure/MCP)**: **PROVISIONAL**
+**Status**: REJECTED_FOR_PRODUCTION
+
+---
+
+## Production Architecture: Option A (Configure/MCP Only)
 
 **Definition**: 
-- Processor-state/file plane is the **intended mechanism** for deep Serum initialization and topology construction
-- Configure/MCP is the **intended mechanism** for runtime host-visible parameter control
-- Both planes are used together; neither alone is sufficient
+- Serum control exclusively through VST3 parameters exposed in Ableton Configure Mode
+- Runtime parameter control via AbletonMCP (`get_device_parameter()`, `set_device_parameter()`)
+- Audio capture via real-time `record_section()` (sequential, ~5 min max per call)
+- No processor-state transport; no mod-matrix topology construction
 
-**Status**: PROVISIONAL, not ACTIVE
+**Constraints**:
+- Cannot construct Serum mod-matrix source/destination topology (not exposed via VST3)
+- Cannot construct arbitrary Serum patches requiring unmapped parameters
+- Cannot construct any patch requiring deep state plane access
+- Parameter coverage limited to what VST3 publishes
 
-**Transition Condition**: C becomes ACTIVE only if:
-1. Q7c succeeds (offline injection works + Ableton applies on open)
-2. Q8 or equivalent establishes automated audio capture/export path
-3. Q9 or equivalent establishes automated save/reopen with state fidelity
-
-**Conditional Fallback**: If Q7c fails:
-- Revert to Option A (Configure-only)
-- Document which 16.6 requirements become impossible (deep topology, arbitrary patches)
-- Scope 16.6 to simple parameter-only patches with no custom mod routing
+**Capability Boundary**:
+- Covered: Parameter read/write for exposed Serum parameters (OSC1.Volume verified; others untested)
+- Covered: Real-time audio capture (master + individual stems, sequential)
+- Covered: Audio analysis (peak dBFS measurement)
+- NOT covered: Mod-matrix assignment, deep synthesis topology, unverified parameters
+- NOT covered: Batch export or file-based rendering (only real-time resampling)
 
 ---
 
@@ -184,18 +200,15 @@ The provisional architecture depends on unknowns:
 
 ---
 
-## Fallback Architecture
+## Producer Refusal Rules (Option A)
 
-If Q7c fails (offline injection does not work or Ableton does not apply it):
+The producer/compiler MUST refuse any request requiring:
+1. **Mod-matrix topology creation** (source/destination assignment not exposed via VST3)
+2. **Serum parameters not verified through MCP** (coverage limited to tested parameters only)
+3. **State mutation outside the verified host parameter plane** (VST3 parameters only)
+4. **Arbitrary unverified Serum controls** (e.g., unmapped parameters, undocumented fields)
 
-1. **Processor-state transport is not viable for automated production**
-2. **Revert to Option A (Configure/MCP Only)**
-3. **Constrain 16.6 scope** to patches that can be constructed entirely via Configure Mode parameters
-4. **Document impossibilities**:
-   - Custom mod topology: IMPOSSIBLE (not exposed via VST3)
-   - Deep synthesis control: IMPOSSIBLE (limited to exposed parameters)
-   - Arbitrary Serum patches: IMPOSSIBLE (coverage depends on VST3 exposure)
-5. **Alternative for deep state**: Manual Serum preset loading (GUI, not automated)
+Refusals must be explicit and unconditional. No guessing, no fallback substitutes, no "close enough" parameter proxies.
 
 ---
 
@@ -292,15 +305,18 @@ The following gates are **independent** — do NOT infer one's outcome from anot
 
 ---
 
-## Transition: PROVISIONAL → ACTIVE
+## Architecture Status
 
-The provisional architecture becomes ACTIVE only when:
+**Option A (Configure/MCP Only)**: **ACTIVE (SELECTED_CONSTRAINED)**
+- Effective immediately; no further validation gates required
+- Constrained scope: parameter control only; no mod-matrix or deep state
+- Ready for 16.6 scope definition and vertical-slice planning
 
-1. ✓ Q7c PASSES: Offline injection works; Ableton applies injected state
-2. ✓ Q8 PASSES: Automated audio capture/export path established
-3. ✓ Q9 PASSES: Save/close/reopen cycle preserves all state
-
-Until all three pass, the architecture remains PROVISIONAL and could revert to the fallback (Configure-only) at any gate failure.
+**Historical Evidence**:
+- Q7c PASS: Processor-state injection works for initial file open (visual: 0.50 confirmed)
+- Q8 PARTIAL: Real-time audio capture works (sequential only, max ~5 min per call)
+- Q9 FAIL: Processor-state persistence breaks on reopen (file corruption: "Unknown Compound Stream Type")
+- Conclusion: Processor-state transport viable for one-time initialization only; not for production persistence
 
 ---
 

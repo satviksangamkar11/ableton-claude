@@ -126,9 +126,9 @@ to *"can compiled Serum state become a reproducible Ableton production artifact?
 |---|---|---|---|
 | 16.5.56 | Roadmap reconciliation + authoritative step register | **FROZEN** | — |
 | 16.5.57 | AbletonMCP feasibility probe | **FROZEN** | 16.5.56 |
-| 16.5.57-Q7c | Processor-state offline injection + Ableton application | PROVISIONAL | 16.5.58 |
-| 16.5.58 | Host architecture decision (Hybrid: state + parameter planes) | **ACTIVE** | 16.5.57 |
-| 16.5.59 | End-to-end Ableton vertical slice | PROVISIONAL | 16.5.57-Q7c |
+| 16.5.57-Q7c | Processor-state offline injection + Ableton application | **COMPLETE** | 16.5.58 |
+| 16.5.58 | Host architecture decision (Option A: Configure/MCP Only) | **ACTIVE** | 16.5.57 |
+| 16.5.59 | End-to-end Ableton vertical slice (Configure/MCP constrained) | PROVISIONAL | 16.5.58 |
 | 16.5.60 | Save/reopen + host fidelity verification | PROVISIONAL | 16.5.59 |
 | 16.5.60A | Conditional Ableton-runtime requalification | **RESERVED** | 16.5.57 binary-hash result |
 | 16.5.61 | Typed musical-intent layer | PROVISIONAL / **PARALLEL** | 16.5.41 (met) |
@@ -200,18 +200,26 @@ inference, no "probably", no "MCP likely exposes this."
 
 Decision artifact: `experiments/16_5_58_host_architecture/ARCHITECTURE_DECISION_16_5_58.md`
 
-**Architecture Selected**: Hybrid (Processor-State Initialization + Configure/MCP Runtime Control)
+**Architecture Selected**: Option A (Configure/MCP Only)
 
-**Status**: PROVISIONAL — activation conditional on Q7c, Q8, Q9 success
+**Status**: SELECTED_CONSTRAINED (as of 2026-09-07)
 
-**Basis**: 
-- Option A (Configure-only) rejected as architecturally insufficient (mod topology blocker per PROOF_PLAN.md evidence)
-- Option B (Processor-state only) required candidate but Q7c (offline injection) untested
-- Option C (Hybrid) provisionally selected: use both planes, each for what it can do
+**Gate Results**:
+- **Q7c COMPLETE**: Processor-state offline injection works for initial file open. Visual observation: Serum OSC1.Volume showed 0.50 (injected value).
+- **Q8 COMPLETE**: Real-time audio capture works (master + stems via sequential `record_section()` calls).
+- **Q9 COMPLETE**: Processor-state persistence FAILS. File SET_A_INJECTED_with_B_state.als becomes unloadable on reopen ("Unknown Compound Stream Type" corruption error).
 
-**Fallback**: If Q7c fails, revert to Option A (Configure-only) with constrained 16.6 scope
+**Decision Rationale**: 
+- Processor-state transport viable for one-time initialization only; NOT for save/close/reopen cycles
+- Hybrid architecture rejected (persistence unreliable)
+- Option A (Configure/MCP only) selected as the only production-viable architecture
+- Scope constrained: parameter control only; cannot construct mod-matrix topology
 
-**Critical Next Gate**: Q7c (offline processor-state injection + Ableton application) — determines whether state plane is viable
+**Capability Boundary**:
+- Covered: VST3 parameters exposed through Configure Mode (read/write via MCP)
+- Covered: Real-time audio capture (sequential, max ~5 min per call)
+- NOT covered: Mod-matrix topology, unmapped Serum parameters, deep synthesis state
+- NOT covered: Batch export (only real-time resampling)
 
 **Frontier Integrity**: 37 contracts (26 CAUSAL_VERIFIED, 8 STRUCTURAL_ONLY, 3 NEGATIVE_EVIDENCE) — unchanged
 

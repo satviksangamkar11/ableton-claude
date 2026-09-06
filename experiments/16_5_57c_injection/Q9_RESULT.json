@@ -1,0 +1,44 @@
+{
+  "experiment_id": "16.5.57-Q9",
+  "status": "FAIL",
+  "date": "2026-09-07",
+  "test": "Save/close/reopen cycle with state fidelity verification",
+  "test_file": "SET_A_INJECTED_with_B_state.als",
+  "test_file_path": "D:\\ableton claude\\experiments\\16_5_57c_injection\\SET_A_INJECTED_with_B_state.als",
+  "test_file_hash": "7e4b5ce0795e2b01f22e67da6a555aea",
+  "prior_q7c_result": "PASS",
+  "prior_q7c_observation": "File opened successfully in Ableton; visual observation confirmed Serum OSC1.Volume = 0.50 (injected value from SET_B)",
+  "q9_procedure": [
+    "Attempt to reopen SET_A_INJECTED_with_B_state.als in Ableton Live",
+    "Verify Serum state via MCP readback",
+    "Compare to baseline (0.50 = preserved; 0.75 = lost)"
+  ],
+  "q9_result": "REOPEN FAILURE",
+  "ableton_error": "The document \"D:\\ableton claude\\experiments\\16_5_57c_injection\\SET_A_INJECTED_with_B_state.als\" is corrupt and cannot be loaded. (Unknown Compound Stream Type)",
+  "error_classification": "File Corruption — Ableton cannot parse the .als file on reopen",
+  "state_before": "OSC1.Volume = 0.50 (injected from SET_B, verified in Q7c)",
+  "state_after": "UNKNOWN (file will not load)",
+  "state_persistence": "FAILED",
+  "failure_modes_evident": [
+    "Processor-state injection creates files that open once but fail on reopen",
+    "File may have unstable internal structure despite passing initial validation",
+    "Ableton's internal state machine may not fully persist injected processor state"
+  ],
+  "pass_criteria_met": 0,
+  "pass_criteria_required": 3,
+  "pass_criteria": [
+    "File reopens successfully in Ableton: FAIL",
+    "Serum loads without error: NOT TESTED (file won't open)",
+    "State (via MCP + visual) matches injected value (0.50): NOT TESTED (file won't open)"
+  ],
+  "conclusion": "Processor-state persistence is not reliable. Files that apply injected state on initial open become corrupted and unloadable on reopen. This makes processor-state transport unsuitable for production save/close/reopen cycles.",
+  "q7c_contradiction": "Q7c reported PASS (file opened, visual 0.50). Q9 reports file corruption on reopen. Conclusion: Q7c was 'initial application only' — processor-state transport works one-time, not persistently.",
+  "architecture_implication": "Hybrid architecture (Processor-State + Configure/MCP) is REJECTED_FOR_PRODUCTION. Processor-state persistence requirement cannot be met.",
+  "fallback_architecture": "Option A (Configure/MCP Only) — sole viable production architecture",
+  "frontier_impact": "No capability promotion; 37 contracts unchanged (26 CAUSAL_VERIFIED, 8 STRUCTURAL_ONLY, 3 NEGATIVE_EVIDENCE)",
+  "evidence_status": "Q9 provides negative evidence: processor-state transport fails the persistence gate. Does not weaken existing contracts; gates further use of processor-state transport for production.",
+  "tests_run": 1,
+  "tests_passed": 0,
+  "tests_failed": 1,
+  "commit": "pending"
+}
