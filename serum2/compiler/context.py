@@ -23,7 +23,7 @@ what keeps the compiler from silently depending on one witness preset's
 particular layout.
 """
 from dataclasses import dataclass
-from typing import Optional, Tuple
+from typing import Any, Dict, Optional, Tuple
 
 from ..pathmerge import _is_index_segment, SPARSE_DEFAULT
 
@@ -152,3 +152,36 @@ def derive_required_context(mutation_target_path: str, contract_status: str,
         return None  # no negative witness -- path already resolves against this base state
     container_path, element_key, leaf_suffix = probe
     return RequiredContext(container_path=container_path, element_key=element_key, leaf_suffix=leaf_suffix)
+
+
+def extract_prerequisite_value(body: Dict[str, Any], field_path: str) -> Any:
+    """Extract the ACTUAL value from body for a prerequisite field_path.
+
+    Navigates the body structure using the same dict/list rules pathmerge uses.
+    Returns the actual value found, or None if path does not resolve.
+
+    Used by the compiler's dry_run() to build value-bearing prerequisite
+    verification dicts that capture the ACTUAL runtime state, not just
+    a boolean success flag.
+
+    field_path examples: "Env0.plainParams.kParamDecay", "FXRack0.FX.0.FXDistortion.plainParams.kParamDrive"
+    """
+    if not body:
+        return None
+    parts = field_path.split(".")
+    node = body
+    for part in parts:
+        if isinstance(node, dict):
+            if part not in node:
+                return None
+            node = node[part]
+        elif isinstance(node, list):
+            if not _is_index_segment(part):
+                return None
+            idx = int(part)
+            if idx >= len(node):
+                return None
+            node = node[idx]
+        else:
+            return None
+    return node

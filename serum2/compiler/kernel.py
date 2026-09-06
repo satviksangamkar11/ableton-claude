@@ -93,6 +93,28 @@ def dry_run(targets: List[str], contracts: Dict[Tuple[str, str], Any], *,
     DryRunResult.execution_mode reports which mode was used.
     """
     required_causal_map = required_causal_map or {}
+
+    # 16.5.51: Value-aware prerequisite verification. If base_body is supplied,
+    # extract ACTUAL values for all prerequisites (value-sensitive or not) and
+    # build a value-bearing dict. If proposed_prerequisites_verified is already
+    # supplied by caller, use it as-is (backward compatible). Otherwise, derive
+    # from base_body.
+    value_bearing_prerequisites_verified: Optional[Dict[str, Any]] = None
+    if base_body is not None and proposed_prerequisites_verified is None:
+        value_bearing_prerequisites_verified = {}
+        # Collect all unique prerequisite field_paths across all contracts
+        for contract in contracts.values():
+            if contract.prerequisites:
+                for p in contract.prerequisites:
+                    field_path = p["field_path"]
+                    if field_path not in value_bearing_prerequisites_verified:
+                        # Extract actual value from base_body
+                        actual_value = ctx_mod.extract_prerequisite_value(base_body, field_path)
+                        value_bearing_prerequisites_verified[field_path] = actual_value
+
+    # Use value-bearing dict if derived; fall back to caller-supplied or None
+    pp_verified = value_bearing_prerequisites_verified if value_bearing_prerequisites_verified is not None else proposed_prerequisites_verified
+
     admissions = []
 
     # 16.1.1: contract admission -- exact, per-target, no fuzzy matching
@@ -100,7 +122,7 @@ def dry_run(targets: List[str], contracts: Dict[Tuple[str, str], Any], *,
     # it does not fall through to "try it anyway").
     for t in targets:
         r = adm.admit(contracts, t, required_causal=required_causal_map.get(t, False),
-                      proposed_prerequisites_verified=proposed_prerequisites_verified)
+                      proposed_prerequisites_verified=pp_verified)
         admissions.append(r)
         if not r.admitted:
             return DryRunResult(False, REFUSED_ADMISSION,
