@@ -1,0 +1,662 @@
+{
+  "context_incomplete": {
+    "('envelope_field_attack:4df5877e', '12dc2f522836863e')": {
+      "contract_key": "('envelope_field_attack:4df5877e', '12dc2f522836863e')",
+      "incomplete_evidence": [
+        "ENV-ATTACK"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "ENV-ATTACK: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "ENV-ATTACK: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "ENV-ATTACK"
+      ],
+      "target": "envelope_field_attack"
+    },
+    "('envelope_field_decay:bbb2e94e', 'c9a4dbc15a3d2fc9')": {
+      "contract_key": "('envelope_field_decay:bbb2e94e', 'c9a4dbc15a3d2fc9')",
+      "incomplete_evidence": [
+        "ENV-DECAY"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "ENV-DECAY: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "ENV-DECAY: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "ENV-DECAY"
+      ],
+      "target": "envelope_field_decay"
+    },
+    "('envelope_field_release:7aab5ce1', '2ad6168671cfac32')": {
+      "contract_key": "('envelope_field_release:7aab5ce1', '2ad6168671cfac32')",
+      "incomplete_evidence": [
+        "ENV-RELEASE"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "ENV-RELEASE: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "ENV-RELEASE: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "ENV-RELEASE"
+      ],
+      "target": "envelope_field_release"
+    },
+    "('envelope_field_sustain:4f171978', '2ad6168671cfac32')": {
+      "contract_key": "('envelope_field_sustain:4f171978', '2ad6168671cfac32')",
+      "incomplete_evidence": [
+        "ENV-SUSTAIN"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "ENV-SUSTAIN: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "ENV-SUSTAIN: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "ENV-SUSTAIN"
+      ],
+      "target": "envelope_field_sustain"
+    },
+    "('filter_field_reso:6da15f4e', '8d8c276adab7ae3a')": {
+      "contract_key": "('filter_field_reso:6da15f4e', '8d8c276adab7ae3a')",
+      "incomplete_evidence": [
+        "FILTER-RESONANCE"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "FILTER-RESONANCE: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "FILTER-RESONANCE: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "FILTER-RESONANCE"
+      ],
+      "target": "filter_field_reso"
+    },
+    "('filter_field_type:dbe3b9b0', '8d8c276adab7ae3a')": {
+      "contract_key": "('filter_field_type:dbe3b9b0', '8d8c276adab7ae3a')",
+      "incomplete_evidence": [
+        "FILTER-TYPE"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "FILTER-TYPE: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "FILTER-TYPE: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "FILTER-TYPE"
+      ],
+      "target": "filter_field_type"
+    },
+    "('fx_field_distortion_drive:f9cd78d8', 'c8541d5c99dab135')": {
+      "contract_key": "('fx_field_distortion_drive:f9cd78d8', 'c8541d5c99dab135')",
+      "incomplete_evidence": [
+        "FXDIST-DRIVE"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "FXDIST-DRIVE: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "FXDIST-DRIVE: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "FXDIST-DRIVE"
+      ],
+      "target": "fx_field_distortion_drive"
+    },
+    "('fx_field_distortion_mode:f9cd78d8', 'c8541d5c99dab135')": {
+      "contract_key": "('fx_field_distortion_mode:f9cd78d8', 'c8541d5c99dab135')",
+      "incomplete_evidence": [
+        "FXDIST-MODE"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "FXDIST-MODE: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "FXDIST-MODE: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "FXDIST-MODE"
+      ],
+      "target": "fx_field_distortion_mode"
+    },
+    "('fx_field_eq_freq1:f9cd78d8', '243cbc144914bf94')": {
+      "contract_key": "('fx_field_eq_freq1:f9cd78d8', '243cbc144914bf94')",
+      "incomplete_evidence": [
+        "FXEQ-FREQ1"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "FXEQ-FREQ1: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "FXEQ-FREQ1: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "FXEQ-FREQ1"
+      ],
+      "target": "fx_field_eq_freq1"
+    },
+    "('fx_field_eq_kParamFreq2:f9cd78d8', '243cbc144914bf94')": {
+      "contract_key": "('fx_field_eq_kParamFreq2:f9cd78d8', '243cbc144914bf94')",
+      "incomplete_evidence": [
+        "FXEQ-KPARAMFREQ2"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "FXEQ-KPARAMFREQ2: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "FXEQ-KPARAMFREQ2: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "FXEQ-KPARAMFREQ2"
+      ],
+      "target": "fx_field_eq_kParamFreq2"
+    },
+    "('fx_field_eq_kParamGain1:f9cd78d8', '243cbc144914bf94')": {
+      "contract_key": "('fx_field_eq_kParamGain1:f9cd78d8', '243cbc144914bf94')",
+      "incomplete_evidence": [
+        "FXEQ-KPARAMGAIN1"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "FXEQ-KPARAMGAIN1: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "FXEQ-KPARAMGAIN1: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "FXEQ-KPARAMGAIN1"
+      ],
+      "target": "fx_field_eq_kParamGain1"
+    },
+    "('fx_field_eq_kParamGain2:f9cd78d8', '243cbc144914bf94')": {
+      "contract_key": "('fx_field_eq_kParamGain2:f9cd78d8', '243cbc144914bf94')",
+      "incomplete_evidence": [
+        "FXEQ-KPARAMGAIN2"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "FXEQ-KPARAMGAIN2: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "FXEQ-KPARAMGAIN2: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "FXEQ-KPARAMGAIN2"
+      ],
+      "target": "fx_field_eq_kParamGain2"
+    },
+    "('fx_field_eq_kParamLevelOut:f9cd78d8', '243cbc144914bf94')": {
+      "contract_key": "('fx_field_eq_kParamLevelOut:f9cd78d8', '243cbc144914bf94')",
+      "incomplete_evidence": [
+        "FXEQ-KPARAMLEVELOUT"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "FXEQ-KPARAMLEVELOUT: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "FXEQ-KPARAMLEVELOUT: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "FXEQ-KPARAMLEVELOUT"
+      ],
+      "target": "fx_field_eq_kParamLevelOut"
+    },
+    "('fx_field_eq_kParamReso1:f9cd78d8', '243cbc144914bf94')": {
+      "contract_key": "('fx_field_eq_kParamReso1:f9cd78d8', '243cbc144914bf94')",
+      "incomplete_evidence": [
+        "FXEQ-KPARAMRESO1"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "FXEQ-KPARAMRESO1: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "FXEQ-KPARAMRESO1: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "FXEQ-KPARAMRESO1"
+      ],
+      "target": "fx_field_eq_kParamReso1"
+    },
+    "('fx_field_eq_kParamReso2:f9cd78d8', '243cbc144914bf94')": {
+      "contract_key": "('fx_field_eq_kParamReso2:f9cd78d8', '243cbc144914bf94')",
+      "incomplete_evidence": [
+        "FXEQ-KPARAMRESO2"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "FXEQ-KPARAMRESO2: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "FXEQ-KPARAMRESO2: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "FXEQ-KPARAMRESO2"
+      ],
+      "target": "fx_field_eq_kParamReso2"
+    },
+    "('fx_field_eq_kParamType1:76d301bf', '243cbc144914bf94')": {
+      "contract_key": "('fx_field_eq_kParamType1:76d301bf', '243cbc144914bf94')",
+      "incomplete_evidence": [
+        "FXEQ-KPARAMTYPE1"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "FXEQ-KPARAMTYPE1: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "FXEQ-KPARAMTYPE1: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "FXEQ-KPARAMTYPE1"
+      ],
+      "target": "fx_field_eq_kParamType1"
+    },
+    "('fx_field_eq_kParamType2:f9cd78d8', '243cbc144914bf94')": {
+      "contract_key": "('fx_field_eq_kParamType2:f9cd78d8', '243cbc144914bf94')",
+      "incomplete_evidence": [
+        "FXEQ-KPARAMTYPE2"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "FXEQ-KPARAMTYPE2: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "FXEQ-KPARAMTYPE2: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "FXEQ-KPARAMTYPE2"
+      ],
+      "target": "fx_field_eq_kParamType2"
+    },
+    "('global_field_mastervolume:f2ce8d90', '12dc2f522836863e')": {
+      "contract_key": "('global_field_mastervolume:f2ce8d90', '12dc2f522836863e')",
+      "incomplete_evidence": [
+        "GLOBAL-MASTERVOLUME"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "GLOBAL-MASTERVOLUME: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "GLOBAL-MASTERVOLUME: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "GLOBAL-MASTERVOLUME"
+      ],
+      "target": "global_field_mastervolume"
+    },
+    "('global_field_monotoggle:848a5cca', '12dc2f522836863e')": {
+      "contract_key": "('global_field_monotoggle:848a5cca', '12dc2f522836863e')",
+      "incomplete_evidence": [
+        "GLOBAL-MONOTOGGLE"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "GLOBAL-MONOTOGGLE: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "GLOBAL-MONOTOGGLE: measurement condition signatures not persisted"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "GLOBAL-MONOTOGGLE"
+      ],
+      "target": "global_field_monotoggle"
+    },
+    "('global_field_oversampling:848a5cca', '12dc2f522836863e')": {
+      "contract_key": "('global_field_oversampling:848a5cca', '12dc2f522836863e')",
+      "incomplete_evidence": [
+        "GLOBAL-OVERSAMPLING"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "GLOBAL-OVERSAMPLING: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "GLOBAL-OVERSAMPLING: measurement condition signatures not persisted"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "GLOBAL-OVERSAMPLING"
+      ],
+      "target": "global_field_oversampling"
+    },
+    "('lfo_as_modulation_source:e0f31081', '6755cec516c2a243')": {
+      "contract_key": "('lfo_as_modulation_source:e0f31081', '6755cec516c2a243')",
+      "incomplete_evidence": [
+        "SRC-6",
+        "SRC-25",
+        "SRC-26",
+        "SRC-27",
+        "SRC-29",
+        "SRC-31"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "SRC-25: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "SRC-25: measurement stimulus values are not persisted; condition hash is only an identity fingerprint",
+        "SRC-26: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "SRC-26: measurement stimulus values are not persisted; condition hash is only an identity fingerprint",
+        "SRC-27: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "SRC-27: measurement stimulus values are not persisted; condition hash is only an identity fingerprint",
+        "SRC-29: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "SRC-29: measurement stimulus values are not persisted; condition hash is only an identity fingerprint",
+        "SRC-31: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "SRC-31: measurement stimulus values are not persisted; condition hash is only an identity fingerprint",
+        "SRC-6: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "SRC-6: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "SRC-6",
+        "SRC-25",
+        "SRC-26",
+        "SRC-27",
+        "SRC-29",
+        "SRC-31"
+      ],
+      "target": "lfo_as_modulation_source"
+    },
+    "('lfo_field_LFO-MODE:7b358c5a', '12dc2f522836863e')": {
+      "contract_key": "('lfo_field_LFO-MODE:7b358c5a', '12dc2f522836863e')",
+      "incomplete_evidence": [
+        "LFO-MODE"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "LFO-MODE: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "LFO-MODE: measurement condition signatures not persisted"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "LFO-MODE"
+      ],
+      "target": "lfo_field_LFO-MODE"
+    },
+    "('lfo_field_LFO-RATE:7b358c5a', '12dc2f522836863e')": {
+      "contract_key": "('lfo_field_LFO-RATE:7b358c5a', '12dc2f522836863e')",
+      "incomplete_evidence": [
+        "LFO-RATE"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "LFO-RATE: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "LFO-RATE: measurement condition signatures not persisted"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "LFO-RATE"
+      ],
+      "target": "lfo_field_LFO-RATE"
+    },
+    "('lfo_field_LFO-SHAPE:7b358c5a', '12dc2f522836863e')": {
+      "contract_key": "('lfo_field_LFO-SHAPE:7b358c5a', '12dc2f522836863e')",
+      "incomplete_evidence": [
+        "LFO-SHAPE"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "LFO-SHAPE: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "LFO-SHAPE: measurement condition signatures not persisted"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "LFO-SHAPE"
+      ],
+      "target": "lfo_field_LFO-SHAPE"
+    },
+    "('lfo_rate_dependent_route:6fcebe04', 'f03b8c8a1d23e2b9')": {
+      "contract_key": "('lfo_rate_dependent_route:6fcebe04', 'f03b8c8a1d23e2b9')",
+      "incomplete_evidence": [
+        "LFO-RATE-DEP-6"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "LFO-RATE-DEP-6: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "LFO-RATE-DEP-6: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "LFO-RATE-DEP-6"
+      ],
+      "target": "lfo_rate_dependent_route"
+    },
+    "('macro_field_name:6d7200b7', '12dc2f522836863e')": {
+      "contract_key": "('macro_field_name:6d7200b7', '12dc2f522836863e')",
+      "incomplete_evidence": [
+        "MACRO-NAME"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "MACRO-NAME: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "MACRO-NAME: measurement condition signatures not persisted"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "MACRO-NAME"
+      ],
+      "target": "macro_field_name"
+    },
+    "('macro_field_value:df550d16', 'd128a67952883804')": {
+      "contract_key": "('macro_field_value:df550d16', 'd128a67952883804')",
+      "incomplete_evidence": [
+        "MACRO-VALUE"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "MACRO-VALUE: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "MACRO-VALUE: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "MACRO-VALUE"
+      ],
+      "target": "macro_field_value"
+    },
+    "('modulation_route_fxdelay:2d6749fb', '7c2a2d56f0b013ba')": {
+      "contract_key": "('modulation_route_fxdelay:2d6749fb', '7c2a2d56f0b013ba')",
+      "incomplete_evidence": [
+        "E2b"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "E2b: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "E2b: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "E2b"
+      ],
+      "target": "modulation_route_fxdelay"
+    },
+    "('modulation_route_fxdelay:2d6749fb', '80d8772829f05a43')": {
+      "contract_key": "('modulation_route_fxdelay:2d6749fb', '80d8772829f05a43')",
+      "incomplete_evidence": [
+        "E2a"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "E2a: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "E2a: control/treatment state hashes are incomplete",
+        "E2a: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "E2a"
+      ],
+      "target": "modulation_route_fxdelay"
+    },
+    "('modulation_route_voicefilter:da41f927', '6755cec516c2a243')": {
+      "contract_key": "('modulation_route_voicefilter:da41f927', '6755cec516c2a243')",
+      "incomplete_evidence": [
+        "E0",
+        "E1"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "E0: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "E0: control/treatment state hashes are incomplete",
+        "E0: measurement stimulus values are not persisted; condition hash is only an identity fingerprint",
+        "E1: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "E1: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "E0",
+        "E1"
+      ],
+      "target": "modulation_route_voicefilter"
+    },
+    "('oscillator_field_OSC-ENABLE:6b75eaa1', '12dc2f522836863e')": {
+      "contract_key": "('oscillator_field_OSC-ENABLE:6b75eaa1', '12dc2f522836863e')",
+      "incomplete_evidence": [
+        "OSC-ENABLE"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "OSC-ENABLE: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "OSC-ENABLE: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "OSC-ENABLE"
+      ],
+      "target": "oscillator_field_OSC-ENABLE"
+    },
+    "('oscillator_field_OSC-OCTAVE:19404362', '12dc2f522836863e')": {
+      "contract_key": "('oscillator_field_OSC-OCTAVE:19404362', '12dc2f522836863e')",
+      "incomplete_evidence": [
+        "OSC-OCTAVE"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "OSC-OCTAVE: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "OSC-OCTAVE: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "OSC-OCTAVE"
+      ],
+      "target": "oscillator_field_OSC-OCTAVE"
+    },
+    "('oscillator_field_OSC-VOLUME:1d367221', '12dc2f522836863e')": {
+      "contract_key": "('oscillator_field_OSC-VOLUME:1d367221', '12dc2f522836863e')",
+      "incomplete_evidence": [
+        "OSC-VOLUME"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "OSC-VOLUME: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "OSC-VOLUME: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "OSC-VOLUME"
+      ],
+      "target": "oscillator_field_OSC-VOLUME"
+    },
+    "('oscillator_field_OSC-WAVETABLE:516ebf72', '12dc2f522836863e')": {
+      "contract_key": "('oscillator_field_OSC-WAVETABLE:516ebf72', '12dc2f522836863e')",
+      "incomplete_evidence": [
+        "OSC-WAVETABLE"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "OSC-WAVETABLE: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "OSC-WAVETABLE: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "OSC-WAVETABLE"
+      ],
+      "target": "oscillator_field_OSC-WAVETABLE"
+    },
+    "('route_coexistence:e0c8c3be', '93fed3266a501973')": {
+      "contract_key": "('route_coexistence:e0c8c3be', '93fed3266a501973')",
+      "incomplete_evidence": [
+        "E3"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "E3: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "E3: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "E3"
+      ],
+      "target": "route_coexistence"
+    },
+    "('voice_field_detune:28445195', '12dc2f522836863e')": {
+      "contract_key": "('voice_field_detune:28445195', '12dc2f522836863e')",
+      "incomplete_evidence": [
+        "VOICE-DETUNE"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "VOICE-DETUNE: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "VOICE-DETUNE: measurement condition signatures not persisted"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "VOICE-DETUNE"
+      ],
+      "target": "voice_field_detune"
+    },
+    "('voice_field_randompan:7f7fcf0e', '15f13ec9fb316de5')": {
+      "contract_key": "('voice_field_randompan:7f7fcf0e', '15f13ec9fb316de5')",
+      "incomplete_evidence": [
+        "VOICE-RANDOMPAN"
+      ],
+      "missing_evidence": [],
+      "reasons": [
+        "VOICE-RANDOMPAN: baseline_overrides not persisted in EvidenceRecord.experiment",
+        "VOICE-RANDOMPAN: measurement stimulus values are not persisted; condition hash is only an identity fingerprint"
+      ],
+      "replayable_evidence": [],
+      "status": "CONTEXT_INCOMPLETE",
+      "supporting_evidence": [
+        "VOICE-RANDOMPAN"
+      ],
+      "target": "voice_field_randompan"
+    }
+  },
+  "contract_count": 37,
+  "record_missing": {},
+  "schema_version": "16.5.40.1"
+}

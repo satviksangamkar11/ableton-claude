@@ -1,10 +1,13 @@
 import sys, pickle
 sys.path.insert(0, r"D:\ableton claude")
+from pathlib import Path
 from serum2 import statemodel, bridge, capability
 from serum2.evidence.claim import (ClaimDefinition, ClaimEngine, SINGLE_FIELD, OBJECTIVELY_MEASURABLE)
 from serum2.evidence.record import PASS
 from serum2.evidence import fixtures
 from serum2.evidence.claim import CONTROLLED_MULTI_FIELD, FAMILY
+from serum2.evidence.disposition import DispositionLedger
+from serum2.evidence.disposition_gate import EvidenceDispositionGate
 
 VST3 = r"C:\Program Files\Common Files\VST3\Serum2.vst3"
 skel_meta, skel_body = bridge.capture_v8_skeleton(VST3)
@@ -113,16 +116,32 @@ defs["filter_type"] = ClaimDefinition(
                           "target": "VoiceFilter0.plainParams.kParamType"})
 
 eng = ClaimEngine(defs)
+
+LEDGER = Path(
+    r"D:\ableton claude\experiments\16_5_40C_DISPOSITION_LEDGER.jsonl"
+)
+
+ledger = DispositionLedger(LEDGER)
+ledger.verify_integrity()
+
+disposition_gate = EvidenceDispositionGate(ledger)
+
+
+def admit_add(record, claim_type):
+    disposition_gate.require_admissible(record)
+    return eng.add(record, claim_type)
+
+
 E0, E1, E2a, E2b, E3 = fixtures.all_real()
-eng.add(E0, "route_vf"); eng.add(E1, "route_vf")
-eng.add(E2a, "route_fx"); eng.add(E2b, "route_fx")
-eng.add(E3, "route_coexist")
+admit_add(E0, "route_vf"); admit_add(E1, "route_vf")
+admit_add(E2a, "route_fx"); admit_add(E2b, "route_fx")
+admit_add(E3, "route_coexist")
 for name, rec in env_recs.items():
-    eng.add(rec, "env_%s" % name)
+    admit_add(rec, "env_%s" % name)
 for eid, rec in osc_recs.items():
-    eng.add(rec, "osc_%s" % eid)
-eng.add(filter_reso, "filter_reso")
-eng.add(filter_type, "filter_type")
+    admit_add(rec, "osc_%s" % eid)
+admit_add(filter_reso, "filter_reso")
+admit_add(filter_type, "filter_type")
 
 lfo_recs = pickle.load(open("D:/ableton claude/experiments/_lfo_own_state_records.pkl", "rb"))
 macro_recs = pickle.load(open("D:/ableton claude/experiments/_macro_records.pkl", "rb"))
@@ -142,7 +161,7 @@ for eid in LFO_TARGET:
         contradiction_rule={"require_same_mutation": True, "require_comparable_measurement": True},
         dependency_rule={"enabled": False})
 for eid, rec in lfo_recs.items():
-    eng.add(rec, "lfo_%s" % eid)
+    admit_add(rec, "lfo_%s" % eid)
 
 defs["macro_value"] = ClaimDefinition(
     claim_type="macro_field_value", subject_pattern={"kind": "macro_field"},
@@ -160,8 +179,8 @@ defs["macro_name"] = ClaimDefinition(
     coverage_rule={"generalizing_dimensions": [], "family_min_distinct": 2},
     contradiction_rule={"require_same_mutation": True, "require_comparable_measurement": True},
     dependency_rule={"enabled": False})
-eng.add(macro_recs["MACRO-VALUE"], "macro_value")
-eng.add(macro_recs["MACRO-NAME"], "macro_name")
+admit_add(macro_recs["MACRO-VALUE"], "macro_value")
+admit_add(macro_recs["MACRO-NAME"], "macro_name")
 
 # LFO-source discovery: negative result, kept as evidence (audit trail), not
 # promoted. required_gate needs causal=PASS to ever promote anything here --
@@ -175,7 +194,7 @@ defs["lfo_as_source"] = ClaimDefinition(
     contradiction_rule={"require_same_mutation": True, "require_comparable_measurement": True},
     dependency_rule={"enabled": False}, measurability=OBJECTIVELY_MEASURABLE)
 for eid, rec in lfo_src_recs.items():
-    eng.add(rec, "lfo_as_source")
+    admit_add(rec, "lfo_as_source")
 
 # Each of the five gets its OWN ClaimDefinition/ClaimGroup -- do not merge
 # unrelated Global/Voice semantics into one family-wide claim.
@@ -219,11 +238,11 @@ defs["voice_detune"] = ClaimDefinition(
     coverage_rule={"generalizing_dimensions": [], "family_min_distinct": 2},
     contradiction_rule={"require_same_mutation": True, "require_comparable_measurement": True},
     dependency_rule={"enabled": False})
-eng.add(gv_recs["GLOBAL-MASTERVOLUME"], "global_mastervolume")
-eng.add(gv_recs["GLOBAL-OVERSAMPLING"], "global_oversampling")
-eng.add(gv_recs["GLOBAL-MONOTOGGLE"], "global_monotoggle")
-eng.add(gv_recs["VOICE-RANDOMPAN"], "voice_randompan")
-eng.add(gv_recs["VOICE-DETUNE"], "voice_detune")
+admit_add(gv_recs["GLOBAL-MASTERVOLUME"], "global_mastervolume")
+admit_add(gv_recs["GLOBAL-OVERSAMPLING"], "global_oversampling")
+admit_add(gv_recs["GLOBAL-MONOTOGGLE"], "global_monotoggle")
+admit_add(gv_recs["VOICE-RANDOMPAN"], "voice_randompan")
+admit_add(gv_recs["VOICE-DETUNE"], "voice_detune")
 
 # 15.2.8.2: FXDistortion Drive. Own ClaimDefinition/ClaimGroup, independent of
 # Mode/Enable per user instruction ("keep the two capabilities independent").
@@ -238,7 +257,7 @@ defs["fx_distortion_drive"] = ClaimDefinition(
     coverage_rule={"generalizing_dimensions": [], "family_min_distinct": 1},
     contradiction_rule={"require_same_mutation": True, "require_comparable_measurement": True},
     dependency_rule={"enabled": False}, measurability=OBJECTIVELY_MEASURABLE)
-eng.add(fxdist_drive, "fx_distortion_drive")
+admit_add(fxdist_drive, "fx_distortion_drive")
 
 # 15.2.8.3: FXDistortion Mode. Own ClaimGroup, deliberately independent of
 # Drive. Magnitude-only (no expected_direction claim baked in here either --
@@ -251,7 +270,7 @@ defs["fx_distortion_mode"] = ClaimDefinition(
     coverage_rule={"generalizing_dimensions": [], "family_min_distinct": 1},
     contradiction_rule={"require_same_mutation": True, "require_comparable_measurement": True},
     dependency_rule={"enabled": False}, measurability=OBJECTIVELY_MEASURABLE)
-eng.add(fxdist_mode, "fx_distortion_mode")
+admit_add(fxdist_mode, "fx_distortion_mode")
 
 # 15.2.8.5: FXEQ Freq1 -- first field of the next FX family by corpus
 # prevalence. Own ClaimGroup, independent of FXDistortion's two claims.
@@ -263,7 +282,7 @@ defs["fx_eq_freq1"] = ClaimDefinition(
     coverage_rule={"generalizing_dimensions": [], "family_min_distinct": 1},
     contradiction_rule={"require_same_mutation": True, "require_comparable_measurement": True},
     dependency_rule={"enabled": False}, measurability=OBJECTIVELY_MEASURABLE)
-eng.add(fxeq_freq1, "fx_eq_freq1")
+admit_add(fxeq_freq1, "fx_eq_freq1")
 
 # 15.2.8.6: remaining FXEQ numeric controls, each its own independent
 # ClaimGroup -- distinct fields, distinct capabilities.
@@ -279,7 +298,7 @@ for field in FXEQ_NUMERIC_FIELDS:
         coverage_rule={"generalizing_dimensions": [], "family_min_distinct": 1},
         contradiction_rule={"require_same_mutation": True, "require_comparable_measurement": True},
         dependency_rule={"enabled": False}, measurability=OBJECTIVELY_MEASURABLE)
-    eng.add(fxeq_numeric[field], ct)
+    admit_add(fxeq_numeric[field], ct)
 
 # 15.2.8.7: FXEQ Type1/Type2, real corpus enum values (1.0/2.0), magnitude-only.
 # Type2: EFFECT_OBSERVED, causal-required definition (same pattern as above).
@@ -291,7 +310,7 @@ defs["fx_eq_type2"] = ClaimDefinition(
     coverage_rule={"generalizing_dimensions": [], "family_min_distinct": 1},
     contradiction_rule={"require_same_mutation": True, "require_comparable_measurement": True},
     dependency_rule={"enabled": False}, measurability=OBJECTIVELY_MEASURABLE)
-eng.add(fxeq_type["kParamType2"], "fx_eq_type2")
+admit_add(fxeq_type["kParamType2"], "fx_eq_type2")
 
 # Type1: causal was actually RUN and returned NO_OBSERVED_EFFECT (not
 # NOT_RUN) -- an honest negative at this baseline/kernel/stimulus, not a
@@ -305,7 +324,7 @@ defs["fx_eq_type1"] = ClaimDefinition(
     coverage_rule={"generalizing_dimensions": [], "family_min_distinct": 1},
     contradiction_rule={"require_same_mutation": True, "require_comparable_measurement": True},
     dependency_rule={"enabled": False})
-eng.add(fxeq_type["kParamType1"], "fx_eq_type1")
+admit_add(fxeq_type["kParamType1"], "fx_eq_type1")
 
 # 16.4.3c-10: formal, scoped evidence for source[0]=6's rate-dependent causal
 # effect under an explicit LFO0 baseline_override. Deliberately does NOT
@@ -322,7 +341,7 @@ defs["lfo_rate_dependence"] = ClaimDefinition(
     coverage_rule={"generalizing_dimensions": [], "family_min_distinct": 1},
     contradiction_rule={"require_same_mutation": True, "require_comparable_measurement": True},
     dependency_rule={"enabled": False}, measurability=OBJECTIVELY_MEASURABLE)
-eng.add(lfo_rate_dep["positive"], "lfo_rate_dependence")
+admit_add(lfo_rate_dep["positive"], "lfo_rate_dependence")
 
 
 print("rejected:", eng.rejected)

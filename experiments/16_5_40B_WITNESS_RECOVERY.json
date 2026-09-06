@@ -1,0 +1,2899 @@
+{
+  "record_count": 52,
+  "records": {
+    "COMPILER-GOAL-1": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "4e2909181a71c6bfddf94927a592d8a06596e9324bfca1c041a1a3505ec0430b",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_1_first_goal.py",
+          "evidence_id": "COMPILER-GOAL-1",
+          "experiment_id": "COMPILER-GOAL-1",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "COMPILER-GOAL-1",
+      "fingerprint": "300f5b9d51451b17faadcbf3d021d207061a519acad1f770788321914adcc01a",
+      "missing_fields": [
+        "baseline_overrides",
+        "measurement_condition",
+        "measurement_stimulus"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:baseline_overrides",
+        "missing:measurement_condition",
+        "missing:measurement_stimulus"
+      ],
+      "recovered_fields": [
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "COMPILER-GOAL-LFO-CUTOFF": {
+      "artifact_refs": [],
+      "evidence_id": "COMPILER-GOAL-LFO-CUTOFF",
+      "fingerprint": "7c54810d642e4ef30000129f5daeb00cb86f96c809628291074289261b677780",
+      "missing_fields": [
+        "baseline_overrides",
+        "historical_artifact_reference",
+        "measurement_condition",
+        "measurement_stimulus"
+      ],
+      "reasons": [
+        "missing:baseline_overrides",
+        "missing:historical_artifact_reference",
+        "missing:measurement_condition",
+        "missing:measurement_stimulus",
+        "no historical witness artifact recovered"
+      ],
+      "recovered_fields": [
+        "experiment_condition_signature",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "CONTEXT_INCOMPLETE"
+    },
+    "CTX-GOAL-4": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "9656f790f19e025af53e12d07148796335ae1ca2aa455473df7c1463eb8c4679",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\OPEN_FINDINGS.json",
+          "evidence_id": "CTX-GOAL-4",
+          "experiment_id": "CTX-GOAL-4",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "c6e2c3e6fd82ace646b16880b420a78a628e666c40dbd5248ebcb175f54e825b",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_3_context_goal.py",
+          "evidence_id": "CTX-GOAL-4",
+          "experiment_id": "CTX-GOAL-4",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "CTX-GOAL-4",
+      "fingerprint": "d6a633d4a5c2bca4e4bd6061de02db44ce37d4a11b3e41ba80b6a9de9beced83",
+      "missing_fields": [
+        "baseline_overrides",
+        "measurement_condition",
+        "measurement_stimulus"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:baseline_overrides",
+        "missing:measurement_condition",
+        "missing:measurement_stimulus"
+      ],
+      "recovered_fields": [
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "DECISIVE-A-source6": {
+      "artifact_refs": [],
+      "evidence_id": "DECISIVE-A-source6",
+      "fingerprint": "0dbbbaf54ed27adea3a5bed958dc27e1330fa79667e1dc2c574baa5be660bae8",
+      "missing_fields": [
+        "baseline_overrides",
+        "historical_artifact_reference",
+        "measurement_condition",
+        "measurement_stimulus"
+      ],
+      "reasons": [
+        "missing:baseline_overrides",
+        "missing:historical_artifact_reference",
+        "missing:measurement_condition",
+        "missing:measurement_stimulus",
+        "no historical witness artifact recovered"
+      ],
+      "recovered_fields": [
+        "experiment_condition_signature",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "CONTEXT_INCOMPLETE"
+    },
+    "DECISIVE-B-source25": {
+      "artifact_refs": [],
+      "evidence_id": "DECISIVE-B-source25",
+      "fingerprint": "ada83370a7063b4115249324c9f751a289aa1add4b6487628bab60d0ab850037",
+      "missing_fields": [
+        "baseline_overrides",
+        "historical_artifact_reference",
+        "measurement_condition",
+        "measurement_stimulus"
+      ],
+      "reasons": [
+        "missing:baseline_overrides",
+        "missing:historical_artifact_reference",
+        "missing:measurement_condition",
+        "missing:measurement_stimulus",
+        "no historical witness artifact recovered"
+      ],
+      "recovered_fields": [
+        "experiment_condition_signature",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "CONTEXT_INCOMPLETE"
+    },
+    "E0": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "E0",
+          "experiment_id": "E0",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "1d14ef5d0389704b33f92071d7ed8e4faaa77cc9aa01782d8fb584382b9a0923",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\live_e1_reproduction_v2.py",
+          "evidence_id": "E0",
+          "experiment_id": "E0",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "b5eceafd6b0e46d7c5079592ccbfc611433bce67407c7c8ae70147d6c03447b9",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_1_inventory.py",
+          "evidence_id": "E0",
+          "experiment_id": "E0",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "5882dc709e292760ce5413be71934c005737e3ae37f3d8de8602a0221cbb5c43",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_2_promote.py",
+          "evidence_id": "E0",
+          "experiment_id": "E0",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "e49efbc06cf92e93d221600a78ab505e2853ba28efc07e891438e99ec99e3dde",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_5_lfo_source_discovery.py",
+          "evidence_id": "E0",
+          "experiment_id": "E0",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "cfb0c3b8bb1add7d41c084f219692959b45b0438de51b203e8f6af86bce2e7c5",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_4_3b_decisive.py",
+          "evidence_id": "E0",
+          "experiment_id": "E0",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "fa602a629f13939a82f606e86b69cb81b9413758a176856fb095f4e6da04118b",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_5_34_codec_vs_loadstate_isolation.py",
+          "evidence_id": "E0",
+          "experiment_id": "E0",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "9d3947d47e34f7d5df5774f2aeb6963dc9a02e00c4fbcdc7423a8c6095bedd9c",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\test_evidence_slice.py",
+          "evidence_id": "E0",
+          "experiment_id": "E0",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "f06b4e8e02ed47438049c548f3beaf3d3ebd034063eaf2a45f258dc0a01d9741",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\test_measurement_model.py",
+          "evidence_id": "E0",
+          "experiment_id": "E0",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "E0",
+      "fingerprint": "12f688a033c415141fbdbd8d85f9af4b22d02c077a0ea341e8c2d6942421d01e",
+      "missing_fields": [],
+      "reasons": [],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_condition",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "VALID"
+    },
+    "E1": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "E1",
+          "experiment_id": "E1",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "7e19d7902a152e4ad5f00fb40f284cb2e0233a2016ff5dcf5ebfb0a0bb36379b",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\live_e1_reproduction.py",
+          "evidence_id": "E1",
+          "experiment_id": "E1",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "1d14ef5d0389704b33f92071d7ed8e4faaa77cc9aa01782d8fb584382b9a0923",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\live_e1_reproduction_v2.py",
+          "evidence_id": "E1",
+          "experiment_id": "E1",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "b5eceafd6b0e46d7c5079592ccbfc611433bce67407c7c8ae70147d6c03447b9",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_1_inventory.py",
+          "evidence_id": "E1",
+          "experiment_id": "E1",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "5882dc709e292760ce5413be71934c005737e3ae37f3d8de8602a0221cbb5c43",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_2_promote.py",
+          "evidence_id": "E1",
+          "experiment_id": "E1",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "e49efbc06cf92e93d221600a78ab505e2853ba28efc07e891438e99ec99e3dde",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_5_lfo_source_discovery.py",
+          "evidence_id": "E1",
+          "experiment_id": "E1",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "cfb0c3b8bb1add7d41c084f219692959b45b0438de51b203e8f6af86bce2e7c5",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_4_3b_decisive.py",
+          "evidence_id": "E1",
+          "experiment_id": "E1",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "9d3947d47e34f7d5df5774f2aeb6963dc9a02e00c4fbcdc7423a8c6095bedd9c",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\test_evidence_slice.py",
+          "evidence_id": "E1",
+          "experiment_id": "E1",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "f06b4e8e02ed47438049c548f3beaf3d3ebd034063eaf2a45f258dc0a01d9741",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\test_measurement_model.py",
+          "evidence_id": "E1",
+          "experiment_id": "E1",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "E1",
+      "fingerprint": "c01360729c18b720f28bbffd89e62300592eddb8c5a49da410698c7fc83ce1f2",
+      "missing_fields": [],
+      "reasons": [],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_condition",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "VALID"
+    },
+    "E2a": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "E2a",
+          "experiment_id": "E2a",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "b5eceafd6b0e46d7c5079592ccbfc611433bce67407c7c8ae70147d6c03447b9",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_1_inventory.py",
+          "evidence_id": "E2a",
+          "experiment_id": "E2a",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "5882dc709e292760ce5413be71934c005737e3ae37f3d8de8602a0221cbb5c43",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_2_promote.py",
+          "evidence_id": "E2a",
+          "experiment_id": "E2a",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "9d3947d47e34f7d5df5774f2aeb6963dc9a02e00c4fbcdc7423a8c6095bedd9c",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\test_evidence_slice.py",
+          "evidence_id": "E2a",
+          "experiment_id": "E2a",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "f06b4e8e02ed47438049c548f3beaf3d3ebd034063eaf2a45f258dc0a01d9741",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\test_measurement_model.py",
+          "evidence_id": "E2a",
+          "experiment_id": "E2a",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "E2a",
+      "fingerprint": "6a620eb031b3b3f4c1f385e5bb4a23008bc31ac023716719e01387d9508a9960",
+      "missing_fields": [],
+      "reasons": [],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_condition",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "VALID"
+    },
+    "E2b": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "E2b",
+          "experiment_id": "E2b",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "b5eceafd6b0e46d7c5079592ccbfc611433bce67407c7c8ae70147d6c03447b9",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_1_inventory.py",
+          "evidence_id": "E2b",
+          "experiment_id": "E2b",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "5882dc709e292760ce5413be71934c005737e3ae37f3d8de8602a0221cbb5c43",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_2_promote.py",
+          "evidence_id": "E2b",
+          "experiment_id": "E2b",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "9d3947d47e34f7d5df5774f2aeb6963dc9a02e00c4fbcdc7423a8c6095bedd9c",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\test_evidence_slice.py",
+          "evidence_id": "E2b",
+          "experiment_id": "E2b",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "f06b4e8e02ed47438049c548f3beaf3d3ebd034063eaf2a45f258dc0a01d9741",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\test_measurement_model.py",
+          "evidence_id": "E2b",
+          "experiment_id": "E2b",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "E2b",
+      "fingerprint": "9d7a30b767bd956c8761b7066bf152683183cffa8d19f08dca3e46a792ee9e6e",
+      "missing_fields": [],
+      "reasons": [],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_condition",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "VALID"
+    },
+    "E3": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "E3",
+          "experiment_id": "E3",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "b5eceafd6b0e46d7c5079592ccbfc611433bce67407c7c8ae70147d6c03447b9",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_1_inventory.py",
+          "evidence_id": "E3",
+          "experiment_id": "E3",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "5882dc709e292760ce5413be71934c005737e3ae37f3d8de8602a0221cbb5c43",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_2_promote.py",
+          "evidence_id": "E3",
+          "experiment_id": "E3",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "9d3947d47e34f7d5df5774f2aeb6963dc9a02e00c4fbcdc7423a8c6095bedd9c",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\test_evidence_slice.py",
+          "evidence_id": "E3",
+          "experiment_id": "E3",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "f06b4e8e02ed47438049c548f3beaf3d3ebd034063eaf2a45f258dc0a01d9741",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\test_measurement_model.py",
+          "evidence_id": "E3",
+          "experiment_id": "E3",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "E3",
+      "fingerprint": "08895bb6c1dcaa51cb92358c96e9eae22d674930d4f34030d89aad96a85d821a",
+      "missing_fields": [],
+      "reasons": [],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_condition",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "VALID"
+    },
+    "ENV-ATTACK": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "ENV-ATTACK",
+          "experiment_id": "ENV-ATTACK",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "efb51747fe3a5bdac967af3d484c261f07ecfc73a0d081f46f3f69ef8991e9ec",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_1_attack.py",
+          "evidence_id": "ENV-ATTACK",
+          "experiment_id": "ENV-ATTACK",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "ENV-ATTACK",
+      "fingerprint": "9f98a9371dcb26e29eeabba619ad01ab32e94aef2c03f7420950c78eb1b74e64",
+      "missing_fields": [
+        "measurement_condition"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "ENV-DECAY": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "ENV-DECAY",
+          "experiment_id": "ENV-DECAY",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "4f59ed4fddbf1401221d88973637f95c06c31fd49c761ef4d381071dfa39b591",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_1_decay.py",
+          "evidence_id": "ENV-DECAY",
+          "experiment_id": "ENV-DECAY",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "ENV-DECAY",
+      "fingerprint": "5556b81b2999033b0102c4842b4dd509e57afcf3129a63428caac69a117b8280",
+      "missing_fields": [
+        "measurement_condition"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "ENV-RELEASE": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "ENV-RELEASE",
+          "experiment_id": "ENV-RELEASE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "e64586cc2db83a41e73081de5b4c90edc1be9606b25837993975ffa3c4180bf3",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_1_release.py",
+          "evidence_id": "ENV-RELEASE",
+          "experiment_id": "ENV-RELEASE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "ENV-RELEASE",
+      "fingerprint": "4f06d28570ed1f44c8ed2210591dee3732847791ff503996b4308c6cfaf48d58",
+      "missing_fields": [
+        "measurement_condition"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "ENV-SUSTAIN": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "ENV-SUSTAIN",
+          "experiment_id": "ENV-SUSTAIN",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "0600b4fe7df0fd50f5dab4f70e4081cee512b4c1babf61871e2c6f29966dd0fd",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_1_sustain.py",
+          "evidence_id": "ENV-SUSTAIN",
+          "experiment_id": "ENV-SUSTAIN",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "ENV-SUSTAIN",
+      "fingerprint": "8f7db6d6535785e14eec699b751f89742b87c486484d884b5d3ae9d521063ede",
+      "missing_fields": [
+        "measurement_condition"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "FILTER-RESONANCE": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "FILTER-RESONANCE",
+          "experiment_id": "FILTER-RESONANCE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "3bf823f29603e4cbcd9e0bd2127f469a19fc39724630069e44fe43b2f7fb11ae",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_3_filter_resonance.py",
+          "evidence_id": "FILTER-RESONANCE",
+          "experiment_id": "FILTER-RESONANCE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "FILTER-RESONANCE",
+      "fingerprint": "6145fd6f203e1a37af50bd942d3ee296d13e1a5f78521f52e4b4309235263550",
+      "missing_fields": [
+        "measurement_condition"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "FILTER-TYPE": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "FILTER-TYPE",
+          "experiment_id": "FILTER-TYPE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "9579464851a9b171a760504e171fabcdb075b47f936ca970d48f30d976d11db8",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_3_filter_type.py",
+          "evidence_id": "FILTER-TYPE",
+          "experiment_id": "FILTER-TYPE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "FILTER-TYPE",
+      "fingerprint": "dcaada3e20135317dd8a87c761fb4437a705b2e8f39ae0d9547dc8de24d22315",
+      "missing_fields": [
+        "measurement_condition"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "FXDIST-DRIVE": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "FXDIST-DRIVE",
+          "experiment_id": "FXDIST-DRIVE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "7202def5a51849653c3ca6d88bb843ef89811571d9c7621fbc1f0d970505973b",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_8_fxdistortion_drive.py",
+          "evidence_id": "FXDIST-DRIVE",
+          "experiment_id": "FXDIST-DRIVE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "1a146fe7f6c9a96a9d2a8be9482d58d92603478083379e5976f7bb8a58d42830",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_5_1_bounds_audit.py",
+          "evidence_id": "FXDIST-DRIVE",
+          "experiment_id": "FXDIST-DRIVE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "FXDIST-DRIVE",
+      "fingerprint": "dcf0b1276383432f61cffceb54f596e445ff58ae4f5934a6830da59f09375743",
+      "missing_fields": [
+        "measurement_condition"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "FXDIST-MODE": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "FXDIST-MODE",
+          "experiment_id": "FXDIST-MODE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "639ba112a48ce91038e6f2a5124be2051890c35cce92e53190eba9eeec7ad6c6",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_8_fxdistortion_mode.py",
+          "evidence_id": "FXDIST-MODE",
+          "experiment_id": "FXDIST-MODE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "1a146fe7f6c9a96a9d2a8be9482d58d92603478083379e5976f7bb8a58d42830",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_5_1_bounds_audit.py",
+          "evidence_id": "FXDIST-MODE",
+          "experiment_id": "FXDIST-MODE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "FXDIST-MODE",
+      "fingerprint": "58ad94e388b04c7943d7cdc7c6d413a329aeaf835d0f887066c3b120c9940034",
+      "missing_fields": [
+        "measurement_condition"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "FXEQ-FREQ1": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "FXEQ-FREQ1",
+          "experiment_id": "FXEQ-FREQ1",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "ea6852d5a8662f54ff5e6c7c6ded652f422fe0fbe2cf8ab386db9cee9feb556f",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_8_fxeq_freq1.py",
+          "evidence_id": "FXEQ-FREQ1",
+          "experiment_id": "FXEQ-FREQ1",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "cd4613ef234fb0e3b8139698de1bf9231ee703c38f630a219c3aec4f1a2d9519",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_8_fxeq_probe.py",
+          "evidence_id": "FXEQ-FREQ1",
+          "experiment_id": "FXEQ-FREQ1",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "c89f906dacb44a6bca2d7efab2531bde996c720fe03618a81d222baa790f088e",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_5_10_causal_verify.py",
+          "evidence_id": "FXEQ-FREQ1",
+          "experiment_id": "FXEQ-FREQ1",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "22f7d0be038ce4c8bac014ee5e7a802b7b4b643ced812fd6167a55a4c0d4d95f",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_5_17_reproduce_eq_centroid.py",
+          "evidence_id": "FXEQ-FREQ1",
+          "experiment_id": "FXEQ-FREQ1",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "f25aa1ead6bafe6108cf2db4300d3f7a5281c60016a293ff30dbaf0b2df4e92c",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_5_18_historical_vs_current_differential.py",
+          "evidence_id": "FXEQ-FREQ1",
+          "experiment_id": "FXEQ-FREQ1",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "1a146fe7f6c9a96a9d2a8be9482d58d92603478083379e5976f7bb8a58d42830",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_5_1_bounds_audit.py",
+          "evidence_id": "FXEQ-FREQ1",
+          "experiment_id": "FXEQ-FREQ1",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "416027b30408716ecc25592dce2f1be0f2bc04de36609f86cd42b24d123644eb",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_5_21_execution_forensic_comparison.py",
+          "evidence_id": "FXEQ-FREQ1",
+          "experiment_id": "FXEQ-FREQ1",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "eb91516f26cc957839fe8cdd22433837d51c566786005b9b7d07584703c5a557",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_5_4_fxeq_freq1_multipoint.py",
+          "evidence_id": "FXEQ-FREQ1",
+          "experiment_id": "FXEQ-FREQ1",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "79f7ff394155c8615c2cdcfd16b97350416bf8c07a2b7e69ed813b9bc5f18767",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_5_9_nonwitness_construction.py",
+          "evidence_id": "FXEQ-FREQ1",
+          "experiment_id": "FXEQ-FREQ1",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "FXEQ-FREQ1",
+      "fingerprint": "d1462698136370deb542a9375b5f46782f91f5c6d2eeca6bccecd35f2e2fab2e",
+      "missing_fields": [],
+      "reasons": [],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_condition",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "VALID"
+    },
+    "FXEQ-FREQ1-P300": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "eb91516f26cc957839fe8cdd22433837d51c566786005b9b7d07584703c5a557",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_5_4_fxeq_freq1_multipoint.py",
+          "evidence_id": "FXEQ-FREQ1-P300",
+          "experiment_id": "FXEQ-FREQ1-P300",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "FXEQ-FREQ1-P300",
+      "fingerprint": "29465331f39ce214a665ce361f428120bcd840af2c6d6694b49bdef4071e31ae",
+      "missing_fields": [
+        "measurement_condition"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "FXEQ-FREQ1-P8000": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "eb91516f26cc957839fe8cdd22433837d51c566786005b9b7d07584703c5a557",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_5_4_fxeq_freq1_multipoint.py",
+          "evidence_id": "FXEQ-FREQ1-P8000",
+          "experiment_id": "FXEQ-FREQ1-P8000",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "FXEQ-FREQ1-P8000",
+      "fingerprint": "7a77989a41e01f38bc2c6062d1228fa43b17b22a90367d7eb2366ba454ce909c",
+      "missing_fields": [
+        "measurement_condition"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "FXEQ-KPARAMFREQ2": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "FXEQ-KPARAMFREQ2",
+          "experiment_id": "FXEQ-KPARAMFREQ2",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "FXEQ-KPARAMFREQ2",
+      "fingerprint": "14e2747c141abbcba1e284b735b64621d01c4d54c7dbfc99fb85b2e3053df34e",
+      "missing_fields": [
+        "measurement_condition",
+        "measurement_stimulus"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition",
+        "missing:measurement_stimulus"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "FXEQ-KPARAMGAIN1": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "FXEQ-KPARAMGAIN1",
+          "experiment_id": "FXEQ-KPARAMGAIN1",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "FXEQ-KPARAMGAIN1",
+      "fingerprint": "2f81aa2b600c0ad09f2c28472a7af1e9089e017a393f53a4564620eac2797674",
+      "missing_fields": [
+        "measurement_condition",
+        "measurement_stimulus"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition",
+        "missing:measurement_stimulus"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "FXEQ-KPARAMGAIN2": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "FXEQ-KPARAMGAIN2",
+          "experiment_id": "FXEQ-KPARAMGAIN2",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "FXEQ-KPARAMGAIN2",
+      "fingerprint": "7d7df24e3dd8ca0e96a70a35d19e5ab5c068f9bdb8fe9337f6b13866a619da1a",
+      "missing_fields": [
+        "measurement_condition",
+        "measurement_stimulus"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition",
+        "missing:measurement_stimulus"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "FXEQ-KPARAMLEVELOUT": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "FXEQ-KPARAMLEVELOUT",
+          "experiment_id": "FXEQ-KPARAMLEVELOUT",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "FXEQ-KPARAMLEVELOUT",
+      "fingerprint": "6e3fd50ecc3215d11f06c0f69629ac4e1276ac4d8737a382ddb5235ecdcca790",
+      "missing_fields": [
+        "measurement_condition",
+        "measurement_stimulus"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition",
+        "missing:measurement_stimulus"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "FXEQ-KPARAMRESO1": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "FXEQ-KPARAMRESO1",
+          "experiment_id": "FXEQ-KPARAMRESO1",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "FXEQ-KPARAMRESO1",
+      "fingerprint": "c98700935a09d23cea5f925fed9fde1d6c94cd88bba51aeb26b240a6b7c112b3",
+      "missing_fields": [
+        "measurement_condition",
+        "measurement_stimulus"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition",
+        "missing:measurement_stimulus"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "FXEQ-KPARAMRESO2": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "FXEQ-KPARAMRESO2",
+          "experiment_id": "FXEQ-KPARAMRESO2",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "FXEQ-KPARAMRESO2",
+      "fingerprint": "2fa45622966161b721c0c721c3a21c74d9f403ec1d00b4d1c9772ec906be0ea0",
+      "missing_fields": [
+        "measurement_condition",
+        "measurement_stimulus"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition",
+        "missing:measurement_stimulus"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "FXEQ-KPARAMTYPE1": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "FXEQ-KPARAMTYPE1",
+          "experiment_id": "FXEQ-KPARAMTYPE1",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "FXEQ-KPARAMTYPE1",
+      "fingerprint": "bcb660793d77658508ed27df22ab36f92d1a639f6c3fea58cec12500a36efd5a",
+      "missing_fields": [
+        "measurement_condition",
+        "measurement_stimulus"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition",
+        "missing:measurement_stimulus"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "FXEQ-KPARAMTYPE2": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "FXEQ-KPARAMTYPE2",
+          "experiment_id": "FXEQ-KPARAMTYPE2",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "FXEQ-KPARAMTYPE2",
+      "fingerprint": "0f738c23141945b2de0c9cbe3717e04b42c9a8ff00bf6b27adf9372d79f12227",
+      "missing_fields": [
+        "measurement_condition",
+        "measurement_stimulus"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition",
+        "missing:measurement_stimulus"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "GLOBAL-MASTERVOLUME": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "GLOBAL-MASTERVOLUME",
+          "experiment_id": "GLOBAL-MASTERVOLUME",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "5882dc709e292760ce5413be71934c005737e3ae37f3d8de8602a0221cbb5c43",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_2_promote.py",
+          "evidence_id": "GLOBAL-MASTERVOLUME",
+          "experiment_id": "GLOBAL-MASTERVOLUME",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "1f117314886746c73877ced4b46c047c43a887a39fed20837ab4ef132250345e",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_7_global_voice.py",
+          "evidence_id": "GLOBAL-MASTERVOLUME",
+          "experiment_id": "GLOBAL-MASTERVOLUME",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "GLOBAL-MASTERVOLUME",
+      "fingerprint": "ebb3ca878b3bee5940a7fedec459340e2a27cf41bb990b6c5dcd195c2fd4e068",
+      "missing_fields": [
+        "measurement_condition"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "GLOBAL-MONOTOGGLE": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "GLOBAL-MONOTOGGLE",
+          "experiment_id": "GLOBAL-MONOTOGGLE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "5882dc709e292760ce5413be71934c005737e3ae37f3d8de8602a0221cbb5c43",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_2_promote.py",
+          "evidence_id": "GLOBAL-MONOTOGGLE",
+          "experiment_id": "GLOBAL-MONOTOGGLE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "1f117314886746c73877ced4b46c047c43a887a39fed20837ab4ef132250345e",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_7_global_voice.py",
+          "evidence_id": "GLOBAL-MONOTOGGLE",
+          "experiment_id": "GLOBAL-MONOTOGGLE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "GLOBAL-MONOTOGGLE",
+      "fingerprint": "9cf217e3438f249d5c056e270c4639310531357ac55533c4499ecb5cbf3363dc",
+      "missing_fields": [],
+      "reasons": [],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "VALID"
+    },
+    "GLOBAL-OVERSAMPLING": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "GLOBAL-OVERSAMPLING",
+          "experiment_id": "GLOBAL-OVERSAMPLING",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "5882dc709e292760ce5413be71934c005737e3ae37f3d8de8602a0221cbb5c43",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_2_promote.py",
+          "evidence_id": "GLOBAL-OVERSAMPLING",
+          "experiment_id": "GLOBAL-OVERSAMPLING",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "1f117314886746c73877ced4b46c047c43a887a39fed20837ab4ef132250345e",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_7_global_voice.py",
+          "evidence_id": "GLOBAL-OVERSAMPLING",
+          "experiment_id": "GLOBAL-OVERSAMPLING",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "GLOBAL-OVERSAMPLING",
+      "fingerprint": "289ac21524820643e7e6771c75e0f8cc88c2cf87c91278034c45caf24b4dfcc9",
+      "missing_fields": [],
+      "reasons": [],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "VALID"
+    },
+    "GOAL-16.4.1A": {
+      "artifact_refs": [],
+      "evidence_id": "GOAL-16.4.1A",
+      "fingerprint": "89d461d9e20bb0699e91f6d121a906d6687a3c1db76fe4fa76e5d466a90d6de5",
+      "missing_fields": [
+        "baseline_overrides",
+        "historical_artifact_reference",
+        "measurement_condition",
+        "measurement_stimulus"
+      ],
+      "reasons": [
+        "missing:baseline_overrides",
+        "missing:historical_artifact_reference",
+        "missing:measurement_condition",
+        "missing:measurement_stimulus",
+        "no historical witness artifact recovered"
+      ],
+      "recovered_fields": [
+        "experiment_condition_signature",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "CONTEXT_INCOMPLETE"
+    },
+    "LFO-MODE": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "LFO-MODE",
+          "experiment_id": "LFO-MODE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "5882dc709e292760ce5413be71934c005737e3ae37f3d8de8602a0221cbb5c43",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_2_promote.py",
+          "evidence_id": "LFO-MODE",
+          "experiment_id": "LFO-MODE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "7f5b78523b7be579ce897cabd49fae355f7dfb96da2fb6963dd8c563f8ba5854",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_4_lfo_own_state.py",
+          "evidence_id": "LFO-MODE",
+          "experiment_id": "LFO-MODE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "fe0c36c856463e4823c186f8e2b00a57b32bea84cd0460b5a7605cc6225bc77b",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_6_macro.py",
+          "evidence_id": "LFO-MODE",
+          "experiment_id": "LFO-MODE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "LFO-MODE",
+      "fingerprint": "f866adbc9a582796f21f5de650afb24e0bbaf96f1ccfe6b3d7e25f26b6386327",
+      "missing_fields": [],
+      "reasons": [],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "VALID"
+    },
+    "LFO-RATE": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "LFO-RATE",
+          "experiment_id": "LFO-RATE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "9656f790f19e025af53e12d07148796335ae1ca2aa455473df7c1463eb8c4679",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\OPEN_FINDINGS.json",
+          "evidence_id": "LFO-RATE",
+          "experiment_id": "LFO-RATE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "5882dc709e292760ce5413be71934c005737e3ae37f3d8de8602a0221cbb5c43",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_2_promote.py",
+          "evidence_id": "LFO-RATE",
+          "experiment_id": "LFO-RATE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "7f5b78523b7be579ce897cabd49fae355f7dfb96da2fb6963dd8c563f8ba5854",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_4_lfo_own_state.py",
+          "evidence_id": "LFO-RATE",
+          "experiment_id": "LFO-RATE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "ffb73e7069cac19f9662d0e80d3fe582210ff4db9f25bb108d704cc678e24697",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_4_3c10_formal_evidence.py",
+          "evidence_id": "LFO-RATE",
+          "experiment_id": "LFO-RATE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "LFO-RATE",
+      "fingerprint": "9ce3210920c6b27919821b2738c7aa5a384d3820fd82b685ee5b7e361d61155c",
+      "missing_fields": [],
+      "reasons": [],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "VALID"
+    },
+    "LFO-RATE-DEP-25": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "9656f790f19e025af53e12d07148796335ae1ca2aa455473df7c1463eb8c4679",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\OPEN_FINDINGS.json",
+          "evidence_id": "LFO-RATE-DEP-25",
+          "experiment_id": "LFO-RATE-DEP-25",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "ffb73e7069cac19f9662d0e80d3fe582210ff4db9f25bb108d704cc678e24697",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_4_3c10_formal_evidence.py",
+          "evidence_id": "LFO-RATE-DEP-25",
+          "experiment_id": "LFO-RATE-DEP-25",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "LFO-RATE-DEP-25",
+      "fingerprint": "00eb15075efb1de5de64332d40f2f5897b768a323864ce9eab90f7a1f94c6d82",
+      "missing_fields": [
+        "measurement_condition"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "LFO-RATE-DEP-6": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "LFO-RATE-DEP-6",
+          "experiment_id": "LFO-RATE-DEP-6",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "9656f790f19e025af53e12d07148796335ae1ca2aa455473df7c1463eb8c4679",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\OPEN_FINDINGS.json",
+          "evidence_id": "LFO-RATE-DEP-6",
+          "experiment_id": "LFO-RATE-DEP-6",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "ffb73e7069cac19f9662d0e80d3fe582210ff4db9f25bb108d704cc678e24697",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_4_3c10_formal_evidence.py",
+          "evidence_id": "LFO-RATE-DEP-6",
+          "experiment_id": "LFO-RATE-DEP-6",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "LFO-RATE-DEP-6",
+      "fingerprint": "51b5f11ff77a239a2b18f1d4ed4b89f4ea9747c242ad1198ce2aeea7a3248b08",
+      "missing_fields": [
+        "measurement_condition"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "LFO-SHAPE": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "LFO-SHAPE",
+          "experiment_id": "LFO-SHAPE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "5882dc709e292760ce5413be71934c005737e3ae37f3d8de8602a0221cbb5c43",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_2_promote.py",
+          "evidence_id": "LFO-SHAPE",
+          "experiment_id": "LFO-SHAPE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "7f5b78523b7be579ce897cabd49fae355f7dfb96da2fb6963dd8c563f8ba5854",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_4_lfo_own_state.py",
+          "evidence_id": "LFO-SHAPE",
+          "experiment_id": "LFO-SHAPE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "fe0c36c856463e4823c186f8e2b00a57b32bea84cd0460b5a7605cc6225bc77b",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_6_macro.py",
+          "evidence_id": "LFO-SHAPE",
+          "experiment_id": "LFO-SHAPE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "LFO-SHAPE",
+      "fingerprint": "76092482680a50ec506140e35c406e4dfaf8e651f130811b9ea4f1f17b76cad0",
+      "missing_fields": [],
+      "reasons": [],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "VALID"
+    },
+    "MACRO-NAME": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "MACRO-NAME",
+          "experiment_id": "MACRO-NAME",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "5882dc709e292760ce5413be71934c005737e3ae37f3d8de8602a0221cbb5c43",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_2_promote.py",
+          "evidence_id": "MACRO-NAME",
+          "experiment_id": "MACRO-NAME",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "fe0c36c856463e4823c186f8e2b00a57b32bea84cd0460b5a7605cc6225bc77b",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_6_macro.py",
+          "evidence_id": "MACRO-NAME",
+          "experiment_id": "MACRO-NAME",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "MACRO-NAME",
+      "fingerprint": "0faae92973af294940ef264abdc3baef1a8053460181992aa071db651e3abfc8",
+      "missing_fields": [],
+      "reasons": [],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "VALID"
+    },
+    "MACRO-VALUE": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "MACRO-VALUE",
+          "experiment_id": "MACRO-VALUE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "5882dc709e292760ce5413be71934c005737e3ae37f3d8de8602a0221cbb5c43",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_2_promote.py",
+          "evidence_id": "MACRO-VALUE",
+          "experiment_id": "MACRO-VALUE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "fe0c36c856463e4823c186f8e2b00a57b32bea84cd0460b5a7605cc6225bc77b",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_6_macro.py",
+          "evidence_id": "MACRO-VALUE",
+          "experiment_id": "MACRO-VALUE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "MACRO-VALUE",
+      "fingerprint": "3037a6f375fe9e79e62a1b963ecf8cac199df655d725ceb14402363b28e67ae8",
+      "missing_fields": [
+        "measurement_condition"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "OSC-ENABLE": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "OSC-ENABLE",
+          "experiment_id": "OSC-ENABLE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "13aa893068fe0b7c2fb0edac8f32275e409dbde48ee9800b8f98239505ac8d32",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_2_oscillator.py",
+          "evidence_id": "OSC-ENABLE",
+          "experiment_id": "OSC-ENABLE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "5882dc709e292760ce5413be71934c005737e3ae37f3d8de8602a0221cbb5c43",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_2_promote.py",
+          "evidence_id": "OSC-ENABLE",
+          "experiment_id": "OSC-ENABLE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "OSC-ENABLE",
+      "fingerprint": "a40827eab46f729ee0e0a2e8ce80822f20563f3efda3c9385077a0f5adf15d3c",
+      "missing_fields": [
+        "measurement_condition"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "OSC-OCTAVE": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "OSC-OCTAVE",
+          "experiment_id": "OSC-OCTAVE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "13aa893068fe0b7c2fb0edac8f32275e409dbde48ee9800b8f98239505ac8d32",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_2_oscillator.py",
+          "evidence_id": "OSC-OCTAVE",
+          "experiment_id": "OSC-OCTAVE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "5882dc709e292760ce5413be71934c005737e3ae37f3d8de8602a0221cbb5c43",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_2_promote.py",
+          "evidence_id": "OSC-OCTAVE",
+          "experiment_id": "OSC-OCTAVE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "OSC-OCTAVE",
+      "fingerprint": "8b8fa838b78a743312806adb610a76fcb2e3804ec177d6e0eca69eb68c4072f6",
+      "missing_fields": [
+        "measurement_condition"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "OSC-VOLUME": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "OSC-VOLUME",
+          "experiment_id": "OSC-VOLUME",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "ee01a3a6c9850b9a9223f5439dccd9db77f90fc6899299ead387ea18a456cc2e",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\MILESTONE_16_4_1A.json",
+          "evidence_id": "OSC-VOLUME",
+          "experiment_id": "OSC-VOLUME",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "9656f790f19e025af53e12d07148796335ae1ca2aa455473df7c1463eb8c4679",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\OPEN_FINDINGS.json",
+          "evidence_id": "OSC-VOLUME",
+          "experiment_id": "OSC-VOLUME",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "13aa893068fe0b7c2fb0edac8f32275e409dbde48ee9800b8f98239505ac8d32",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_2_oscillator.py",
+          "evidence_id": "OSC-VOLUME",
+          "experiment_id": "OSC-VOLUME",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "5882dc709e292760ce5413be71934c005737e3ae37f3d8de8602a0221cbb5c43",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_2_promote.py",
+          "evidence_id": "OSC-VOLUME",
+          "experiment_id": "OSC-VOLUME",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "4e2909181a71c6bfddf94927a592d8a06596e9324bfca1c041a1a3505ec0430b",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_1_first_goal.py",
+          "evidence_id": "OSC-VOLUME",
+          "experiment_id": "OSC-VOLUME",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "c6e2c3e6fd82ace646b16880b420a78a628e666c40dbd5248ebcb175f54e825b",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_3_context_goal.py",
+          "evidence_id": "OSC-VOLUME",
+          "experiment_id": "OSC-VOLUME",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "e5ceed4cbaa45311ddfee6682fe950ed0b6b970914ab30ddde58a362cce2e49e",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_4_1a_goal.py",
+          "evidence_id": "OSC-VOLUME",
+          "experiment_id": "OSC-VOLUME",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "09293ceff414483c9edc57a26aa150896aedfa451129b472695478dda63b2f35",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_5_11_multi_field_goal.py",
+          "evidence_id": "OSC-VOLUME",
+          "experiment_id": "OSC-VOLUME",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "8032afb791205298345330dd2ac87be06d26769e95c78741114152b8b2b67d04",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_5_13_producer_quieter.py",
+          "evidence_id": "OSC-VOLUME",
+          "experiment_id": "OSC-VOLUME",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "adc21c6d92385a79de6bc148405d45a5de4e932818acd7c4f61e8a14b74fb59a",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_5_30_persistence_discrepancy_audit.py",
+          "evidence_id": "OSC-VOLUME",
+          "experiment_id": "OSC-VOLUME",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "5779ac4f99bf0935ad55a97d0cd56dfba4aa8fba7c1dcf0066a75e9860ac1918",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_5_30_producer_frontier.py",
+          "evidence_id": "OSC-VOLUME",
+          "experiment_id": "OSC-VOLUME",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "7b79bfc3bf0838fb3e2c48ef1a5306e0bc0b3f230c0e09d06e4717ba9ccc4725",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_5_31_representative_frontier_verification.py",
+          "evidence_id": "OSC-VOLUME",
+          "experiment_id": "OSC-VOLUME",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "OSC-VOLUME",
+      "fingerprint": "a30bad2823dec4a72dddaed88aa8ebad14fd89f44766bf513e976e1435e24bcf",
+      "missing_fields": [
+        "measurement_condition"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "OSC-WAVETABLE": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "OSC-WAVETABLE",
+          "experiment_id": "OSC-WAVETABLE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "13aa893068fe0b7c2fb0edac8f32275e409dbde48ee9800b8f98239505ac8d32",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_2_oscillator.py",
+          "evidence_id": "OSC-WAVETABLE",
+          "experiment_id": "OSC-WAVETABLE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "5882dc709e292760ce5413be71934c005737e3ae37f3d8de8602a0221cbb5c43",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_2_promote.py",
+          "evidence_id": "OSC-WAVETABLE",
+          "experiment_id": "OSC-WAVETABLE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "7f5b78523b7be579ce897cabd49fae355f7dfb96da2fb6963dd8c563f8ba5854",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_4_lfo_own_state.py",
+          "evidence_id": "OSC-WAVETABLE",
+          "experiment_id": "OSC-WAVETABLE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "fe0c36c856463e4823c186f8e2b00a57b32bea84cd0460b5a7605cc6225bc77b",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_6_macro.py",
+          "evidence_id": "OSC-WAVETABLE",
+          "experiment_id": "OSC-WAVETABLE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "OSC-WAVETABLE",
+      "fingerprint": "6350828a6d3a77beaa77d0974c0873a65cbb86f84cb0ee421150cc93b70caac3",
+      "missing_fields": [
+        "measurement_condition"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "SRC-25": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "SRC-25",
+          "experiment_id": "SRC-25",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "9656f790f19e025af53e12d07148796335ae1ca2aa455473df7c1463eb8c4679",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\OPEN_FINDINGS.json",
+          "evidence_id": "SRC-25",
+          "experiment_id": "SRC-25",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "e49efbc06cf92e93d221600a78ab505e2853ba28efc07e891438e99ec99e3dde",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_5_lfo_source_discovery.py",
+          "evidence_id": "SRC-25",
+          "experiment_id": "SRC-25",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "cfb0c3b8bb1add7d41c084f219692959b45b0438de51b203e8f6af86bce2e7c5",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_4_3b_decisive.py",
+          "evidence_id": "SRC-25",
+          "experiment_id": "SRC-25",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "SRC-25",
+      "fingerprint": "eee8df063cf909dd44d90200722f8123f7a752485e84f0f28b26f2697fa2fede",
+      "missing_fields": [
+        "measurement_condition"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "SRC-26": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "SRC-26",
+          "experiment_id": "SRC-26",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "9656f790f19e025af53e12d07148796335ae1ca2aa455473df7c1463eb8c4679",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\OPEN_FINDINGS.json",
+          "evidence_id": "SRC-26",
+          "experiment_id": "SRC-26",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "e49efbc06cf92e93d221600a78ab505e2853ba28efc07e891438e99ec99e3dde",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_5_lfo_source_discovery.py",
+          "evidence_id": "SRC-26",
+          "experiment_id": "SRC-26",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "SRC-26",
+      "fingerprint": "635f4804b01d10be0709c771b0aada8e51dc6b575fafeb3e057b7971ba079470",
+      "missing_fields": [
+        "measurement_condition"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "SRC-27": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "SRC-27",
+          "experiment_id": "SRC-27",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "9656f790f19e025af53e12d07148796335ae1ca2aa455473df7c1463eb8c4679",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\OPEN_FINDINGS.json",
+          "evidence_id": "SRC-27",
+          "experiment_id": "SRC-27",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "e49efbc06cf92e93d221600a78ab505e2853ba28efc07e891438e99ec99e3dde",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_5_lfo_source_discovery.py",
+          "evidence_id": "SRC-27",
+          "experiment_id": "SRC-27",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "SRC-27",
+      "fingerprint": "265bb601eaab3117b7ff80fe5e496dac46fd1acd35be2af00cd1e89d9d725513",
+      "missing_fields": [
+        "measurement_condition"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "SRC-29": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "SRC-29",
+          "experiment_id": "SRC-29",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "9656f790f19e025af53e12d07148796335ae1ca2aa455473df7c1463eb8c4679",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\OPEN_FINDINGS.json",
+          "evidence_id": "SRC-29",
+          "experiment_id": "SRC-29",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "e49efbc06cf92e93d221600a78ab505e2853ba28efc07e891438e99ec99e3dde",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_5_lfo_source_discovery.py",
+          "evidence_id": "SRC-29",
+          "experiment_id": "SRC-29",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "SRC-29",
+      "fingerprint": "4284536733e970c0b5893afc7992214e951a9acb57ce323a984d3eb555589e3e",
+      "missing_fields": [
+        "measurement_condition"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "SRC-31": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "SRC-31",
+          "experiment_id": "SRC-31",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "9656f790f19e025af53e12d07148796335ae1ca2aa455473df7c1463eb8c4679",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\OPEN_FINDINGS.json",
+          "evidence_id": "SRC-31",
+          "experiment_id": "SRC-31",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "e49efbc06cf92e93d221600a78ab505e2853ba28efc07e891438e99ec99e3dde",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_5_lfo_source_discovery.py",
+          "evidence_id": "SRC-31",
+          "experiment_id": "SRC-31",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "SRC-31",
+      "fingerprint": "6583079aab095c7bb56a7d504e1e24fe472f4d5d23bae4e3b88f570d5c113cc5",
+      "missing_fields": [
+        "measurement_condition"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "SRC-6": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "SRC-6",
+          "experiment_id": "SRC-6",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "9656f790f19e025af53e12d07148796335ae1ca2aa455473df7c1463eb8c4679",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\OPEN_FINDINGS.json",
+          "evidence_id": "SRC-6",
+          "experiment_id": "SRC-6",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "e49efbc06cf92e93d221600a78ab505e2853ba28efc07e891438e99ec99e3dde",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_5_lfo_source_discovery.py",
+          "evidence_id": "SRC-6",
+          "experiment_id": "SRC-6",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "cfb0c3b8bb1add7d41c084f219692959b45b0438de51b203e8f6af86bce2e7c5",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step16_4_3b_decisive.py",
+          "evidence_id": "SRC-6",
+          "experiment_id": "SRC-6",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "SRC-6",
+      "fingerprint": "e8f1024fa9c888d5682b37256561ad6bec5965aa1c41707304ee1b79057552ed",
+      "missing_fields": [
+        "measurement_condition"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    },
+    "VOICE-DETUNE": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "VOICE-DETUNE",
+          "experiment_id": "VOICE-DETUNE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "5882dc709e292760ce5413be71934c005737e3ae37f3d8de8602a0221cbb5c43",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_2_promote.py",
+          "evidence_id": "VOICE-DETUNE",
+          "experiment_id": "VOICE-DETUNE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "1f117314886746c73877ced4b46c047c43a887a39fed20837ab4ef132250345e",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_7_global_voice.py",
+          "evidence_id": "VOICE-DETUNE",
+          "experiment_id": "VOICE-DETUNE",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "VOICE-DETUNE",
+      "fingerprint": "b6e0133ff5b878cfe105fe5560b6420438d6d8f73e86deed2a106f76df41bfbc",
+      "missing_fields": [],
+      "reasons": [],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "VALID"
+    },
+    "VOICE-RANDOMPAN": {
+      "artifact_refs": [
+        {
+          "artifact_hash": "cc25ea2503b2f487c52493aa1a989a8dd228f9cdfbc31925f80c9e9db74ff8d0",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\CAPABILITY_FRONTIER_FREEZE.json",
+          "evidence_id": "VOICE-RANDOMPAN",
+          "experiment_id": "VOICE-RANDOMPAN",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "9656f790f19e025af53e12d07148796335ae1ca2aa455473df7c1463eb8c4679",
+          "artifact_kind": "json",
+          "artifact_path": "D:\\ableton claude\\experiments\\OPEN_FINDINGS.json",
+          "evidence_id": "VOICE-RANDOMPAN",
+          "experiment_id": "VOICE-RANDOMPAN",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "5882dc709e292760ce5413be71934c005737e3ae37f3d8de8602a0221cbb5c43",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_2_promote.py",
+          "evidence_id": "VOICE-RANDOMPAN",
+          "experiment_id": "VOICE-RANDOMPAN",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        },
+        {
+          "artifact_hash": "1f117314886746c73877ced4b46c047c43a887a39fed20837ab4ef132250345e",
+          "artifact_kind": "py",
+          "artifact_path": "D:\\ableton claude\\experiments\\step15_2_7_global_voice.py",
+          "evidence_id": "VOICE-RANDOMPAN",
+          "experiment_id": "VOICE-RANDOMPAN",
+          "found": true,
+          "notes": [
+            "evidence ID text match"
+          ]
+        }
+      ],
+      "evidence_id": "VOICE-RANDOMPAN",
+      "fingerprint": "b3a22f7e5945a9093160b81f67a304140f6d72d60f25f6fd4960eb1f6f5c12b0",
+      "missing_fields": [
+        "measurement_condition"
+      ],
+      "reasons": [
+        "historical witness identified, but exact replay recipe is incomplete",
+        "missing:measurement_condition"
+      ],
+      "recovered_fields": [
+        "baseline_overrides",
+        "experiment_condition_signature",
+        "historical_artifact_reference",
+        "measurement_stimulus",
+        "mutation_signature",
+        "mutations",
+        "prerequisites"
+      ],
+      "status": "HISTORICAL_VALID"
+    }
+  },
+  "schema_version": "16.5.40b.1",
+  "status_counts": {
+    "CONTEXT_INCOMPLETE": 4,
+    "HISTORICAL_VALID": 35,
+    "VALID": 13
+  }
+}
