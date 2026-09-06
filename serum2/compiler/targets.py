@@ -55,8 +55,9 @@ SEMANTIC_TARGETS: Dict[str, SemanticTargetRef] = {
     "FXEQ.LevelOut":     SemanticTargetRef("FXEQ.LevelOut",     "fx_field_eq_level_out"),
     "FXDistortion.Drive": SemanticTargetRef("FXDistortion.Drive", "fx_field_dist_drive"),
     # Oscillator
-    "OSC1.Volume":        SemanticTargetRef("OSC1.Volume",        "oscillator_field_OSC-VOLUME"),
+    "OSC1.Enable":        SemanticTargetRef("OSC1.Enable",        "oscillator_field_OSC-ENABLE"),
     "OSC1.Octave":        SemanticTargetRef("OSC1.Octave",        "oscillator_field_OSC-OCTAVE"),
+    "OSC1.Volume":        SemanticTargetRef("OSC1.Volume",        "oscillator_field_OSC-VOLUME"),
     # Envelope
     "Env1.Attack":        SemanticTargetRef("Env1.Attack",        "envelope_field_attack"),
     "Env1.Decay":         SemanticTargetRef("Env1.Decay",         "envelope_field_decay"),
