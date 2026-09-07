@@ -1,0 +1,981 @@
+{
+  "experiment_id": "16.5_Serum2_Complete_MCP_Discovery",
+  "title": "Complete Serum 2 MCP Parameter Discovery & Audit",
+  "date": "2026-09-07",
+  "status": "PARAMETER_DISCOVERY_COMPLETE",
+  "device": "Serum 2.0.21 VST3",
+  "total_parameters_exposed": 127,
+  "summary": "Full enumeration of all 127 MCP-accessible Serum 2 parameters. Identifies exposed, missing, and available-for-mapping parameters.",
+  "parameter_categories": {
+    "device_control": {
+      "category": "Device Control",
+      "count": 1,
+      "parameters": [
+        {
+          "index": 0,
+          "name": "Device On",
+          "type": "Toggle",
+          "range": "0-1",
+          "status": "EXPOSED"
+        }
+      ]
+    },
+    "oscillators": {
+      "category": "Oscillators (A, B, C, Noise, Sub)",
+      "count": 66,
+      "parameters": [
+        {
+          "index": 1,
+          "name": "A Level",
+          "type": "Volume",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 2,
+          "name": "Main Vol",
+          "type": "Master Volume",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 3,
+          "name": "A WT Pos",
+          "type": "Wavetable Position",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 4,
+          "name": "A Unison",
+          "type": "Unison Voices",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 5,
+          "name": "A Uni Detune",
+          "type": "Detune",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 6,
+          "name": "A Uni Blend",
+          "type": "Blend",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 7,
+          "name": "A Pan",
+          "type": "Panning",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 8,
+          "name": "A Warp",
+          "type": "Warp Type",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 9,
+          "name": "A Warp 2",
+          "type": "Warp Type 2",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 10,
+          "name": "A Semi",
+          "type": "Pitch (Semitones)",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 16,
+          "name": "A Enable",
+          "type": "On/Off",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 17,
+          "name": "A Octave",
+          "type": "Octave",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 18,
+          "name": "A Fine",
+          "type": "Fine Pitch",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 19,
+          "name": "A Coarse Pitch",
+          "type": "Coarse Pitch",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 20,
+          "name": "A Uni Width",
+          "type": "Unison Width",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 21,
+          "name": "A Uni WT Pos",
+          "type": "Unison Wavetable Pos",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 22,
+          "name": "A Uni Warp",
+          "type": "Unison Warp",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 23,
+          "name": "A Uni Warp 2",
+          "type": "Unison Warp 2",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 27,
+          "name": "B Enable",
+          "type": "On/Off",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 28,
+          "name": "B Octave",
+          "type": "Octave",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 29,
+          "name": "B Semi",
+          "type": "Pitch (Semitones)",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 30,
+          "name": "B Fine",
+          "type": "Fine Pitch",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 31,
+          "name": "B Coarse Pitch",
+          "type": "Coarse Pitch",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 34,
+          "name": "B WT Pos",
+          "type": "Wavetable Position",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 35,
+          "name": "A Rand Phase",
+          "type": "Random Phase",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 36,
+          "name": "A Phase",
+          "type": "Phase",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 37,
+          "name": "B Phase",
+          "type": "Phase",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 38,
+          "name": "B Rand Phase",
+          "type": "Random Phase",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 39,
+          "name": "B Uni Width",
+          "type": "Unison Width",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 40,
+          "name": "B Uni WT Pos",
+          "type": "Unison Wavetable Pos",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 41,
+          "name": "B Uni Warp",
+          "type": "Unison Warp",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 42,
+          "name": "B Uni Warp 2",
+          "type": "Unison Warp 2",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 43,
+          "name": "B Unison",
+          "type": "Unison Voices",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 44,
+          "name": "B Warp",
+          "type": "Warp Type",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 45,
+          "name": "B Uni Detune",
+          "type": "Detune",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 46,
+          "name": "B Warp 2",
+          "type": "Warp Type 2",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 47,
+          "name": "B Uni Blend",
+          "type": "Blend",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 48,
+          "name": "B Pan",
+          "type": "Panning",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 49,
+          "name": "B Level",
+          "type": "Volume",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 50,
+          "name": "C Enable",
+          "type": "On/Off",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 53,
+          "name": "C Octave",
+          "type": "Octave",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 54,
+          "name": "C Semi",
+          "type": "Pitch (Semitones)",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 55,
+          "name": "C Fine",
+          "type": "Fine Pitch",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 56,
+          "name": "C Coarse Pitch",
+          "type": "Coarse Pitch",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 57,
+          "name": "C WT Pos",
+          "type": "Wavetable Position",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 58,
+          "name": "C Phase",
+          "type": "Phase",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 59,
+          "name": "C Rand Phase",
+          "type": "Random Phase",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 60,
+          "name": "C Unison",
+          "type": "Unison Voices",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 61,
+          "name": "C Uni Detune",
+          "type": "Detune",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 62,
+          "name": "C Uni Blend",
+          "type": "Blend",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 63,
+          "name": "C Pan",
+          "type": "Panning",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 64,
+          "name": "C Level",
+          "type": "Volume",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 65,
+          "name": "C Warp 2",
+          "type": "Warp Type 2",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 66,
+          "name": "C Warp",
+          "type": "Warp Type",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 67,
+          "name": "Noise Enable",
+          "type": "On/Off",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 68,
+          "name": "Noise Phase",
+          "type": "Phase",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 69,
+          "name": "Noise Rand Phase",
+          "type": "Random Phase",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 70,
+          "name": "Noise Fine",
+          "type": "Fine Tuning",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 71,
+          "name": "Noise Pan",
+          "type": "Panning",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 72,
+          "name": "Noise Pitch",
+          "type": "Pitch",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 73,
+          "name": "Noise Level",
+          "type": "Volume",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 117,
+          "name": "Sub Osc>BUS1",
+          "type": "Sub to Bus 1",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 118,
+          "name": "Sub Osc>BUS2",
+          "type": "Sub to Bus 2",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 119,
+          "name": "Sub Pan",
+          "type": "Panning",
+          "range": "0-1",
+          "status": "EXPOSED"
+        }
+      ]
+    },
+    "filters": {
+      "category": "Filters",
+      "count": 23,
+      "parameters": [
+        {
+          "index": 11,
+          "name": "Filter 1 Freq",
+          "type": "Cutoff Frequency",
+          "range": "0-1",
+          "status": "EXPOSED",
+          "note": "Mapped to Macro 10 in Configure Mode"
+        },
+        {
+          "index": 24,
+          "name": "A>Filter Balance",
+          "type": "Filter Balance",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 25,
+          "name": "A>BUS1",
+          "type": "To Bus 1",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 26,
+          "name": "A>BUS2",
+          "type": "To Bus 2",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 32,
+          "name": "B>BUS1",
+          "type": "To Bus 1",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 33,
+          "name": "B>BUS2",
+          "type": "To Bus 2",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 51,
+          "name": "C>BUS1",
+          "type": "To Bus 1",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 52,
+          "name": "C>BUS2",
+          "type": "To Bus 2",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 74,
+          "name": "Filter 1 On",
+          "type": "On/Off",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 75,
+          "name": "Filter 1 Res",
+          "type": "Resonance",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 76,
+          "name": "Filter 1 Drive",
+          "type": "Drive",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 77,
+          "name": "Filter 1 Var",
+          "type": "Variation",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 78,
+          "name": "Filter 1 Stereo",
+          "type": "Stereo Width",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 79,
+          "name": "Filter 1 Wet",
+          "type": "Wet Amount",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 80,
+          "name": "Filter 1 Level",
+          "type": "Output Level",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 81,
+          "name": "B>Filter Balance",
+          "type": "Filter Balance",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 82,
+          "name": "C>Filter Balance",
+          "type": "Filter Balance",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 83,
+          "name": "Noise>Filter Balance",
+          "type": "Filter Balance",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 84,
+          "name": "Sub Osc>Filter Balance",
+          "type": "Filter Balance",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 85,
+          "name": "Filter 2 On",
+          "type": "On/Off",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 86,
+          "name": "Filter 2 Type",
+          "type": "Filter Type",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 87,
+          "name": "Filter 2 Freq",
+          "type": "Cutoff Frequency",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 88,
+          "name": "Filter 2 Res",
+          "type": "Resonance",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 89,
+          "name": "Filter 2 Var",
+          "type": "Variation",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 90,
+          "name": "Filter 2 Drive",
+          "type": "Drive",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 91,
+          "name": "Filter 2>BUS1",
+          "type": "To Bus 1",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 92,
+          "name": "Filter 2>BUS2",
+          "type": "To Bus 2",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 124,
+          "name": "Filter 2 Wet",
+          "type": "Wet Amount",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 125,
+          "name": "Filter 2 Stereo",
+          "type": "Stereo Width",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 126,
+          "name": "Filter 2 Level",
+          "type": "Output Level",
+          "range": "0-1",
+          "status": "EXPOSED"
+        }
+      ]
+    },
+    "envelopes": {
+      "category": "Envelopes",
+      "count": 5,
+      "parameters": [
+        {
+          "index": 12,
+          "name": "Env 1 Attack",
+          "type": "Attack Time",
+          "range": "0-1",
+          "status": "EXPOSED",
+          "note": "Mapped to Macro 11 in Configure Mode"
+        },
+        {
+          "index": 100,
+          "name": "Env 4 Attack",
+          "type": "Attack Time",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 101,
+          "name": "Env 4 Hold",
+          "type": "Hold Time",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 102,
+          "name": "Env 4 Decay",
+          "type": "Decay Time",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 103,
+          "name": "Env 4 Sustain",
+          "type": "Sustain Level",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 104,
+          "name": "Env 4 Release",
+          "type": "Release Time",
+          "range": "0-1",
+          "status": "EXPOSED"
+        }
+      ],
+      "missing_envelopes": {
+        "status": "NOT_EXPOSED",
+        "count": 3,
+        "details": "Env 1, 2, 3 parameters (other than Env 1 Attack) are not accessible via MCP. Only Env 4 is fully exposed."
+      }
+    },
+    "macros": {
+      "category": "Macros",
+      "count_exposed": 7,
+      "count_total": 16,
+      "exposed": [
+        {
+          "index": 93,
+          "name": "Macro 1",
+          "status": "EXPOSED",
+          "note": "Configured as A Level"
+        },
+        {
+          "index": 94,
+          "name": "Macro 5",
+          "status": "EXPOSED",
+          "note": "Configured as A Uni Blend"
+        },
+        {
+          "index": 95,
+          "name": "Macro 3",
+          "status": "EXPOSED",
+          "note": "Configured as A Warp 2"
+        },
+        {
+          "index": 96,
+          "name": "Macro 4",
+          "status": "EXPOSED",
+          "note": "Configured as Main Vol"
+        },
+        {
+          "index": 97,
+          "name": "Macro 8",
+          "status": "EXPOSED",
+          "note": "Configured as A Warp"
+        },
+        {
+          "index": 98,
+          "name": "Macro 7",
+          "status": "EXPOSED",
+          "note": "Configured as A Unison"
+        },
+        {
+          "index": 99,
+          "name": "Macro 6",
+          "status": "EXPOSED",
+          "note": "Configured as A WT Pos"
+        }
+      ],
+      "missing": [
+        {
+          "name": "Macro 2",
+          "status": "NOT_EXPOSED",
+          "expected_mapping": "A Uni Detune"
+        },
+        {
+          "name": "Macro 9",
+          "status": "NOT_EXPOSED",
+          "expected_mapping": "A Semi"
+        },
+        {
+          "name": "Macro 10",
+          "status": "NOT_EXPOSED",
+          "expected_mapping": "Filter 1 Freq"
+        },
+        {
+          "name": "Macro 11",
+          "status": "NOT_EXPOSED",
+          "expected_mapping": "Env 1 Attack"
+        },
+        {
+          "name": "Macro 12-16",
+          "status": "NOT_EXPOSED",
+          "note": "Empty slots not exposed"
+        }
+      ],
+      "critical_finding": "Macros 2, 9, 10, 11 are configured in the Instrument Rack (shown in Configure Mode) but NOT exposed in the MCP parameter list. This suggests they may be accessible through a different mechanism or are intentionally filtered."
+    },
+    "lfos": {
+      "category": "LFOs (Low Frequency Oscillators)",
+      "count_exposed": 5,
+      "count_total_expected": 30,
+      "exposed": [
+        {
+          "index": 106,
+          "name": "LFO 1 Rate",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 107,
+          "name": "LFO 1 Rise",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 108,
+          "name": "LFO 1 Delay",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 109,
+          "name": "LFO 1 Smooth",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 110,
+          "name": "LFO 1 Phase",
+          "status": "EXPOSED"
+        }
+      ],
+      "missing": {
+        "status": "NOT_EXPOSED",
+        "count": 5,
+        "details": "LFO 2, 3, 4, 5, 6 (and their Rate, Rise, Delay, Smooth, Phase parameters) are not accessible via MCP"
+      }
+    },
+    "voice_controls": {
+      "category": "Voice & Performance Controls",
+      "count": 7,
+      "parameters": [
+        {
+          "index": 105,
+          "name": "Transpose",
+          "type": "Pitch Transpose",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 111,
+          "name": "Mono Toggle",
+          "type": "On/Off",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 112,
+          "name": "Legato",
+          "type": "On/Off",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 113,
+          "name": "Porta Time",
+          "type": "Portamento Time",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 114,
+          "name": "Porta Always",
+          "type": "On/Off",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 115,
+          "name": "Porta Scaled",
+          "type": "On/Off",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 116,
+          "name": "Porta Curve",
+          "type": "Curve",
+          "range": "0-1",
+          "status": "EXPOSED"
+        }
+      ]
+    },
+    "routing": {
+      "category": "Signal Routing",
+      "count": 6,
+      "parameters": [
+        {
+          "index": 120,
+          "name": "Noise>BUS1",
+          "type": "Noise to Bus 1",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 121,
+          "name": "Noise>BUS2",
+          "type": "Noise to Bus 2",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 122,
+          "name": "Filter 1>BUS1",
+          "type": "Filter 1 to Bus 1",
+          "range": "0-1",
+          "status": "EXPOSED"
+        },
+        {
+          "index": 123,
+          "name": "Filter 1>BUS2",
+          "type": "Filter 1 to Bus 2",
+          "range": "0-1",
+          "status": "EXPOSED"
+        }
+      ]
+    }
+  },
+  "critical_findings": {
+    "finding_1": {
+      "issue": "Macro Mapping Mismatch",
+      "details": "Instrument Rack Configure Mode shows 11 configured Macros (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11), but MCP only exposes 7 of them (1, 3, 4, 5, 6, 7, 8). Missing: Macro 2, 9, 10, 11",
+      "impact": "Configured parameters may not be fully accessible via MCP"
+    },
+    "finding_2": {
+      "issue": "Limited LFO Exposure",
+      "details": "Only LFO 1 parameters (5 controls) are exposed. LFO 2-6 (25+ parameters) are NOT accessible via MCP",
+      "impact": "Cannot automate LFO 2-6 via Ableton host automation"
+    },
+    "finding_3": {
+      "issue": "Envelope Incompleteness",
+      "details": "Only Env 1 Attack and Env 4 (full) are exposed. Env 1 Decay/Sustain/Release, Env 2, Env 3 parameters missing",
+      "impact": "Limited envelope control via MCP"
+    },
+    "finding_4": {
+      "issue": "Direct Parameter Access Available",
+      "details": "Despite Configure Mode restrictions, 90+ raw Serum parameters are directly accessible via MCP (oscillators, filters, some routing)",
+      "impact": "Can bypass Configure Mode constraints and directly control underlying Serum synthesis"
+    }
+  },
+  "decision": "PARAMETER_DISCOVERY_COMPLETE",
+  "recommendations": [
+    "Investigate why Macros 2, 9, 10, 11 are not exposed despite being configured",
+    "Determine if LFO 2-6 can be accessed through alternative MCP paths",
+    "Document the intentional parameter filtering/exposure policy",
+    "Consider expanding MCP exposure to include all LFOs and envelopes"
+  ]
+}
