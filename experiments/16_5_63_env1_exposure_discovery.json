@@ -1,0 +1,75 @@
+{
+  "experiment_id": "16.5.63",
+  "title": "Env 1 Decay/Sustain/Release — Configure Mode Exposure Test",
+  "date": "2026-09-08",
+  "status": "DECISION_B_MCP_ROUTE_BLOCKED",
+  "goal": "Determine whether Env 1 Decay, Sustain, and Release can be exposed via Ableton Configure Mode and added to the MCP host parameter surface",
+  "trigger": "16.5.62 producer loop refused Env1.Sustain and Env1.Release with NO_MCP_MAPPING",
+
+  "hypothesis": {
+    "A": "Env 1 Decay/Sustain/Release can be exposed via Ableton Configure Mode → add to MCP_HOST_MAP → retry 16.5.62",
+    "B": "Configure Mode cannot expose them — they are not in Serum 2's VST3 automation surface → MCP route genuinely blocked"
+  },
+
+  "evidence": {
+    "source": "mcp__AbletonMCP__get_device_parameters (track_index=0, device_index=0)",
+    "parameter_count": 127,
+    "complete_envelope_parameters_in_surface": [
+      {"index": 12,  "name": "Env 1 Attack",  "display": "0.0 ms"},
+      {"index": 100, "name": "Env 4 Attack",  "display": "1/64."},
+      {"index": 101, "name": "Env 4 Hold",    "display": "1/64."},
+      {"index": 102, "name": "Env 4 Decay",   "display": "1/64."},
+      {"index": 103, "name": "Env 4 Sustain", "display": "11%"},
+      {"index": 104, "name": "Env 4 Release", "display": "1/64."}
+    ],
+    "env1_parameters_absent": [
+      "Env 1 Decay",
+      "Env 1 Hold",
+      "Env 1 Sustain",
+      "Env 1 Release"
+    ],
+    "env2_env3_parameters_absent": "Env 2 and Env 3 have zero parameters in the MCP surface"
+  },
+
+  "configure_mode_analysis": {
+    "mechanism": "Ableton Configure Mode selects which of the plugin's already-exported VST3 parameters appear in the device panel. It does not register new parameters — it only exposes parameters from the fixed set the plugin exports via its VST3 IEditController interface.",
+    "parameter_count_is_fixed": true,
+    "configure_mode_can_expose_env1_decay": false,
+    "reason": "Serum 2 does not register Env 1 Decay, Sustain, or Release as VST3 automation parameters. They are absent from the IEditController parameter list, which is the authoritative source for all 127 parameters. Configure Mode selects from this list — it cannot extend it."
+  },
+
+  "serum_design_analysis": {
+    "env1_role": "Hardwired to amplifier (confirmed: Serum 2 Complete Reference memory)",
+    "env1_automation_surface": "Only Attack (idx 12) is exported. Decay, Sustain, Release of ENV 1 are not in the VST3 automation surface.",
+    "design_intent": "Xfer's apparent choice: expose only the most commonly automated parameter of the hardwired amp envelope. This is consistent with ENV 1 being non-freely-assignable — the other ADSR stages may be considered less useful for real-time automation when hardwired to amplitude.",
+    "env4_role": "Freely assignable auxiliary envelope. Full ADSR exported (indices 100-104).",
+    "env2_env3_role": "Freely assignable envelopes. Zero parameters exported — neither appears in MCP surface."
+  },
+
+  "verdict": "DECISION_B",
+  "decision_B_conclusion": {
+    "status": "MCP route genuinely blocked for Env1.Sustain and Env1.Release",
+    "mapping_rule": "envelope_field_sustain (Env1.Sustain) → host-control unavailable via MCP surface",
+    "mapping_rule_release": "envelope_field_release (Env1.Release) → host-control unavailable via MCP surface",
+    "correct_compiler_behavior": "REFUSED_NO_MCP_MAPPING — not a bug, not a gap in the compiler. The parameters are absent from the host surface.",
+    "no_workaround_invented": true
+  },
+
+  "producer_implications": {
+    "goal_16_5_62": "Create a dark, sustained bass sound",
+    "env1_sustain_workaround": "Serum 2's default Env 1 Sustain value (in the default patch) may already be at or near 100%, which would produce sustained notes without explicit MCP control. This is a production workaround, not capability verification — it does not close the gap.",
+    "alternative_strategy": [
+      "Use Env 4 (auxiliary envelope) as a modulation source with its full ADSR (indices 100-104), routed to amplitude via Serum's MATRIX tab — but this requires MATRIX routing which is not currently in the MCP_HOST_MAP.",
+      "Accept the partial patch from 16.5.62 as the maximum achievable via current MCP surface.",
+      "Document that 'sustained character' for the bass requires either: (a) verifying default Env 1 sustain level, or (b) implementing MATRIX routing capability."
+    ],
+    "next_capability_gap": "MATRIX routing (source → destination assignment) is not exposed in the 127-param MCP surface. If Env 4 → amplitude routing is needed, it requires a MATRIX tab Configure Mode or preset-level approach."
+  },
+
+  "16_5_62_accounting_correction": {
+    "correct_count": "6 semantic intents (4 executed, 2 refused) + 1 prerequisite write (Filter 1 On) = 5 total parameter writes",
+    "previous_description_error": "artifact said '4/6 controls executed' ambiguously — Filter 1 On was listed as an admitted_control but is a prerequisite, not a semantic intent"
+  },
+
+  "summary": "Env 1 Decay, Sustain, and Release are not in Serum 2's VST3 automation surface (127 parameters). Only Env 1 Attack (idx 12) is exported. Configure Mode cannot add parameters that Serum 2 does not register with the VST3 host. The MCP route for envelope_field_sustain and envelope_field_release is permanently blocked at the current host surface. REFUSED_NO_MCP_MAPPING is the correct and final compiler response for these targets."
+}
