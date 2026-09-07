@@ -1,0 +1,147 @@
+{
+  "experiment_id": "16.5.65",
+  "title": "Corpus-Context Transfer — Capability Evidence Porting Across Serum States",
+  "date": "2026-09-08",
+  "status": "FRAMEWORK_READY_AWAITING_CORPUS_SERUM_STATE",
+  "goal": "Prove the producer can safely transfer verified capabilities from native Serum context to corpus-derived Serum context without silent assumptions",
+
+  "critical_principle": "Parameter name/index matching ≠ safe transfer. Evidence context must also match.",
+
+  "transfer_framework": {
+    "rule_1_name_index_not_sufficient": "Same parameter name and index across contexts does not guarantee the control is safe to transfer. The parameter may have different ranges, different behavior, or different semantic meaning in different Serum preset states.",
+    "rule_2_evidence_context_matters": "Each capability's evidence comes from a specific context (native/clean Serum state discovered in 16.5.61-64). Transfer requires independent verification that the context still applies in the target state.",
+    "rule_3_three_transfer_outcomes": [
+      "TRANSFERRED: Evidence context fully applies; control works identically in corpus context",
+      "CONTEXT_LIMITED: Evidence applies but with caveats (e.g., some parameters constrained differently)",
+      "REFUSED: Evidence context does not apply; transfer unsafe"
+    ]
+  },
+
+  "transfer_matrix_template": {
+    "header": [
+      "Capability",
+      "Evidence Context",
+      "Target Context",
+      "Parameter Index",
+      "Parameter Name",
+      "Evidence Value Range",
+      "Target Value Range",
+      "Transfer Status",
+      "Reason"
+    ],
+    "example_row": {
+      "capability": "OSC1.Volume",
+      "evidence_context": "Native Serum (fresh state, idx 1 = A Level)",
+      "target_context": "Corpus-derived Serum (different preset/state)",
+      "parameter_index": 1,
+      "parameter_name": "A Level",
+      "evidence_value_range": "[0.0, 1.0] (0% to 100%)",
+      "target_value_range": "[0.0, 1.0] (should match)",
+      "transfer_status": "TRANSFERRED (if ranges match and behavior is identical)",
+      "reason": "Parameter exists at same index with same name and range in both contexts. Evidence of OSC1.Volume control from 16.5.61-64 applies here."
+    }
+  },
+
+  "capabilities_to_transfer": [
+    {
+      "capability": "OSC1.Volume",
+      "capability_key": "oscillator_field_OSC-VOLUME",
+      "mcp_index": 1,
+      "mcp_name": "A Level",
+      "evidence_source": "16.5.61-64 (native context)",
+      "evidence_range": "[0.0, 1.0]",
+      "evidence_behavior": "ABSOLUTE: write value 0-1 → direct output level"
+    },
+    {
+      "capability": "Filter1.On",
+      "capability_key": "filter_field_on",
+      "mcp_index": 74,
+      "mcp_name": "Filter 1 On",
+      "evidence_source": "16.5.61-64 (native context)",
+      "evidence_range": "[0.0, 1.0] boolean",
+      "evidence_behavior": "TOGGLE: 1.0 = On, 0.0 = Off"
+    },
+    {
+      "capability": "Filter.Cutoff",
+      "capability_key": "filter_field_cutoff",
+      "mcp_index": 11,
+      "mcp_name": "Filter 1 Freq",
+      "evidence_source": "16.5.61-64 (native context)",
+      "evidence_range": "[0.0, 1.0]",
+      "evidence_behavior": "ABSOLUTE: write value 0.1 → 86 Hz, write value 0.5 (est.) → ~4000 Hz"
+    },
+    {
+      "capability": "Filter.Resonance",
+      "capability_key": "filter_field_reso",
+      "mcp_index": 75,
+      "mcp_name": "Filter 1 Res",
+      "evidence_source": "16.5.61-64 (native context)",
+      "evidence_range": "[0.0, 1.0]",
+      "evidence_behavior": "ABSOLUTE: write value 0.6 → 60% resonance"
+    },
+    {
+      "capability": "Env1.Attack",
+      "capability_key": "envelope_field_attack",
+      "mcp_index": 12,
+      "mcp_name": "Env 1 Attack",
+      "evidence_source": "16.5.61-64 (native context)",
+      "evidence_range": "[0.0, 1.0]",
+      "evidence_behavior": "ABSOLUTE: write value 0.05 → 0.0 ms (very fast)"
+    }
+  ],
+
+  "test_plan": {
+    "phase_1_load_corpus_context": {
+      "action": "Load a different Serum preset (corpus-derived, not native/clean state)",
+      "goal": "Establish a sufficiently different starting state from 16.5.64",
+      "example": "A preset with different oscillator volumes, filter settings, envelope times"
+    },
+    "phase_2_build_transfer_matrix": {
+      "action": "For each of the 5 capabilities, verify it exists in corpus context with matching properties",
+      "for_each_capability": {
+        "check_parameter_exists": "MCP index and name match",
+        "check_range_matches": "min/max values identical",
+        "check_behavior_matches": "write behavior unchanged (absolute vs relative)",
+        "determine_transfer_status": "TRANSFERRED | CONTEXT_LIMITED | REFUSED"
+      }
+    },
+    "phase_3_apply_bass_patch_in_corpus_context": {
+      "action": "Compile the same bass intents in corpus context",
+      "intents": [
+        "Decrease filter cutoff (0.10)",
+        "Increase filter resonance (0.60)",
+        "Increase OSC 1 volume (1.0)"
+      ],
+      "admission_gate": "Only admitted capabilities from transfer matrix"
+    },
+    "phase_4_execute_and_verify": {
+      "action": "Execute MCP batch, readback, compare to native context result",
+      "verification": [
+        "Readback matches written values (same tolerance as 16.5.64)",
+        "Sonic character comparable to native bass patch",
+        "No parameter interpretation ambiguity"
+      ]
+    },
+    "phase_5_report_transfer_outcome": {
+      "outcome_matrix": "Which capabilities TRANSFERRED, which CONTEXT_LIMITED, which REFUSED",
+      "sonic_comparison": "Does corpus-derived bass sound similar to native bass?"
+    }
+  },
+
+  "prerequisite": "Load corpus-derived Serum state (not the native clean state from 16.5.64). This should be a different preset or starting configuration.",
+
+  "next_steps_after_16_5_65": [
+    "16.5.66 — Arrangement Brief: Define bass/pad/lead roles, timing, transitions",
+    "16.5.67 — MIDI Source Compiler: Multi-instrument patch construction from semantic goals",
+    "16.5.68+ — Full arrangement production: Use typed-intent layer across all three instrument roles"
+  ],
+
+  "theoretical_outcome": {
+    "best_case_all_transferred": "All 5 bass capabilities transfer cleanly. Producer can apply 16.5.62-64 bass patch to any Serum state with identical character.",
+    "partial_transfer_context_limited": "Some capabilities transfer, others require constraint warnings (e.g., 'Volume maxed in this context, cannot go louder'). Producer uses only the safe subset.",
+    "some_refused": "A capability that works in native context does not apply in corpus context (e.g., Filter1.On already off and cannot be toggled). Producer refuses to apply it and documents why.",
+    "interpretation": "In all cases, the test proves the producer makes evidence-based transfer decisions, not guesses."
+  },
+
+  "summary": "16.5.65 bridges from 'we proved it works on Serum state A' (16.5.61-64) to 'we can reliably apply it to Serum state B' (any corpus context). The transfer framework ensures each capability is re-validated before reuse, preventing silent misapplications across different Serum starting states."
+}
