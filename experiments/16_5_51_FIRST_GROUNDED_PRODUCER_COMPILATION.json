@@ -1,0 +1,188 @@
+{
+  "experiment_id": "16.5.51",
+  "status": "FIRST_GROUNDED_PRODUCER_COMPILATION_VERIFIED",
+  "date": "2026-09-07",
+  "test": "Value-sensitive prerequisite admission in compiler chain",
+  "results_summary": {
+    "total_tests": 9,
+    "passed": 9,
+    "failed": 0
+  },
+  "results": [
+    {
+      "test": "A. Correct target + Decay 0.02",
+      "semantic_target": "Env1.Sustain",
+      "body_key": "correct",
+      "resolution": "SUCCESS",
+      "contract_target": "envelope_field_sustain",
+      "contract_status": "CAUSAL_VERIFIED",
+      "prerequisites": [
+        {
+          "field_path": "body:Env0.plainParams.kParamDecay",
+          "declared_value": 0.02,
+          "must_hold_identical": true
+        }
+      ],
+      "extracted_prerequisites": {
+        "body:Env0.plainParams.kParamDecay": 0.02
+      },
+      "admission_result": true,
+      "admission_reason": "ADMITTED",
+      "expected_admitted": true,
+      "expected_reason": "ADMITTED",
+      "passed": true
+    },
+    {
+      "test": "B. Missing Decay",
+      "semantic_target": "Env1.Sustain",
+      "body_key": "missing",
+      "resolution": "SUCCESS",
+      "contract_target": "envelope_field_sustain",
+      "contract_status": "CAUSAL_VERIFIED",
+      "prerequisites": [
+        {
+          "field_path": "body:Env0.plainParams.kParamDecay",
+          "declared_value": 0.02,
+          "must_hold_identical": true
+        }
+      ],
+      "extracted_prerequisites": {
+        "body:Env0.plainParams.kParamDecay": false
+      },
+      "admission_result": false,
+      "admission_reason": "prerequisite_unverified",
+      "expected_admitted": false,
+      "expected_reason": "prerequisite_unverified",
+      "passed": true
+    },
+    {
+      "test": "D. Decay 0.01 (wrong)",
+      "semantic_target": "Env1.Sustain",
+      "body_key": "decay_0_01",
+      "resolution": "SUCCESS",
+      "contract_target": "envelope_field_sustain",
+      "contract_status": "CAUSAL_VERIFIED",
+      "prerequisites": [
+        {
+          "field_path": "body:Env0.plainParams.kParamDecay",
+          "declared_value": 0.02,
+          "must_hold_identical": true
+        }
+      ],
+      "extracted_prerequisites": {
+        "body:Env0.plainParams.kParamDecay": 0.01
+      },
+      "admission_result": false,
+      "admission_reason": "prerequisite_unverified",
+      "expected_admitted": false,
+      "expected_reason": "prerequisite_unverified",
+      "passed": true
+    },
+    {
+      "test": "E. Decay 0.03 (wrong)",
+      "semantic_target": "Env1.Sustain",
+      "body_key": "decay_0_03",
+      "resolution": "SUCCESS",
+      "contract_target": "envelope_field_sustain",
+      "contract_status": "CAUSAL_VERIFIED",
+      "prerequisites": [
+        {
+          "field_path": "body:Env0.plainParams.kParamDecay",
+          "declared_value": 0.02,
+          "must_hold_identical": true
+        }
+      ],
+      "extracted_prerequisites": {
+        "body:Env0.plainParams.kParamDecay": 0.03
+      },
+      "admission_result": false,
+      "admission_reason": "prerequisite_unverified",
+      "expected_admitted": false,
+      "expected_reason": "prerequisite_unverified",
+      "passed": true
+    },
+    {
+      "test": "F. Decay correct + wrong mdid",
+      "semantic_target": "Env1.Sustain",
+      "body_key": "correct",
+      "resolution": "SUCCESS",
+      "contract_target": "envelope_field_sustain",
+      "contract_status": "CAUSAL_VERIFIED",
+      "prerequisites": [
+        {
+          "field_path": "body:Env0.plainParams.kParamDecay",
+          "declared_value": 0.02,
+          "must_hold_identical": true
+        }
+      ],
+      "extracted_prerequisites": {
+        "body:Env0.plainParams.kParamDecay": 0.02
+      },
+      "admission_result": false,
+      "admission_reason": "measurement_definition_mismatch",
+      "expected_admitted": false,
+      "expected_reason": "measurement_definition_mismatch",
+      "passed": true
+    },
+    {
+      "test": "G. Unknown Env1.FooBar",
+      "semantic_target": "Env1.FooBar",
+      "body_key": "correct",
+      "resolution": "REFUSED",
+      "resolution_reason": "UNKNOWN_SEMANTIC_TARGET",
+      "admission_result": null,
+      "expected_admitted": false,
+      "expected_reason": "UNKNOWN_SEMANTIC_TARGET",
+      "passed": true
+    },
+    {
+      "test": "H. Unknown Env0.Sustain",
+      "semantic_target": "Env0.Sustain",
+      "body_key": "correct",
+      "resolution": "REFUSED",
+      "resolution_reason": "UNKNOWN_SEMANTIC_TARGET",
+      "admission_result": null,
+      "expected_admitted": false,
+      "expected_reason": "UNKNOWN_SEMANTIC_TARGET",
+      "passed": true
+    },
+    {
+      "test": "C. Unverified Decay",
+      "semantic_target": "Env1.Sustain",
+      "body_key": "(unverified)",
+      "resolution": "SUCCESS",
+      "contract_target": "envelope_field_sustain",
+      "contract_status": "CAUSAL_VERIFIED",
+      "proposed_prerequisites": {
+        "body:Env0.plainParams.kParamDecay": false
+      },
+      "admission_result": false,
+      "admission_reason": "prerequisite_unverified",
+      "expected_admitted": false,
+      "expected_reason": "prerequisite_unverified",
+      "passed": true
+    },
+    {
+      "test": "I. Value verification",
+      "semantic_target": "Env1.Sustain",
+      "extracted_value": 0.02,
+      "value_is_float": true,
+      "value_equals_0_02": true,
+      "admission_result": true,
+      "passed": true
+    }
+  ],
+  "frontier_integrity": {
+    "total_contracts": 37,
+    "causal_verified": 26,
+    "structural_only": 8,
+    "negative_evidence": 3
+  },
+  "implementation_notes": [
+    "Semantic target resolution: SEMANTIC_TARGETS \u2192 CapabilityContract",
+    "Prerequisite extraction: pathmerge.read_path_value(body, field_path)",
+    "Admission: admission.admit(contracts, target, proposed_prerequisites_verified, mdid)",
+    "No Serum mutation, no rendering, no new EvidenceRecords",
+    "Frontier unchanged: 37 contracts, 26/8/3 composition preserved"
+  ]
+}
