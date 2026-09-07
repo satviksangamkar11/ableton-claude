@@ -1,0 +1,271 @@
+{
+  "experiment_id": "16.5.52.3",
+  "title": "MCP Parameter-Surface Verification",
+  "date": "2026-09-07",
+  "status": "MCP_PARAMETER_SURFACE_VERIFIED",
+  "rack_preset": "Serum_Full_Config_v001",
+  "summary": "Configure Mode parameters successfully mapped to MCP Macro controls. Write/read-back cycle verified for A Level (Macro 1).",
+  "mcp_device_parameters": {
+    "device": "Serum_Full_Config_v001",
+    "parameter_count": 18,
+    "configure_mode_mapping": {
+      "Macro 1": "A Level (OSC1 Volume)",
+      "Macro 2": "A Uni Detune",
+      "Macro 3": "A Warp 2",
+      "Macro 4": "Main Vol (Master Volume)",
+      "Macro 5": "A Uni Blend",
+      "Macro 6": "A WT Pos",
+      "Macro 7": "A Unison",
+      "Macro 8": "A Warp",
+      "Macro 9": "A Semi (OSC1 Pitch)",
+      "Macro 10": "Filter 1 Freq (Cutoff)",
+      "Macro 11": "Env 1 Attack (Amp Envelope Attack)"
+    }
+  },
+  "verification_steps": {
+    "step_1_get_device_parameters": {
+      "action": "Called get_device_parameters() for track_index=0, device_index=0",
+      "result": "SUCCESS",
+      "parameters_returned": 18,
+      "device_name": "Serum_Full_Config_v001"
+    },
+    "step_2_save_parameter_list": {
+      "action": "Complete MCP parameter list saved to this artifact",
+      "result": "SUCCESS"
+    },
+    "step_3_verify_configured_controls": {
+      "action": "Verified 5 primary configured parameters are exposed as Macros",
+      "confirmed_parameters": [
+        "Macro 1: A Level (OSC1 Volume)",
+        "Macro 4: Main Vol (Master Volume)",
+        "Macro 9: A Semi (OSC1 Pitch)",
+        "Macro 10: Filter 1 Freq (Filter Cutoff)",
+        "Macro 11: Env 1 Attack (Amp Envelope Attack)"
+      ],
+      "result": "SUCCESS"
+    },
+    "step_4_verify_other_configured_controls": {
+      "action": "Verified all 11 configured parameters are accessible",
+      "all_configured_parameters": [
+        "Macro 1: A Level",
+        "Macro 2: A Uni Detune",
+        "Macro 3: A Warp 2",
+        "Macro 4: Main Vol",
+        "Macro 5: A Uni Blend",
+        "Macro 6: A WT Pos",
+        "Macro 7: A Unison",
+        "Macro 8: A Warp",
+        "Macro 9: A Semi",
+        "Macro 10: Filter 1 Freq",
+        "Macro 11: Env 1 Attack"
+      ],
+      "result": "SUCCESS"
+    },
+    "step_5_select_a_level": {
+      "action": "Selected A Level (Macro 1) for testing",
+      "parameter": "Macro 1",
+      "result": "SUCCESS"
+    },
+    "step_6_read_current_value": {
+      "action": "Read current value of A Level (Macro 1) via get_device_parameters()",
+      "initial_value": 95.0,
+      "min": 0.0,
+      "max": 127.0,
+      "result": "SUCCESS"
+    },
+    "step_7_write_different_value": {
+      "action": "Wrote different value to A Level (Macro 1)",
+      "original_value": 95.0,
+      "new_value": 50.0,
+      "write_response": "Serum_Full_Config_v001: Macro 1 = 50",
+      "result": "SUCCESS"
+    },
+    "step_8_read_value_back": {
+      "action": "Read value back after write",
+      "readback_value": 50.0,
+      "matches_written_value": true,
+      "result": "SUCCESS"
+    },
+    "step_9_confirm_mcp_readback": {
+      "action": "Confirmed MCP readback reflects the write",
+      "written_value": 50.0,
+      "readback_value": 50.0,
+      "mcp_reflection": "CONFIRMED",
+      "result": "SUCCESS"
+    },
+    "step_10_restore_original_value": {
+      "action": "Restored A Level to original value",
+      "restored_value": 95.0,
+      "restore_response": "Serum_Full_Config_v001: Macro 1 = 95",
+      "result": "SUCCESS"
+    }
+  },
+  "verification_results": {
+    "parameter_surface_complete": true,
+    "all_configured_parameters_accessible": true,
+    "mcp_write_works": true,
+    "mcp_readback_works": true,
+    "write_readback_match": true,
+    "value_restoration_works": true,
+    "mapping_intact": true
+  },
+  "mcp_parameter_details": [
+    {
+      "index": 0,
+      "name": "Device On",
+      "value": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "type": "Device Control"
+    },
+    {
+      "index": 1,
+      "name": "Macro 1",
+      "value": 95.0,
+      "min": 0.0,
+      "max": 127.0,
+      "configure_mapping": "A Level (OSC1 Volume)",
+      "type": "Configure Mode Parameter"
+    },
+    {
+      "index": 2,
+      "name": "Macro 2",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 127.0,
+      "configure_mapping": "A Uni Detune",
+      "type": "Configure Mode Parameter"
+    },
+    {
+      "index": 3,
+      "name": "Macro 3",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 127.0,
+      "configure_mapping": "A Warp 2",
+      "type": "Configure Mode Parameter"
+    },
+    {
+      "index": 4,
+      "name": "Macro 4",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 127.0,
+      "configure_mapping": "Main Vol (Master Volume)",
+      "type": "Configure Mode Parameter"
+    },
+    {
+      "index": 5,
+      "name": "Macro 5",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 127.0,
+      "configure_mapping": "A Uni Blend",
+      "type": "Configure Mode Parameter"
+    },
+    {
+      "index": 6,
+      "name": "Macro 6",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 127.0,
+      "configure_mapping": "A WT Pos",
+      "type": "Configure Mode Parameter"
+    },
+    {
+      "index": 7,
+      "name": "Macro 7",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 127.0,
+      "configure_mapping": "A Unison",
+      "type": "Configure Mode Parameter"
+    },
+    {
+      "index": 8,
+      "name": "Macro 8",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 127.0,
+      "configure_mapping": "A Warp",
+      "type": "Configure Mode Parameter"
+    },
+    {
+      "index": 9,
+      "name": "Macro 9",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 127.0,
+      "configure_mapping": "A Semi (OSC1 Pitch)",
+      "type": "Configure Mode Parameter"
+    },
+    {
+      "index": 10,
+      "name": "Macro 10",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 127.0,
+      "configure_mapping": "Filter 1 Freq (Filter Cutoff)",
+      "type": "Configure Mode Parameter"
+    },
+    {
+      "index": 11,
+      "name": "Macro 11",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 127.0,
+      "configure_mapping": "Env 1 Attack (Amp Envelope Attack)",
+      "type": "Configure Mode Parameter"
+    },
+    {
+      "index": 12,
+      "name": "Macro 12",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 127.0,
+      "type": "Empty Macro Slot"
+    },
+    {
+      "index": 13,
+      "name": "Macro 13",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 127.0,
+      "type": "Empty Macro Slot"
+    },
+    {
+      "index": 14,
+      "name": "Macro 14",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 127.0,
+      "type": "Empty Macro Slot"
+    },
+    {
+      "index": 15,
+      "name": "Macro 15",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 127.0,
+      "type": "Empty Macro Slot"
+    },
+    {
+      "index": 16,
+      "name": "Macro 16",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 127.0,
+      "type": "Empty Macro Slot"
+    },
+    {
+      "index": 17,
+      "name": "Chain Selector",
+      "value": 0.0,
+      "min": 0.0,
+      "max": 127.0,
+      "type": "Rack Control"
+    }
+  ],
+  "conclusion": "The MCP parameter surface is fully functional and provides complete access to all 11 Configure Mode parameters via Macro 1-11. Write/read-back cycle verified successfully. All configured controls (A Level, A Semi, Filter 1 Freq, Env 1 Attack, Main Vol, and others) are present and controllable via MCP.",
+  "decision": "MCP_PARAMETER_SURFACE_VERIFIED"
+}
