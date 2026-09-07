@@ -1,0 +1,219 @@
+{
+  "experiment_id": "16.5_SERUM2_PARAMETER_STRATEGY",
+  "title": "Serum 2 Two-Tier Parameter Strategy: 16 Macros + 127 MCP Parameters",
+  "date": "2026-09-07",
+  "status": "STRATEGY_APPROVED",
+  "official_basis": "Ableton Live 12 Reference Manual: plugins with >64 parameters require manual Configure Mode setup",
+  "serum_parameter_count": 127,
+  "strategy": "Two-Tier Access Model",
+  "summary": "Complete parameter exposure strategy for Serum 2.0.21 with 127 total parameters: 16 Macro controls for UI interaction + 127 MCP parameters for complete programmatic/automation access.",
+
+  "tier_1_macro_controls": {
+    "name": "Primary User Interface Controls (16 Macros)",
+    "purpose": "Human-friendly knob controls in Ableton Instrument Rack",
+    "max_capacity": 16,
+    "currently_exposed_via_mcp": 7,
+    "missing": 4,
+    "empty_slots": 5,
+    "configured_macros": [
+      {
+        "slot": 1,
+        "name": "Macro 1",
+        "serum_parameter": "A Level (OSC1 Volume)",
+        "status": "CONFIGURED",
+        "mcp_index": 1
+      },
+      {
+        "slot": 2,
+        "name": "Macro 2",
+        "serum_parameter": "A Uni Detune",
+        "status": "MISSING",
+        "mcp_index": 5,
+        "action_required": "ADD"
+      },
+      {
+        "slot": 3,
+        "name": "Macro 3",
+        "serum_parameter": "A Warp 2",
+        "status": "CONFIGURED",
+        "mcp_index": 9
+      },
+      {
+        "slot": 4,
+        "name": "Macro 4",
+        "serum_parameter": "Main Vol (Master Volume)",
+        "status": "CONFIGURED",
+        "mcp_index": 2
+      },
+      {
+        "slot": 5,
+        "name": "Macro 5",
+        "serum_parameter": "A Uni Blend",
+        "status": "CONFIGURED",
+        "mcp_index": 6
+      },
+      {
+        "slot": 6,
+        "name": "Macro 6",
+        "serum_parameter": "A WT Pos",
+        "status": "CONFIGURED",
+        "mcp_index": 3
+      },
+      {
+        "slot": 7,
+        "name": "Macro 7",
+        "serum_parameter": "A Unison",
+        "status": "CONFIGURED",
+        "mcp_index": 4
+      },
+      {
+        "slot": 8,
+        "name": "Macro 8",
+        "serum_parameter": "A Warp",
+        "status": "CONFIGURED",
+        "mcp_index": 8
+      },
+      {
+        "slot": 9,
+        "name": "Macro 9",
+        "serum_parameter": "A Semi (OSC1 Pitch)",
+        "status": "MISSING",
+        "mcp_index": 10,
+        "action_required": "ADD"
+      },
+      {
+        "slot": 10,
+        "name": "Macro 10",
+        "serum_parameter": "Filter 1 Freq (Cutoff)",
+        "status": "MISSING",
+        "mcp_index": 11,
+        "action_required": "ADD"
+      },
+      {
+        "slot": 11,
+        "name": "Macro 11",
+        "serum_parameter": "Env 1 Attack (Amp Envelope Attack)",
+        "status": "MISSING",
+        "mcp_index": 12,
+        "action_required": "ADD"
+      }
+    ],
+    "expansion_slots_12_16": [
+      {
+        "slot": 12,
+        "recommended_parameter": "LFO 1 Rate",
+        "mcp_index": 106,
+        "priority": "HIGH",
+        "reason": "Real-time modulation control"
+      },
+      {
+        "slot": 13,
+        "recommended_parameter": "Filter 2 Freq",
+        "mcp_index": 87,
+        "priority": "HIGH",
+        "reason": "Second filter for sound shaping"
+      },
+      {
+        "slot": 14,
+        "recommended_parameter": "Env 4 Attack",
+        "mcp_index": 100,
+        "priority": "MEDIUM",
+        "reason": "Additional envelope for dynamic control"
+      },
+      {
+        "slot": 15,
+        "recommended_parameter": "Noise Level",
+        "mcp_index": 73,
+        "priority": "MEDIUM",
+        "reason": "Noise texture control"
+      },
+      {
+        "slot": 16,
+        "recommended_parameter": "B Level (OSC2 Volume)",
+        "mcp_index": 49,
+        "priority": "MEDIUM",
+        "reason": "Second oscillator volume balance"
+      }
+    ]
+  },
+
+  "tier_2_mcp_parameters": {
+    "name": "Complete Parameter Access (127 MCP Parameters)",
+    "purpose": "Programmatic/automation access to all Serum synthesis parameters",
+    "total_available": 127,
+    "exposed_status": "FULLY_EXPOSED",
+    "access_method": "Ableton MCP get_device_parameters() / set_device_parameter()",
+    "use_cases": [
+      "Host automation/MIDI mapping",
+      "Scripting and algorithmic control",
+      "Advanced modulation routing",
+      "Parameter scanning and discovery",
+      "Parallel processing chains"
+    ],
+    "parameter_breakdown": {
+      "oscillators_synthesis": 66,
+      "filters": 29,
+      "envelopes": 6,
+      "macros": 7,
+      "lfos": 5,
+      "voice_controls": 7,
+      "routing": 4,
+      "total": 127
+    }
+  },
+
+  "implementation_plan": {
+    "phase_1_immediate": {
+      "action": "Complete Tier 1 (16 Macros)",
+      "steps": [
+        "1. Add Macro 2: A Uni Detune (MCP index 5)",
+        "2. Add Macro 9: A Semi / OSC1 Pitch (MCP index 10)",
+        "3. Add Macro 10: Filter 1 Freq / Cutoff (MCP index 11)",
+        "4. Add Macro 11: Env 1 Attack (MCP index 12)",
+        "5. Add Macro 12: LFO 1 Rate (MCP index 106)",
+        "6. Add Macro 13: Filter 2 Freq (MCP index 87)",
+        "7. Add Macro 14: Env 4 Attack (MCP index 100)",
+        "8. Add Macro 15: Noise Level (MCP index 73)",
+        "9. Add Macro 16: B Level / OSC2 Volume (MCP index 49)",
+        "10. Save Instrument Rack as Serum_Full_Config_Extended_v002"
+      ],
+      "tool": "Ableton Instrument Rack Configure Mode (drag-drop UI)"
+    },
+    "phase_2_maintenance": {
+      "action": "Verify Tier 2 (127 MCP Parameters)",
+      "steps": [
+        "1. Confirm all 127 parameters remain accessible via MCP",
+        "2. Test write/readback cycle on 5 random parameters",
+        "3. Document MCP discovery for future reference"
+      ],
+      "tool": "AbletonMCP get_device_parameters() / set_device_parameter()"
+    },
+    "phase_3_deployment": {
+      "action": "Archive and commit configuration",
+      "steps": [
+        "1. Save .adg Rack file with 16 Macros configured",
+        "2. Commit architecture specification",
+        "3. Create final architecture report"
+      ]
+    }
+  },
+
+  "ableton_official_basis": {
+    "reference": "Ableton Live 12 Reference Manual",
+    "requirement": "Plugins with more than 64 parameters require manual Configure Mode setup to choose which parameters to expose",
+    "serum_2_parameter_count": 127,
+    "compliance": "This strategy complies with official Ableton guidance by providing manual Configure Mode setup",
+    "macro_control_limit": 16,
+    "source": "https://www.ableton.com/en/manual/instrument-drum-and-effect-racks/"
+  },
+
+  "decision": "TWO_TIER_STRATEGY_APPROVED",
+  "rationale": "Serum 2 with 127 parameters exceeds Ableton's 64-parameter auto-config threshold. Two-tier approach balances UI usability (16 Macro controls) with complete programmatic power (127 MCP parameters). This follows official Ableton guidance for >64 parameter plugins.",
+
+  "completion_status": {
+    "tier_1_design": "COMPLETE",
+    "tier_2_verification": "COMPLETE",
+    "tier_1_implementation": "PENDING",
+    "tier_2_implementation": "COMPLETE (already 127 parameters exposed)"
+  }
+}
