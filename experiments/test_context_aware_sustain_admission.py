@@ -47,35 +47,35 @@ def main():
         {
             "name": "Unverified context",
             "target": "envelope_field_sustain",
-            "kwargs": {"proposed_prerequisites_verified": {"Env0.plainParams.kParamDecay": False}},
+            "kwargs": {"proposed_prerequisites_verified": {"body:Env0.plainParams.kParamDecay": False}},
             "expect_admitted": False,
             "expect_reason": "prerequisite_unverified",
         },
         {
             "name": "Verified Decay=0.01 (wrong value)",
             "target": "envelope_field_sustain",
-            "kwargs": {"proposed_prerequisites_verified": {"Env0.plainParams.kParamDecay": 0.01}},
+            "kwargs": {"proposed_prerequisites_verified": {"body:Env0.plainParams.kParamDecay": 0.01}},
             "expect_admitted": False,
             "expect_reason": "prerequisite_unverified",  # Value mismatch
         },
         {
             "name": "Verified Decay=0.03 (wrong value)",
             "target": "envelope_field_sustain",
-            "kwargs": {"proposed_prerequisites_verified": {"Env0.plainParams.kParamDecay": 0.03}},
+            "kwargs": {"proposed_prerequisites_verified": {"body:Env0.plainParams.kParamDecay": 0.03}},
             "expect_admitted": False,
             "expect_reason": "prerequisite_unverified",  # Value mismatch
         },
         {
             "name": "Verified Decay=0.02 (correct)",
             "target": "envelope_field_sustain",
-            "kwargs": {"proposed_prerequisites_verified": {"Env0.plainParams.kParamDecay": 0.02}, "required_measurement_definition_id": mdid},
+            "kwargs": {"proposed_prerequisites_verified": {"body:Env0.plainParams.kParamDecay": 0.02}, "required_measurement_definition_id": mdid},
             "expect_admitted": True,
             "expect_reason": "ADMITTED",
         },
         {
             "name": "Correct context + wrong measurement ID",
             "target": "envelope_field_sustain",
-            "kwargs": {"proposed_prerequisites_verified": {"Env0.plainParams.kParamDecay": 0.02}, "required_measurement_definition_id": "wrong:deadbeef"},
+            "kwargs": {"proposed_prerequisites_verified": {"body:Env0.plainParams.kParamDecay": 0.02}, "required_measurement_definition_id": "wrong:deadbeef"},
             "expect_admitted": False,
             "expect_reason": "measurement_definition_mismatch",
         },
