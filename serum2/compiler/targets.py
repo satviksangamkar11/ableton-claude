@@ -67,6 +67,8 @@ SEMANTIC_TARGETS: Dict[str, SemanticTargetRef] = {
     "Env1.Decay":         SemanticTargetRef("Env1.Decay",         "envelope_field_decay"),
     "Env1.Release":       SemanticTargetRef("Env1.Release",       "envelope_field_release"),
     "Env1.Sustain":       SemanticTargetRef("Env1.Sustain",       "envelope_field_sustain"),
+    # Filter (extended)
+    "Filter.Cutoff":       SemanticTargetRef("Filter.Cutoff",       "filter_field_cutoff"),
     # Global
     "Global.MasterVolume": SemanticTargetRef("Global.MasterVolume", "global_field_mastervolume"),
 }

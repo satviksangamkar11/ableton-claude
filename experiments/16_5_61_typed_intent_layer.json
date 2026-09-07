@@ -1,0 +1,153 @@
+{
+  "experiment_id": "16.5.61",
+  "title": "Typed Musical-Intent Layer — Pipeline Verification",
+  "date": "2026-09-07",
+  "status": "INTENT_LAYER_OPERATIONAL",
+  "module": "serum2/compiler/mcp_intent.py",
+  "device": "Serum 2.0.21 VST3 (track_index=0, device_index=0)",
+
+  "pipeline": [
+    "musical intent (natural language)",
+    "↓ parse_intent()",
+    "ParsedIntent (semantic_target_name, value_kind, value_spec)",
+    "↓ compile_intent()",
+    "IntentPlan (SemanticTargetRef + MCPHostParam + value_spec)",
+    "↓ resolve_host_value(current_host_value)",
+    "float (0-1 host value to write)",
+    "↓ MCP write (set_device_parameter)",
+    "↓ MCP readback (get_device_parameters)",
+    "↓ make_audit_record()",
+    "auditable dict"
+  ],
+
+  "admission_gate": {
+    "mechanism": "MCP_HOST_MAP presence check",
+    "basis": "16.5_Serum2_Complete_MCP_Discovery (2026-09-07)",
+    "rule": "A target is admitted iff it appears in MCP_HOST_MAP. Absent targets receive REFUSED_NO_MCP_MAPPING, never a guess.",
+    "admitted_targets_count": 10
+  },
+
+  "intent_execution_records": [
+    {
+      "intent": "Make OSC 1 quieter",
+      "semantic_target": "OSC1.Volume",
+      "capability_key": "oscillator_field_OSC-VOLUME",
+      "resolved_host_parameter": {
+        "index": 1,
+        "name": "A Level",
+        "description": "OSC A output level (0=silent, 1=full)",
+        "track_index": 0,
+        "device_index": 0
+      },
+      "requested_value": -0.2,
+      "requested_value_kind": "relative",
+      "current_host_value_before_write": 1.0,
+      "host_value": 0.8,
+      "mcp_write_response": "Serum 2: A Level = 80% [-3.9 dB]",
+      "readback_value": 0.5,
+      "readback_note": "Readback shows 0.5 because intent 2 (Set OSC 1 to 50%) was executed sequentially after. Intent 1 write confirmed at 0.8 by write response.",
+      "write_matched_write_response": true,
+      "result": "SUCCESS"
+    },
+    {
+      "intent": "Set OSC 1 to 50%",
+      "semantic_target": "OSC1.Volume",
+      "capability_key": "oscillator_field_OSC-VOLUME",
+      "resolved_host_parameter": {
+        "index": 1,
+        "name": "A Level",
+        "description": "OSC A output level (0=silent, 1=full)",
+        "track_index": 0,
+        "device_index": 0
+      },
+      "requested_value": 0.5,
+      "requested_value_kind": "absolute",
+      "current_host_value_before_write": 0.8,
+      "host_value": 0.5,
+      "mcp_write_response": "Serum 2: A Level = 50% [-12.0 dB]",
+      "readback_value": 0.5,
+      "write_matched_readback": true,
+      "result": "SUCCESS"
+    },
+    {
+      "intent": "Increase filter cutoff",
+      "semantic_target": "Filter.Cutoff",
+      "capability_key": "filter_field_cutoff",
+      "resolved_host_parameter": {
+        "index": 11,
+        "name": "Filter 1 Freq",
+        "description": "Filter 1 cutoff frequency",
+        "track_index": 0,
+        "device_index": 0
+      },
+      "requested_value": 0.2,
+      "requested_value_kind": "relative",
+      "current_host_value_before_write": 0.33,
+      "host_value": 0.53,
+      "mcp_write_response": "Serum 2: Filter 1 Freq = 2074 Hz",
+      "readback_value": 0.53,
+      "write_matched_readback": true,
+      "result": "SUCCESS"
+    },
+    {
+      "intent": "Give the sound a slower attack",
+      "semantic_target": "Env1.Attack",
+      "capability_key": "envelope_field_attack",
+      "resolved_host_parameter": {
+        "index": 12,
+        "name": "Env 1 Attack",
+        "description": "Amplitude envelope attack time",
+        "track_index": 0,
+        "device_index": 0
+      },
+      "requested_value": 0.2,
+      "requested_value_kind": "relative",
+      "current_host_value_before_write": 0.0,
+      "host_value": 0.2,
+      "mcp_write_response": "Serum 2: Env 1 Attack = 10 ms",
+      "readback_value": 0.2,
+      "write_matched_readback": true,
+      "result": "SUCCESS"
+    }
+  ],
+
+  "refusal_examples": [
+    {
+      "intent": "Make the reverb wetter",
+      "parse_result": "REFUSED",
+      "reason": "INTENT_PARSE_FAILURE",
+      "detail": "could not identify a known synthesis parameter in 'Make the reverb wetter' — reverb is an FX parameter, not in the current MCP host map for this device surface"
+    },
+    {
+      "intent": "Change the wavetable",
+      "parse_result": "REFUSED",
+      "reason": "INTENT_PARSE_FAILURE",
+      "detail": "wavetable selection is an enum/file target — not yet in MCP_HOST_MAP; would return REFUSED_NO_MCP_MAPPING if vocabulary existed"
+    }
+  ],
+
+  "summary": {
+    "intents_attempted": 4,
+    "intents_succeeded": 4,
+    "intents_refused": 0,
+    "pipeline_stages_verified": [
+      "intent parse (natural language → ParsedIntent)",
+      "semantic target lookup (SEMANTIC_TARGETS vocabulary)",
+      "MCP host map admission (MCP_HOST_MAP presence)",
+      "value conversion (absolute % and relative delta)",
+      "MCP write (set_device_parameter)",
+      "readback verification (get_device_parameters)"
+    ]
+  },
+
+  "new_semantic_target_added": {
+    "name": "Filter.Cutoff",
+    "capability_key": "filter_field_cutoff",
+    "mcp_index": 11,
+    "mcp_name": "Filter 1 Freq",
+    "reason": "required for 'Increase filter cutoff' intent — was missing from SEMANTIC_TARGETS"
+  },
+
+  "decision": "INTENT_LAYER_OPERATIONAL",
+  "next": "16.5.62 — first real producer goal: Create a dark, sustained bass sound"
+}
