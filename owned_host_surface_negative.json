@@ -1,0 +1,73 @@
+{
+  "experiment": "16_5_A",
+  "run_id": "A0-A1-negative-2026-09-11",
+  "timestamp": "2026-09-10T20:32:53.448066+00:00",
+  "scope": "A0-A1",
+  "host": {
+    "application": "Ableton Live",
+    "container": "Max for Live",
+    "version": "UNKNOWN"
+  },
+  "plugin": {
+    "name": "Serum 2",
+    "version": "2.0.21",
+    "format": "VST3",
+    "identifier": "Serum2.vst3"
+  },
+  "viability": {
+    "load": {
+      "status": "PASS",
+      "evidence": "Max Inspector reported Currently Loaded Plugin: Serum2.vst3"
+    },
+    "editor_open": {
+      "status": "PASS",
+      "evidence": "Serum 2 editor rendered successfully in Max"
+    },
+    "audio_path": {
+      "status": "FAIL",
+      "evidence": "Serum UI showed persistent Audio processing disabled banner",
+      "qualification": "blocked"
+    },
+    "midi": "UNKNOWN",
+    "snapshot": "UNKNOWN"
+  },
+  "parameter_surface": {
+    "count": "UNKNOWN",
+    "list": [],
+    "enumeration_status": "NEGATIVE_EVIDENCE",
+    "enumeration_observation": {
+      "commands_tested": [
+        "params",
+        "get -4"
+      ],
+      "observed_output": "No parameter enumeration/value output observed on the diagnostic vst~ outlets across repeated clean attempts"
+    }
+  },
+  "finding": {
+    "id": "A1-VST-PARAMETER-INTROSPECTION-NO-OBSERVED-OUTPUT",
+    "status": "NEGATIVE_EVIDENCE",
+    "claim_scope": "bare vst~ message-based parameter introspection on this tested host/configuration",
+    "does_not_claim": [
+      "Serum 2 has no parameters",
+      "Serum 2 VST3 exports no parameters in every host",
+      "Ableton/MCP cannot control the parameters",
+      "GUI automation cannot control Serum 2",
+      "MIDI Learn cannot control Serum 2",
+      "owned-host architecture is globally impossible"
+    ]
+  },
+  "recorder_contract": {
+    "semantic_interpretation": false,
+    "classification": false,
+    "value_interpretation": false,
+    "preserve_raw_representation": true,
+    "mutation_testing": false,
+    "restore_testing": false,
+    "persistence_testing": false,
+    "runtime_behavior_testing": false
+  },
+  "status": "COMPLETE_WITH_NEGATIVE_EVIDENCE",
+  "artifacts": [
+    "owned_host_surface_negative.json"
+  ]
+}
