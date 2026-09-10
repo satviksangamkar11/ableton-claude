@@ -1,0 +1,244 @@
+{
+  "registry_phase": "16.5.69.1c",
+  "resolved_count": 11,
+  "unresolved_summary": {
+    "UNMAPPED": 8,
+    "VST3_NAME_NOT_FOUND": 1
+  },
+  "resolved_targets": [
+    {
+      "semantic_id": "Env1.Attack",
+      "capability_key": "envelope_field_attack",
+      "vst3_name": "Env 1 Attack",
+      "vst3_index": 224,
+      "vst3_transport_kind": "SCALAR",
+      "is_discrete": false,
+      "num_steps": 2147483647,
+      "semantic_mutation_class": "SCALAR",
+      "resolution_status": "RESOLVED",
+      "mapping_basis": "explicit_mapping",
+      "min_val": 0.0,
+      "max_val": 32.0,
+      "default_val": 0.12559431791305542
+    },
+    {
+      "semantic_id": "Env1.Decay",
+      "capability_key": "envelope_field_decay",
+      "vst3_name": "Env 1 Decay",
+      "vst3_index": 226,
+      "vst3_transport_kind": "SCALAR",
+      "is_discrete": false,
+      "num_steps": 2147483647,
+      "semantic_mutation_class": "SCALAR",
+      "resolution_status": "RESOLVED",
+      "mapping_basis": "explicit_mapping",
+      "min_val": 0.0,
+      "max_val": 32.0,
+      "default_val": 0.5
+    },
+    {
+      "semantic_id": "Env1.Release",
+      "capability_key": "envelope_field_release",
+      "vst3_name": "Env 1 Release",
+      "vst3_index": 228,
+      "vst3_transport_kind": "SCALAR",
+      "is_discrete": false,
+      "num_steps": 2147483647,
+      "semantic_mutation_class": "SCALAR",
+      "resolution_status": "RESOLVED",
+      "mapping_basis": "explicit_mapping",
+      "min_val": 0.0,
+      "max_val": 32.0,
+      "default_val": 0.2150000035762787
+    },
+    {
+      "semantic_id": "Env1.Sustain",
+      "capability_key": "envelope_field_sustain",
+      "vst3_name": "Env 1 Sustain",
+      "vst3_index": 227,
+      "vst3_transport_kind": "SCALAR",
+      "is_discrete": false,
+      "num_steps": 2147483647,
+      "semantic_mutation_class": "SCALAR",
+      "resolution_status": "RESOLVED",
+      "mapping_basis": "explicit_mapping",
+      "min_val": 0.0,
+      "max_val": 0.0,
+      "default_val": 1.0
+    },
+    {
+      "semantic_id": "FXDistortion.Drive",
+      "capability_key": "fx_field_dist_drive",
+      "vst3_name": "Filter 1 Drive",
+      "vst3_index": 207,
+      "vst3_transport_kind": "SCALAR",
+      "is_discrete": false,
+      "num_steps": 2147483647,
+      "semantic_mutation_class": "SCALAR",
+      "resolution_status": "RESOLVED",
+      "mapping_basis": "explicit_mapping",
+      "min_val": 0.0,
+      "max_val": 100.0,
+      "default_val": 0.0
+    },
+    {
+      "semantic_id": "Filter.Cutoff",
+      "capability_key": "filter_field_cutoff",
+      "vst3_name": "Filter 1 Freq",
+      "vst3_index": 205,
+      "vst3_transport_kind": "SCALAR",
+      "is_discrete": false,
+      "num_steps": 2147483647,
+      "semantic_mutation_class": "SCALAR",
+      "resolution_status": "RESOLVED",
+      "mapping_basis": "explicit_mapping",
+      "min_val": 8.0,
+      "max_val": 22050.0,
+      "default_val": 0.5
+    },
+    {
+      "semantic_id": "Filter.Type",
+      "capability_key": "filter_field_type",
+      "vst3_name": "Filter 1 Type",
+      "vst3_index": 204,
+      "vst3_transport_kind": "ENUM",
+      "is_discrete": true,
+      "num_steps": 107,
+      "semantic_mutation_class": "ENUM",
+      "resolution_status": "RESOLVED",
+      "mapping_basis": "explicit_mapping",
+      "min_val": 6.0,
+      "max_val": 0.0,
+      "default_val": 0.009433962404727936
+    },
+    {
+      "semantic_id": "Global.MasterVolume",
+      "capability_key": "global_field_mastervolume",
+      "vst3_name": "Main Vol",
+      "vst3_index": 0,
+      "vst3_transport_kind": "SCALAR",
+      "is_discrete": false,
+      "num_steps": 2147483647,
+      "semantic_mutation_class": "SCALAR",
+      "resolution_status": "RESOLVED",
+      "mapping_basis": "explicit_mapping",
+      "min_val": 0.0,
+      "max_val": 100.0,
+      "default_val": 0.5
+    },
+    {
+      "semantic_id": "OSC1.Enable",
+      "capability_key": "oscillator_field_OSC-ENABLE",
+      "vst3_name": "A Enable",
+      "vst3_index": 20,
+      "vst3_transport_kind": "ENUM",
+      "is_discrete": true,
+      "num_steps": 2,
+      "semantic_mutation_class": "ENUM",
+      "resolution_status": "RESOLVED",
+      "mapping_basis": "explicit_mapping",
+      "min_val": 0.0,
+      "max_val": 0.0,
+      "default_val": 1.0
+    },
+    {
+      "semantic_id": "OSC1.Octave",
+      "capability_key": "oscillator_field_OSC-OCTAVE",
+      "vst3_name": "A Octave",
+      "vst3_index": 23,
+      "vst3_transport_kind": "ENUM",
+      "is_discrete": true,
+      "num_steps": 9,
+      "semantic_mutation_class": "ENUM",
+      "resolution_status": "RESOLVED",
+      "mapping_basis": "explicit_mapping",
+      "min_val": -4.0,
+      "max_val": 4.0,
+      "default_val": 0.5
+    },
+    {
+      "semantic_id": "OSC1.Volume",
+      "capability_key": "oscillator_field_OSC-VOLUME",
+      "vst3_name": "A Level",
+      "vst3_index": 21,
+      "vst3_transport_kind": "SCALAR",
+      "is_discrete": false,
+      "num_steps": 2147483647,
+      "semantic_mutation_class": "SCALAR",
+      "resolution_status": "RESOLVED",
+      "mapping_basis": "explicit_mapping",
+      "min_val": 0.0,
+      "max_val": 100.0,
+      "default_val": 0.75
+    }
+  ],
+  "unresolved_by_status": {
+    "UNMAPPED": [
+      {
+        "semantic_id": "FXEQ.Freq1",
+        "capability_key": "fx_field_eq_freq1",
+        "issues": [
+          "No mapping provided in semantic_vst3_mapping.json"
+        ]
+      },
+      {
+        "semantic_id": "FXEQ.Freq2",
+        "capability_key": "fx_field_eq_freq2",
+        "issues": [
+          "No mapping provided in semantic_vst3_mapping.json"
+        ]
+      },
+      {
+        "semantic_id": "FXEQ.Gain1",
+        "capability_key": "fx_field_eq_gain1",
+        "issues": [
+          "No mapping provided in semantic_vst3_mapping.json"
+        ]
+      },
+      {
+        "semantic_id": "FXEQ.Gain2",
+        "capability_key": "fx_field_eq_gain2",
+        "issues": [
+          "No mapping provided in semantic_vst3_mapping.json"
+        ]
+      },
+      {
+        "semantic_id": "FXEQ.LevelOut",
+        "capability_key": "fx_field_eq_level_out",
+        "issues": [
+          "No mapping provided in semantic_vst3_mapping.json"
+        ]
+      },
+      {
+        "semantic_id": "FXEQ.Reso1",
+        "capability_key": "fx_field_eq_reso1",
+        "issues": [
+          "No mapping provided in semantic_vst3_mapping.json"
+        ]
+      },
+      {
+        "semantic_id": "FXEQ.Reso2",
+        "capability_key": "fx_field_eq_reso2",
+        "issues": [
+          "No mapping provided in semantic_vst3_mapping.json"
+        ]
+      },
+      {
+        "semantic_id": "OSC1.Wavetable",
+        "capability_key": "oscillator_field_OSC-WAVETABLE",
+        "issues": [
+          "No mapping provided in semantic_vst3_mapping.json"
+        ]
+      }
+    ],
+    "VST3_NAME_NOT_FOUND": [
+      {
+        "semantic_id": "Filter.Resonance",
+        "capability_key": "filter_field_reso",
+        "issues": [
+          "VST3 name 'Filter 1 Reso' not found in dump (mapped by filter_field_reso)"
+        ]
+      }
+    ]
+  }
+}
