@@ -1,0 +1,108 @@
+{
+  "audit": {
+    "audit_phase": "16.5.69.1-R / R1",
+    "source": "D:\\ableton claude\\experiments\\A1_1_vst3_parameter_surface.json",
+    "strict_mode": false,
+    "validation_status": "PASS",
+    "errors": [],
+    "warnings": [
+      "Duplicate names: 2 names appear multiple times"
+    ],
+    "parameter_count": 2623,
+    "unique_index_count": 2623,
+    "duplicate_indices": {},
+    "unique_name_count": 2621,
+    "duplicate_names": {
+      "Pitch Bend": {
+        "count": 2,
+        "indices": [
+          7,
+          2622
+        ]
+      },
+      "Mod Wheel": {
+        "count": 2,
+        "indices": [
+          8,
+          2621
+        ]
+      }
+    },
+    "transport_metadata": {
+      "boolean_parameters": 0,
+      "discrete_parameters": 70,
+      "continuous_scalar_parameters": 2553
+    }
+  },
+  "fixture_tests": {
+    "total_fixtures": 8,
+    "passed": 8,
+    "failed": 0,
+    "details": [
+      {
+        "fixture": "TestParam1",
+        "description": "missing required \"index\" field",
+        "result": "PASS (correctly failed audit)",
+        "errors": [
+          "Parameter 0: missing required field 'index'"
+        ]
+      },
+      {
+        "fixture": "TestParam2",
+        "description": "index is string, not int",
+        "result": "PASS (correctly failed audit)",
+        "errors": [
+          "Parameter 0: index must be int, got str"
+        ]
+      },
+      {
+        "fixture": "TestParam3",
+        "description": "index is negative",
+        "result": "PASS (correctly failed audit)",
+        "errors": [
+          "Parameter 0: index must be >= 0, got -1"
+        ]
+      },
+      {
+        "fixture": "TestParam4",
+        "description": "name is empty string",
+        "result": "PASS (correctly failed audit)",
+        "errors": [
+          "Parameter 0: name must be non-empty"
+        ]
+      },
+      {
+        "fixture": "TestParam5",
+        "description": "name is whitespace only",
+        "result": "PASS (correctly failed audit)",
+        "errors": [
+          "Parameter 0: name must be non-empty"
+        ]
+      },
+      {
+        "fixture": "TestParam6",
+        "description": "both isBoolean and isDiscrete are true",
+        "result": "PASS (correctly failed audit)",
+        "errors": [
+          "Parameter 0: cannot be both isBoolean and isDiscrete"
+        ]
+      },
+      {
+        "fixture": "TestParam7",
+        "description": "isDiscrete=true but numSteps=1 (invalid)",
+        "result": "PASS (correctly failed audit)",
+        "errors": [
+          "Parameter 0: isDiscrete=true but numSteps=1 (must be >= 2)"
+        ]
+      },
+      {
+        "fixture": "TestParam8",
+        "description": "min (100) > max (50)",
+        "result": "PASS (correctly failed audit)",
+        "errors": [
+          "Parameter 0: min (100.0) > max (50.0)"
+        ]
+      }
+    ]
+  }
+}

@@ -8,7 +8,7 @@
     "global_field_mastervolume": "Main Vol",
     "filter_field_type": "Filter 1 Type",
     "filter_field_cutoff": "Filter 1 Freq",
-    "filter_field_reso": "Filter 1 Reso",
+    "filter_field_reso": "Filter 1 Res",
     "envelope_field_attack": "Env 1 Attack",
     "envelope_field_decay": "Env 1 Decay",
     "envelope_field_release": "Env 1 Release",

@@ -1,0 +1,80 @@
+{
+  "total_fixtures": 8,
+  "passed": 8,
+  "failed": 0,
+  "details": [
+    {
+      "fixture": "R5-1_RemoveIdentity",
+      "expected": "INVALID",
+      "actual": "INVALID",
+      "result": "PASS (correctly rejected)",
+      "errors": [
+        "Entry 0 missing field 'semantic_id'"
+      ]
+    },
+    {
+      "fixture": "R5-2_ChangeIndex",
+      "expected": "INVALID",
+      "actual": "INVALID",
+      "result": "PASS (correctly rejected)",
+      "errors": [
+        "Entry 0: VST3 index mismatch for 'Env 1 Attack': registry says 99999, dump says 224",
+        "Entry 0: VST3 index 99999 out of valid range (0-2622)"
+      ]
+    },
+    {
+      "fixture": "R5-3_ChangeVST3Name",
+      "expected": "INVALID",
+      "actual": "INVALID",
+      "result": "PASS (correctly rejected)",
+      "errors": [
+        "Entry 0: VST3 name 'CORRUPTED_PARAMETER_NAME' not found in VST3 dump"
+      ]
+    },
+    {
+      "fixture": "R5-4_FabricateSemanticClass",
+      "expected": "INVALID",
+      "actual": "INVALID",
+      "result": "PASS (correctly rejected)",
+      "errors": [
+        "Entry 0 has fabricated semantic_mutation_class=BOOLEAN (must be None)",
+        "Entry 0 has invalid semantic_classification_status=FABRICATED (must be UNCLASSIFIED)"
+      ]
+    },
+    {
+      "fixture": "R5-5_HeuristicDomain",
+      "expected": "INVALID",
+      "actual": "INVALID",
+      "result": "PASS (correctly rejected)",
+      "errors": [
+        "Entry 0 has suspicious heuristic domain (0.0-1.0, default 0.5)"
+      ]
+    },
+    {
+      "fixture": "R5-6_DuplicateVST3Index",
+      "expected": "INVALID",
+      "actual": "INVALID",
+      "result": "PASS (correctly rejected)",
+      "errors": [
+        "Duplicate VST3 index 224 at entries 0 and 1",
+        "Entry 1: VST3 index mismatch for 'Env 1 Decay': registry says 224, dump says 226"
+      ]
+    },
+    {
+      "fixture": "R5-7_InsertNonexistentTarget",
+      "expected": "INVALID",
+      "actual": "INVALID",
+      "result": "PASS (correctly rejected)",
+      "errors": [
+        "Entry 12 references nonexistent semantic_id 'FAKE_NONEXISTENT_TARGET'",
+        "Entry 12: VST3 name 'Fake Parameter' not found in VST3 dump"
+      ]
+    },
+    {
+      "fixture": "R5-P1_ValidRegistry",
+      "expected": "VALID",
+      "actual": "VALID",
+      "result": "PASS (correctly accepted)"
+    }
+  ]
+}

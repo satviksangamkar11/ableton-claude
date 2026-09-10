@@ -1,0 +1,289 @@
+{
+  "audit": {
+    "audit_phase": "16.5.69.1-R / R2",
+    "strict_mode": false,
+    "validation_status": "PASS",
+    "errors": [],
+    "warnings": [],
+    "semantic_targets": 20,
+    "mappings_provided": 12,
+    "mappings": [
+      {
+        "semantic_id": "Env1.Attack",
+        "capability_key": "envelope_field_attack",
+        "mapped_vst3_name": "Env 1 Attack",
+        "resolution_status": "RESOLVED",
+        "vst3_indices": [
+          224
+        ],
+        "issues": []
+      },
+      {
+        "semantic_id": "Env1.Decay",
+        "capability_key": "envelope_field_decay",
+        "mapped_vst3_name": "Env 1 Decay",
+        "resolution_status": "RESOLVED",
+        "vst3_indices": [
+          226
+        ],
+        "issues": []
+      },
+      {
+        "semantic_id": "Env1.Release",
+        "capability_key": "envelope_field_release",
+        "mapped_vst3_name": "Env 1 Release",
+        "resolution_status": "RESOLVED",
+        "vst3_indices": [
+          228
+        ],
+        "issues": []
+      },
+      {
+        "semantic_id": "Env1.Sustain",
+        "capability_key": "envelope_field_sustain",
+        "mapped_vst3_name": "Env 1 Sustain",
+        "resolution_status": "RESOLVED",
+        "vst3_indices": [
+          227
+        ],
+        "issues": []
+      },
+      {
+        "semantic_id": "FXDistortion.Drive",
+        "capability_key": "fx_field_dist_drive",
+        "mapped_vst3_name": "Filter 1 Drive",
+        "resolution_status": "RESOLVED",
+        "vst3_indices": [
+          207
+        ],
+        "issues": []
+      },
+      {
+        "semantic_id": "FXEQ.Freq1",
+        "capability_key": "fx_field_eq_freq1",
+        "mapped_vst3_name": null,
+        "resolution_status": "UNMAPPED",
+        "vst3_indices": [],
+        "issues": [
+          "No mapping provided"
+        ]
+      },
+      {
+        "semantic_id": "FXEQ.Freq2",
+        "capability_key": "fx_field_eq_freq2",
+        "mapped_vst3_name": null,
+        "resolution_status": "UNMAPPED",
+        "vst3_indices": [],
+        "issues": [
+          "No mapping provided"
+        ]
+      },
+      {
+        "semantic_id": "FXEQ.Gain1",
+        "capability_key": "fx_field_eq_gain1",
+        "mapped_vst3_name": null,
+        "resolution_status": "UNMAPPED",
+        "vst3_indices": [],
+        "issues": [
+          "No mapping provided"
+        ]
+      },
+      {
+        "semantic_id": "FXEQ.Gain2",
+        "capability_key": "fx_field_eq_gain2",
+        "mapped_vst3_name": null,
+        "resolution_status": "UNMAPPED",
+        "vst3_indices": [],
+        "issues": [
+          "No mapping provided"
+        ]
+      },
+      {
+        "semantic_id": "FXEQ.LevelOut",
+        "capability_key": "fx_field_eq_level_out",
+        "mapped_vst3_name": null,
+        "resolution_status": "UNMAPPED",
+        "vst3_indices": [],
+        "issues": [
+          "No mapping provided"
+        ]
+      },
+      {
+        "semantic_id": "FXEQ.Reso1",
+        "capability_key": "fx_field_eq_reso1",
+        "mapped_vst3_name": null,
+        "resolution_status": "UNMAPPED",
+        "vst3_indices": [],
+        "issues": [
+          "No mapping provided"
+        ]
+      },
+      {
+        "semantic_id": "FXEQ.Reso2",
+        "capability_key": "fx_field_eq_reso2",
+        "mapped_vst3_name": null,
+        "resolution_status": "UNMAPPED",
+        "vst3_indices": [],
+        "issues": [
+          "No mapping provided"
+        ]
+      },
+      {
+        "semantic_id": "Filter.Cutoff",
+        "capability_key": "filter_field_cutoff",
+        "mapped_vst3_name": "Filter 1 Freq",
+        "resolution_status": "RESOLVED",
+        "vst3_indices": [
+          205
+        ],
+        "issues": []
+      },
+      {
+        "semantic_id": "Filter.Resonance",
+        "capability_key": "filter_field_reso",
+        "mapped_vst3_name": "Filter 1 Res",
+        "resolution_status": "RESOLVED",
+        "vst3_indices": [
+          206
+        ],
+        "issues": []
+      },
+      {
+        "semantic_id": "Filter.Type",
+        "capability_key": "filter_field_type",
+        "mapped_vst3_name": "Filter 1 Type",
+        "resolution_status": "RESOLVED",
+        "vst3_indices": [
+          204
+        ],
+        "issues": []
+      },
+      {
+        "semantic_id": "Global.MasterVolume",
+        "capability_key": "global_field_mastervolume",
+        "mapped_vst3_name": "Main Vol",
+        "resolution_status": "RESOLVED",
+        "vst3_indices": [
+          0
+        ],
+        "issues": []
+      },
+      {
+        "semantic_id": "OSC1.Enable",
+        "capability_key": "oscillator_field_OSC-ENABLE",
+        "mapped_vst3_name": "A Enable",
+        "resolution_status": "RESOLVED",
+        "vst3_indices": [
+          20
+        ],
+        "issues": []
+      },
+      {
+        "semantic_id": "OSC1.Octave",
+        "capability_key": "oscillator_field_OSC-OCTAVE",
+        "mapped_vst3_name": "A Octave",
+        "resolution_status": "RESOLVED",
+        "vst3_indices": [
+          23
+        ],
+        "issues": []
+      },
+      {
+        "semantic_id": "OSC1.Volume",
+        "capability_key": "oscillator_field_OSC-VOLUME",
+        "mapped_vst3_name": "A Level",
+        "resolution_status": "RESOLVED",
+        "vst3_indices": [
+          21
+        ],
+        "issues": []
+      },
+      {
+        "semantic_id": "OSC1.Wavetable",
+        "capability_key": "oscillator_field_OSC-WAVETABLE",
+        "mapped_vst3_name": null,
+        "resolution_status": "UNMAPPED",
+        "vst3_indices": [],
+        "issues": [
+          "No mapping provided"
+        ]
+      }
+    ],
+    "collisions": [],
+    "summary": {
+      "RESOLVED": 12,
+      "UNMAPPED": 8,
+      "VST3_NAME_NOT_FOUND": 0,
+      "AMBIGUOUS_VST3_NAME": 0,
+      "INVALID_SEMANTIC_KEY": 0,
+      "MALFORMED_MAPPING": 0,
+      "semantic_collisions": 0
+    }
+  },
+  "fixture_tests": {
+    "total_fixtures": 6,
+    "passed": 6,
+    "failed": 0,
+    "details": [
+      {
+        "fixture": "R2-1_SemanticCollision",
+        "description": "Two semantic targets both map to \"A Level\" (same unique VST3)",
+        "expected": "FAIL",
+        "actual": "FAIL",
+        "result": "PASS (outcome=FAIL)",
+        "errors": [
+          "Semantic collision: ['OSC1.Enable', 'OSC1.Volume'] all map to VST3 'A Enable'"
+        ]
+      },
+      {
+        "fixture": "R2-2_InvalidExistingMapping",
+        "description": "Valid mapping changed to point to nonexistent VST3 parameter",
+        "expected": "FAIL",
+        "actual": "FAIL",
+        "result": "PASS (outcome=FAIL)",
+        "errors": [
+          "VST3 name 'THIS_DOES_NOT_EXIST_IN_VST3_DUMP' not found in dump (mapping points to nonexistent parameter)"
+        ]
+      },
+      {
+        "fixture": "R2-3_AmbiguousVST3Name",
+        "description": "Valid mapping changed to point to ambiguous VST3 name \"Pitch Bend\"",
+        "expected": "FAIL",
+        "actual": "FAIL",
+        "result": "PASS (outcome=FAIL)",
+        "errors": [
+          "Ambiguous VST3 name for OSC1.Octave: 'Pitch Bend' appears at 2 indices"
+        ]
+      },
+      {
+        "fixture": "R2-4_MalformedMappingType",
+        "description": "Mapping value is int instead of string",
+        "expected": "FAIL",
+        "actual": "FAIL",
+        "result": "PASS (outcome=FAIL)",
+        "errors": [
+          "mapped VST3 name must be str, got int"
+        ]
+      },
+      {
+        "fixture": "R2-5_UnknownMappingKey",
+        "description": "Mapping contains unknown capability_key not in targets.py",
+        "expected": "FAIL",
+        "actual": "FAIL",
+        "result": "PASS (outcome=FAIL)",
+        "errors": [
+          "Mapping contains unknown capability_key 'fake_capability_key_that_does_not_exist' not in targets.py"
+        ]
+      },
+      {
+        "fixture": "R2-P1_LegitimateUnmapped",
+        "description": "Unmapped semantic target remains unmapped (positive test)",
+        "expected": "PASS",
+        "actual": "PASS",
+        "result": "PASS (outcome=PASS)",
+        "errors": []
+      }
+    ],
+    "assertion_failures": []
+  }
+}
