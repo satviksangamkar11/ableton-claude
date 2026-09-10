@@ -57,6 +57,14 @@ from .goal_grounding import (
     ground_goal,
 )
 
+from .planner import (
+    Plan,
+    PlannedAction,
+    BlockedGap,
+    DiscoveryRequest,
+    PlannerDecisionEngine,
+)
+
 __all__ = [
     # Goal Model
     "GoalModel",
@@ -81,4 +89,10 @@ __all__ = [
     "CharacteristicGap",
     "GapType",
     "ground_goal",
+    # Planner
+    "Plan",
+    "PlannedAction",
+    "BlockedGap",
+    "DiscoveryRequest",
+    "PlannerDecisionEngine",
 ]

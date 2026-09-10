@@ -229,7 +229,13 @@ def ground_goal(goal: GoalModel, world: WorldModel) -> GoalGroundingResult:
 # ---- Per-dimension gap analysis helpers ----
 
 def _analyze_character_gap(char: Character, role_state: Optional[RoleState]) -> CharacteristicGap:
-    """Analyze a character constraint (dark, bright, warm, etc.)."""
+    """Analyze a character constraint (dark, bright, warm, punchy, etc.).
+
+    Character constraints map to multiple dimensions:
+      - DARK / BRIGHT → brightness (Filter.Cutoff)
+      - PUNCHY / SMOOTH → attack_speed (Env1.Attack)
+      - Others → UNGROUNDED
+    """
     if role_state is None:
         return CharacteristicGap(
             characteristic_name=f"character:{char.value}",
@@ -237,13 +243,13 @@ def _analyze_character_gap(char: Character, role_state: Optional[RoleState]) -> 
             current_value=None,
             gap_type=GapType.MISSING,
             detail=f"role does not exist yet; {char.value} cannot be verified",
-            possible_capabilities=["OSC1.Volume", "Filter.Cutoff", "Filter.Resonance"],
+            possible_capabilities=["OSC1.Volume", "Filter.Cutoff", "Filter.Resonance", "Env1.Attack"],
         )
 
     measured = role_state.measured_characteristics
     limitations = role_state.unresolved_limitations
 
-    # Darkness → low brightness
+    # BRIGHTNESS dimension: dark, bright
     if char == Character.DARK:
         if measured.brightness is not None:
             if measured.brightness < 0.4:
@@ -273,7 +279,6 @@ def _analyze_character_gap(char: Character, role_state: Optional[RoleState]) -> 
                 possible_capabilities=["Filter.Cutoff"],
             )
 
-    # Brightness → high brightness
     if char == Character.BRIGHT:
         if measured.brightness is not None:
             if measured.brightness > 0.6:
@@ -301,6 +306,65 @@ def _analyze_character_gap(char: Character, role_state: Optional[RoleState]) -> 
                 gap_type=GapType.MISSING,
                 detail="brightness not yet measured",
                 possible_capabilities=["Filter.Cutoff"],
+            )
+
+    # ATTACK dimension: punchy, smooth
+    if char == Character.PUNCHY:
+        if measured.attack_speed is not None:
+            if measured.attack_speed > 0.7:
+                return CharacteristicGap(
+                    characteristic_name="character:punchy",
+                    goal_value="punchy",
+                    current_value="punchy",
+                    gap_type=GapType.SATISFIED,
+                    detail=f"attack speed is {measured.attack_speed:.2f} (fast)",
+                )
+            else:
+                return CharacteristicGap(
+                    characteristic_name="character:punchy",
+                    goal_value="punchy",
+                    current_value="smooth",
+                    gap_type=GapType.CONTRADICTORY,
+                    detail=f"attack speed is {measured.attack_speed:.2f}, needs to be > 0.7",
+                    possible_capabilities=["Env1.Attack"],
+                )
+        else:
+            return CharacteristicGap(
+                characteristic_name="character:punchy",
+                goal_value="punchy",
+                current_value=None,
+                gap_type=GapType.MISSING,
+                detail="punchiness not yet measured; apply faster attack and measure",
+                possible_capabilities=["Env1.Attack"],
+            )
+
+    if char == Character.SMOOTH:
+        if measured.attack_speed is not None:
+            if measured.attack_speed < 0.3:
+                return CharacteristicGap(
+                    characteristic_name="character:smooth",
+                    goal_value="smooth",
+                    current_value="smooth",
+                    gap_type=GapType.SATISFIED,
+                    detail=f"attack speed is {measured.attack_speed:.2f} (slow)",
+                )
+            else:
+                return CharacteristicGap(
+                    characteristic_name="character:smooth",
+                    goal_value="smooth",
+                    current_value="punchy",
+                    gap_type=GapType.CONTRADICTORY,
+                    detail=f"attack speed is {measured.attack_speed:.2f}, needs to be < 0.3",
+                    possible_capabilities=["Env1.Attack"],
+                )
+        else:
+            return CharacteristicGap(
+                characteristic_name="character:smooth",
+                goal_value="smooth",
+                current_value=None,
+                gap_type=GapType.MISSING,
+                detail="smoothness not yet measured; apply slower attack and measure",
+                possible_capabilities=["Env1.Attack"],
             )
 
     # Other characters: unknown capability mapping for now
