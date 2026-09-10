@@ -1,5 +1,7 @@
 # Producer World Model + Planner Architecture
 
+**16.5.61a-b: Goal Model → World Model → Goal Grounding → Planner**
+
 ## Overview
 
 The Producer layer adds strategic reasoning above the compiler/capability infrastructure.
@@ -285,3 +287,162 @@ else:
    - Characteristics are measured from rendered audio
    - Parameter inspection is audit only
    - This ensures the producer reasons about music, not dials
+
+## Planner Contract (16.5.61b)
+
+### PlannerDecisionEngine
+
+Converts GoalGroundingResult into executable Plan.
+
+**Input:**
+- GoalGroundingResult (gaps from goal vs. world state analysis)
+- Evidence system (capabilities and their CapabilityContract.status)
+- allowed_statuses (which contract statuses are acceptable; default: ["CAUSAL_VERIFIED"])
+
+**Output:**
+```python
+Plan(
+    goal=goal,
+    grounding=grounding,
+    confidence="grounded",  # or "bounded", "structural", "unknown"
+    actions=[PlannedAction(...), ...],  # what to do (musical intent)
+    blocked_gaps=[BlockedGap(...), ...],  # couldn't resolve
+    discovery_requests=[DiscoveryRequest(...), ...],  # needs evidence
+)
+```
+
+### Decision Rules Per Gap Type
+
+| Gap Type | Planner Decision | Output |
+|---|---|---|
+| SATISFIED | No action | (skip) |
+| MISSING | Find qualified capability | PlannedAction or DiscoveryRequest |
+| CONTRADICTORY | Find corrective capability | PlannedAction or BlockedGap |
+| CONSTRAINED | Prerequisites block | BlockedGap (explicit refusal) |
+| UNGROUNDED | No known capability | DiscoveryRequest |
+
+### PlannedAction Contract
+
+```python
+@dataclass(frozen=True)
+class PlannedAction:
+    intent: str  # e.g., "darken_bass" (musical intent, not parameter)
+    target_dimension: str  # "brightness", "attack", etc.
+    gap: CharacteristicGap  # the gap being addressed
+    selected_capability: str  # semantic target: "Filter.Cutoff", "Env1.Attack"
+    capability_key: str  # from evidence system
+    capability_status: str  # "CAUSAL_VERIFIED", "STRUCTURAL_ONLY", etc.
+    reasoning: str  # why this capability was chosen
+```
+
+### Critical Invariants
+
+1. **Zero Silent Parameter Selection**
+   - If no capability qualifies for a gap → refuse (BlockedGap or DiscoveryRequest)
+   - Never guess or silently choose a fallback parameter
+   - Example: unsupported intent "warmer" → DiscoveryRequest, NOT applied parameter
+
+2. **Musical Intent, Not Tactical Parameters**
+   - Planner outputs intent: "darken_bass", "increase_punchiness"
+   - NOT parameter values: "set Filter.Cutoff to 0.5"
+   - Parameter resolution is executor/compiler responsibility
+
+3. **Evidence-Backed Decisions Only**
+   - Only capabilities with status in allowed_statuses can be selected
+   - Default (strict): ["CAUSAL_VERIFIED"] — only fully proven controls
+   - Can loosen to ["CAUSAL_VERIFIED", "STRUCTURAL_ONLY"] for bounded execution
+   - HYPOTHESIS → DiscoveryRequest, never silent execution
+
+4. **Fully Auditable**
+   - Every PlannedAction names:
+     - The gap it addresses
+     - The capability selected
+     - Why that capability was chosen
+   - Plan.to_dict() produces machine-readable decision record
+
+5. **No Invention**
+   - Planner refuses unknown targets gracefully
+   - Unknown gap → DiscoveryRequest (not a guess)
+   - Unknown capability → BlockedGap (not a fallback)
+
+### Confidence Tracking
+
+Planner computes confidence based on capability statuses used in actions:
+
+- **"grounded"**: all actions CAUSAL_VERIFIED
+- **"bounded"**: mix of CAUSAL_VERIFIED and STRUCTURAL_ONLY
+- **"structural"**: all STRUCTURAL_ONLY
+- **"low"**: any HYPOTHESIS (executor will refuse these anyway)
+- **"unknown"**: no actions or unknown statuses
+
+### Example: "Make the bass darker and punchier for the peak"
+
+1. **Parse intent → GoalModel**
+   ```python
+   goal = GoalModel(
+       user_phrasing="Make the bass darker and punchier for the peak",
+       role="bass",
+       section_name="peak",
+       characteristics=MusicalCharacteristics(
+           character=[Character.DARK, Character.PUNCHY],
+       ),
+   )
+   ```
+
+2. **Ground goal against world state**
+   ```python
+   grounding = ground_goal(goal, world)
+   # Assuming world.roles["bass"].measured_characteristics:
+   #   brightness=0.5 (too high; contradicts "dark" goal)
+   #   attack_speed=0.5 (too slow; contradicts "punchy" goal)
+   # Result: 2 CONTRADICTORY gaps
+   ```
+
+3. **Planner decides**
+   ```python
+   planner = PlannerDecisionEngine(evidence_system)
+   plan = planner.plan(grounding)
+   
+   # Grounding:
+   #   - Gap 1 (dark): CONTRADICTORY, possible_capabilities=["Filter.Cutoff"]
+   #   - Gap 2 (punchy): CONTRADICTORY, possible_capabilities=["Env1.Attack"]
+   
+   # Planner finds capabilities:
+   #   - Filter.Cutoff: CAUSAL_VERIFIED ✓
+   #   - Env1.Attack: CAUSAL_VERIFIED ✓
+   
+   # Plan output:
+   #   - 2 PlannedActions
+   #   - no blocked gaps
+   #   - no discovery requests
+   #   - confidence="grounded"
+   ```
+
+4. **Executor runs actions**
+   - Read current Filter.Cutoff, Env1.Attack from Ableton
+   - Decide new values (compiler responsibility)
+   - Write via MCP
+   - Record audit trail
+
+5. **Measure and feedback**
+   - Render audio for role
+   - Measure brightness, attack_speed
+   - Update WorldModel
+   - Reground goal with new measurements
+   - Check if satisfied
+
+### Failure Case: "Give the bass a longer sustain"
+
+1. **Grounding** finds:
+   - Gap: sustain_length=LONG is MISSING (not measured)
+   - Or: sustain_length=LONG is CONSTRAINED ("no MCP mapping for Env1.Release")
+
+2. **Planner:**
+   - If MISSING: looks for capability, possibly finds Env1.Sustain in evidence
+   - If CONSTRAINED: adds BlockedGap (doesn't proceed)
+   - If no capability found: DiscoveryRequest
+
+3. **Key: NO silent parameter selection**
+   - Even if "sustain" maps to some parameter in the evidence system,
+   - If prerequisites are blocked, Planner refuses explicitly.
+   - If evidence is missing, Planner returns DiscoveryRequest.
