@@ -1,0 +1,49 @@
+{
+  "pilot": "Filter1.Cutoff Behavioral Qualification",
+  "timestamp": "2026-09-11T14:57:19.474136Z",
+  "chain_valid": true,
+  "acceptance": {
+    "context_recorded": true,
+    "baseline_rendered": true,
+    "mutated_rendered": true,
+    "single_field_isolation": true,
+    "effect_observed": true,
+    "exercise_qualification_valid": true
+  },
+  "exercise_qualification": {
+    "target_semantic_id": "Filter.Cutoff",
+    "target_cbor_path": "VoiceFilter0.plainParams.kParamFreq",
+    "frozen_context": {
+      "Filter 1 On": 1.0
+    },
+    "mutation_value": 0.9,
+    "causal_measurement": {
+      "metric": "spectral_centroid_hz",
+      "baseline": 463.08984236285244,
+      "treatment": 3147.4317714223102,
+      "delta": 2684.341929059458,
+      "expected_direction": "increase",
+      "observed_direction": "increase",
+      "threshold": null,
+      "status": "EFFECT_OBSERVED"
+    },
+    "isolation_level": "single_field",
+    "scope": "single_run_non_reusable",
+    "experiment_id": "filter_cutoff_pilot_001",
+    "is_valid": true
+  },
+  "behavior_result_raw": {
+    "status": "CAUSAL_VERIFIED",
+    "reason": "Effect: baseline=463.1 Hz, mutated=3147.4 Hz (delta=+2684.3 Hz, dir=increase)",
+    "baseline_metric": 463.08984236285244,
+    "mutated_metric": 3147.4317714223102,
+    "metric_name": "spectral_centroid_hz",
+    "expected_direction": "increase",
+    "observed_direction": "increase",
+    "baseline_rendered": true,
+    "mutated_rendered": true,
+    "delta": 2684.341929059458,
+    "experiment_id": "filter_cutoff_pilot_001",
+    "target_path": "VoiceFilter0.plainParams.kParamFreq"
+  }
+}
