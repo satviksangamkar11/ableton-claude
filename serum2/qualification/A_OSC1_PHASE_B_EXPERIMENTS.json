@@ -1,0 +1,53 @@
+{
+  "phase": "B",
+  "experiments": [
+    {
+      "semantic_id": "OSC1.Volume",
+      "vst3_name": "A Level",
+      "vst3_index": 21,
+      "route_mechanism": "host_param",
+      "generation_status": "PASS",
+      "state_diff": "no CBOR change",
+      "persistence": "host_param_only",
+      "restoration": "OK",
+      "rms_delta": 0.094018,
+      "observable": "YES"
+    },
+    {
+      "semantic_id": "OSC1.Pan",
+      "vst3_name": "A Pan",
+      "vst3_index": 22,
+      "route_mechanism": "host_param",
+      "generation_status": "PASS",
+      "state_diff": "no CBOR change",
+      "persistence": "host_param_only",
+      "restoration": "OK",
+      "rms_delta": 0.041685,
+      "observable": "YES"
+    },
+    {
+      "semantic_id": "OSC1.WarpMode",
+      "vst3_name": "A Warp Mode",
+      "vst3_index": 55,
+      "route_mechanism": "host_param",
+      "generation_status": "PASS",
+      "state_diff": "no CBOR change",
+      "persistence": "host_param_only",
+      "restoration": "OK",
+      "rms_delta": 0.04859,
+      "observable": "YES"
+    },
+    {
+      "semantic_id": "OSC1.WTPosition",
+      "vst3_name": "A WT Pos",
+      "vst3_index": 59,
+      "route_mechanism": "host_param",
+      "generation_status": "PASS",
+      "state_diff": "no CBOR change",
+      "persistence": "host_param_only",
+      "restoration": "OK",
+      "rms_delta": 0.224502,
+      "observable": "YES"
+    }
+  ]
+}
