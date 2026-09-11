@@ -116,6 +116,121 @@ Unless the current task explicitly requires it:
 
 These are audit/analysis boundaries, not implementation laziness.
 
+## Ableton MCP Execution Rules
+
+Ableton MCP commands are execution tools, not evidence generators. Evidence must come from actual MCP readbacks, never from inferred or simulated command results.
+
+### 15 Strict Rules
+
+1. **REAL TOOL CALLS ONLY**
+   - When an operation belongs to Ableton, use the actual Ableton MCP tool.
+   - Never simulate an Ableton MCP result in code, fixtures, comments, or logs.
+
+2. **COMMAND → OBSERVED → EVIDENCE**
+   - Every Ableton operation used in an experiment must be recorded as:
+     ```
+     COMMAND (what was requested)
+     OBSERVED RESULT (what MCP returned)
+     EVIDENCE (the captured value in the record)
+     ```
+
+3. **NO DAW STATE FABRICATION**
+   - Never write a value into an evidence record merely because the requested Ableton command was issued.
+   - Evidence must contain the value actually returned/read back by Ableton MCP.
+
+4. **READ BEFORE MUTATE**
+   - For any mutable Ableton state:
+     ```
+     get/read current state via MCP
+     → mutate with Ableton MCP
+     → read back with Ableton MCP
+     → restore with Ableton MCP
+     → read back again to verify
+     ```
+
+5. **RESTORATION IS REAL**
+   - A restoration claim is valid only when Ableton MCP confirms the restored value/state after the restore operation.
+   - No assumption-based restoration.
+
+6. **NO MCP-BEHAVIOR SUBSTITUTION**
+   - If Ableton MCP cannot perform an operation, DO NOT replace it with:
+     - direct .als editing
+     - fake MCP wrappers
+     - guessed parameter values
+     - UI assumptions
+     - DawDreamer as an Ableton-state substitute
+   - Instead: record the operation as unsupported/unavailable.
+
+7. **SERUM vs ABLETON SEPARATION**
+   - Serum VST3 parameter mutation through DawDreamer is NOT an Ableton MCP mutation.
+   - These are separate control routes with separate evidence chains:
+     ```
+     Serum/DawDreamer → Serum control plane (evidence: render output)
+     Ableton MCP       → Ableton/session control plane (evidence: MCP readback)
+     ```
+
+8. **MCP READBACK REQUIRED**
+   - A successful MCP command is not proof of state change.
+   - The returned/read-back state is the observation.
+   - No state claim without readback evidence.
+
+9. **NO ATOMICITY CLAIMS**
+   - If one semantic request dispatches multiple commands sequentially, report them as sequential operations.
+   - Do not claim atomic joint mutation unless the MCP actually provides and verifies atomicity.
+
+10. **CONTEXT MUST BE OBSERVED**
+    - If an experiment depends on Ableton context (tempo, track, device, routing, transport state, MIDI state, etc.), retrieve that context through the actual Ableton MCP command whenever the MCP exposes it.
+    - "Expected context" is not "verified context."
+    - Baseline context is established by MCP readback before the experiment.
+
+11. **MCP FAILURE IS EVIDENCE**
+    - A timeout, rejected command, unavailable tool, or failed readback must be recorded as execution failure/unavailable evidence.
+    - Never convert it into PASS by inference.
+
+12. **NO HIDDEN FALLBACK**
+    - Do not silently fall back from Ableton MCP to another mechanism.
+    - Any alternate mechanism must be explicitly designated as a different control route and separately evidenced.
+
+13. **EXPERIMENT ISOLATION**
+    - If Ableton state is part of an experiment:
+      1. Capture baseline state via MCP before experiment
+      2. Keep the treatment change isolated
+      3. Restore and verify restoration via MCP afterward
+    - Do not allow unrelated Ableton state changes to contaminate the experiment.
+
+14. **PRODUCER CLAIMS vs BEHAVIORAL CLAIMS**
+    - Ableton MCP evidence can establish Ableton/session state facts.
+    - It does NOT by itself establish Serum behavioral causality.
+    - Serum behavioral claims require the controlled experiment / measurement / ExerciseQualification evidence chain (DawDreamer-based).
+
+15. **FINAL REPORTING**
+    - For every experiment involving Ableton MCP, report the exact MCP operations actually executed and their observed results.
+    - Never report "Ableton was set to X" unless the MCP operation and readback establish X.
+
+### Control Route Architecture
+
+```
+                SEMANTIC REQUEST
+                       │
+         ┌─────────────┴─────────────┐
+         ▼                           ▼
+   Serum operation              Ableton operation
+         │                           │
+   DawDreamer / CBOR             Ableton MCP
+         │                           │
+         ▼                           ▼
+   Serum observation          Ableton observation
+         │                           │
+         └─────────────┬─────────────┘
+                       ▼
+                Experiment record
+                       │
+                       ▼
+                Evidence layer
+```
+
+Each control route has independent evidence requirements. Ableton operations cannot substitute for Serum causality evidence, and vice versa.
+
 ## Testing and Regression
 
 1. **Existing passing tests are regression contracts.**
