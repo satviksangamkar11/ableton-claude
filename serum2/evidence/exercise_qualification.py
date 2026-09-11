@@ -114,7 +114,7 @@ def make_exercise_qualification(
     status = behavior_result.get("status", "UNKNOWN")
 
     # Map behavior harness statuses to CausalMeasurement statuses
-    if status == "CAUSAL_VERIFIED":
+    if status in ("CAUSAL_VERIFIED", "EFFECT_OBSERVED"):
         cm_status = EFFECT_OBSERVED
     elif status == "NO_OBSERVED_EFFECT":
         from serum2.evidence.record import NO_OBSERVED_EFFECT

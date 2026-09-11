@@ -1,0 +1,284 @@
+{
+  "schema": "step_a_blocked_route_resolution_v1",
+  "generated_at": "2026-09-12T00:00:00Z",
+  "description": "VST3 discovery and experiment execution for the 8 previously-blocked behavioral experiments",
+
+  "vst3_discovery": {
+    "Filter2.Cutoff": {
+      "vst3_index": 216,
+      "vst3_name": "Filter 2 Freq",
+      "defaultValue": 0.5,
+      "numSteps": 2147483647,
+      "text_at_default": "425",
+      "route_status": "FOUND",
+      "activation_param": {"vst3_index": 214, "vst3_name": "Filter 2 On", "defaultValue": 0.0},
+      "source": "live_probe"
+    },
+    "OSC1.Level": {
+      "vst3_index": 21,
+      "vst3_name": "A Level",
+      "defaultValue": 0.75,
+      "numSteps": 2147483647,
+      "text_at_default": "75% [-5.0 dB]",
+      "route_status": "FOUND",
+      "source": "live_probe"
+    },
+    "OSC1.Detune": {
+      "vst3_index": 25,
+      "vst3_name": "A Fine",
+      "defaultValue": 0.5,
+      "numSteps": 2147483647,
+      "text_at_default": "0",
+      "route_status": "FOUND",
+      "note": "Fine-tune param (+-100 cents); used as detune route for OSC1",
+      "source": "live_probe"
+    },
+    "OSC2.Detune": {
+      "vst3_index": 80,
+      "vst3_name": "B Fine",
+      "defaultValue": 0.5,
+      "numSteps": 2147483647,
+      "text_at_default": "0",
+      "route_status": "FOUND",
+      "activation_param": {"vst3_index": 75, "vst3_name": "B Enable", "defaultValue": 0.0},
+      "note": "OSC B (OSC2) is off by default; must enable via context",
+      "source": "live_probe"
+    },
+    "Env1.Attack": {
+      "vst3_index": 224,
+      "vst3_name": "Env 1 Attack",
+      "defaultValue": 0.12559431791305542,
+      "numSteps": 2147483647,
+      "text_at_default": "1.0 ms",
+      "route_status": "FOUND",
+      "source": "live_probe"
+    },
+    "Env1.Release": {
+      "vst3_index": 228,
+      "vst3_name": "Env 1 Release",
+      "defaultValue": 0.2150000035762787,
+      "numSteps": 2147483647,
+      "text_at_default": "15 ms",
+      "route_status": "FOUND",
+      "source": "live_probe"
+    },
+    "LFO1.Rate+FilterMod": {
+      "vst3_index": 262,
+      "vst3_name": "LFO 1 Rate",
+      "defaultValue": 0.5,
+      "numSteps": 2147483647,
+      "route_status": "FOUND_PARAM_ONLY",
+      "note": "LFO 1 Rate param exists. However LFO modulation destination (LFO->Filter1.Cutoff routing) cannot be set via host param -- it is structural CBOR routing. No host param for LFO mod destination exists in the 2623-param inventory. Experiment remains BLOCKED_CONTEXT.",
+      "source": "live_probe"
+    },
+    "FXEQ.Freq1": {
+      "vst3_index": null,
+      "vst3_name": null,
+      "route_status": "NOT_FOUND",
+      "note": "FX EQ Band 1 Frequency has no dedicated host param. FX slots expose only generic 'FX Main Param 1-16' (indices 471-486), which remap to FX-type-specific params when an FX is loaded. No FX preset file is available to activate EQ in DawDreamer context. Route confirmed absent.",
+      "source": "live_probe"
+    }
+  },
+
+  "reclassification": {
+    "seed_filter2_cutoff_001": {
+      "old_status": "BLOCKED_NO_ROUTE",
+      "new_status": "READY",
+      "new_experiment_id": "seed_filter2_cutoff_002",
+      "reason": "Filter 2 Freq (index 216) found; Filter 2 On (index 214) activates filter via host param context"
+    },
+    "seed_osc1_level_001": {
+      "old_status": "BLOCKED_NO_ROUTE",
+      "new_status": "READY",
+      "new_experiment_id": "seed_osc1_level_002",
+      "reason": "A Level (index 21) found; A Enable=1.0 by default"
+    },
+    "seed_osc1_detune_001": {
+      "old_status": "BLOCKED_NO_ROUTE",
+      "new_status": "READY",
+      "new_experiment_id": "seed_osc1_detune_002",
+      "reason": "A Fine (index 25) found as fine-tune route for OSC1.Detune"
+    },
+    "seed_osc2_detune_001": {
+      "old_status": "BLOCKED_NO_ROUTE",
+      "new_status": "READY",
+      "new_experiment_id": "seed_osc2_detune_002",
+      "reason": "B Fine (index 80) found; B Enable (index 75) activates OSC2 via host param context"
+    },
+    "seed_env1_attack_001": {
+      "old_status": "BLOCKED_NO_ROUTE",
+      "new_status": "READY",
+      "new_experiment_id": "seed_env1_attack_002",
+      "reason": "Env 1 Attack (index 224) found as host param route"
+    },
+    "seed_env1_release_001": {
+      "old_status": "BLOCKED_NO_ROUTE",
+      "new_status": "READY",
+      "new_experiment_id": "seed_env1_release_002",
+      "reason": "Env 1 Release (index 228) found as host param route"
+    },
+    "seed_lfo1_rate_filter_modulation_001": {
+      "old_status": "BLOCKED_CONTEXT",
+      "new_status": "BLOCKED_CONTEXT",
+      "reason": "LFO 1 Rate param exists but modulation destination (LFO->Filter1.Cutoff) requires structural CBOR routing -- no host param for mod destination. Cannot set string 'Filter1.Cutoff' as float context value. Remains blocked."
+    },
+    "seed_fxeq_freq1_001": {
+      "old_status": "BLOCKED_NO_ROUTE",
+      "new_status": "BLOCKED_NO_ROUTE",
+      "reason": "No dedicated EQ Freq host param. FX Main Param 1-16 are generic slot params requiring a loaded FX preset. No FX preset available in DawDreamer context."
+    }
+  },
+
+  "executions": [
+    {
+      "experiment_id": "seed_filter2_cutoff_002",
+      "semantic_target": "Filter2.Cutoff",
+      "treatment_host_param_name": "Filter 2 Freq",
+      "treatment_host_param_value": 0.75,
+      "baseline_host_param_value": 0.5,
+      "context": {"Filter 2 On": 1.0},
+      "kernel": "spectral_centroid_hz",
+      "baseline_rendered": true,
+      "treatment_rendered": true,
+      "baseline_spectral_centroid_hz": 4378.134622380464,
+      "treatment_spectral_centroid_hz": 4378.134622380464,
+      "delta": 0.0,
+      "threshold": 50.0
+    },
+    {
+      "experiment_id": "seed_osc1_level_002",
+      "semantic_target": "OSC1.Level",
+      "treatment_host_param_name": "A Level",
+      "treatment_host_param_value": 0.25,
+      "baseline_host_param_value": 0.75,
+      "context": {},
+      "kernel": "rms_db",
+      "baseline_rendered": true,
+      "treatment_rendered": true,
+      "baseline_rms_db": -20.054929131203785,
+      "treatment_rms_db": -39.139778668735595,
+      "delta": -19.08484953753181,
+      "threshold": 1.0
+    },
+    {
+      "experiment_id": "seed_osc1_detune_002",
+      "semantic_target": "OSC1.Detune",
+      "treatment_host_param_name": "A Fine",
+      "treatment_host_param_value": 0.75,
+      "baseline_host_param_value": 0.5,
+      "context": {},
+      "kernel": "fundamental_frequency_hz",
+      "derived_kernel": "pitch_shift_semitones",
+      "baseline_rendered": true,
+      "treatment_rendered": true,
+      "baseline_fundamental_hz": 261.5,
+      "treatment_fundamental_hz": 269.0,
+      "delta_hz": 7.5,
+      "pitch_shift_semitones": 0.48954271571619273,
+      "threshold_hz": 1.0,
+      "threshold_semitones": 0.1
+    },
+    {
+      "experiment_id": "seed_osc2_detune_002",
+      "semantic_target": "OSC2.Detune",
+      "treatment_host_param_name": "B Fine",
+      "treatment_host_param_value": 0.75,
+      "baseline_host_param_value": 0.5,
+      "context": {"B Enable": 1.0},
+      "kernel": "fundamental_frequency_hz",
+      "derived_kernel": "pitch_shift_semitones",
+      "baseline_rendered": true,
+      "treatment_rendered": true,
+      "baseline_fundamental_hz": 261.5,
+      "treatment_fundamental_hz": 261.5,
+      "delta_hz": 0.0,
+      "pitch_shift_semitones": 0.0,
+      "threshold_hz": 1.0,
+      "threshold_semitones": 0.1
+    },
+    {
+      "experiment_id": "seed_env1_attack_002",
+      "semantic_target": "Env1.Attack",
+      "treatment_host_param_name": "Env 1 Attack",
+      "treatment_host_param_value": 0.6,
+      "baseline_host_param_value": 0.12559431791305542,
+      "context": {},
+      "kernel": "rms_db",
+      "baseline_rendered": true,
+      "treatment_rendered": true,
+      "baseline_rms_db": -20.054929131203785,
+      "treatment_rms_db": -29.20805300220916,
+      "delta": -9.153123871005374,
+      "threshold": 0.5
+    },
+    {
+      "experiment_id": "seed_env1_release_002",
+      "semantic_target": "Env1.Release",
+      "treatment_host_param_name": "Env 1 Release",
+      "treatment_host_param_value": 0.8,
+      "baseline_host_param_value": 0.2150000035762787,
+      "context": {},
+      "kernel": "tail_rms_db",
+      "baseline_rendered": true,
+      "treatment_rendered": true,
+      "baseline_tail_rms_db": -20.71649517114178,
+      "treatment_tail_rms_db": -19.050182437103032,
+      "delta": 1.6663127340387476,
+      "threshold": 1.0
+    }
+  ],
+
+  "qualifications": [
+    {
+      "experiment_id": "seed_filter2_cutoff_002",
+      "semantic_target": "Filter2.Cutoff",
+      "status": "NO_OBSERVED_EFFECT",
+      "reason": "Spectral centroid identical (delta=0.0) in both arms despite Filter 2 On context and Filter 2 Freq treatment. Setting 'Filter 2 On'=1.0 via host param does not route signal through Filter 2 in the DawDreamer context. Filter 2 activation requires structural audio routing not achievable via host param context alone."
+    },
+    {
+      "experiment_id": "seed_osc1_level_002",
+      "semantic_target": "OSC1.Level",
+      "status": "EFFECT_OBSERVED",
+      "reason": "RMS delta = -19.08 dB (threshold 1.0 dB). Reducing A Level from 0.75 to 0.25 produces a large measurable amplitude decrease."
+    },
+    {
+      "experiment_id": "seed_osc1_detune_002",
+      "semantic_target": "OSC1.Detune",
+      "status": "EFFECT_OBSERVED",
+      "reason": "Fundamental frequency shifted from 261.5 Hz to 269.0 Hz (delta=7.5 Hz, threshold=1.0 Hz). Pitch shift = 0.49 semitones (threshold=0.1 semitones). A Fine detune controls OSC1 pitch measurably."
+    },
+    {
+      "experiment_id": "seed_osc2_detune_002",
+      "semantic_target": "OSC2.Detune",
+      "status": "NO_OBSERVED_EFFECT",
+      "reason": "Fundamental frequency unchanged (261.5 Hz both arms, delta=0.0) when B Fine changed from 0.5 to 0.75 with B Enable=1.0. The harmonic_sum_f0 estimator locks onto the dominant pitch from OSC A+B combined; OSC2 fine-tune detune produces beating but does not shift the detected fundamental under this kernel."
+    },
+    {
+      "experiment_id": "seed_env1_attack_002",
+      "semantic_target": "Env1.Attack",
+      "status": "EFFECT_OBSERVED",
+      "reason": "RMS delta = -9.15 dB (threshold 0.5 dB). Longer attack (0.6 vs 0.126 normalized) reduces energy in the fixed 2s render window, confirming Env1.Attack controls the amplitude envelope rise time."
+    },
+    {
+      "experiment_id": "seed_env1_release_002",
+      "semantic_target": "Env1.Release",
+      "status": "EFFECT_OBSERVED",
+      "reason": "Tail RMS delta = +1.67 dB (threshold 1.0 dB). Longer release (0.8 vs 0.215 normalized) produces more energy in the signal tail after note-off, confirming Env1.Release controls amplitude decay."
+    }
+  ],
+
+  "still_blocked": [
+    {
+      "experiment_id": "seed_lfo1_rate_filter_modulation_001",
+      "semantic_target": "LFO1.Rate",
+      "status": "BLOCKED_CONTEXT",
+      "reason": "LFO modulation destination requires structural CBOR routing; no host param for mod destination exists"
+    },
+    {
+      "experiment_id": "seed_fxeq_freq1_001",
+      "semantic_target": "FXEQ.Freq1",
+      "status": "BLOCKED_NO_ROUTE",
+      "reason": "No dedicated EQ Freq host param; FX slot params are generic without a loaded preset"
+    }
+  ]
+}

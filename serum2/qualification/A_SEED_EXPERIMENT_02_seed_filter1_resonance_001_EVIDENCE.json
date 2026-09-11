@@ -1,0 +1,52 @@
+{
+  "success": true,
+  "experiment_id": "seed_filter1_resonance_001",
+  "behavior_observation": {
+    "experiment_id": "seed_filter1_resonance_001",
+    "timestamp": "2026-09-11T15:35:12.222696+00:00",
+    "semantic_target": "Filter1.Resonance",
+    "operation": "SET_PARAMETER",
+    "context": {
+      "Filter 1 On": 1.0
+    },
+    "context_provenance": "filter must be active; resonance affects tone only when filter is processing",
+    "baseline_intervention": {
+      "cbor_overrides": {},
+      "host_context": []
+    },
+    "treatment_intervention": {
+      "cbor_path": "VoiceFilter0.plainParams.kParamReso",
+      "cbor_value": 0.9,
+      "host_param_name": null,
+      "host_param_value": null,
+      "host_context": []
+    },
+    "baseline_rendered": true,
+    "treatment_rendered": true,
+    "baseline_render_time_sec": 0.280767,
+    "treatment_render_time_sec": 0.256628,
+    "measurements": [
+      {
+        "name": "spectral_centroid_hz",
+        "kernel": "spectral_centroid_hz",
+        "baseline": 463.08984236285244,
+        "treatment": 476.872746796769,
+        "delta": 13.782904433916542,
+        "threshold": 100.0,
+        "status": "NO_OBSERVED_EFFECT"
+      },
+      {
+        "name": "overall_rms_db",
+        "kernel": "rms_db",
+        "baseline": -23.653763650437888,
+        "treatment": -24.50955280904504,
+        "delta": -0.855789158607152,
+        "threshold": 1.0,
+        "status": "NO_OBSERVED_EFFECT"
+      }
+    ],
+    "isolation_level": "single_field",
+    "execution_notes": null
+  },
+  "exercise_qualification": null
+}

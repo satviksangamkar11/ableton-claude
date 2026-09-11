@@ -1,6 +1,8 @@
 """Audio measurements. Each returns a scalar for a named metric."""
 import numpy as np
 
+from serum2.behavior.measurement.pitch import fundamental_frequency_hz
+
 SR = 44100
 
 
@@ -34,6 +36,9 @@ METRICS = {
     "spectral_centroid_hz": spectral_centroid_hz,
     "tail_rms_db": tail_rms_db,
     "rms_db": rms_db,
+    # Pitch measurement — harmonic summation; robust when overtones > fundamental.
+    # Returns F0 in Hz.  Pair with pitch_shift_semitones (derived dimension).
+    "fundamental_frequency_hz": fundamental_frequency_hz,
 }
 
 

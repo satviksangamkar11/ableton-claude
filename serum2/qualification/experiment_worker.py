@@ -31,12 +31,34 @@ from serum2.evidence.harness import build_arm
 from serum2.evidence.behavior_observation import BehaviorObservation, MeasurementDimension
 from serum2.evidence.exercise_qualification import make_exercise_qualification
 from serum2.evidence.measure import METRICS
-from serum2.qualification.behavior_experiment import BehaviorExperiment
+from serum2.behavior.measurement.pitch import semitone_shift
+from serum2.qualification.behavior_experiment import BehaviorExperiment, MeasurementPlan
 
 
 SR = 44100
 BLOCK = 512
 VST3 = epoch_mod.SERUM_VST3
+
+
+def is_valid_signal(audio: np.ndarray) -> dict:
+    """Check whether an audio array contains a real (non-silent, finite) signal.
+
+    Returns a dict with keys: peak, nonzero_fraction, valid.
+    Gate logic: peak > 1e-6 (above numerical noise) AND nonzero_fraction > 0.01
+    (at least 1% non-zero samples) AND all values finite.
+
+    Deliberately avoids any absolute dBFS threshold — the default Serum skeleton
+    produces real audio at ~-20 dBFS RMS; a gate of rms_db > -20 would
+    incorrectly reject valid signals.
+    """
+    peak = float(np.max(np.abs(audio)))
+    nonzero_fraction = float(np.count_nonzero(audio) / audio.size)
+    valid = bool(
+        np.isfinite(audio).all()
+        and peak > 1e-6
+        and nonzero_fraction > 0.01
+    )
+    return {"peak": peak, "nonzero_fraction": nonzero_fraction, "valid": valid}
 
 
 def _compute_metric(audio: np.ndarray, kernel: str) -> Optional[float]:
@@ -69,7 +91,15 @@ def run_experiment_worker(experiment_spec: Dict[str, Any]) -> Dict[str, Any]:
 
     try:
         # Reconstruct BehaviorExperiment from dict
-        exp = BehaviorExperiment(**experiment_spec)
+        # Measurement plan comes as dicts, need to reconstruct as MeasurementPlan objects
+        spec_copy = experiment_spec.copy()
+        measurement_plan_dicts = spec_copy.get("measurement_plan", [])
+        spec_copy["measurement_plan"] = tuple(
+            MeasurementPlan(**mp) if isinstance(mp, dict) else mp
+            for mp in measurement_plan_dicts
+        )
+
+        exp = BehaviorExperiment(**spec_copy)
         exp.validate()
 
         # Load skeleton (fresh Serum instance)
@@ -106,18 +136,44 @@ def run_experiment_worker(experiment_spec: Dict[str, Any]) -> Dict[str, Any]:
         end_baseline = datetime.datetime.now()
         baseline_render_time = (end_baseline - start_baseline).total_seconds()
 
+        # Treatment arm: apply treatment-specific host param if specified
+        treatment_extra: list = []
+        if exp.treatment_host_param_name is not None and exp.treatment_host_param_value is not None:
+            treatment_extra = [(exp.treatment_host_param_name, float(exp.treatment_host_param_value))]
+
         start_treatment = datetime.datetime.now()
-        audio_treatment = _render_arm(meta_treatment, body_treatment, exp)
+        audio_treatment = _render_arm(meta_treatment, body_treatment, exp, extra_host_context=treatment_extra)
         end_treatment = datetime.datetime.now()
         treatment_render_time = (end_treatment - start_treatment).total_seconds()
 
-        # Apply host context mutations (if any)
+        # Signal validity checks
+        baseline_validity: Optional[dict] = None
+        treatment_validity: Optional[dict] = None
+
         baseline_rendered = audio_baseline is not None and audio_baseline.shape[0] > 0
         treatment_rendered = audio_treatment is not None and audio_treatment.shape[0] > 0
 
-        # Measure all dimensions
-        measurements = []
+        if baseline_rendered:
+            baseline_validity = is_valid_signal(audio_baseline)
+            if not baseline_validity["valid"]:
+                baseline_rendered = False
+
+        if treatment_rendered:
+            treatment_validity = is_valid_signal(audio_treatment)
+            if not treatment_validity["valid"]:
+                treatment_rendered = False
+
+        # Measure all dimensions.
+        # Pass 1: compute direct (non-derived) dimensions from audio.
+        # Pass 2: compute derived dimensions from already-measured values.
+        measurements: list[MeasurementDimension] = []
+        measured_by_name: dict[str, MeasurementDimension] = {}
+
         for plan in exp.measurement_plan:
+            if plan.derived_from is not None:
+                # Deferred — resolved in pass 2.
+                continue
+
             baseline_metric = None
             treatment_metric = None
             delta = None
@@ -132,27 +188,73 @@ def run_experiment_worker(experiment_spec: Dict[str, Any]) -> Dict[str, Any]:
             if baseline_metric is not None and treatment_metric is not None:
                 delta = treatment_metric - baseline_metric
                 abs_delta = abs(delta)
-
-                # Classify
                 if plan.threshold is not None:
-                    if abs_delta < plan.threshold:
-                        status = "NO_OBSERVED_EFFECT"
-                    else:
-                        status = "EFFECT_OBSERVED"
+                    status = "NO_OBSERVED_EFFECT" if abs_delta < plan.threshold else "EFFECT_OBSERVED"
                 else:
                     status = "EFFECT_OBSERVED" if abs_delta > 0 else "NO_OBSERVED_EFFECT"
 
-            measurements.append(
-                MeasurementDimension(
-                    name=plan.name,
-                    kernel=plan.kernel,
-                    baseline=baseline_metric,
-                    treatment=treatment_metric,
-                    delta=delta,
-                    threshold=plan.threshold,
-                    status=status,
-                )
+            dim = MeasurementDimension(
+                name=plan.name,
+                kernel=plan.kernel,
+                baseline=baseline_metric,
+                treatment=treatment_metric,
+                delta=delta,
+                threshold=plan.threshold,
+                status=status,
             )
+            measurements.append(dim)
+            measured_by_name[plan.name] = dim
+
+        # Pass 2: derived dimensions.
+        for plan in exp.measurement_plan:
+            if plan.derived_from is None:
+                continue
+
+            baseline_metric = None
+            treatment_metric = None
+            delta = None
+            status = "NOT_RUN"
+
+            source = measured_by_name.get(plan.derived_from)
+            if source is not None and source.baseline is not None and source.treatment is not None:
+                if plan.kernel == "pitch_shift_semitones":
+                    try:
+                        delta = semitone_shift(source.baseline, source.treatment)
+                        # baseline is 0 by definition (shift relative to self)
+                        baseline_metric = 0.0
+                        treatment_metric = delta
+                    except ValueError:
+                        status = "EXPERIMENT_FAILURE"
+                else:
+                    # Generic derived: treatment - baseline of source
+                    delta = source.treatment - source.baseline
+                    baseline_metric = source.baseline
+                    treatment_metric = source.treatment
+
+                if status != "EXPERIMENT_FAILURE" and delta is not None:
+                    abs_delta = abs(delta)
+                    if plan.threshold is not None:
+                        status = "NO_OBSERVED_EFFECT" if abs_delta < plan.threshold else "EFFECT_OBSERVED"
+                    else:
+                        status = "EFFECT_OBSERVED" if abs_delta != 0 else "NO_OBSERVED_EFFECT"
+
+            dim = MeasurementDimension(
+                name=plan.name,
+                kernel=plan.kernel,
+                baseline=baseline_metric,
+                treatment=treatment_metric,
+                delta=delta,
+                threshold=plan.threshold,
+                status=status,
+            )
+            measurements.append(dim)
+            measured_by_name[plan.name] = dim
+
+        # Build validity notes for execution_notes
+        validity_notes = {
+            "baseline_validity": baseline_validity,
+            "treatment_validity": treatment_validity,
+        }
 
         # Build BehaviorObservation
         observation = BehaviorObservation(
@@ -179,6 +281,7 @@ def run_experiment_worker(experiment_spec: Dict[str, Any]) -> Dict[str, Any]:
             treatment_render_time_sec=treatment_render_time,
             measurements=tuple(measurements),
             isolation_level="single_field",
+            execution_notes=json.dumps(validity_notes),
         )
 
         # Build ExerciseQualification
@@ -225,10 +328,17 @@ def run_experiment_worker(experiment_spec: Dict[str, Any]) -> Dict[str, Any]:
         }
 
 
-def _render_arm(meta: Dict[str, Any], body: Dict[str, Any], exp: BehaviorExperiment) -> Optional[np.ndarray]:
+def _render_arm(
+    meta: Dict[str, Any],
+    body: Dict[str, Any],
+    exp: BehaviorExperiment,
+    extra_host_context: Optional[list] = None,
+) -> Optional[np.ndarray]:
     """Render one arm (baseline or treatment).
 
     Applies exercise context host params + arm-specific host context.
+    extra_host_context: additional (name, value) pairs applied after shared context,
+    used for treatment-specific host param mutations.
     Returns audio array or None on failure.
     """
     try:
@@ -248,6 +358,10 @@ def _render_arm(meta: Dict[str, Any], body: Dict[str, Any], exp: BehaviorExperim
 
         # Apply shared context (both arms)
         _apply_host_context(synth, [(k, float(v)) for k, v in exp.context.items()])
+
+        # Apply arm-specific extra host context (treatment mutations via host params)
+        if extra_host_context:
+            _apply_host_context(synth, extra_host_context)
 
         synth.clear_midi()
         synth.add_midi_note(60, 100, 0.0, 1.5)

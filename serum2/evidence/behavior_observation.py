@@ -37,30 +37,20 @@ class BehaviorObservation:
 
     experiment_id: str
     timestamp: str                      # ISO datetime when experiment ran
-
-    # Experiment setup (what was requested, not what was necessarily achieved)
     semantic_target: str                # e.g., "Filter1.Cutoff"
     operation: str                      # e.g., "SET_PARAMETER"
-
-    # Context (how the experiment was configured)
     context: Dict[str, Any]             # host params, signal path config, etc.
     context_provenance: str             # why this context was chosen
-
-    # Intervention (what changed between arms)
     baseline_intervention: Dict[str, Any]  # baseline arm state
     treatment_intervention: Dict[str, Any] # treatment arm state
-
-    # Rendering (both arms executed successfully or not)
     baseline_rendered: bool
     treatment_rendered: bool
-    baseline_render_time_sec: Optional[float]
-    treatment_render_time_sec: Optional[float]
-
-    # All measurements (observation-only, no interpretation)
-    measurements: Tuple[MeasurementDimension, ...] = field(default_factory=tuple)
-
-    # Metadata
     isolation_level: str                # "single_field" (only one param differs)
+
+    # Optional fields
+    baseline_render_time_sec: Optional[float] = None
+    treatment_render_time_sec: Optional[float] = None
+    measurements: Tuple[MeasurementDimension, ...] = field(default_factory=tuple)
     execution_notes: Optional[str] = None
 
     def to_dict(self) -> Dict[str, Any]:

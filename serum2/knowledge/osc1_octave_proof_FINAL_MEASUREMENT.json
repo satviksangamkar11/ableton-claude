@@ -1,0 +1,187 @@
+{
+  "purpose": "OSC1.Octave proof \u2014 corrected F0 measurement (harmonic summation)",
+  "forensic_history_preserved": {
+    "original_experiment": "serum2/knowledge/osc1_octave_proof_EVIDENCE.json",
+    "first_remeasure_attempt": "serum2/knowledge/osc1_octave_proof_CORRECTED_MEASUREMENT.json"
+  },
+  "parameter_readbacks": {
+    "baseline_set": 0.5,
+    "baseline_readback": 0.5,
+    "treatment_set": 0.625,
+    "treatment_readback": 0.625
+  },
+  "old_estimator_acf": {
+    "baseline_hz": 130.86053412462908,
+    "treatment_hz": 525.0,
+    "delta_semitones": 24.051448,
+    "failure_mode": "sub_harmonic_period_lock_on_baseline",
+    "gate_pass": false
+  },
+  "corrected_estimator_harmonic_sum": {
+    "method": "harmonic_sum",
+    "n_harmonics": 8,
+    "f_lo": 80.0,
+    "f_hi": 600.0,
+    "baseline": {
+      "hz": 261.1111,
+      "method": "harmonic_sum",
+      "n_harmonics": 8,
+      "score": 3455910.639,
+      "runner_up_hz": 131.1111,
+      "runner_up_score": 3342651.69,
+      "score_ratio": 1.0339,
+      "top5_candidates": [
+        [
+          261.111,
+          3455910.6
+        ],
+        [
+          262.222,
+          3382333.8
+        ],
+        [
+          131.111,
+          3342651.7
+        ],
+        [
+          260.0,
+          2467660.9
+        ],
+        [
+          130.0,
+          2467660.5
+        ]
+      ],
+      "harmonic_detail": [
+        {
+          "harmonic": 1,
+          "freq_hz": 261.111,
+          "power": 2380975.064
+        },
+        {
+          "harmonic": 2,
+          "freq_hz": 522.222,
+          "power": 595361.611
+        },
+        {
+          "harmonic": 3,
+          "freq_hz": 783.333,
+          "power": 262075.119
+        },
+        {
+          "harmonic": 4,
+          "freq_hz": 1044.444,
+          "power": 133542.175
+        },
+        {
+          "harmonic": 5,
+          "freq_hz": 1305.556,
+          "power": 60696.424
+        },
+        {
+          "harmonic": 6,
+          "freq_hz": 1566.667,
+          "power": 19640.779
+        },
+        {
+          "harmonic": 7,
+          "freq_hz": 1827.778,
+          "power": 3460.002
+        },
+        {
+          "harmonic": 8,
+          "freq_hz": 2088.889,
+          "power": 159.465
+        }
+      ],
+      "rationale": "Harmonic summation selected 261.11 Hz as fundamental. Its 8-harmonic series score (3455910.6) is 1.03\u00d7 higher than runner-up at 131.11 Hz (3342651.7). An overtone candidate would miss energy at its own sub-harmonics, scoring lower."
+    },
+    "treatment": {
+      "hz": 523.3333,
+      "method": "harmonic_sum",
+      "n_harmonics": 8,
+      "score": 3634417.467,
+      "runner_up_hz": 261.1111,
+      "runner_up_score": 2994803.797,
+      "score_ratio": 1.2136,
+      "top5_candidates": [
+        [
+          523.333,
+          3634417.5
+        ],
+        [
+          522.222,
+          2994833.8
+        ],
+        [
+          261.111,
+          2994803.8
+        ],
+        [
+          174.444,
+          2976554.4
+        ],
+        [
+          524.444,
+          2848154.7
+        ]
+      ],
+      "harmonic_detail": [
+        {
+          "harmonic": 1,
+          "freq_hz": 523.333,
+          "power": 2381604.913
+        },
+        {
+          "harmonic": 2,
+          "freq_hz": 1046.667,
+          "power": 594949.487
+        },
+        {
+          "harmonic": 3,
+          "freq_hz": 1570.0,
+          "power": 264103.979
+        },
+        {
+          "harmonic": 4,
+          "freq_hz": 2093.333,
+          "power": 148327.382
+        },
+        {
+          "harmonic": 5,
+          "freq_hz": 2616.667,
+          "power": 94759.851
+        },
+        {
+          "harmonic": 6,
+          "freq_hz": 3140.0,
+          "power": 65681.963
+        },
+        {
+          "harmonic": 7,
+          "freq_hz": 3663.333,
+          "power": 48168.882
+        },
+        {
+          "harmonic": 8,
+          "freq_hz": 4186.667,
+          "power": 36821.01
+        }
+      ],
+      "rationale": "Harmonic summation selected 523.33 Hz as fundamental. Its 8-harmonic series score (3634417.5) is 1.21\u00d7 higher than runner-up at 261.11 Hz (2994803.8). An overtone candidate would miss energy at its own sub-harmonics, scoring lower."
+    },
+    "delta_semitones": 12.036795,
+    "gate_pass": true
+  },
+  "selection_rationale": "Harmonic summation scores each candidate by its full harmonic series. The true fundamental captures energy at ALL overtone positions; an overtone candidate misses energy at its own sub-harmonics. This directly resolves the case where the first harmonic is stronger than the fundamental without any post-hoc octave correction.",
+  "full_experiment_gates": {
+    "baseline_valid": true,
+    "treatment_step_ok": true,
+    "treatment_valid": true,
+    "semitone_ok": true,
+    "octave_restore_ok": true,
+    "enable_unchanged": true
+  },
+  "overall_success": true,
+  "measurement_qualification": "PASS"
+}

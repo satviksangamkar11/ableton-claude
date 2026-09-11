@@ -1,0 +1,50 @@
+{
+  "success": true,
+  "experiment_id": "seed_lfo1_rate_no_destination_001",
+  "behavior_observation": {
+    "experiment_id": "seed_lfo1_rate_no_destination_001",
+    "timestamp": "2026-09-11T15:35:19.414159+00:00",
+    "semantic_target": "LFO1.Rate",
+    "operation": "SET_PARAMETER",
+    "context": {},
+    "context_provenance": "LFO1 with no modulation destination produces no audible effect; confirms control isolation",
+    "baseline_intervention": {
+      "cbor_overrides": {},
+      "host_context": []
+    },
+    "treatment_intervention": {
+      "cbor_path": "VoiceModulation0.plainParams.kParamRate",
+      "cbor_value": 0.5,
+      "host_param_name": null,
+      "host_param_value": null,
+      "host_context": []
+    },
+    "baseline_rendered": true,
+    "treatment_rendered": true,
+    "baseline_render_time_sec": 0.259074,
+    "treatment_render_time_sec": 0.227575,
+    "measurements": [
+      {
+        "name": "overall_rms_db",
+        "kernel": "rms_db",
+        "baseline": -20.054929131203785,
+        "treatment": -20.054929131203785,
+        "delta": 0.0,
+        "threshold": 0.5,
+        "status": "NO_OBSERVED_EFFECT"
+      },
+      {
+        "name": "spectral_centroid_hz",
+        "kernel": "spectral_centroid_hz",
+        "baseline": 4378.134622380464,
+        "treatment": 4378.134622380464,
+        "delta": 0.0,
+        "threshold": 50.0,
+        "status": "NO_OBSERVED_EFFECT"
+      }
+    ],
+    "isolation_level": "single_field",
+    "execution_notes": null
+  },
+  "exercise_qualification": null
+}

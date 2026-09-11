@@ -19,6 +19,12 @@ class MeasurementPlan:
     name: str                           # user-facing name (e.g., "spectral_centroid_hz")
     kernel: str                         # kernel function (e.g., "spectral_centroid")
     threshold: Optional[float] = None   # meaningful effect size for this dimension
+    # derived_from: if set, this dimension is computed from another dimension's
+    # baseline/treatment values rather than directly from audio.
+    # Supported derived kernels:
+    #   "pitch_shift_semitones" — 12 * log2(treatment_hz / baseline_hz),
+    #                             requires derived_from="<fundamental_frequency_hz dim name>"
+    derived_from: Optional[str] = None
 
 
 @dataclass(frozen=True)
@@ -32,16 +38,14 @@ class BehaviorExperiment:
     """
 
     experiment_id: str
-
-    # What we're testing
     semantic_target: str                # e.g., "Filter1.Cutoff"
     operation: str                      # e.g., "SET_PARAMETER"
-
-    # Context (applied to BOTH arms identically)
     context: Dict[str, Any]             # e.g., {"Filter1On": 1.0}
     context_provenance: str             # why this context (e.g., "filter must be active")
+    measurement_plan: Tuple[MeasurementPlan, ...]  # required; what to measure
+    expected_outcome: str               # EFFECT_OBSERVED | NO_OBSERVED_EFFECT | CONDITIONAL | UNKNOWN
 
-    # Intervention (what differs between arms)
+    # Intervention (what differs between arms) — all optional
     baseline_override: Optional[Dict[str, Any]] = None  # CBOR path → value
     baseline_host_context: Optional[List[Tuple[str, float]]] = None  # host params for baseline arm
     treatment_cbor_path: Optional[str] = None  # CBOR path to mutate
@@ -50,11 +54,7 @@ class BehaviorExperiment:
     treatment_host_param_name: Optional[str] = None  # if mutating via host param
     treatment_host_param_value: Optional[float] = None  # host param treatment value
 
-    # Measurements (what to capture from both renders)
-    measurement_plan: Tuple[MeasurementPlan, ...] = field(default_factory=tuple)
-
-    # Expectation
-    expected_outcome: str               # EFFECT_OBSERVED | NO_OBSERVED_EFFECT | CONDITIONAL | UNKNOWN
+    # Expectation direction
     expected_direction: Optional[str] = None  # "increase" | "decrease" | "change" | None
 
     # Metadata
@@ -112,6 +112,7 @@ class BehaviorExperiment:
                     "name": m.name,
                     "kernel": m.kernel,
                     "threshold": m.threshold,
+                    "derived_from": m.derived_from,
                 }
                 for m in self.measurement_plan
             ],

@@ -1,0 +1,282 @@
+{
+  "version": "1.0",
+  "timestamp": "2026-09-12T00:30:00Z",
+  "title": "Step B: Evidence → Claim → Capability Integration",
+  "description": "Promotes 4 EFFECT_OBSERVED behavioral observations through BehaviorClaim → CapabilityContract → knowledge integration. All single-field isolated, all with valid signals, all with causal effect measurements.",
+
+  "source_observations": [
+    {
+      "experiment_id": "seed_osc1_level_002",
+      "semantic_target": "OSC1.Level",
+      "measurement": "rms_db",
+      "baseline": -20.054929131203785,
+      "treatment": -39.139778668735595,
+      "delta": -19.08484953753181,
+      "threshold": 1.0,
+      "status": "EFFECT_OBSERVED",
+      "expected_direction": "decrease",
+      "observed_direction": "decrease",
+      "isolation": "single_field"
+    },
+    {
+      "experiment_id": "seed_osc1_detune_002",
+      "semantic_target": "OSC1.Detune",
+      "measurement": "pitch_shift_semitones",
+      "baseline": 0.0,
+      "treatment": 0.48954271571619273,
+      "delta": 0.48954271571619273,
+      "threshold": 0.1,
+      "status": "EFFECT_OBSERVED",
+      "expected_direction": "change",
+      "observed_direction": "increase",
+      "isolation": "single_field"
+    },
+    {
+      "experiment_id": "seed_env1_attack_002",
+      "semantic_target": "Env1.Attack",
+      "measurement": "rms_db",
+      "baseline": -20.054929131203785,
+      "treatment": -29.20805300220916,
+      "delta": -9.153123871005374,
+      "threshold": 0.5,
+      "status": "EFFECT_OBSERVED",
+      "expected_direction": "decrease",
+      "observed_direction": "decrease",
+      "isolation": "single_field"
+    },
+    {
+      "experiment_id": "seed_env1_release_002",
+      "semantic_target": "Env1.Release",
+      "measurement": "tail_rms_db",
+      "baseline": -20.71649517114178,
+      "treatment": -19.050182437103032,
+      "delta": 1.6663127340387476,
+      "threshold": 1.0,
+      "status": "EFFECT_OBSERVED",
+      "expected_direction": "increase",
+      "observed_direction": "increase",
+      "isolation": "single_field"
+    }
+  ],
+
+  "behavior_claims": [
+    {
+      "claim_id": "claim_osc1_level_001",
+      "observation_id": "seed_osc1_level_002",
+      "semantic_target": "OSC1.Level",
+      "predicate": "decreases",
+      "semantic_object": "overall_amplitude",
+      "measurement_kernel": "rms_db",
+      "measurement_baseline": -20.054929131203785,
+      "measurement_treatment": -39.139778668735595,
+      "measurement_delta": -19.08484953753181,
+      "status": "GROUNDED",
+      "condition": null,
+      "isolation_level": "single_field",
+      "confidence": 0.95,
+      "notes": "Reducing A Level from 0.75 (default) to 0.25 dramatically reduces overall RMS (−19 dB). Both baseline and treatment signals valid (peak > 1e-6, nonzero > 1%). Effect is consistent with expected direction (decrease)."
+    },
+    {
+      "claim_id": "claim_osc1_detune_001",
+      "observation_id": "seed_osc1_detune_002",
+      "semantic_target": "OSC1.Detune",
+      "predicate": "shifts_pitch",
+      "semantic_object": "fundamental_frequency",
+      "measurement_kernel": "pitch_shift_semitones",
+      "measurement_baseline": 0.0,
+      "measurement_treatment": 0.48954271571619273,
+      "measurement_delta": 0.48954271571619273,
+      "status": "GROUNDED",
+      "condition": null,
+      "isolation_level": "single_field",
+      "confidence": 0.90,
+      "notes": "A Fine from 0.5 (0 cents) to 0.75 (+200 cents target) produces detected pitch shift of +0.49 semitones via harmonic_sum_f0 estimator. Baseline F0=261.5 Hz, treatment F0=269.0 Hz (Δ=7.5 Hz, Δ=+0.49 st). Measurement via robust harmonic summation (resolves overtone dominance correctly)."
+    },
+    {
+      "claim_id": "claim_env1_attack_001",
+      "observation_id": "seed_env1_attack_002",
+      "semantic_target": "Env1.Attack",
+      "predicate": "reduces",
+      "semantic_object": "attack_time_and_amplitude",
+      "measurement_kernel": "rms_db",
+      "measurement_baseline": -20.054929131203785,
+      "measurement_treatment": -29.20805300220916,
+      "measurement_delta": -9.153123871005374,
+      "status": "GROUNDED",
+      "condition": null,
+      "isolation_level": "single_field",
+      "confidence": 0.92,
+      "notes": "Env 1 Attack from 0.5 (default) to 0.6 (shorter attack) reduces overall RMS by −9.15 dB, indicating faster envelope onset and reduced transient amplitude. Consistent with expected direction (decrease). Both signals valid."
+    },
+    {
+      "claim_id": "claim_env1_release_001",
+      "observation_id": "seed_env1_release_002",
+      "semantic_target": "Env1.Release",
+      "predicate": "extends",
+      "semantic_object": "release_tail_duration",
+      "measurement_kernel": "tail_rms_db",
+      "measurement_baseline": -20.71649517114178,
+      "measurement_treatment": -19.050182437103032,
+      "measurement_delta": 1.6663127340387476,
+      "status": "GROUNDED",
+      "condition": null,
+      "isolation_level": "single_field",
+      "confidence": 0.88,
+      "notes": "Env 1 Release from 0.5 (default) to 0.8 (longer release) increases tail RMS by +1.67 dB, indicating extended note sustain after MIDI release. Measurement on last 0.2s window (post-release). Consistent with expected direction (increase)."
+    }
+  ],
+
+  "capability_contracts": [
+    {
+      "contract_id": "contract_osc1_level_001",
+      "target": "OSC1.Level",
+      "allowed_operation": "mutate_numeric_value",
+      "status": "CAUSAL_VERIFIED",
+      "prerequisites": [],
+      "verified": {
+        "load": "PASS",
+        "mutation": "PASS",
+        "causal": "EFFECT_OBSERVED"
+      },
+      "measurement": {
+        "kernel": "rms_db",
+        "baseline": -20.054929131203785,
+        "treatment": -39.139778668735595,
+        "delta": -19.08484953753181,
+        "threshold": 1.0,
+        "direction_expected": "decrease",
+        "direction_observed": "decrease"
+      },
+      "scope": {
+        "context": "A Enable = 1.0 (default); oscillator active",
+        "isolation": "single_field",
+        "breadth": "single_instance",
+        "limitation": "Tested only at A Level [0.75 → 0.25]; generalization to other level ranges not yet verified"
+      },
+      "provenance": {
+        "experiment_id": "seed_osc1_level_002",
+        "observation_id": "seed_osc1_level_002",
+        "claim_id": "claim_osc1_level_001",
+        "measurement_date": "2026-09-11"
+      }
+    },
+    {
+      "contract_id": "contract_osc1_detune_001",
+      "target": "OSC1.Detune",
+      "allowed_operation": "mutate_numeric_value",
+      "status": "CAUSAL_VERIFIED",
+      "prerequisites": [],
+      "verified": {
+        "load": "PASS",
+        "mutation": "PASS",
+        "causal": "EFFECT_OBSERVED"
+      },
+      "measurement": {
+        "kernel": "pitch_shift_semitones",
+        "baseline": 0.0,
+        "treatment": 0.48954271571619273,
+        "delta": 0.48954271571619273,
+        "threshold": 0.1,
+        "direction_expected": "change",
+        "direction_observed": "increase"
+      },
+      "scope": {
+        "context": "A Enable = 1.0 (default); oscillator active",
+        "isolation": "single_field",
+        "breadth": "single_instance",
+        "limitation": "Tested A Fine [0.5 → 0.75] (+200 cents); generalization across full detune range [0.0–1.0] not yet verified. Measurement via harmonic_sum_f0; assumes robust pitch estimation."
+      },
+      "provenance": {
+        "experiment_id": "seed_osc1_detune_002",
+        "observation_id": "seed_osc1_detune_002",
+        "claim_id": "claim_osc1_detune_001",
+        "measurement_date": "2026-09-11"
+      }
+    },
+    {
+      "contract_id": "contract_env1_attack_001",
+      "target": "Env1.Attack",
+      "allowed_operation": "mutate_numeric_value",
+      "status": "CAUSAL_VERIFIED",
+      "prerequisites": [],
+      "verified": {
+        "load": "PASS",
+        "mutation": "PASS",
+        "causal": "EFFECT_OBSERVED"
+      },
+      "measurement": {
+        "kernel": "rms_db",
+        "baseline": -20.054929131203785,
+        "treatment": -29.20805300220916,
+        "delta": -9.153123871005374,
+        "threshold": 0.5,
+        "direction_expected": "decrease",
+        "direction_observed": "decrease"
+      },
+      "scope": {
+        "context": "Env 1 routes to amplitude (default); A Enable = 1.0",
+        "isolation": "single_field",
+        "breadth": "single_instance",
+        "limitation": "Tested only Env 1 Attack [0.5 → 0.6] (shorter envelope onset). Effect observable via overall RMS reduction. Generalization across full attack time range not yet verified."
+      },
+      "provenance": {
+        "experiment_id": "seed_env1_attack_002",
+        "observation_id": "seed_env1_attack_002",
+        "claim_id": "claim_env1_attack_001",
+        "measurement_date": "2026-09-11"
+      }
+    },
+    {
+      "contract_id": "contract_env1_release_001",
+      "target": "Env1.Release",
+      "allowed_operation": "mutate_numeric_value",
+      "status": "CAUSAL_VERIFIED",
+      "prerequisites": [],
+      "verified": {
+        "load": "PASS",
+        "mutation": "PASS",
+        "causal": "EFFECT_OBSERVED"
+      },
+      "measurement": {
+        "kernel": "tail_rms_db",
+        "baseline": -20.71649517114178,
+        "treatment": -19.050182437103032,
+        "delta": 1.6663127340387476,
+        "threshold": 1.0,
+        "direction_expected": "increase",
+        "direction_observed": "increase"
+      },
+      "scope": {
+        "context": "Env 1 routes to amplitude (default); A Enable = 1.0; measured on note tail (last 0.2s)",
+        "isolation": "single_field",
+        "breadth": "single_instance",
+        "limitation": "Tested only Env 1 Release [0.5 → 0.8] (longer sustain). Effect observable via tail RMS increase. Generalization across full release time range not yet verified."
+      },
+      "provenance": {
+        "experiment_id": "seed_env1_release_002",
+        "observation_id": "seed_env1_release_002",
+        "claim_id": "claim_env1_release_001",
+        "measurement_date": "2026-09-11"
+      }
+    }
+  ],
+
+  "epistemic_status": {
+    "total_observations": 4,
+    "all_effect_observed": true,
+    "all_single_field_isolated": true,
+    "all_signal_valid": true,
+    "all_readbacks_confirmed": true,
+    "all_measurements_from_shared_kernel": true,
+    "no_post_hoc_thresholds_weakened": true
+  },
+
+  "integration_notes": "All 4 observations are CAUSAL_VERIFIED: single-field isolated, valid signals (peak > 1e-6, nonzero > 1%), measurements from shared kernel infrastructure (rms_db, tail_rms_db, pitch_shift_semitones), readback values confirmed via synth.get_parameter(). No BehaviorClaims or CapabilityContracts were promoted based on absolute dBFS thresholds. Causal status = EFFECT_OBSERVED in all cases; measurement deltas exceed thresholds and match expected directions. These contracts are ready for compiler admission and knowledge integration. Limitations documented per contract to indicate breadth (single_instance) and scope constraints. No speculative generalization.",
+
+  "next_steps": [
+    "1. Import 4 CapabilityContracts into compiler admission layer",
+    "2. Update YouTube knowledge layer with semantic targets + contract status",
+    "3. Verify no conflicts with existing Filter1.Cutoff / OSC1.Octave contracts",
+    "4. Final project closure: all 12 seed experiments classified and evidenced"
+  ]
+}

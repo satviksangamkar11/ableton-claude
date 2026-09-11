@@ -1,0 +1,52 @@
+{
+  "success": true,
+  "experiment_id": "seed_filter2_cutoff_001",
+  "behavior_observation": {
+    "experiment_id": "seed_filter2_cutoff_001",
+    "timestamp": "2026-09-11T15:35:13.285945+00:00",
+    "semantic_target": "Filter2.Cutoff",
+    "operation": "SET_PARAMETER",
+    "context": {
+      "Filter 2 On": 1.0
+    },
+    "context_provenance": "filter must be active to exercise cutoff parameter",
+    "baseline_intervention": {
+      "cbor_overrides": {},
+      "host_context": []
+    },
+    "treatment_intervention": {
+      "cbor_path": "VoiceFilter1.plainParams.kParamFreq",
+      "cbor_value": 0.9,
+      "host_param_name": null,
+      "host_param_value": null,
+      "host_context": []
+    },
+    "baseline_rendered": true,
+    "treatment_rendered": true,
+    "baseline_render_time_sec": 0.276919,
+    "treatment_render_time_sec": 0.25908,
+    "measurements": [
+      {
+        "name": "spectral_centroid_hz",
+        "kernel": "spectral_centroid_hz",
+        "baseline": 4378.134622380464,
+        "treatment": 4378.134622380464,
+        "delta": 0.0,
+        "threshold": 200.0,
+        "status": "NO_OBSERVED_EFFECT"
+      },
+      {
+        "name": "overall_rms_db",
+        "kernel": "rms_db",
+        "baseline": -20.054929131203785,
+        "treatment": -20.054929131203785,
+        "delta": 0.0,
+        "threshold": 0.5,
+        "status": "NO_OBSERVED_EFFECT"
+      }
+    ],
+    "isolation_level": "single_field",
+    "execution_notes": null
+  },
+  "exercise_qualification": null
+}

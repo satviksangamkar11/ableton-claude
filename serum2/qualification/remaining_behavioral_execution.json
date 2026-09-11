@@ -1,0 +1,128 @@
+{
+  "total_seed_experiments": 12,
+  "already_qualified": [
+    "Filter1.Cutoff",
+    "OSC1.Octave"
+  ],
+  "previously_executed": [
+    {
+      "experiment_id": "seed_filter1_resonance_001",
+      "semantic_target": "Filter1.Resonance",
+      "status": "NO_OBSERVED_EFFECT"
+    },
+    {
+      "experiment_id": "seed_lfo1_rate_no_destination_001",
+      "semantic_target": "LFO1.Rate (no destination)",
+      "status": "NO_OBSERVED_EFFECT"
+    },
+    {
+      "experiment_id": "seed_filter1_drive_001",
+      "semantic_target": "Filter1.Drive",
+      "status": "NO_OBSERVED_EFFECT"
+    }
+  ],
+  "newly_executed": [
+    {
+      "experiment_id": "seed_filter2_cutoff_002",
+      "semantic_target": "Filter2.Cutoff",
+      "old_status": "BLOCKED_NO_ROUTE",
+      "new_status": "NO_OBSERVED_EFFECT",
+      "route": "host_param: Filter 2 Freq (index 216)",
+      "context": {"Filter 2 On": 1.0},
+      "kernel": "spectral_centroid_hz",
+      "delta": 0.0,
+      "threshold": 50.0,
+      "reason": "Filter 2 On via host param does not route signal through Filter 2 in DawDreamer. Spectral centroid identical in both arms."
+    },
+    {
+      "experiment_id": "seed_osc1_level_002",
+      "semantic_target": "OSC1.Level",
+      "old_status": "BLOCKED_NO_ROUTE",
+      "new_status": "EFFECT_OBSERVED",
+      "route": "host_param: A Level (index 21)",
+      "context": {},
+      "kernel": "rms_db",
+      "baseline": -20.054929131203785,
+      "treatment": -39.139778668735595,
+      "delta": -19.08484953753181,
+      "threshold": 1.0
+    },
+    {
+      "experiment_id": "seed_osc1_detune_002",
+      "semantic_target": "OSC1.Detune",
+      "old_status": "BLOCKED_NO_ROUTE",
+      "new_status": "EFFECT_OBSERVED",
+      "route": "host_param: A Fine (index 25)",
+      "context": {},
+      "kernel": "fundamental_frequency_hz",
+      "baseline_hz": 261.5,
+      "treatment_hz": 269.0,
+      "delta_hz": 7.5,
+      "pitch_shift_semitones": 0.48954271571619273,
+      "threshold_hz": 1.0
+    },
+    {
+      "experiment_id": "seed_osc2_detune_002",
+      "semantic_target": "OSC2.Detune",
+      "old_status": "BLOCKED_NO_ROUTE",
+      "new_status": "NO_OBSERVED_EFFECT",
+      "route": "host_param: B Fine (index 80)",
+      "context": {"B Enable": 1.0},
+      "kernel": "fundamental_frequency_hz",
+      "delta": 0.0,
+      "threshold": 1.0,
+      "reason": "harmonic_sum_f0 locks onto dominant OSC A+B pitch; B Fine detune creates beating but does not shift detected fundamental"
+    },
+    {
+      "experiment_id": "seed_env1_attack_002",
+      "semantic_target": "Env1.Attack",
+      "old_status": "BLOCKED_NO_ROUTE",
+      "new_status": "EFFECT_OBSERVED",
+      "route": "host_param: Env 1 Attack (index 224)",
+      "context": {},
+      "kernel": "rms_db",
+      "baseline": -20.054929131203785,
+      "treatment": -29.20805300220916,
+      "delta": -9.153123871005374,
+      "threshold": 0.5
+    },
+    {
+      "experiment_id": "seed_env1_release_002",
+      "semantic_target": "Env1.Release",
+      "old_status": "BLOCKED_NO_ROUTE",
+      "new_status": "EFFECT_OBSERVED",
+      "route": "host_param: Env 1 Release (index 228)",
+      "context": {},
+      "kernel": "tail_rms_db",
+      "baseline": -20.71649517114178,
+      "treatment": -19.050182437103032,
+      "delta": 1.6663127340387476,
+      "threshold": 1.0
+    }
+  ],
+  "still_blocked": [
+    {
+      "experiment_id": "seed_lfo1_rate_filter_modulation_001",
+      "semantic_target": "LFO1.Rate",
+      "status": "BLOCKED_CONTEXT",
+      "reason": "LFO modulation destination cannot be set via host param (no numeric param exists for mod routing). Requires structural CBOR routing which is not materialized in default skeleton."
+    },
+    {
+      "experiment_id": "seed_fxeq_freq1_001",
+      "semantic_target": "FXEQ.Freq1",
+      "status": "BLOCKED_NO_ROUTE",
+      "reason": "No dedicated EQ Freq1 host param. FX slots expose only generic FX Main Param 1-16 (indices 471-486). Route requires a loaded FX preset which is not available."
+    }
+  ],
+  "summary": {
+    "total_seed_experiments": 12,
+    "already_qualified": 2,
+    "previously_executed_no_effect": 3,
+    "newly_ready": 6,
+    "newly_executed": 6,
+    "newly_effect_observed": 4,
+    "newly_no_observed_effect": 2,
+    "newly_invalid": 0,
+    "still_blocked": 2
+  }
+}

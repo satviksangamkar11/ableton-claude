@@ -1,0 +1,1293 @@
+{
+  "version": "1.0",
+  "source_id": "yt_f507169bd7cb",
+  "admission_metadata": {
+    "total_candidates": 28,
+    "pass_admission": 0,
+    "blocked_precondition": 28,
+    "timestamp": "2026-09-11T17:49:32.258269Z",
+    "status_distribution": {
+      "BLOCKED_PRECONDITION": 28
+    }
+  },
+  "execution_reclassifications": [
+    {
+      "experiment_candidate_id": "exp_cand_000000",
+      "hypothesis_id": "hyp_000005",
+      "target": "OSC1.Octave",
+      "original_status": "READY_FOR_EXPERIMENT",
+      "execution_result": "NO_OBSERVED_EFFECT",
+      "admission_decision": "BLOCKED_PRECONDITION",
+      "final_classification": "BLOCKED_PRECONDITION",
+      "reason": "Baseline silent due to OSC1.Enable unavailable in subprocess"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000001",
+      "hypothesis_id": "hyp_000006",
+      "target": "OSC1.Octave",
+      "original_status": "READY_FOR_EXPERIMENT",
+      "execution_result": "NO_OBSERVED_EFFECT",
+      "admission_decision": "BLOCKED_PRECONDITION",
+      "final_classification": "BLOCKED_PRECONDITION",
+      "reason": "Baseline silent due to OSC1.Enable unavailable in subprocess"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000002",
+      "hypothesis_id": "hyp_000011",
+      "target": "OSC1.Wavetable",
+      "original_status": "READY_FOR_EXPERIMENT",
+      "execution_result": "NO_OBSERVED_EFFECT",
+      "admission_decision": "BLOCKED_PRECONDITION",
+      "final_classification": "BLOCKED_PRECONDITION",
+      "reason": "Baseline silent due to OSC1.Enable unavailable in subprocess"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000003",
+      "hypothesis_id": "hyp_000016",
+      "target": "OSC1.Octave",
+      "original_status": "READY_FOR_EXPERIMENT",
+      "execution_result": "NO_OBSERVED_EFFECT",
+      "admission_decision": "BLOCKED_PRECONDITION",
+      "final_classification": "BLOCKED_PRECONDITION",
+      "reason": "Baseline silent due to OSC1.Enable unavailable in subprocess"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000005",
+      "hypothesis_id": "hyp_000021",
+      "target": "Filter.Resonance",
+      "original_status": "READY_FOR_EXPERIMENT",
+      "execution_result": "NO_OBSERVED_EFFECT",
+      "admission_decision": "BLOCKED_PRECONDITION",
+      "final_classification": "BLOCKED_PRECONDITION",
+      "reason": "Baseline silent due to OSC1.Enable unavailable in subprocess"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000006",
+      "hypothesis_id": "hyp_000022",
+      "target": "Filter.Type",
+      "original_status": "READY_FOR_EXPERIMENT",
+      "execution_result": "NO_OBSERVED_EFFECT",
+      "admission_decision": "BLOCKED_PRECONDITION",
+      "final_classification": "BLOCKED_PRECONDITION",
+      "reason": "Baseline silent due to OSC1.Enable unavailable in subprocess"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000007",
+      "hypothesis_id": "hyp_000023",
+      "target": "Filter.Type",
+      "original_status": "READY_FOR_EXPERIMENT",
+      "execution_result": "NO_OBSERVED_EFFECT",
+      "admission_decision": "BLOCKED_PRECONDITION",
+      "final_classification": "BLOCKED_PRECONDITION",
+      "reason": "Baseline silent due to OSC1.Enable unavailable in subprocess"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000008",
+      "hypothesis_id": "hyp_000025",
+      "target": "FXDistortion.Drive",
+      "original_status": "READY_FOR_EXPERIMENT",
+      "execution_result": "NO_OBSERVED_EFFECT",
+      "admission_decision": "BLOCKED_PRECONDITION",
+      "final_classification": "BLOCKED_PRECONDITION",
+      "reason": "Baseline silent due to OSC1.Enable unavailable in subprocess"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000009",
+      "hypothesis_id": "hyp_000026",
+      "target": "Filter.Resonance",
+      "original_status": "READY_FOR_EXPERIMENT",
+      "execution_result": "NO_OBSERVED_EFFECT",
+      "admission_decision": "BLOCKED_PRECONDITION",
+      "final_classification": "BLOCKED_PRECONDITION",
+      "reason": "Baseline silent due to OSC1.Enable unavailable in subprocess"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000011",
+      "hypothesis_id": "hyp_000030",
+      "target": "Filter.Type",
+      "original_status": "READY_FOR_EXPERIMENT",
+      "execution_result": "NO_OBSERVED_EFFECT",
+      "admission_decision": "BLOCKED_PRECONDITION",
+      "final_classification": "BLOCKED_PRECONDITION",
+      "reason": "Baseline silent due to OSC1.Enable unavailable in subprocess"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000012",
+      "hypothesis_id": "hyp_000036",
+      "target": "Env1.Release",
+      "original_status": "READY_FOR_EXPERIMENT",
+      "execution_result": "NO_OBSERVED_EFFECT",
+      "admission_decision": "BLOCKED_PRECONDITION",
+      "final_classification": "BLOCKED_PRECONDITION",
+      "reason": "Baseline silent due to OSC1.Enable unavailable in subprocess"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000013",
+      "hypothesis_id": "hyp_000037",
+      "target": "Env1.Attack",
+      "original_status": "READY_FOR_EXPERIMENT",
+      "execution_result": "NO_OBSERVED_EFFECT",
+      "admission_decision": "BLOCKED_PRECONDITION",
+      "final_classification": "BLOCKED_PRECONDITION",
+      "reason": "Baseline silent due to OSC1.Enable unavailable in subprocess"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000015",
+      "hypothesis_id": "hyp_000039",
+      "target": "Filter.Resonance",
+      "original_status": "READY_FOR_EXPERIMENT",
+      "execution_result": "NO_OBSERVED_EFFECT",
+      "admission_decision": "BLOCKED_PRECONDITION",
+      "final_classification": "BLOCKED_PRECONDITION",
+      "reason": "Baseline silent due to OSC1.Enable unavailable in subprocess"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000016",
+      "hypothesis_id": "hyp_000040",
+      "target": "FXDistortion.Drive",
+      "original_status": "READY_FOR_EXPERIMENT",
+      "execution_result": "NO_OBSERVED_EFFECT",
+      "admission_decision": "BLOCKED_PRECONDITION",
+      "final_classification": "BLOCKED_PRECONDITION",
+      "reason": "Baseline silent due to OSC1.Enable unavailable in subprocess"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000017",
+      "hypothesis_id": "hyp_000042",
+      "target": "FXDistortion.Drive",
+      "original_status": "READY_FOR_EXPERIMENT",
+      "execution_result": "NO_OBSERVED_EFFECT",
+      "admission_decision": "BLOCKED_PRECONDITION",
+      "final_classification": "BLOCKED_PRECONDITION",
+      "reason": "Baseline silent due to OSC1.Enable unavailable in subprocess"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000018",
+      "hypothesis_id": "hyp_000043",
+      "target": "Filter.Type",
+      "original_status": "READY_FOR_EXPERIMENT",
+      "execution_result": "NO_OBSERVED_EFFECT",
+      "admission_decision": "BLOCKED_PRECONDITION",
+      "final_classification": "BLOCKED_PRECONDITION",
+      "reason": "Baseline silent due to OSC1.Enable unavailable in subprocess"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000019",
+      "hypothesis_id": "hyp_000045",
+      "target": "Env1.Decay",
+      "original_status": "READY_FOR_EXPERIMENT",
+      "execution_result": "NO_OBSERVED_EFFECT",
+      "admission_decision": "BLOCKED_PRECONDITION",
+      "final_classification": "BLOCKED_PRECONDITION",
+      "reason": "Baseline silent due to OSC1.Enable unavailable in subprocess"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000020",
+      "hypothesis_id": "hyp_000047",
+      "target": "Env1.Attack",
+      "original_status": "READY_FOR_EXPERIMENT",
+      "execution_result": "NO_OBSERVED_EFFECT",
+      "admission_decision": "BLOCKED_PRECONDITION",
+      "final_classification": "BLOCKED_PRECONDITION",
+      "reason": "Baseline silent due to OSC1.Enable unavailable in subprocess"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000021",
+      "hypothesis_id": "hyp_000053",
+      "target": "OSC1.Octave",
+      "original_status": "READY_FOR_EXPERIMENT",
+      "execution_result": "NO_OBSERVED_EFFECT",
+      "admission_decision": "BLOCKED_PRECONDITION",
+      "final_classification": "BLOCKED_PRECONDITION",
+      "reason": "Baseline silent due to OSC1.Enable unavailable in subprocess"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000022",
+      "hypothesis_id": "hyp_000057",
+      "target": "OSC1.Wavetable",
+      "original_status": "READY_FOR_EXPERIMENT",
+      "execution_result": "NO_OBSERVED_EFFECT",
+      "admission_decision": "BLOCKED_PRECONDITION",
+      "final_classification": "BLOCKED_PRECONDITION",
+      "reason": "Baseline silent due to OSC1.Enable unavailable in subprocess"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000024",
+      "hypothesis_id": "hyp_000060",
+      "target": "OSC1.Octave",
+      "original_status": "READY_FOR_EXPERIMENT",
+      "execution_result": "NO_OBSERVED_EFFECT",
+      "admission_decision": "BLOCKED_PRECONDITION",
+      "final_classification": "BLOCKED_PRECONDITION",
+      "reason": "Baseline silent due to OSC1.Enable unavailable in subprocess"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000026",
+      "hypothesis_id": "hyp_000066",
+      "target": "OSC1.Wavetable",
+      "original_status": "READY_FOR_EXPERIMENT",
+      "execution_result": "NO_OBSERVED_EFFECT",
+      "admission_decision": "BLOCKED_PRECONDITION",
+      "final_classification": "BLOCKED_PRECONDITION",
+      "reason": "Baseline silent due to OSC1.Enable unavailable in subprocess"
+    }
+  ],
+  "admission_decisions": [
+    {
+      "experiment_candidate_id": "exp_cand_000000",
+      "target": "OSC1.Octave",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": true,
+          "detail": "context_explicit_in_source"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Ableton MCP Parameter 16 (A Enable)",
+          "available_in_subprocess": false
+        },
+        "non_silent_baseline": {
+          "passed": false,
+          "detail": "baseline_silent (-20.054929131203785 dB)"
+        }
+      },
+      "blockers": [
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "OSC1.Enable",
+          "mechanism": "Ableton MCP Parameter 16 (A Enable)"
+        },
+        {
+          "check": "non_silent_baseline",
+          "reason": "baseline_silent (-20.054929131203785 dB)"
+        }
+      ],
+      "notes": [
+        "Silent baseline caused by missing activation (OSC1.Octave): Ableton MCP Parameter 16 (A Enable)"
+      ]
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000001",
+      "target": "OSC1.Octave",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": true,
+          "detail": "context_implicit_audio_assumed"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Ableton MCP Parameter 16 (A Enable)",
+          "available_in_subprocess": false
+        },
+        "non_silent_baseline": {
+          "passed": false,
+          "detail": "baseline_silent (-20.054929131203785 dB)"
+        }
+      },
+      "blockers": [
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "OSC1.Enable",
+          "mechanism": "Ableton MCP Parameter 16 (A Enable)"
+        },
+        {
+          "check": "non_silent_baseline",
+          "reason": "baseline_silent (-20.054929131203785 dB)"
+        }
+      ],
+      "notes": [
+        "Silent baseline caused by missing activation (OSC1.Octave): Ableton MCP Parameter 16 (A Enable)"
+      ]
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000002",
+      "target": "OSC1.Wavetable",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": true,
+          "detail": "context_implicit_audio_assumed"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Ableton MCP Parameter 16 (A Enable)",
+          "available_in_subprocess": false
+        },
+        "non_silent_baseline": {
+          "passed": false,
+          "detail": "baseline_silent (-20.054929131203785 dB)"
+        }
+      },
+      "blockers": [
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "OSC1.Enable",
+          "mechanism": "Ableton MCP Parameter 16 (A Enable)"
+        },
+        {
+          "check": "non_silent_baseline",
+          "reason": "baseline_silent (-20.054929131203785 dB)"
+        }
+      ],
+      "notes": [
+        "Silent baseline caused by missing activation (OSC1.Wavetable): Ableton MCP Parameter 16 (A Enable)"
+      ]
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000003",
+      "target": "OSC1.Octave",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": true,
+          "detail": "context_implicit_audio_assumed"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Ableton MCP Parameter 16 (A Enable)",
+          "available_in_subprocess": false
+        },
+        "non_silent_baseline": {
+          "passed": false,
+          "detail": "baseline_silent (-20.054929131203785 dB)"
+        }
+      },
+      "blockers": [
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "OSC1.Enable",
+          "mechanism": "Ableton MCP Parameter 16 (A Enable)"
+        },
+        {
+          "check": "non_silent_baseline",
+          "reason": "baseline_silent (-20.054929131203785 dB)"
+        }
+      ],
+      "notes": [
+        "Silent baseline caused by missing activation (OSC1.Octave): Ableton MCP Parameter 16 (A Enable)"
+      ]
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000004",
+      "target": "OSC1.Octave",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": false,
+          "detail": "context_unknown_requires_verification"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Ableton MCP Parameter 16 (A Enable)",
+          "available_in_subprocess": false
+        }
+      },
+      "blockers": [
+        {
+          "check": "context_verified",
+          "reason": "context_unknown_requires_verification"
+        },
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "OSC1.Enable",
+          "mechanism": "Ableton MCP Parameter 16 (A Enable)"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000005",
+      "target": "Filter.Resonance",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": true,
+          "detail": "context_explicit_in_source"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Ableton MCP Parameter 16 (A Enable)",
+          "available_in_subprocess": false
+        },
+        "non_silent_baseline": {
+          "passed": false,
+          "detail": "baseline_silent (-20.054929131203785 dB)"
+        }
+      },
+      "blockers": [
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "OSC1 audio input",
+          "mechanism": "Ableton MCP Parameter 16 (A Enable)"
+        },
+        {
+          "check": "non_silent_baseline",
+          "reason": "baseline_silent (-20.054929131203785 dB)"
+        }
+      ],
+      "notes": [
+        "Silent baseline caused by missing activation (Filter.Resonance): Ableton MCP Parameter 16 (A Enable)"
+      ]
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000006",
+      "target": "Filter.Type",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": true,
+          "detail": "context_explicit_in_source"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Ableton MCP Parameter 16 (A Enable)",
+          "available_in_subprocess": false
+        },
+        "non_silent_baseline": {
+          "passed": false,
+          "detail": "baseline_silent (-20.054929131203785 dB)"
+        }
+      },
+      "blockers": [
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "OSC1 audio input",
+          "mechanism": "Ableton MCP Parameter 16 (A Enable)"
+        },
+        {
+          "check": "non_silent_baseline",
+          "reason": "baseline_silent (-20.054929131203785 dB)"
+        }
+      ],
+      "notes": [
+        "Silent baseline caused by missing activation (Filter.Type): Ableton MCP Parameter 16 (A Enable)"
+      ]
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000007",
+      "target": "Filter.Type",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": true,
+          "detail": "context_explicit_in_source"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Ableton MCP Parameter 16 (A Enable)",
+          "available_in_subprocess": false
+        },
+        "non_silent_baseline": {
+          "passed": false,
+          "detail": "baseline_silent (-20.054929131203785 dB)"
+        }
+      },
+      "blockers": [
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "OSC1 audio input",
+          "mechanism": "Ableton MCP Parameter 16 (A Enable)"
+        },
+        {
+          "check": "non_silent_baseline",
+          "reason": "baseline_silent (-20.054929131203785 dB)"
+        }
+      ],
+      "notes": [
+        "Silent baseline caused by missing activation (Filter.Type): Ableton MCP Parameter 16 (A Enable)"
+      ]
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000008",
+      "target": "FXDistortion.Drive",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": true,
+          "detail": "context_explicit_in_source"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Ableton MCP Parameter 16 (A Enable)",
+          "available_in_subprocess": false
+        },
+        "non_silent_baseline": {
+          "passed": false,
+          "detail": "baseline_silent (-20.054929131203785 dB)"
+        }
+      },
+      "blockers": [
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "OSC1 audio input",
+          "mechanism": "Ableton MCP Parameter 16 (A Enable)"
+        },
+        {
+          "check": "non_silent_baseline",
+          "reason": "baseline_silent (-20.054929131203785 dB)"
+        }
+      ],
+      "notes": [
+        "Silent baseline caused by missing activation (FXDistortion.Drive): Ableton MCP Parameter 16 (A Enable)"
+      ]
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000009",
+      "target": "Filter.Resonance",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": true,
+          "detail": "context_explicit_in_source"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Ableton MCP Parameter 16 (A Enable)",
+          "available_in_subprocess": false
+        },
+        "non_silent_baseline": {
+          "passed": false,
+          "detail": "baseline_silent (-20.054929131203785 dB)"
+        }
+      },
+      "blockers": [
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "OSC1 audio input",
+          "mechanism": "Ableton MCP Parameter 16 (A Enable)"
+        },
+        {
+          "check": "non_silent_baseline",
+          "reason": "baseline_silent (-20.054929131203785 dB)"
+        }
+      ],
+      "notes": [
+        "Silent baseline caused by missing activation (Filter.Resonance): Ableton MCP Parameter 16 (A Enable)"
+      ]
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000010",
+      "target": "Filter.Type",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": false,
+          "detail": "context_unknown_requires_verification"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Ableton MCP Parameter 16 (A Enable)",
+          "available_in_subprocess": false
+        }
+      },
+      "blockers": [
+        {
+          "check": "context_verified",
+          "reason": "context_unknown_requires_verification"
+        },
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "OSC1 audio input",
+          "mechanism": "Ableton MCP Parameter 16 (A Enable)"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000011",
+      "target": "Filter.Type",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": true,
+          "detail": "context_explicit_in_source"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Ableton MCP Parameter 16 (A Enable)",
+          "available_in_subprocess": false
+        },
+        "non_silent_baseline": {
+          "passed": false,
+          "detail": "baseline_silent (-20.054929131203785 dB)"
+        }
+      },
+      "blockers": [
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "OSC1 audio input",
+          "mechanism": "Ableton MCP Parameter 16 (A Enable)"
+        },
+        {
+          "check": "non_silent_baseline",
+          "reason": "baseline_silent (-20.054929131203785 dB)"
+        }
+      ],
+      "notes": [
+        "Silent baseline caused by missing activation (Filter.Type): Ableton MCP Parameter 16 (A Enable)"
+      ]
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000012",
+      "target": "Env1.Release",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": true,
+          "detail": "context_explicit_in_source"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Structural routing (unavailable via CBOR)",
+          "available_in_subprocess": false
+        },
+        "non_silent_baseline": {
+          "passed": false,
+          "detail": "baseline_silent (-20.054929131203785 dB)"
+        }
+      },
+      "blockers": [
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "Env0 routed + OSC1 active",
+          "mechanism": "Structural routing (unavailable via CBOR)"
+        },
+        {
+          "check": "non_silent_baseline",
+          "reason": "baseline_silent (-20.054929131203785 dB)"
+        }
+      ],
+      "notes": [
+        "Silent baseline caused by missing activation (Env1.Release): Structural routing (unavailable via CBOR)"
+      ]
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000013",
+      "target": "Env1.Attack",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": true,
+          "detail": "context_explicit_in_source"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Structural routing (unavailable via CBOR)",
+          "available_in_subprocess": false
+        },
+        "non_silent_baseline": {
+          "passed": false,
+          "detail": "baseline_silent (-20.054929131203785 dB)"
+        }
+      },
+      "blockers": [
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "Env0 routed + OSC1 active",
+          "mechanism": "Structural routing (unavailable via CBOR)"
+        },
+        {
+          "check": "non_silent_baseline",
+          "reason": "baseline_silent (-20.054929131203785 dB)"
+        }
+      ],
+      "notes": [
+        "Silent baseline caused by missing activation (Env1.Attack): Structural routing (unavailable via CBOR)"
+      ]
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000014",
+      "target": "Env1.Attack",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": false,
+          "detail": "context_unknown_requires_verification"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Structural routing (unavailable via CBOR)",
+          "available_in_subprocess": false
+        }
+      },
+      "blockers": [
+        {
+          "check": "context_verified",
+          "reason": "context_unknown_requires_verification"
+        },
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "Env0 routed + OSC1 active",
+          "mechanism": "Structural routing (unavailable via CBOR)"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000015",
+      "target": "Filter.Resonance",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": true,
+          "detail": "context_implicit_audio_assumed"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Ableton MCP Parameter 16 (A Enable)",
+          "available_in_subprocess": false
+        },
+        "non_silent_baseline": {
+          "passed": false,
+          "detail": "baseline_silent (-20.054929131203785 dB)"
+        }
+      },
+      "blockers": [
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "OSC1 audio input",
+          "mechanism": "Ableton MCP Parameter 16 (A Enable)"
+        },
+        {
+          "check": "non_silent_baseline",
+          "reason": "baseline_silent (-20.054929131203785 dB)"
+        }
+      ],
+      "notes": [
+        "Silent baseline caused by missing activation (Filter.Resonance): Ableton MCP Parameter 16 (A Enable)"
+      ]
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000016",
+      "target": "FXDistortion.Drive",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": true,
+          "detail": "context_implicit_audio_assumed"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Ableton MCP Parameter 16 (A Enable)",
+          "available_in_subprocess": false
+        },
+        "non_silent_baseline": {
+          "passed": false,
+          "detail": "baseline_silent (-20.054929131203785 dB)"
+        }
+      },
+      "blockers": [
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "OSC1 audio input",
+          "mechanism": "Ableton MCP Parameter 16 (A Enable)"
+        },
+        {
+          "check": "non_silent_baseline",
+          "reason": "baseline_silent (-20.054929131203785 dB)"
+        }
+      ],
+      "notes": [
+        "Silent baseline caused by missing activation (FXDistortion.Drive): Ableton MCP Parameter 16 (A Enable)"
+      ]
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000017",
+      "target": "FXDistortion.Drive",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": true,
+          "detail": "context_explicit_in_source"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Ableton MCP Parameter 16 (A Enable)",
+          "available_in_subprocess": false
+        },
+        "non_silent_baseline": {
+          "passed": false,
+          "detail": "baseline_silent (-20.054929131203785 dB)"
+        }
+      },
+      "blockers": [
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "OSC1 audio input",
+          "mechanism": "Ableton MCP Parameter 16 (A Enable)"
+        },
+        {
+          "check": "non_silent_baseline",
+          "reason": "baseline_silent (-20.054929131203785 dB)"
+        }
+      ],
+      "notes": [
+        "Silent baseline caused by missing activation (FXDistortion.Drive): Ableton MCP Parameter 16 (A Enable)"
+      ]
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000018",
+      "target": "Filter.Type",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": true,
+          "detail": "context_explicit_in_source"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Ableton MCP Parameter 16 (A Enable)",
+          "available_in_subprocess": false
+        },
+        "non_silent_baseline": {
+          "passed": false,
+          "detail": "baseline_silent (-20.054929131203785 dB)"
+        }
+      },
+      "blockers": [
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "OSC1 audio input",
+          "mechanism": "Ableton MCP Parameter 16 (A Enable)"
+        },
+        {
+          "check": "non_silent_baseline",
+          "reason": "baseline_silent (-20.054929131203785 dB)"
+        }
+      ],
+      "notes": [
+        "Silent baseline caused by missing activation (Filter.Type): Ableton MCP Parameter 16 (A Enable)"
+      ]
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000019",
+      "target": "Env1.Decay",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": true,
+          "detail": "context_implicit_audio_assumed"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Structural routing (unavailable via CBOR)",
+          "available_in_subprocess": false
+        },
+        "non_silent_baseline": {
+          "passed": false,
+          "detail": "baseline_silent (-20.054929131203785 dB)"
+        }
+      },
+      "blockers": [
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "Env0 routed + OSC1 active",
+          "mechanism": "Structural routing (unavailable via CBOR)"
+        },
+        {
+          "check": "non_silent_baseline",
+          "reason": "baseline_silent (-20.054929131203785 dB)"
+        }
+      ],
+      "notes": [
+        "Silent baseline caused by missing activation (Env1.Decay): Structural routing (unavailable via CBOR)"
+      ]
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000020",
+      "target": "Env1.Attack",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": true,
+          "detail": "context_explicit_in_source"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Structural routing (unavailable via CBOR)",
+          "available_in_subprocess": false
+        },
+        "non_silent_baseline": {
+          "passed": false,
+          "detail": "baseline_silent (-20.054929131203785 dB)"
+        }
+      },
+      "blockers": [
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "Env0 routed + OSC1 active",
+          "mechanism": "Structural routing (unavailable via CBOR)"
+        },
+        {
+          "check": "non_silent_baseline",
+          "reason": "baseline_silent (-20.054929131203785 dB)"
+        }
+      ],
+      "notes": [
+        "Silent baseline caused by missing activation (Env1.Attack): Structural routing (unavailable via CBOR)"
+      ]
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000021",
+      "target": "OSC1.Octave",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": true,
+          "detail": "context_implicit_audio_assumed"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Ableton MCP Parameter 16 (A Enable)",
+          "available_in_subprocess": false
+        },
+        "non_silent_baseline": {
+          "passed": false,
+          "detail": "baseline_silent (-20.054929131203785 dB)"
+        }
+      },
+      "blockers": [
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "OSC1.Enable",
+          "mechanism": "Ableton MCP Parameter 16 (A Enable)"
+        },
+        {
+          "check": "non_silent_baseline",
+          "reason": "baseline_silent (-20.054929131203785 dB)"
+        }
+      ],
+      "notes": [
+        "Silent baseline caused by missing activation (OSC1.Octave): Ableton MCP Parameter 16 (A Enable)"
+      ]
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000022",
+      "target": "OSC1.Wavetable",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": true,
+          "detail": "context_implicit_audio_assumed"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Ableton MCP Parameter 16 (A Enable)",
+          "available_in_subprocess": false
+        },
+        "non_silent_baseline": {
+          "passed": false,
+          "detail": "baseline_silent (-20.054929131203785 dB)"
+        }
+      },
+      "blockers": [
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "OSC1.Enable",
+          "mechanism": "Ableton MCP Parameter 16 (A Enable)"
+        },
+        {
+          "check": "non_silent_baseline",
+          "reason": "baseline_silent (-20.054929131203785 dB)"
+        }
+      ],
+      "notes": [
+        "Silent baseline caused by missing activation (OSC1.Wavetable): Ableton MCP Parameter 16 (A Enable)"
+      ]
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000023",
+      "target": "OSC1.Wavetable",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": false,
+          "detail": "context_unknown_requires_verification"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Ableton MCP Parameter 16 (A Enable)",
+          "available_in_subprocess": false
+        }
+      },
+      "blockers": [
+        {
+          "check": "context_verified",
+          "reason": "context_unknown_requires_verification"
+        },
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "OSC1.Enable",
+          "mechanism": "Ableton MCP Parameter 16 (A Enable)"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000024",
+      "target": "OSC1.Octave",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": true,
+          "detail": "context_implicit_audio_assumed"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Ableton MCP Parameter 16 (A Enable)",
+          "available_in_subprocess": false
+        },
+        "non_silent_baseline": {
+          "passed": false,
+          "detail": "baseline_silent (-20.054929131203785 dB)"
+        }
+      },
+      "blockers": [
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "OSC1.Enable",
+          "mechanism": "Ableton MCP Parameter 16 (A Enable)"
+        },
+        {
+          "check": "non_silent_baseline",
+          "reason": "baseline_silent (-20.054929131203785 dB)"
+        }
+      ],
+      "notes": [
+        "Silent baseline caused by missing activation (OSC1.Octave): Ableton MCP Parameter 16 (A Enable)"
+      ]
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000025",
+      "target": "OSC1.Wavetable",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": false,
+          "detail": "context_unknown_requires_verification"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Ableton MCP Parameter 16 (A Enable)",
+          "available_in_subprocess": false
+        }
+      },
+      "blockers": [
+        {
+          "check": "context_verified",
+          "reason": "context_unknown_requires_verification"
+        },
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "OSC1.Enable",
+          "mechanism": "Ableton MCP Parameter 16 (A Enable)"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000026",
+      "target": "OSC1.Wavetable",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": true,
+          "detail": "context_implicit_audio_assumed"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Ableton MCP Parameter 16 (A Enable)",
+          "available_in_subprocess": false
+        },
+        "non_silent_baseline": {
+          "passed": false,
+          "detail": "baseline_silent (-20.054929131203785 dB)"
+        }
+      },
+      "blockers": [
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "OSC1.Enable",
+          "mechanism": "Ableton MCP Parameter 16 (A Enable)"
+        },
+        {
+          "check": "non_silent_baseline",
+          "reason": "baseline_silent (-20.054929131203785 dB)"
+        }
+      ],
+      "notes": [
+        "Silent baseline caused by missing activation (OSC1.Wavetable): Ableton MCP Parameter 16 (A Enable)"
+      ]
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000027",
+      "target": "OSC1.Wavetable",
+      "admission_status": "BLOCKED_PRECONDITION",
+      "checks": {
+        "route_valid": {
+          "passed": true,
+          "detail": "route_exists_in_skeleton"
+        },
+        "context_verified": {
+          "passed": false,
+          "detail": "context_unknown_requires_verification"
+        },
+        "activation_available": {
+          "passed": false,
+          "detail": "Ableton MCP Parameter 16 (A Enable)",
+          "available_in_subprocess": false
+        }
+      },
+      "blockers": [
+        {
+          "check": "context_verified",
+          "reason": "context_unknown_requires_verification"
+        },
+        {
+          "check": "activation_available",
+          "reason": "activation_mechanism_not_available_in_subprocess",
+          "required": "OSC1.Enable",
+          "mechanism": "Ableton MCP Parameter 16 (A Enable)"
+        }
+      ],
+      "notes": []
+    }
+  ]
+}

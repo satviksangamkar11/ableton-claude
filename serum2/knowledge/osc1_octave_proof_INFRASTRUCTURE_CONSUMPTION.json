@@ -1,0 +1,36 @@
+{
+  "purpose": "Consume OSC1.Octave proof evidence via shared measurement infrastructure",
+  "audio_source": "Re-rendered from identical parameters (no new experiment)",
+  "existing_evidence_files": [
+    "serum2/knowledge/osc1_octave_proof_EVIDENCE.json",
+    "serum2/knowledge/osc1_octave_proof_CORRECTED_MEASUREMENT.json",
+    "serum2/knowledge/osc1_octave_proof_FINAL_MEASUREMENT.json"
+  ],
+  "measurement_plan": [
+    {
+      "name": "fundamental_frequency",
+      "kernel": "fundamental_frequency_hz",
+      "derived_from": null
+    },
+    {
+      "name": "pitch_shift_semitones",
+      "kernel": "pitch_shift_semitones",
+      "derived_from": "fundamental_frequency",
+      "threshold": 3.0
+    }
+  ],
+  "fundamental_frequency_hz_baseline": 261.5,
+  "fundamental_frequency_hz_treatment": 523.5,
+  "pitch_shift_semitones": 12.016543088206404,
+  "dim_f0_status": "EFFECT_OBSERVED",
+  "dim_shift_status": "EFFECT_OBSERVED",
+  "semitone_gate_ok": true,
+  "old_acf_delta_semitones": 24.0514,
+  "old_acf_gate_pass": false,
+  "infrastructure_modules": [
+    "serum2/behavior/measurement/pitch.py :: harmonic_sum_f0",
+    "serum2/evidence/measure.py :: METRICS[fundamental_frequency_hz]",
+    "serum2/qualification/behavior_experiment.py :: MeasurementPlan.derived_from",
+    "serum2/qualification/experiment_worker.py :: pass-2 derived dimension loop"
+  ]
+}

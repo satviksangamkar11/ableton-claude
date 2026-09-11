@@ -1,0 +1,53 @@
+{
+  "success": true,
+  "experiment_id": "seed_lfo1_rate_filter_modulation_001",
+  "behavior_observation": {
+    "experiment_id": "seed_lfo1_rate_filter_modulation_001",
+    "timestamp": "2026-09-11T15:35:20.404236+00:00",
+    "semantic_target": "LFO1.Rate",
+    "operation": "SET_PARAMETER",
+    "context": {
+      "LFO1 Mod Dest": "Filter1.Cutoff",
+      "Filter 1 On": 1.0
+    },
+    "context_provenance": "LFO1 modulating Filter1.Cutoff; rate change affects how fast cutoff is swept",
+    "baseline_intervention": {
+      "cbor_overrides": {},
+      "host_context": []
+    },
+    "treatment_intervention": {
+      "cbor_path": "VoiceModulation0.plainParams.kParamRate",
+      "cbor_value": 0.5,
+      "host_param_name": null,
+      "host_param_value": null,
+      "host_context": []
+    },
+    "baseline_rendered": false,
+    "treatment_rendered": false,
+    "baseline_render_time_sec": 0.249781,
+    "treatment_render_time_sec": 0.225059,
+    "measurements": [
+      {
+        "name": "spectral_centroid_hz",
+        "kernel": "spectral_centroid_hz",
+        "baseline": null,
+        "treatment": null,
+        "delta": null,
+        "threshold": 200.0,
+        "status": "NOT_RUN"
+      },
+      {
+        "name": "overall_rms_db",
+        "kernel": "rms_db",
+        "baseline": null,
+        "treatment": null,
+        "delta": null,
+        "threshold": 1.0,
+        "status": "NOT_RUN"
+      }
+    ],
+    "isolation_level": "single_field",
+    "execution_notes": null
+  },
+  "exercise_qualification": null
+}

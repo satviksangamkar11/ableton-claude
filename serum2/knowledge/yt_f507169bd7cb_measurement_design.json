@@ -1,0 +1,2333 @@
+{
+  "version": "1.0",
+  "source_id": "yt_f507169bd7cb",
+  "design_metadata": {
+    "total_behavioral_hypotheses": 28,
+    "experiment_candidates_created": 28,
+    "ready_for_experiment": 22,
+    "requires_context_design": 6,
+    "requires_structural_activation": 0,
+    "requires_route_resolution": 0,
+    "measurement_design_incomplete": 0,
+    "execution_readiness_percentage": 78.57142857142857,
+    "coverage": {
+      "targets_represented": 8,
+      "by_execution_status": {
+        "READY_FOR_EXPERIMENT": 22,
+        "REQUIRES_CONTEXT_DESIGN": 6
+      },
+      "by_context_requirement": {
+        "SOURCE_EXPLICIT": 12,
+        "SOURCE_IMPLICIT": 10,
+        "UNKNOWN": 6
+      }
+    }
+  },
+  "measurement_dimensions_available": {
+    "spectral": {
+      "spectral_centroid_hz": "Center of mass of spectrum (brightness indicator)",
+      "spectral_spread_hz": "Standard deviation of frequencies (timbre complexity)",
+      "spectral_distribution": "Distribution of energy across frequency bands",
+      "harmonic_content": "Presence and prominence of harmonic series",
+      "spectral_skewness": "Asymmetry of spectral distribution",
+      "spectral_kurtosis": "Peakedness of spectral distribution"
+    },
+    "amplitude": {
+      "overall_rms_db": "Root mean square amplitude in dB",
+      "peak_amplitude_db": "Peak amplitude in dB",
+      "peak_magnitude_db": "Peak magnitude at specific frequency",
+      "envelope_energy": "Total energy in time-domain envelope",
+      "loudness_lu": "Perceived loudness in LUFS",
+      "dynamic_range_db": "Range between peak and RMS"
+    },
+    "temporal": {
+      "onset_time_ms": "Time from signal start to peak amplitude",
+      "attack_duration_ms": "Time for envelope to reach peak",
+      "decay_duration_ms": "Time from peak to sustain level",
+      "release_duration_ms": "Time from note-off to silence",
+      "transient_sharpness": "Steepness of amplitude envelope onset",
+      "tail_character": "Quality of decay/release tail"
+    },
+    "pitch": {
+      "fundamental_frequency_hz": "F0 / pitch center in Hz",
+      "pitch_shift_semitones": "Semitone offset from baseline",
+      "pitch_stability": "Variance of F0 over time",
+      "harmonic_ratio": "Ratio of harmonics to fundamental"
+    },
+    "timbre": {
+      "timbral_character": "Qualitative descriptor (bright/dark/warm/cold)",
+      "brightening_degree": "Shift toward higher frequency content",
+      "harmonic_richness": "Number of distinguishable harmonics",
+      "filter_envelope_shape": "Spectral evolution over time"
+    }
+  },
+  "existing_evidence": {
+    "Filter1.Cutoff": {
+      "status": "CAUSAL_VERIFIED",
+      "description": "Filter1.Cutoff experimentally demonstrated via A_FILTER_CUTOFF_PILOT_EVIDENCE.json",
+      "measurement_path": "VoiceFilter0.plainParams.kParamFreq",
+      "activation": "Active by default in skeleton",
+      "behavioral_proof": "Yes"
+    },
+    "Filter1.Resonance": {
+      "status": "ROUTE_EXISTS_BUT_EFFECT_BELOW_THRESHOLD",
+      "description": "Measured +13.78 Hz effect (below guessed 100 Hz threshold)",
+      "measurement_path": "VoiceFilter0.plainParams.kParamReso",
+      "activation": "Active by default",
+      "behavioral_proof": "Partial (effect too small)"
+    },
+    "OSC1.Level": {
+      "status": "STRUCTURAL_ACTIVATION_REQUIRED",
+      "description": "MCP parameter 16 (A Enable) required but does not propagate to subprocess",
+      "measurement_path": "Oscillator0.plainParams.kParamLevel",
+      "activation": "Requires Ableton MCP (unavailable in DawDreamer subprocess)",
+      "behavioral_proof": "No"
+    },
+    "OSC1.Enable": {
+      "status": "STRUCTURAL_ACTIVATION_REQUIRED",
+      "description": "MCP parameter 16 (A Enable) required but does not propagate to subprocess",
+      "measurement_path": "N/A",
+      "activation": "Requires Ableton MCP only",
+      "behavioral_proof": "No"
+    }
+  },
+  "experiment_candidates": [
+    {
+      "experiment_candidate_id": "exp_cand_000000",
+      "hypothesis_id": "hyp_000005",
+      "knowledge_item_id": "ki_ext_000010",
+      "source_segment_ids": [
+        "seg_0352",
+        "seg_0353",
+        "seg_0354",
+        "seg_0355",
+        "seg_0356",
+        "seg_0357",
+        "seg_0358",
+        "seg_0359",
+        "seg_0360",
+        "seg_0361",
+        "seg_0362",
+        "seg_0363",
+        "seg_0364",
+        "seg_0365",
+        "seg_0366",
+        "seg_0367",
+        "seg_0368",
+        "seg_0369",
+        "seg_0370",
+        "seg_0371",
+        "seg_0372",
+        "seg_0373",
+        "seg_0374",
+        "seg_0375",
+        "seg_0376",
+        "seg_0377",
+        "seg_0378",
+        "seg_0379",
+        "seg_0380",
+        "seg_0381",
+        "seg_0382",
+        "seg_0383",
+        "seg_0384",
+        "seg_0385"
+      ],
+      "source_statement": "sometimes an extra parameter over here is available. But the main effect of the warping modes are going to be coming from this parameter over here, which as you can see is also happening here. You can",
+      "target": "OSC1.Octave",
+      "operation": "SELECT",
+      "predicted_effect": "osc1.octave_operation_has_effect",
+      "context_status": "SOURCE_EXPLICIT",
+      "context_prerequisites": [
+        "fx_active"
+      ],
+      "source_context_hints": {
+        "explicit": [
+          "fx_active"
+        ],
+        "implicit": []
+      },
+      "measurement_dimensions": [
+        "pitch_shift_semitones",
+        "fundamental_frequency_hz"
+      ],
+      "expected_direction": "CHANGE",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "osc1_octave",
+        "operation": "SELECT",
+        "description": "Single-field CBOR mutation on OSC1.Octave"
+      },
+      "execution_status": "READY_FOR_EXPERIMENT",
+      "ready_to_execute": true,
+      "notes": []
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000001",
+      "hypothesis_id": "hyp_000006",
+      "knowledge_item_id": "ki_ext_000011",
+      "source_segment_ids": [
+        "seg_0386",
+        "seg_0387",
+        "seg_0388",
+        "seg_0389",
+        "seg_0390",
+        "seg_0391",
+        "seg_0392",
+        "seg_0393",
+        "seg_0394",
+        "seg_0395",
+        "seg_0396",
+        "seg_0397",
+        "seg_0398",
+        "seg_0399",
+        "seg_0400",
+        "seg_0401",
+        "seg_0402",
+        "seg_0403",
+        "seg_0404",
+        "seg_0405",
+        "seg_0406",
+        "seg_0407",
+        "seg_0408",
+        "seg_0409",
+        "seg_0410",
+        "seg_0411",
+        "seg_0412",
+        "seg_0413",
+        "seg_0414",
+        "seg_0415",
+        "seg_0416",
+        "seg_0417",
+        "seg_0418",
+        "seg_0419",
+        "seg_0420",
+        "seg_0421",
+        "seg_0422",
+        "seg_0423",
+        "seg_0424",
+        "seg_0425",
+        "seg_0426",
+        "seg_0427",
+        "seg_0428",
+        "seg_0429",
+        "seg_0430",
+        "seg_0431",
+        "seg_0432",
+        "seg_0433",
+        "seg_0434",
+        "seg_0435",
+        "seg_0436",
+        "seg_0437",
+        "seg_0438",
+        "seg_0439",
+        "seg_0440",
+        "seg_0441",
+        "seg_0442",
+        "seg_0443",
+        "seg_0444",
+        "seg_0445",
+        "seg_0446",
+        "seg_0447",
+        "seg_0448",
+        "seg_0449",
+        "seg_0450",
+        "seg_0451",
+        "seg_0452",
+        "seg_0453",
+        "seg_0454",
+        "seg_0455",
+        "seg_0456",
+        "seg_0457",
+        "seg_0458",
+        "seg_0459",
+        "seg_0460",
+        "seg_0461",
+        "seg_0462",
+        "seg_0463"
+      ],
+      "source_statement": "now in my sound design, I could modulate this to, for example, go down to a value of one. and therefore smoothly morph between these two octave settings. Now, because we're just cutting up the wavefor",
+      "target": "OSC1.Octave",
+      "operation": "DECREASE",
+      "predicted_effect": "osc1.octave_decrease_decreases_output",
+      "context_status": "SOURCE_IMPLICIT",
+      "context_prerequisites": [
+        "audio_input_required",
+        "audio_signal_present"
+      ],
+      "source_context_hints": {
+        "explicit": [],
+        "implicit": [
+          "audio_input_required",
+          "audio_signal_present"
+        ]
+      },
+      "measurement_dimensions": [
+        "pitch_shift_semitones",
+        "fundamental_frequency_hz"
+      ],
+      "expected_direction": "DECREASE",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "osc1_octave",
+        "operation": "DECREASE",
+        "description": "Single-field CBOR mutation on OSC1.Octave"
+      },
+      "execution_status": "READY_FOR_EXPERIMENT",
+      "ready_to_execute": true,
+      "notes": []
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000002",
+      "hypothesis_id": "hyp_000011",
+      "knowledge_item_id": "ki_ext_000019",
+      "source_segment_ids": [
+        "seg_0614",
+        "seg_0615",
+        "seg_0616",
+        "seg_0617",
+        "seg_0618",
+        "seg_0619",
+        "seg_0620",
+        "seg_0621",
+        "seg_0622",
+        "seg_0623",
+        "seg_0624",
+        "seg_0625",
+        "seg_0626",
+        "seg_0627",
+        "seg_0628",
+        "seg_0629",
+        "seg_0630",
+        "seg_0631",
+        "seg_0632",
+        "seg_0633",
+        "seg_0634",
+        "seg_0635",
+        "seg_0636",
+        "seg_0637",
+        "seg_0638",
+        "seg_0639",
+        "seg_0640",
+        "seg_0641",
+        "seg_0642",
+        "seg_0643",
+        "seg_0644",
+        "seg_0645",
+        "seg_0646",
+        "seg_0647",
+        "seg_0648",
+        "seg_0649",
+        "seg_0650",
+        "seg_0651",
+        "seg_0652",
+        "seg_0653",
+        "seg_0654",
+        "seg_0655",
+        "seg_0656",
+        "seg_0657",
+        "seg_0658",
+        "seg_0659",
+        "seg_0660",
+        "seg_0661",
+        "seg_0662",
+        "seg_0663",
+        "seg_0664",
+        "seg_0665",
+        "seg_0666",
+        "seg_0667",
+        "seg_0668",
+        "seg_0669",
+        "seg_0670",
+        "seg_0671",
+        "seg_0672",
+        "seg_0673",
+        "seg_0674",
+        "seg_0675",
+        "seg_0676",
+        "seg_0677",
+        "seg_0678",
+        "seg_0679",
+        "seg_0680",
+        "seg_0681",
+        "seg_0682",
+        "seg_0683",
+        "seg_0684",
+        "seg_0685",
+        "seg_0686",
+        "seg_0687",
+        "seg_0688",
+        "seg_0689",
+        "seg_0690",
+        "seg_0691",
+        "seg_0692",
+        "seg_0693",
+        "seg_0694",
+        "seg_0695",
+        "seg_0696",
+        "seg_0697",
+        "seg_0698",
+        "seg_0699",
+        "seg_0700",
+        "seg_0701",
+        "seg_0702",
+        "seg_0703",
+        "seg_0704",
+        "seg_0705",
+        "seg_0706",
+        "seg_0707",
+        "seg_0708",
+        "seg_0709",
+        "seg_0710"
+      ],
+      "source_statement": "sounds. Usually, phase distortion FM is kind of associated with that because that is where it originally was born with the DX7. But honestly, over the years, all of these different modulation types ha",
+      "target": "OSC1.Wavetable",
+      "operation": "MODULATE",
+      "predicted_effect": "osc1.wavetable_operation_has_effect",
+      "context_status": "SOURCE_IMPLICIT",
+      "context_prerequisites": [
+        "audio_input_required",
+        "audio_signal_present"
+      ],
+      "source_context_hints": {
+        "explicit": [],
+        "implicit": [
+          "audio_input_required",
+          "audio_signal_present"
+        ]
+      },
+      "measurement_dimensions": [
+        "spectral_harmonic_content",
+        "timbral_character"
+      ],
+      "expected_direction": "VARIES",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "osc1_wavetable",
+        "operation": "MODULATE",
+        "description": "Single-field CBOR mutation on OSC1.Wavetable"
+      },
+      "execution_status": "READY_FOR_EXPERIMENT",
+      "ready_to_execute": true,
+      "notes": []
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000003",
+      "hypothesis_id": "hyp_000016",
+      "knowledge_item_id": "ki_ext_000069",
+      "source_segment_ids": [
+        "seg_1350",
+        "seg_1351",
+        "seg_1352",
+        "seg_1353",
+        "seg_1354"
+      ],
+      "source_statement": "We then have plus and negative octaves of a sound. So you can morph between the normal version of the sound and an octave [Music]",
+      "target": "OSC1.Octave",
+      "operation": null,
+      "predicted_effect": "osc1.octave_operation_has_effect",
+      "context_status": "SOURCE_IMPLICIT",
+      "context_prerequisites": [
+        "audio_input_required",
+        "audio_signal_present"
+      ],
+      "source_context_hints": {
+        "explicit": [],
+        "implicit": [
+          "audio_input_required",
+          "audio_signal_present"
+        ]
+      },
+      "measurement_dimensions": [
+        "pitch_shift_semitones",
+        "fundamental_frequency_hz"
+      ],
+      "expected_direction": "UNKNOWN",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "osc1_octave",
+        "operation": null,
+        "description": "Single-field CBOR mutation on OSC1.Octave"
+      },
+      "execution_status": "READY_FOR_EXPERIMENT",
+      "ready_to_execute": true,
+      "notes": []
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000004",
+      "hypothesis_id": "hyp_000017",
+      "knowledge_item_id": "ki_ext_000086",
+      "source_segment_ids": [
+        "seg_1465",
+        "seg_1466",
+        "seg_1467",
+        "seg_1468",
+        "seg_1469",
+        "seg_1470",
+        "seg_1471",
+        "seg_1472",
+        "seg_1473",
+        "seg_1474",
+        "seg_1475",
+        "seg_1476",
+        "seg_1477",
+        "seg_1478",
+        "seg_1479",
+        "seg_1480",
+        "seg_1481",
+        "seg_1482",
+        "seg_1483",
+        "seg_1484",
+        "seg_1485",
+        "seg_1486",
+        "seg_1487",
+        "seg_1488",
+        "seg_1489",
+        "seg_1490",
+        "seg_1491",
+        "seg_1492",
+        "seg_1493",
+        "seg_1494",
+        "seg_1495",
+        "seg_1496",
+        "seg_1497",
+        "seg_1498",
+        "seg_1499",
+        "seg_1500",
+        "seg_1501",
+        "seg_1502",
+        "seg_1503",
+        "seg_1504",
+        "seg_1505"
+      ],
+      "source_statement": "So this is the frequency content of this sample with all of the volumes modulated at any given point in time based on what we have over here on the content over here. So we're basically imprinting alm",
+      "target": "OSC1.Octave",
+      "operation": "MODULATE",
+      "predicted_effect": "osc1.octave_operation_has_effect",
+      "context_status": "UNKNOWN",
+      "context_prerequisites": [
+        "Prerequisites must be determined experimentally"
+      ],
+      "source_context_hints": {
+        "explicit": [],
+        "implicit": []
+      },
+      "measurement_dimensions": [
+        "pitch_shift_semitones",
+        "fundamental_frequency_hz"
+      ],
+      "expected_direction": "VARIES",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "osc1_octave",
+        "operation": "MODULATE",
+        "description": "Single-field CBOR mutation on OSC1.Octave"
+      },
+      "execution_status": "REQUIRES_CONTEXT_DESIGN",
+      "ready_to_execute": false,
+      "notes": [
+        "Execution blocked: REQUIRES_CONTEXT_DESIGN"
+      ]
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000005",
+      "hypothesis_id": "hyp_000021",
+      "knowledge_item_id": "ki_ext_000098",
+      "source_segment_ids": [
+        "seg_1701",
+        "seg_1702",
+        "seg_1703",
+        "seg_1704",
+        "seg_1705",
+        "seg_1706",
+        "seg_1707",
+        "seg_1708",
+        "seg_1709",
+        "seg_1710",
+        "seg_1711",
+        "seg_1712",
+        "seg_1713",
+        "seg_1714",
+        "seg_1715",
+        "seg_1716",
+        "seg_1717",
+        "seg_1718",
+        "seg_1719",
+        "seg_1720",
+        "seg_1721",
+        "seg_1722",
+        "seg_1723",
+        "seg_1724",
+        "seg_1725",
+        "seg_1726",
+        "seg_1727",
+        "seg_1728",
+        "seg_1729",
+        "seg_1730",
+        "seg_1731",
+        "seg_1732"
+      ],
+      "source_statement": "sound more than just your standard low pass or highp pass filter. And especially once you start modulating them, there can be some really interesting sounds that can come out of this. The final catego",
+      "target": "Filter.Resonance",
+      "operation": "INCREASE",
+      "predicted_effect": "filter.resonance_increase_increases_output",
+      "context_status": "SOURCE_EXPLICIT",
+      "context_prerequisites": [
+        "filter_enabled"
+      ],
+      "source_context_hints": {
+        "explicit": [
+          "filter_enabled"
+        ],
+        "implicit": [
+          "audio_input_required"
+        ]
+      },
+      "measurement_dimensions": [
+        "peak_magnitude_db",
+        "spectral_width_hz"
+      ],
+      "expected_direction": "INCREASE",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "filter_resonance",
+        "operation": "INCREASE",
+        "description": "Single-field CBOR mutation on Filter.Resonance"
+      },
+      "execution_status": "READY_FOR_EXPERIMENT",
+      "ready_to_execute": true,
+      "notes": []
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000006",
+      "hypothesis_id": "hyp_000022",
+      "knowledge_item_id": "ki_ext_000102",
+      "source_segment_ids": [
+        "seg_1749",
+        "seg_1750",
+        "seg_1751",
+        "seg_1752",
+        "seg_1753",
+        "seg_1754",
+        "seg_1755",
+        "seg_1756",
+        "seg_1757",
+        "seg_1758",
+        "seg_1759",
+        "seg_1760",
+        "seg_1761",
+        "seg_1762",
+        "seg_1763",
+        "seg_1764",
+        "seg_1765",
+        "seg_1766",
+        "seg_1767",
+        "seg_1768"
+      ],
+      "source_statement": "As you can hear, this can be a really cool filter if you want it to sound like the sound is almost breaking up in an interesting digital way. The next three filters are all based on all pass filters. ",
+      "target": "Filter.Type",
+      "operation": null,
+      "predicted_effect": "filter.type_operation_has_effect",
+      "context_status": "SOURCE_EXPLICIT",
+      "context_prerequisites": [
+        "filter_enabled"
+      ],
+      "source_context_hints": {
+        "explicit": [
+          "filter_enabled"
+        ],
+        "implicit": [
+          "audio_input_required"
+        ]
+      },
+      "measurement_dimensions": [
+        "spectral_shape",
+        "frequency_response_curve"
+      ],
+      "expected_direction": "UNKNOWN",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "filter_type",
+        "operation": null,
+        "description": "Single-field CBOR mutation on Filter.Type"
+      },
+      "execution_status": "READY_FOR_EXPERIMENT",
+      "ready_to_execute": true,
+      "notes": []
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000007",
+      "hypothesis_id": "hyp_000023",
+      "knowledge_item_id": "ki_ext_000103",
+      "source_segment_ids": [
+        "seg_1770",
+        "seg_1771",
+        "seg_1772",
+        "seg_1773",
+        "seg_1774",
+        "seg_1775",
+        "seg_1776",
+        "seg_1777",
+        "seg_1778",
+        "seg_1779",
+        "seg_1780",
+        "seg_1781",
+        "seg_1782",
+        "seg_1783",
+        "seg_1784",
+        "seg_1785",
+        "seg_1786",
+        "seg_1787",
+        "seg_1788",
+        "seg_1789",
+        "seg_1790",
+        "seg_1791",
+        "seg_1792",
+        "seg_1793",
+        "seg_1794",
+        "seg_1795",
+        "seg_1796",
+        "seg_1797",
+        "seg_1798",
+        "seg_1799",
+        "seg_1800",
+        "seg_1801",
+        "seg_1802",
+        "seg_1803",
+        "seg_1804",
+        "seg_1805",
+        "seg_1806",
+        "seg_1807"
+      ],
+      "source_statement": "So you can hear you can generate some really cool distorted tones out of that. The German low pass is known in the business as a zero delay feedback filter. Now if you're really interested in filter d",
+      "target": "Filter.Type",
+      "operation": null,
+      "predicted_effect": "filter.type_operation_has_effect",
+      "context_status": "SOURCE_EXPLICIT",
+      "context_prerequisites": [
+        "filter_enabled"
+      ],
+      "source_context_hints": {
+        "explicit": [
+          "filter_enabled"
+        ],
+        "implicit": []
+      },
+      "measurement_dimensions": [
+        "spectral_shape",
+        "frequency_response_curve"
+      ],
+      "expected_direction": "UNKNOWN",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "filter_type",
+        "operation": null,
+        "description": "Single-field CBOR mutation on Filter.Type"
+      },
+      "execution_status": "READY_FOR_EXPERIMENT",
+      "ready_to_execute": true,
+      "notes": []
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000008",
+      "hypothesis_id": "hyp_000025",
+      "knowledge_item_id": "ki_ext_000108",
+      "source_segment_ids": [
+        "seg_1863",
+        "seg_1864",
+        "seg_1865",
+        "seg_1866",
+        "seg_1867",
+        "seg_1868"
+      ],
+      "source_statement": "high feedback in the internal delay of the filter. But what that really means in practical terms is that this is going to have a screaming sound specifically when you drive it. [Music]",
+      "target": "FXDistortion.Drive",
+      "operation": null,
+      "predicted_effect": "fxdistortion.drive_operation_has_effect",
+      "context_status": "SOURCE_EXPLICIT",
+      "context_prerequisites": [
+        "filter_enabled"
+      ],
+      "source_context_hints": {
+        "explicit": [
+          "filter_enabled"
+        ],
+        "implicit": [
+          "audio_input_required"
+        ]
+      },
+      "measurement_dimensions": [
+        "harmonic_distortion_thd",
+        "output_saturation"
+      ],
+      "expected_direction": "UNKNOWN",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "fxdistortion_drive",
+        "operation": null,
+        "description": "Single-field CBOR mutation on FXDistortion.Drive"
+      },
+      "execution_status": "READY_FOR_EXPERIMENT",
+      "ready_to_execute": true,
+      "notes": []
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000009",
+      "hypothesis_id": "hyp_000026",
+      "knowledge_item_id": "ki_ext_000111",
+      "source_segment_ids": [
+        "seg_1883",
+        "seg_1884",
+        "seg_1885",
+        "seg_1886",
+        "seg_1887",
+        "seg_1888",
+        "seg_1889",
+        "seg_1890",
+        "seg_1891",
+        "seg_1892",
+        "seg_1893",
+        "seg_1894",
+        "seg_1895",
+        "seg_1896",
+        "seg_1897",
+        "seg_1898",
+        "seg_1899",
+        "seg_1900",
+        "seg_1901",
+        "seg_1902",
+        "seg_1903",
+        "seg_1904",
+        "seg_1905",
+        "seg_1906",
+        "seg_1907",
+        "seg_1908",
+        "seg_1909",
+        "seg_1910",
+        "seg_1911"
+      ],
+      "source_statement": "highp pass. So, we have the low pass here, band reject here, and then highp pass. And in the manual, it says that this filter is designed for its high buzzing tone. So, let's see if we can get that ou",
+      "target": "Filter.Resonance",
+      "operation": null,
+      "predicted_effect": "filter.resonance_operation_has_effect",
+      "context_status": "SOURCE_EXPLICIT",
+      "context_prerequisites": [
+        "filter_enabled"
+      ],
+      "source_context_hints": {
+        "explicit": [
+          "filter_enabled"
+        ],
+        "implicit": []
+      },
+      "measurement_dimensions": [
+        "peak_magnitude_db",
+        "spectral_width_hz"
+      ],
+      "expected_direction": "UNKNOWN",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "filter_resonance",
+        "operation": null,
+        "description": "Single-field CBOR mutation on Filter.Resonance"
+      },
+      "execution_status": "READY_FOR_EXPERIMENT",
+      "ready_to_execute": true,
+      "notes": []
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000010",
+      "hypothesis_id": "hyp_000029",
+      "knowledge_item_id": "ki_ext_000119",
+      "source_segment_ids": [
+        "seg_1998",
+        "seg_1999",
+        "seg_2000",
+        "seg_2001",
+        "seg_2002",
+        "seg_2003",
+        "seg_2004",
+        "seg_2005",
+        "seg_2006",
+        "seg_2007"
+      ],
+      "source_statement": "so buzzy. That is because the resonance is going to be applying a gain to all of the different peaks. So, it's actually just going to scale these peak upwards and downwards. But you can design your ow",
+      "target": "Filter.Type",
+      "operation": null,
+      "predicted_effect": "filter.type_operation_has_effect",
+      "context_status": "UNKNOWN",
+      "context_prerequisites": [
+        "Prerequisites must be determined experimentally"
+      ],
+      "source_context_hints": {
+        "explicit": [],
+        "implicit": []
+      },
+      "measurement_dimensions": [
+        "spectral_shape",
+        "frequency_response_curve"
+      ],
+      "expected_direction": "UNKNOWN",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "filter_type",
+        "operation": null,
+        "description": "Single-field CBOR mutation on Filter.Type"
+      },
+      "execution_status": "REQUIRES_CONTEXT_DESIGN",
+      "ready_to_execute": false,
+      "notes": [
+        "Execution blocked: REQUIRES_CONTEXT_DESIGN"
+      ]
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000011",
+      "hypothesis_id": "hyp_000030",
+      "knowledge_item_id": "ki_ext_000120",
+      "source_segment_ids": [
+        "seg_2008",
+        "seg_2009",
+        "seg_2010",
+        "seg_2011",
+        "seg_2012",
+        "seg_2013",
+        "seg_2014",
+        "seg_2015",
+        "seg_2016",
+        "seg_2017",
+        "seg_2018",
+        "seg_2019"
+      ],
+      "source_statement": "filter. Do a little bit of phase shift with that if you're interested in that. Then next up, we have this moving area. That is because there's not just one filter over here, but there's XD4. So let's ",
+      "target": "Filter.Type",
+      "operation": null,
+      "predicted_effect": "filter.type_operation_has_effect",
+      "context_status": "SOURCE_EXPLICIT",
+      "context_prerequisites": [
+        "filter_enabled"
+      ],
+      "source_context_hints": {
+        "explicit": [
+          "filter_enabled"
+        ],
+        "implicit": []
+      },
+      "measurement_dimensions": [
+        "spectral_shape",
+        "frequency_response_curve"
+      ],
+      "expected_direction": "UNKNOWN",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "filter_type",
+        "operation": null,
+        "description": "Single-field CBOR mutation on Filter.Type"
+      },
+      "execution_status": "READY_FOR_EXPERIMENT",
+      "ready_to_execute": true,
+      "notes": []
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000012",
+      "hypothesis_id": "hyp_000036",
+      "knowledge_item_id": "ki_ext_000134",
+      "source_segment_ids": [
+        "seg_2208",
+        "seg_2209",
+        "seg_2210",
+        "seg_2211",
+        "seg_2212",
+        "seg_2213"
+      ],
+      "source_statement": "So, it turns out I slightly misunderstood what this parameter is doing. It is actually allowing you to untie filters from the envelope. So, you can hear that has a little bit of an effect. If I set th",
+      "target": "Env1.Release",
+      "operation": "MODULATE",
+      "predicted_effect": "env1.release_operation_has_effect",
+      "context_status": "SOURCE_EXPLICIT",
+      "context_prerequisites": [
+        "filter_enabled",
+        "envelope_routed",
+        "fx_active"
+      ],
+      "source_context_hints": {
+        "explicit": [
+          "filter_enabled",
+          "envelope_routed",
+          "fx_active"
+        ],
+        "implicit": []
+      },
+      "measurement_dimensions": [
+        "release_duration_ms",
+        "tail_character"
+      ],
+      "expected_direction": "VARIES",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "env1_release",
+        "operation": "MODULATE",
+        "description": "Single-field CBOR mutation on Env1.Release"
+      },
+      "execution_status": "READY_FOR_EXPERIMENT",
+      "ready_to_execute": true,
+      "notes": []
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000013",
+      "hypothesis_id": "hyp_000037",
+      "knowledge_item_id": "ki_ext_000147",
+      "source_segment_ids": [
+        "seg_2407",
+        "seg_2408",
+        "seg_2409",
+        "seg_2410",
+        "seg_2411",
+        "seg_2412",
+        "seg_2413",
+        "seg_2414",
+        "seg_2415",
+        "seg_2416",
+        "seg_2417",
+        "seg_2418",
+        "seg_2419",
+        "seg_2420",
+        "seg_2421",
+        "seg_2422",
+        "seg_2423",
+        "seg_2424",
+        "seg_2425",
+        "seg_2426",
+        "seg_2427",
+        "seg_2428",
+        "seg_2429",
+        "seg_2430",
+        "seg_2431",
+        "seg_2432",
+        "seg_2433",
+        "seg_2434",
+        "seg_2435",
+        "seg_2436",
+        "seg_2437",
+        "seg_2438",
+        "seg_2439",
+        "seg_2440",
+        "seg_2441",
+        "seg_2442",
+        "seg_2443",
+        "seg_2444",
+        "seg_2445",
+        "seg_2446",
+        "seg_2447",
+        "seg_2448",
+        "seg_2449",
+        "seg_2450",
+        "seg_2451",
+        "seg_2452",
+        "seg_2453",
+        "seg_2454",
+        "seg_2455",
+        "seg_2456",
+        "seg_2457",
+        "seg_2458",
+        "seg_2459",
+        "seg_2460",
+        "seg_2461",
+        "seg_2462",
+        "seg_2463"
+      ],
+      "source_statement": "next effect is also going to be very useful because it's going to be the compressor. What the compressor allows you to do is it allows you to set a threshold above which the sound is actually going to",
+      "target": "Env1.Attack",
+      "operation": null,
+      "predicted_effect": "env1.attack_operation_has_effect",
+      "context_status": "SOURCE_EXPLICIT",
+      "context_prerequisites": [
+        "fx_active"
+      ],
+      "source_context_hints": {
+        "explicit": [
+          "fx_active"
+        ],
+        "implicit": [
+          "audio_input_required"
+        ]
+      },
+      "measurement_dimensions": [
+        "onset_time_ms",
+        "transient_sharpness"
+      ],
+      "expected_direction": "UNKNOWN",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "env1_attack",
+        "operation": null,
+        "description": "Single-field CBOR mutation on Env1.Attack"
+      },
+      "execution_status": "READY_FOR_EXPERIMENT",
+      "ready_to_execute": true,
+      "notes": []
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000014",
+      "hypothesis_id": "hyp_000038",
+      "knowledge_item_id": "ki_ext_000155",
+      "source_segment_ids": [
+        "seg_2553",
+        "seg_2554",
+        "seg_2555",
+        "seg_2556",
+        "seg_2557",
+        "seg_2558",
+        "seg_2559",
+        "seg_2560",
+        "seg_2561",
+        "seg_2562",
+        "seg_2563",
+        "seg_2564",
+        "seg_2565",
+        "seg_2566"
+      ],
+      "source_statement": "Again, as you can see, you can tie this to BPM if you want to set it in musical notes instead of just frequency or like milliseconds. We have attack and decay parameters which are going to apply to th",
+      "target": "Env1.Attack",
+      "operation": null,
+      "predicted_effect": "env1.attack_operation_has_effect",
+      "context_status": "UNKNOWN",
+      "context_prerequisites": [
+        "Prerequisites must be determined experimentally"
+      ],
+      "source_context_hints": {
+        "explicit": [],
+        "implicit": []
+      },
+      "measurement_dimensions": [
+        "onset_time_ms",
+        "transient_sharpness"
+      ],
+      "expected_direction": "UNKNOWN",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "env1_attack",
+        "operation": null,
+        "description": "Single-field CBOR mutation on Env1.Attack"
+      },
+      "execution_status": "REQUIRES_CONTEXT_DESIGN",
+      "ready_to_execute": false,
+      "notes": [
+        "Execution blocked: REQUIRES_CONTEXT_DESIGN"
+      ]
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000015",
+      "hypothesis_id": "hyp_000039",
+      "knowledge_item_id": "ki_ext_000169",
+      "source_segment_ids": [
+        "seg_2814",
+        "seg_2815",
+        "seg_2816"
+      ],
+      "source_statement": "sound. I'm just quickly going to lower the resonance on here because it is not really helpful.",
+      "target": "Filter.Resonance",
+      "operation": "DECREASE",
+      "predicted_effect": "filter.resonance_decrease_decreases_output",
+      "context_status": "SOURCE_IMPLICIT",
+      "context_prerequisites": [
+        "audio_input_required",
+        "audio_signal_present"
+      ],
+      "source_context_hints": {
+        "explicit": [],
+        "implicit": [
+          "audio_input_required",
+          "audio_signal_present"
+        ]
+      },
+      "measurement_dimensions": [
+        "peak_magnitude_db",
+        "spectral_width_hz"
+      ],
+      "expected_direction": "DECREASE",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "filter_resonance",
+        "operation": "DECREASE",
+        "description": "Single-field CBOR mutation on Filter.Resonance"
+      },
+      "execution_status": "READY_FOR_EXPERIMENT",
+      "ready_to_execute": true,
+      "notes": []
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000016",
+      "hypothesis_id": "hyp_000040",
+      "knowledge_item_id": "ki_ext_000181",
+      "source_segment_ids": [
+        "seg_2916",
+        "seg_2917",
+        "seg_2918",
+        "seg_2919",
+        "seg_2920",
+        "seg_2921",
+        "seg_2922",
+        "seg_2923",
+        "seg_2924",
+        "seg_2925",
+        "seg_2926",
+        "seg_2927",
+        "seg_2928"
+      ],
+      "source_statement": "So, as you can hear, just like a slight beef up of the sound, like a slight tonality change, but not really any aggressive new frequencies being introduced here. What does introduce aggressive new fre",
+      "target": "FXDistortion.Drive",
+      "operation": null,
+      "predicted_effect": "fxdistortion.drive_operation_has_effect",
+      "context_status": "SOURCE_IMPLICIT",
+      "context_prerequisites": [
+        "audio_input_required",
+        "audio_signal_present"
+      ],
+      "source_context_hints": {
+        "explicit": [],
+        "implicit": [
+          "audio_input_required",
+          "audio_signal_present"
+        ]
+      },
+      "measurement_dimensions": [
+        "harmonic_distortion_thd",
+        "output_saturation"
+      ],
+      "expected_direction": "UNKNOWN",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "fxdistortion_drive",
+        "operation": null,
+        "description": "Single-field CBOR mutation on FXDistortion.Drive"
+      },
+      "execution_status": "READY_FOR_EXPERIMENT",
+      "ready_to_execute": true,
+      "notes": []
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000017",
+      "hypothesis_id": "hyp_000042",
+      "knowledge_item_id": "ki_ext_000184",
+      "source_segment_ids": [
+        "seg_2943",
+        "seg_2944",
+        "seg_2945",
+        "seg_2946",
+        "seg_2947",
+        "seg_2948",
+        "seg_2949",
+        "seg_2950",
+        "seg_2951",
+        "seg_2952",
+        "seg_2953",
+        "seg_2954",
+        "seg_2955",
+        "seg_2956",
+        "seg_2957",
+        "seg_2958",
+        "seg_2959",
+        "seg_2960",
+        "seg_2961",
+        "seg_2962",
+        "seg_2963"
+      ],
+      "source_statement": "highest drive. But at lower drives you do indeed just get a little bit of extra coloration to the sound. Which reminds me, as you can see, I'm just bypassing the effect over here. So, this disables th",
+      "target": "FXDistortion.Drive",
+      "operation": "DECREASE",
+      "predicted_effect": "fxdistortion.drive_decrease_decreases_output",
+      "context_status": "SOURCE_EXPLICIT",
+      "context_prerequisites": [
+        "fx_active"
+      ],
+      "source_context_hints": {
+        "explicit": [
+          "fx_active"
+        ],
+        "implicit": [
+          "audio_input_required"
+        ]
+      },
+      "measurement_dimensions": [
+        "harmonic_distortion_thd",
+        "output_saturation"
+      ],
+      "expected_direction": "DECREASE",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "fxdistortion_drive",
+        "operation": "DECREASE",
+        "description": "Single-field CBOR mutation on FXDistortion.Drive"
+      },
+      "execution_status": "READY_FOR_EXPERIMENT",
+      "ready_to_execute": true,
+      "notes": []
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000018",
+      "hypothesis_id": "hyp_000043",
+      "knowledge_item_id": "ki_ext_000185",
+      "source_segment_ids": [
+        "seg_2964",
+        "seg_2965",
+        "seg_2966",
+        "seg_2967",
+        "seg_2968",
+        "seg_2969",
+        "seg_2970",
+        "seg_2971",
+        "seg_2972",
+        "seg_2973",
+        "seg_2974",
+        "seg_2975",
+        "seg_2976",
+        "seg_2977",
+        "seg_2978",
+        "seg_2979",
+        "seg_2980",
+        "seg_2981",
+        "seg_2982",
+        "seg_2983",
+        "seg_2984",
+        "seg_2985",
+        "seg_2986",
+        "seg_2987",
+        "seg_2988",
+        "seg_2989",
+        "seg_2990",
+        "seg_2991",
+        "seg_2992",
+        "seg_2993",
+        "seg_2994",
+        "seg_2995",
+        "seg_2996",
+        "seg_2997",
+        "seg_2998",
+        "seg_2999"
+      ],
+      "source_statement": "next few effects are going to be a little bit easier. We have the equalizer, which is going to be a low band, which you can set to low shelf, low peak, or high pass or low cut, whatever you want to ca",
+      "target": "Filter.Type",
+      "operation": "DECREASE",
+      "predicted_effect": "filter.type_decrease_decreases_output",
+      "context_status": "SOURCE_EXPLICIT",
+      "context_prerequisites": [
+        "fx_active"
+      ],
+      "source_context_hints": {
+        "explicit": [
+          "fx_active"
+        ],
+        "implicit": []
+      },
+      "measurement_dimensions": [
+        "spectral_shape",
+        "frequency_response_curve"
+      ],
+      "expected_direction": "DECREASE",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "filter_type",
+        "operation": "DECREASE",
+        "description": "Single-field CBOR mutation on Filter.Type"
+      },
+      "execution_status": "READY_FOR_EXPERIMENT",
+      "ready_to_execute": true,
+      "notes": []
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000019",
+      "hypothesis_id": "hyp_000045",
+      "knowledge_item_id": "ki_ext_000201",
+      "source_segment_ids": [
+        "seg_3231",
+        "seg_3232",
+        "seg_3233",
+        "seg_3234",
+        "seg_3235",
+        "seg_3236",
+        "seg_3237",
+        "seg_3238",
+        "seg_3239",
+        "seg_3240",
+        "seg_3241",
+        "seg_3242",
+        "seg_3243",
+        "seg_3244",
+        "seg_3245",
+        "seg_3246",
+        "seg_3247",
+        "seg_3248",
+        "seg_3249",
+        "seg_3250",
+        "seg_3251",
+        "seg_3252",
+        "seg_3253",
+        "seg_3254",
+        "seg_3255",
+        "seg_3256",
+        "seg_3257",
+        "seg_3258",
+        "seg_3259",
+        "seg_3260",
+        "seg_3261",
+        "seg_3262",
+        "seg_3263",
+        "seg_3264",
+        "seg_3265",
+        "seg_3266",
+        "seg_3267",
+        "seg_3268",
+        "seg_3269",
+        "seg_3270",
+        "seg_3271",
+        "seg_3272",
+        "seg_3273",
+        "seg_3274",
+        "seg_3275",
+        "seg_3276",
+        "seg_3277",
+        "seg_3278",
+        "seg_3279",
+        "seg_3280"
+      ],
+      "source_statement": "sound. Whereas, if we set a little bit of modulation, you can hear we get a little bit of a smoothing of a sound and it also just slightly changes the tonality of it. The vintage reverb is really good",
+      "target": "Env1.Decay",
+      "operation": "MODULATE",
+      "predicted_effect": "env1.decay_operation_has_effect",
+      "context_status": "SOURCE_IMPLICIT",
+      "context_prerequisites": [
+        "audio_input_required",
+        "audio_signal_present"
+      ],
+      "source_context_hints": {
+        "explicit": [],
+        "implicit": [
+          "audio_input_required",
+          "audio_signal_present"
+        ]
+      },
+      "measurement_dimensions": [
+        "decay_duration_ms",
+        "spectral_evolution"
+      ],
+      "expected_direction": "VARIES",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "env1_decay",
+        "operation": "MODULATE",
+        "description": "Single-field CBOR mutation on Env1.Decay"
+      },
+      "execution_status": "READY_FOR_EXPERIMENT",
+      "ready_to_execute": true,
+      "notes": []
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000020",
+      "hypothesis_id": "hyp_000047",
+      "knowledge_item_id": "ki_ext_000211",
+      "source_segment_ids": [
+        "seg_3428",
+        "seg_3429",
+        "seg_3430",
+        "seg_3431",
+        "seg_3432",
+        "seg_3433",
+        "seg_3434",
+        "seg_3435",
+        "seg_3436",
+        "seg_3437",
+        "seg_3438",
+        "seg_3439",
+        "seg_3440",
+        "seg_3441",
+        "seg_3442",
+        "seg_3443",
+        "seg_3444",
+        "seg_3445",
+        "seg_3446",
+        "seg_3447",
+        "seg_3448",
+        "seg_3449",
+        "seg_3450",
+        "seg_3451",
+        "seg_3452",
+        "seg_3453",
+        "seg_3454",
+        "seg_3455",
+        "seg_3456",
+        "seg_3457",
+        "seg_3458",
+        "seg_3459",
+        "seg_3460",
+        "seg_3461",
+        "seg_3462",
+        "seg_3463"
+      ],
+      "source_statement": "Now the second modulation sorts are going to be your envelopes. Now these are going to be like changes over time. As I've already discussed, envelope one is going to be linked to the output volume. An",
+      "target": "Env1.Attack",
+      "operation": "MODULATE",
+      "predicted_effect": "env1.attack_operation_has_effect",
+      "context_status": "SOURCE_EXPLICIT",
+      "context_prerequisites": [
+        "envelope_routed"
+      ],
+      "source_context_hints": {
+        "explicit": [
+          "envelope_routed"
+        ],
+        "implicit": [
+          "audio_input_required"
+        ]
+      },
+      "measurement_dimensions": [
+        "onset_time_ms",
+        "transient_sharpness"
+      ],
+      "expected_direction": "VARIES",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "env1_attack",
+        "operation": "MODULATE",
+        "description": "Single-field CBOR mutation on Env1.Attack"
+      },
+      "execution_status": "READY_FOR_EXPERIMENT",
+      "ready_to_execute": true,
+      "notes": []
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000021",
+      "hypothesis_id": "hyp_000053",
+      "knowledge_item_id": "ki_ext_000265",
+      "source_segment_ids": [
+        "seg_4649",
+        "seg_4650",
+        "seg_4651",
+        "seg_4652",
+        "seg_4653",
+        "seg_4654",
+        "seg_4655",
+        "seg_4656",
+        "seg_4657",
+        "seg_4658",
+        "seg_4659",
+        "seg_4660",
+        "seg_4661",
+        "seg_4662",
+        "seg_4663",
+        "seg_4664",
+        "seg_4665",
+        "seg_4666",
+        "seg_4667",
+        "seg_4668",
+        "seg_4669",
+        "seg_4670",
+        "seg_4671",
+        "seg_4672",
+        "seg_4673",
+        "seg_4674",
+        "seg_4675",
+        "seg_4676",
+        "seg_4677",
+        "seg_4678",
+        "seg_4679",
+        "seg_4680",
+        "seg_4681",
+        "seg_4682",
+        "seg_4683",
+        "seg_4684",
+        "seg_4685",
+        "seg_4686",
+        "seg_4687",
+        "seg_4688",
+        "seg_4689",
+        "seg_4690",
+        "seg_4691",
+        "seg_4692",
+        "seg_4693",
+        "seg_4694",
+        "seg_4695",
+        "seg_4696",
+        "seg_4697",
+        "seg_4698",
+        "seg_4699",
+        "seg_4700",
+        "seg_4701",
+        "seg_4702",
+        "seg_4703",
+        "seg_4704",
+        "seg_4705",
+        "seg_4706",
+        "seg_4707",
+        "seg_4708",
+        "seg_4709",
+        "seg_4710",
+        "seg_4711",
+        "seg_4712",
+        "seg_4713",
+        "seg_4714",
+        "seg_4715",
+        "seg_4716",
+        "seg_4717",
+        "seg_4718",
+        "seg_4719",
+        "seg_4720",
+        "seg_4721",
+        "seg_4722",
+        "seg_4723",
+        "seg_4724",
+        "seg_4725",
+        "seg_4726",
+        "seg_4727",
+        "seg_4728",
+        "seg_4729",
+        "seg_4730",
+        "seg_4731",
+        "seg_4732",
+        "seg_4733",
+        "seg_4734",
+        "seg_4735",
+        "seg_4736",
+        "seg_4737",
+        "seg_4738",
+        "seg_4739",
+        "seg_4740",
+        "seg_4741",
+        "seg_4742",
+        "seg_4743",
+        "seg_4744",
+        "seg_4745",
+        "seg_4746",
+        "seg_4747",
+        "seg_4748",
+        "seg_4749",
+        "seg_4750",
+        "seg_4751",
+        "seg_4752",
+        "seg_4753",
+        "seg_4754",
+        "seg_4755",
+        "seg_4756",
+        "seg_4757",
+        "seg_4758",
+        "seg_4759",
+        "seg_4760",
+        "seg_4761",
+        "seg_4762",
+        "seg_4763",
+        "seg_4764",
+        "seg_4765",
+        "seg_4766",
+        "seg_4767",
+        "seg_4768",
+        "seg_4769",
+        "seg_4770",
+        "seg_4771",
+        "seg_4772",
+        "seg_4773",
+        "seg_4774",
+        "seg_4775",
+        "seg_4776",
+        "seg_4777"
+      ],
+      "source_statement": "can see some of the chances working here as well. Some of times the notes don't get played and sometimes they do. There is, by the way, a little bit of an output which actually shows you exactly what ",
+      "target": "OSC1.Octave",
+      "operation": null,
+      "predicted_effect": "osc1.octave_operation_has_effect",
+      "context_status": "SOURCE_IMPLICIT",
+      "context_prerequisites": [
+        "audio_input_required",
+        "audio_signal_present"
+      ],
+      "source_context_hints": {
+        "explicit": [],
+        "implicit": [
+          "audio_input_required",
+          "audio_signal_present"
+        ]
+      },
+      "measurement_dimensions": [
+        "pitch_shift_semitones",
+        "fundamental_frequency_hz"
+      ],
+      "expected_direction": "UNKNOWN",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "osc1_octave",
+        "operation": null,
+        "description": "Single-field CBOR mutation on OSC1.Octave"
+      },
+      "execution_status": "READY_FOR_EXPERIMENT",
+      "ready_to_execute": true,
+      "notes": []
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000022",
+      "hypothesis_id": "hyp_000057",
+      "knowledge_item_id": "ki_ext_000282",
+      "source_segment_ids": [
+        "seg_5142",
+        "seg_5143",
+        "seg_5144",
+        "seg_5145",
+        "seg_5146",
+        "seg_5147",
+        "seg_5148",
+        "seg_5149",
+        "seg_5150",
+        "seg_5151",
+        "seg_5152",
+        "seg_5153",
+        "seg_5154",
+        "seg_5155",
+        "seg_5156",
+        "seg_5157",
+        "seg_5158",
+        "seg_5159",
+        "seg_5160",
+        "seg_5161",
+        "seg_5162",
+        "seg_5163",
+        "seg_5164",
+        "seg_5165",
+        "seg_5166",
+        "seg_5167",
+        "seg_5168",
+        "seg_5169",
+        "seg_5170",
+        "seg_5171",
+        "seg_5172",
+        "seg_5173",
+        "seg_5174",
+        "seg_5175",
+        "seg_5176",
+        "seg_5177",
+        "seg_5178",
+        "seg_5179",
+        "seg_5180",
+        "seg_5181",
+        "seg_5182",
+        "seg_5183",
+        "seg_5184",
+        "seg_5185",
+        "seg_5186",
+        "seg_5187",
+        "seg_5188",
+        "seg_5189",
+        "seg_5190",
+        "seg_5191",
+        "seg_5192",
+        "seg_5193",
+        "seg_5194",
+        "seg_5195",
+        "seg_5196",
+        "seg_5197",
+        "seg_5198",
+        "seg_5199",
+        "seg_5200",
+        "seg_5201",
+        "seg_5202",
+        "seg_5203",
+        "seg_5204",
+        "seg_5205",
+        "seg_5206",
+        "seg_5207",
+        "seg_5208",
+        "seg_5209",
+        "seg_5210",
+        "seg_5211"
+      ],
+      "source_statement": "sounds that aren't necessarily at the same pitch all the time. We also have the pitch average, which is really useful for stuff that stays on the same pitch. Next up, we have the FFT, which is going t",
+      "target": "OSC1.Wavetable",
+      "operation": null,
+      "predicted_effect": "osc1.wavetable_operation_has_effect",
+      "context_status": "SOURCE_IMPLICIT",
+      "context_prerequisites": [
+        "audio_input_required",
+        "audio_signal_present"
+      ],
+      "source_context_hints": {
+        "explicit": [],
+        "implicit": [
+          "audio_input_required",
+          "audio_signal_present"
+        ]
+      },
+      "measurement_dimensions": [
+        "spectral_harmonic_content",
+        "timbral_character"
+      ],
+      "expected_direction": "UNKNOWN",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "osc1_wavetable",
+        "operation": null,
+        "description": "Single-field CBOR mutation on OSC1.Wavetable"
+      },
+      "execution_status": "READY_FOR_EXPERIMENT",
+      "ready_to_execute": true,
+      "notes": []
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000023",
+      "hypothesis_id": "hyp_000058",
+      "knowledge_item_id": "ki_ext_000284",
+      "source_segment_ids": [
+        "seg_5222",
+        "seg_5223",
+        "seg_5224",
+        "seg_5225",
+        "seg_5226",
+        "seg_5227",
+        "seg_5228",
+        "seg_5229",
+        "seg_5230",
+        "seg_5231",
+        "seg_5232",
+        "seg_5233",
+        "seg_5234",
+        "seg_5235",
+        "seg_5236",
+        "seg_5237",
+        "seg_5238",
+        "seg_5239",
+        "seg_5240",
+        "seg_5241",
+        "seg_5242",
+        "seg_5243",
+        "seg_5244",
+        "seg_5245",
+        "seg_5246",
+        "seg_5247",
+        "seg_5248"
+      ],
+      "source_statement": "So you get these halves in between as well. We can of course also randomize all of the bins. So that is probably going to result in some like very sharp noise thing. It's actually more coherence than ",
+      "target": "OSC1.Wavetable",
+      "operation": "INCREASE",
+      "predicted_effect": "osc1.wavetable_increase_increases_output",
+      "context_status": "UNKNOWN",
+      "context_prerequisites": [
+        "Prerequisites must be determined experimentally"
+      ],
+      "source_context_hints": {
+        "explicit": [],
+        "implicit": []
+      },
+      "measurement_dimensions": [
+        "spectral_harmonic_content",
+        "timbral_character"
+      ],
+      "expected_direction": "INCREASE",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "osc1_wavetable",
+        "operation": "INCREASE",
+        "description": "Single-field CBOR mutation on OSC1.Wavetable"
+      },
+      "execution_status": "REQUIRES_CONTEXT_DESIGN",
+      "ready_to_execute": false,
+      "notes": [
+        "Execution blocked: REQUIRES_CONTEXT_DESIGN"
+      ]
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000024",
+      "hypothesis_id": "hyp_000060",
+      "knowledge_item_id": "ki_ext_000286",
+      "source_segment_ids": [
+        "seg_5266",
+        "seg_5267",
+        "seg_5268",
+        "seg_5269",
+        "seg_5270",
+        "seg_5271",
+        "seg_5272",
+        "seg_5273",
+        "seg_5274",
+        "seg_5275",
+        "seg_5276",
+        "seg_5277",
+        "seg_5278",
+        "seg_5279",
+        "seg_5280",
+        "seg_5281",
+        "seg_5282",
+        "seg_5283",
+        "seg_5284",
+        "seg_5285",
+        "seg_5286",
+        "seg_5287",
+        "seg_5288",
+        "seg_5289",
+        "seg_5290",
+        "seg_5291",
+        "seg_5292",
+        "seg_5293",
+        "seg_5294",
+        "seg_5295",
+        "seg_5296",
+        "seg_5297",
+        "seg_5298",
+        "seg_5299",
+        "seg_5300",
+        "seg_5301",
+        "seg_5302",
+        "seg_5303",
+        "seg_5304",
+        "seg_5305",
+        "seg_5306"
+      ],
+      "source_statement": "sound, as opposed to what we had before, which was this, which is way too sharp. The next operation, what you can do is shifting it up an octave. So, that is going to shift every harmonic up an octave",
+      "target": "OSC1.Octave",
+      "operation": null,
+      "predicted_effect": "osc1.octave_operation_has_effect",
+      "context_status": "SOURCE_IMPLICIT",
+      "context_prerequisites": [
+        "audio_input_required",
+        "audio_signal_present"
+      ],
+      "source_context_hints": {
+        "explicit": [],
+        "implicit": [
+          "audio_input_required",
+          "audio_signal_present"
+        ]
+      },
+      "measurement_dimensions": [
+        "pitch_shift_semitones",
+        "fundamental_frequency_hz"
+      ],
+      "expected_direction": "UNKNOWN",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "osc1_octave",
+        "operation": null,
+        "description": "Single-field CBOR mutation on OSC1.Octave"
+      },
+      "execution_status": "READY_FOR_EXPERIMENT",
+      "ready_to_execute": true,
+      "notes": []
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000025",
+      "hypothesis_id": "hyp_000061",
+      "knowledge_item_id": "ki_ext_000287",
+      "source_segment_ids": [
+        "seg_5307",
+        "seg_5308",
+        "seg_5309",
+        "seg_5310",
+        "seg_5311",
+        "seg_5312",
+        "seg_5313",
+        "seg_5314",
+        "seg_5315",
+        "seg_5316",
+        "seg_5317",
+        "seg_5318",
+        "seg_5319",
+        "seg_5320",
+        "seg_5321",
+        "seg_5322",
+        "seg_5323",
+        "seg_5324",
+        "seg_5325",
+        "seg_5326",
+        "seg_5327",
+        "seg_5328",
+        "seg_5329",
+        "seg_5330",
+        "seg_5331",
+        "seg_5332",
+        "seg_5333",
+        "seg_5334",
+        "seg_5335",
+        "seg_5336",
+        "seg_5337",
+        "seg_5338",
+        "seg_5339",
+        "seg_5340",
+        "seg_5341",
+        "seg_5342",
+        "seg_5343",
+        "seg_5344",
+        "seg_5345",
+        "seg_5346",
+        "seg_5347",
+        "seg_5348",
+        "seg_5349",
+        "seg_5350",
+        "seg_5351",
+        "seg_5352",
+        "seg_5353",
+        "seg_5354",
+        "seg_5355",
+        "seg_5356",
+        "seg_5357",
+        "seg_5358",
+        "seg_5359",
+        "seg_5360",
+        "seg_5361",
+        "seg_5362",
+        "seg_5363",
+        "seg_5364",
+        "seg_5365",
+        "seg_5366",
+        "seg_5367"
+      ],
+      "source_statement": "finally what we're able to do because we have this progressive fade to it. Let's actually set that back. What we can do is actually let's generate a saw wave because we have this kind of progressive f",
+      "target": "OSC1.Wavetable",
+      "operation": null,
+      "predicted_effect": "osc1.wavetable_operation_has_effect",
+      "context_status": "UNKNOWN",
+      "context_prerequisites": [
+        "Prerequisites must be determined experimentally"
+      ],
+      "source_context_hints": {
+        "explicit": [],
+        "implicit": []
+      },
+      "measurement_dimensions": [
+        "spectral_harmonic_content",
+        "timbral_character"
+      ],
+      "expected_direction": "UNKNOWN",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "osc1_wavetable",
+        "operation": null,
+        "description": "Single-field CBOR mutation on OSC1.Wavetable"
+      },
+      "execution_status": "REQUIRES_CONTEXT_DESIGN",
+      "ready_to_execute": false,
+      "notes": [
+        "Execution blocked: REQUIRES_CONTEXT_DESIGN"
+      ]
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000026",
+      "hypothesis_id": "hyp_000066",
+      "knowledge_item_id": "ki_ext_000300",
+      "source_segment_ids": [
+        "seg_5642",
+        "seg_5643",
+        "seg_5644",
+        "seg_5645",
+        "seg_5646",
+        "seg_5647",
+        "seg_5648",
+        "seg_5649",
+        "seg_5650",
+        "seg_5651",
+        "seg_5652",
+        "seg_5653",
+        "seg_5654",
+        "seg_5655",
+        "seg_5656",
+        "seg_5657",
+        "seg_5658",
+        "seg_5659",
+        "seg_5660",
+        "seg_5661",
+        "seg_5662",
+        "seg_5663",
+        "seg_5664",
+        "seg_5665",
+        "seg_5666",
+        "seg_5667",
+        "seg_5668",
+        "seg_5669",
+        "seg_5670",
+        "seg_5671",
+        "seg_5672",
+        "seg_5673",
+        "seg_5674",
+        "seg_5675",
+        "seg_5676",
+        "seg_5677",
+        "seg_5678",
+        "seg_5679",
+        "seg_5680",
+        "seg_5681",
+        "seg_5682",
+        "seg_5683",
+        "seg_5684",
+        "seg_5685",
+        "seg_5686"
+      ],
+      "source_statement": "sound. The next process is this notch all faces for fundamental to 50%. The manual states preserve the phase of the lowest frequency fundamental across various waveforms. But honestly, I don't know wh",
+      "target": "OSC1.Wavetable",
+      "operation": null,
+      "predicted_effect": "osc1.wavetable_operation_has_effect",
+      "context_status": "SOURCE_IMPLICIT",
+      "context_prerequisites": [
+        "audio_input_required",
+        "audio_signal_present"
+      ],
+      "source_context_hints": {
+        "explicit": [],
+        "implicit": [
+          "audio_input_required",
+          "audio_signal_present"
+        ]
+      },
+      "measurement_dimensions": [
+        "spectral_harmonic_content",
+        "timbral_character"
+      ],
+      "expected_direction": "UNKNOWN",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "osc1_wavetable",
+        "operation": null,
+        "description": "Single-field CBOR mutation on OSC1.Wavetable"
+      },
+      "execution_status": "READY_FOR_EXPERIMENT",
+      "ready_to_execute": true,
+      "notes": []
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000027",
+      "hypothesis_id": "hyp_000068",
+      "knowledge_item_id": "ki_ext_000304",
+      "source_segment_ids": [
+        "seg_5731",
+        "seg_5732",
+        "seg_5733",
+        "seg_5734",
+        "seg_5735",
+        "seg_5736",
+        "seg_5737",
+        "seg_5738",
+        "seg_5739",
+        "seg_5740",
+        "seg_5741",
+        "seg_5742",
+        "seg_5743",
+        "seg_5744",
+        "seg_5745",
+        "seg_5746",
+        "seg_5747",
+        "seg_5748",
+        "seg_5749",
+        "seg_5750",
+        "seg_5751",
+        "seg_5752",
+        "seg_5753",
+        "seg_5754",
+        "seg_5755",
+        "seg_5756",
+        "seg_5757",
+        "seg_5758",
+        "seg_5759",
+        "seg_5760",
+        "seg_5761",
+        "seg_5762",
+        "seg_5763",
+        "seg_5764",
+        "seg_5765",
+        "seg_5766",
+        "seg_5767",
+        "seg_5768",
+        "seg_5769",
+        "seg_5770",
+        "seg_5771",
+        "seg_5772",
+        "seg_5773",
+        "seg_5774",
+        "seg_5775",
+        "seg_5776",
+        "seg_5777",
+        "seg_5778",
+        "seg_5779",
+        "seg_5780",
+        "seg_5781",
+        "seg_5782",
+        "seg_5783",
+        "seg_5784",
+        "seg_5785",
+        "seg_5786",
+        "seg_5787",
+        "seg_5788",
+        "seg_5789",
+        "seg_5790",
+        "seg_5791",
+        "seg_5792",
+        "seg_5793",
+        "seg_5794",
+        "seg_5795",
+        "seg_5796",
+        "seg_5797",
+        "seg_5798",
+        "seg_5799",
+        "seg_5800",
+        "seg_5801",
+        "seg_5802",
+        "seg_5803",
+        "seg_5804",
+        "seg_5805",
+        "seg_5806",
+        "seg_5807",
+        "seg_5808",
+        "seg_5809",
+        "seg_5810",
+        "seg_5811",
+        "seg_5812",
+        "seg_5813",
+        "seg_5814",
+        "seg_5815",
+        "seg_5816",
+        "seg_5817",
+        "seg_5818",
+        "seg_5819",
+        "seg_5820",
+        "seg_5821",
+        "seg_5822",
+        "seg_5823",
+        "seg_5824",
+        "seg_5825",
+        "seg_5826",
+        "seg_5827",
+        "seg_5828"
+      ],
+      "source_statement": "So now we have this wave table with the original spectral balance still intact but with the gaps in there. So that is a cool way to create these almost like tonally strange wave tables because they're",
+      "target": "OSC1.Wavetable",
+      "operation": null,
+      "predicted_effect": "osc1.wavetable_operation_has_effect",
+      "context_status": "UNKNOWN",
+      "context_prerequisites": [
+        "Prerequisites must be determined experimentally"
+      ],
+      "source_context_hints": {
+        "explicit": [],
+        "implicit": []
+      },
+      "measurement_dimensions": [
+        "spectral_harmonic_content",
+        "timbral_character"
+      ],
+      "expected_direction": "UNKNOWN",
+      "baseline_requirements": {
+        "initial_state": "default skeleton or preset-activated state",
+        "signal_requirements": "optional",
+        "duration_seconds": 2.0
+      },
+      "intervention_design": {
+        "mutation_target": "osc1_wavetable",
+        "operation": null,
+        "description": "Single-field CBOR mutation on OSC1.Wavetable"
+      },
+      "execution_status": "REQUIRES_CONTEXT_DESIGN",
+      "ready_to_execute": false,
+      "notes": [
+        "Execution blocked: REQUIRES_CONTEXT_DESIGN"
+      ]
+    }
+  ]
+}

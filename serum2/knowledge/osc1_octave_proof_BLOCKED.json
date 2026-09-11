@@ -1,0 +1,129 @@
+{
+  "experiment_id": "osc1_octave_poc_001",
+  "status": "BLOCKED_PRECONDITION",
+  "blocker": "Baseline is silent: RMS=-20.05 dB <= -20.0 dB. CBOR kParamEnable=True. OSC1 activation failed.",
+  "ops_log": [
+    {
+      "timestamp": "2026-09-11T18:10:59.920795+00:00",
+      "step": "STEP1-ENABLE",
+      "COMMAND": "synth.get_parameters_description()[20]",
+      "OBSERVED": {
+        "index": 20,
+        "name": "A Enable",
+        "numSteps": 2,
+        "isBoolean": false,
+        "isDiscrete": true,
+        "label": "",
+        "category": "genericParameter",
+        "text": "On",
+        "currentValText": "On",
+        "isMetaParameter": false,
+        "isAutomatable": true,
+        "defaultValue": 1.0,
+        "defaultValueText": "On",
+        "min": "Off",
+        "max": "On",
+        "valueStrings": []
+      },
+      "EVIDENCE": "OSC1.Enable -> VST3 index 20: {'index': 20, 'name': 'A Enable', 'numSteps': 2, 'isBoolean': False, 'isDiscrete': True, 'label': '', 'category': 'genericParameter', 'text': 'On', 'currentValText': 'On', 'isMetaParameter': False, 'isAutomatable': True, 'defaultValue': 1.0, 'defaultValueText': 'On', 'min': 'Off', 'max': 'On', 'valueStrings': []}"
+    },
+    {
+      "timestamp": "2026-09-11T18:10:59.920833+00:00",
+      "step": "STEP1-OCTAVE",
+      "COMMAND": "synth.get_parameters_description()[23]",
+      "OBSERVED": {
+        "index": 23,
+        "name": "A Octave",
+        "numSteps": 9,
+        "isBoolean": false,
+        "isDiscrete": true,
+        "label": "oct",
+        "category": "genericParameter",
+        "text": " 0",
+        "currentValText": " 0",
+        "isMetaParameter": false,
+        "isAutomatable": true,
+        "defaultValue": 0.5,
+        "defaultValueText": " 0",
+        "min": "-4",
+        "max": "+4",
+        "valueStrings": []
+      },
+      "EVIDENCE": "OSC1.Octave -> VST3 index 23: {'index': 23, 'name': 'A Octave', 'numSteps': 9, 'isBoolean': False, 'isDiscrete': True, 'label': 'oct', 'category': 'genericParameter', 'text': ' 0', 'currentValText': ' 0', 'isMetaParameter': False, 'isAutomatable': True, 'defaultValue': 0.5, 'defaultValueText': ' 0', 'min': '-4', 'max': '+4', 'valueStrings': []}"
+    },
+    {
+      "timestamp": "2026-09-11T18:10:59.920858+00:00",
+      "step": "STEP1-ENABLE-READ",
+      "COMMAND": "synth.get_parameter(20)",
+      "OBSERVED": 1.0,
+      "EVIDENCE": "A Enable default normalized value = 1.000000 (range 0.0-1.0)"
+    },
+    {
+      "timestamp": "2026-09-11T18:10:59.920863+00:00",
+      "step": "STEP1-OCTAVE-READ",
+      "COMMAND": "synth.get_parameter(23)",
+      "OBSERVED": 0.5,
+      "EVIDENCE": "A Octave default normalized value = 0.500000 (range 0.0-1.0)"
+    },
+    {
+      "timestamp": "2026-09-11T18:10:59.920874+00:00",
+      "step": "STEP1-OCTAVE-TREATMENT-CALC",
+      "COMMAND": "octave_baseline(0.500000) + step_size(0.125000)",
+      "OBSERVED": 0.625,
+      "EVIDENCE": "+1 octave normalized value = 0.625000 (step size = 0.125000, num_steps = 9)"
+    },
+    {
+      "timestamp": "2026-09-11T18:10:59.921107+00:00",
+      "step": "STEP2-ENABLE-CBOR-PRE",
+      "COMMAND": "body_base['VoiceOsc0']['plainParams']['kParamEnable']",
+      "OBSERVED": "ABSENT",
+      "EVIDENCE": "CBOR kParamEnable before activation = 'ABSENT'"
+    },
+    {
+      "timestamp": "2026-09-11T18:10:59.921125+00:00",
+      "step": "STEP2-ENABLE-CBOR-SET",
+      "COMMAND": "pathmerge.apply_path_value(body_base, 'VoiceOsc0.plainParams.kParamEnable', True)",
+      "OBSERVED": true,
+      "EVIDENCE": "CBOR kParamEnable after activation = True (route: CBOR pathmerge)"
+    },
+    {
+      "timestamp": "2026-09-11T18:11:00.158764+00:00",
+      "step": "STEP2-ENABLE-HOSTPARAM-READBACK",
+      "COMMAND": "synth_base.get_parameter(20) after CBOR activation",
+      "OBSERVED": 1.0,
+      "EVIDENCE": "A Enable host param readback after CBOR activation = 1.000000"
+    },
+    {
+      "timestamp": "2026-09-11T18:11:00.158792+00:00",
+      "step": "STEP2-OCTAVE-BASELINE-READ",
+      "COMMAND": "synth_base.get_parameter(23)",
+      "OBSERVED": 0.5,
+      "EVIDENCE": "A Octave baseline = 0.500000"
+    },
+    {
+      "timestamp": "2026-09-11T18:11:00.158821+00:00",
+      "step": "STEP2-OCTAVE-BASELINE-SET+READBACK",
+      "COMMAND": "synth_base.set_parameter(23, 0.500000) then get",
+      "OBSERVED": 0.5,
+      "EVIDENCE": "A Octave baseline confirmed = 0.500000"
+    },
+    {
+      "timestamp": "2026-09-11T18:11:00.158826+00:00",
+      "step": "STEP3-RENDER-BASELINE",
+      "COMMAND": "engine_base.render(2.0)",
+      "OBSERVED": "rendering...",
+      "EVIDENCE": "baseline render started"
+    },
+    {
+      "timestamp": "2026-09-11T18:11:00.628129+00:00",
+      "step": "STEP3-MEASURE-BASELINE",
+      "COMMAND": "rms_db + fundamental_hz on baseline audio",
+      "OBSERVED": {
+        "rms_db": -20.054929131203785,
+        "f0_hz": 130.86053412462908
+      },
+      "EVIDENCE": "Baseline: RMS=-20.05 dB, F0=130.86053412462908 Hz"
+    }
+  ],
+  "timestamp": "2026-09-11T18:11:00.628160+00:00"
+}

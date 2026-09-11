@@ -1,0 +1,717 @@
+{
+  "version": "1.0",
+  "source_id": "yt_f507169bd7cb",
+  "execution_plan": {
+    "version": "1.0",
+    "timestamp": "2026-09-11T17:52:02.236753Z",
+    "proof_experiment": {
+      "experiment_id": "exp_cand_000000",
+      "target": "OSC1.Octave",
+      "execution_route": "ABLETON_MCP"
+    },
+    "route_classifications": [
+      {
+        "experiment_candidate_id": "exp_cand_000000",
+        "target": "OSC1.Octave",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "OSC1.Enable (MCP Param 16)",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "OSC1 requires enable through Ableton MCP only"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      },
+      {
+        "experiment_candidate_id": "exp_cand_000001",
+        "target": "OSC1.Octave",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "OSC1.Enable (MCP Param 16)",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "OSC1 requires enable through Ableton MCP only"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      },
+      {
+        "experiment_candidate_id": "exp_cand_000002",
+        "target": "OSC1.Wavetable",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "OSC1.Enable (MCP Param 16)",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "OSC1 requires enable through Ableton MCP"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      },
+      {
+        "experiment_candidate_id": "exp_cand_000003",
+        "target": "OSC1.Octave",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "OSC1.Enable (MCP Param 16)",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "OSC1 requires enable through Ableton MCP only"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      },
+      {
+        "experiment_candidate_id": "exp_cand_000004",
+        "target": "OSC1.Octave",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "OSC1.Enable (MCP Param 16)",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "OSC1 requires enable through Ableton MCP only"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      },
+      {
+        "experiment_candidate_id": "exp_cand_000005",
+        "target": "Filter.Resonance",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "OSC1 audio input",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "Needs OSC1 active via MCP for testing"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      },
+      {
+        "experiment_candidate_id": "exp_cand_000006",
+        "target": "Filter.Type",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "OSC1 audio input",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "Needs OSC1 active via MCP"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      },
+      {
+        "experiment_candidate_id": "exp_cand_000007",
+        "target": "Filter.Type",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "OSC1 audio input",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "Needs OSC1 active via MCP"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      },
+      {
+        "experiment_candidate_id": "exp_cand_000008",
+        "target": "FXDistortion.Drive",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "OSC1 audio input",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "Needs OSC1 active via MCP"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      },
+      {
+        "experiment_candidate_id": "exp_cand_000009",
+        "target": "Filter.Resonance",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "OSC1 audio input",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "Needs OSC1 active via MCP for testing"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      },
+      {
+        "experiment_candidate_id": "exp_cand_000010",
+        "target": "Filter.Type",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "OSC1 audio input",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "Needs OSC1 active via MCP"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      },
+      {
+        "experiment_candidate_id": "exp_cand_000011",
+        "target": "Filter.Type",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "OSC1 audio input",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "Needs OSC1 active via MCP"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      },
+      {
+        "experiment_candidate_id": "exp_cand_000012",
+        "target": "Env1.Release",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "Env0 routing + OSC1.Enable",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "Structural routing unavailable; needs OSC active"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      },
+      {
+        "experiment_candidate_id": "exp_cand_000013",
+        "target": "Env1.Attack",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "Env0 routing + OSC1.Enable",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "Structural routing unavailable; needs OSC active"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      },
+      {
+        "experiment_candidate_id": "exp_cand_000014",
+        "target": "Env1.Attack",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "Env0 routing + OSC1.Enable",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "Structural routing unavailable; needs OSC active"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      },
+      {
+        "experiment_candidate_id": "exp_cand_000015",
+        "target": "Filter.Resonance",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "OSC1 audio input",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "Needs OSC1 active via MCP for testing"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      },
+      {
+        "experiment_candidate_id": "exp_cand_000016",
+        "target": "FXDistortion.Drive",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "OSC1 audio input",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "Needs OSC1 active via MCP"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      },
+      {
+        "experiment_candidate_id": "exp_cand_000017",
+        "target": "FXDistortion.Drive",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "OSC1 audio input",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "Needs OSC1 active via MCP"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      },
+      {
+        "experiment_candidate_id": "exp_cand_000018",
+        "target": "Filter.Type",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "OSC1 audio input",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "Needs OSC1 active via MCP"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      },
+      {
+        "experiment_candidate_id": "exp_cand_000019",
+        "target": "Env1.Decay",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "Env0 routing + OSC1.Enable",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "Structural routing unavailable; needs OSC active"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      },
+      {
+        "experiment_candidate_id": "exp_cand_000020",
+        "target": "Env1.Attack",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "Env0 routing + OSC1.Enable",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "Structural routing unavailable; needs OSC active"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      },
+      {
+        "experiment_candidate_id": "exp_cand_000021",
+        "target": "OSC1.Octave",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "OSC1.Enable (MCP Param 16)",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "OSC1 requires enable through Ableton MCP only"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      },
+      {
+        "experiment_candidate_id": "exp_cand_000022",
+        "target": "OSC1.Wavetable",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "OSC1.Enable (MCP Param 16)",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "OSC1 requires enable through Ableton MCP"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      },
+      {
+        "experiment_candidate_id": "exp_cand_000023",
+        "target": "OSC1.Wavetable",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "OSC1.Enable (MCP Param 16)",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "OSC1 requires enable through Ableton MCP"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      },
+      {
+        "experiment_candidate_id": "exp_cand_000024",
+        "target": "OSC1.Octave",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "OSC1.Enable (MCP Param 16)",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "OSC1 requires enable through Ableton MCP only"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      },
+      {
+        "experiment_candidate_id": "exp_cand_000025",
+        "target": "OSC1.Wavetable",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "OSC1.Enable (MCP Param 16)",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "OSC1 requires enable through Ableton MCP"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      },
+      {
+        "experiment_candidate_id": "exp_cand_000026",
+        "target": "OSC1.Wavetable",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "OSC1.Enable (MCP Param 16)",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "OSC1 requires enable through Ableton MCP"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      },
+      {
+        "experiment_candidate_id": "exp_cand_000027",
+        "target": "OSC1.Wavetable",
+        "execution_route": "ABLETON_MCP",
+        "route_details": {
+          "requires": "OSC1.Enable (MCP Param 16)",
+          "mcp_parameter": 16,
+          "mcp_name": "A Enable",
+          "reason": "OSC1 requires enable through Ableton MCP"
+        },
+        "admission_status": "BLOCKED_PRECONDITION"
+      }
+    ],
+    "route_summary": {
+      "ABLETON_MCP": 28
+    },
+    "mcp_availability": {
+      "infrastructure_available": false,
+      "ableton_live_required": true,
+      "serum_instance": "Live session VST3"
+    },
+    "execution_sequence": [
+      "1. Read A Enable (MCP Param 16) — verify current state",
+      "2. Set A Enable = 1.0 (COMMAND → OBSERVED → EVIDENCE)",
+      "3. Establish baseline OSC1 audio",
+      "4. Read baseline octave value",
+      "5. Apply octave mutation (+1 octave) through MCP",
+      "6. Establish treatment OSC1 audio",
+      "7. Read treatment octave value",
+      "8. Measure: F0 (Hz), pitch shift (semitones), RMS (dB)",
+      "9. Restore: octave to baseline",
+      "10. Restore: A Enable to baseline",
+      "11. Verify both readbacks"
+    ],
+    "constraints": [
+      "NO DawDreamer subprocess (separate instance would invalidate proof)",
+      "ONLY Ableton Live MCP interaction",
+      "Full COMMAND → OBSERVED → EVIDENCE logging",
+      "Preserve all MCP operations"
+    ]
+  },
+  "route_classifications": [
+    {
+      "experiment_candidate_id": "exp_cand_000000",
+      "target": "OSC1.Octave",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "OSC1.Enable (MCP Param 16)",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "OSC1 requires enable through Ableton MCP only"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000001",
+      "target": "OSC1.Octave",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "OSC1.Enable (MCP Param 16)",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "OSC1 requires enable through Ableton MCP only"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000002",
+      "target": "OSC1.Wavetable",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "OSC1.Enable (MCP Param 16)",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "OSC1 requires enable through Ableton MCP"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000003",
+      "target": "OSC1.Octave",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "OSC1.Enable (MCP Param 16)",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "OSC1 requires enable through Ableton MCP only"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000004",
+      "target": "OSC1.Octave",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "OSC1.Enable (MCP Param 16)",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "OSC1 requires enable through Ableton MCP only"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000005",
+      "target": "Filter.Resonance",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "OSC1 audio input",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "Needs OSC1 active via MCP for testing"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000006",
+      "target": "Filter.Type",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "OSC1 audio input",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "Needs OSC1 active via MCP"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000007",
+      "target": "Filter.Type",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "OSC1 audio input",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "Needs OSC1 active via MCP"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000008",
+      "target": "FXDistortion.Drive",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "OSC1 audio input",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "Needs OSC1 active via MCP"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000009",
+      "target": "Filter.Resonance",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "OSC1 audio input",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "Needs OSC1 active via MCP for testing"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000010",
+      "target": "Filter.Type",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "OSC1 audio input",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "Needs OSC1 active via MCP"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000011",
+      "target": "Filter.Type",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "OSC1 audio input",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "Needs OSC1 active via MCP"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000012",
+      "target": "Env1.Release",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "Env0 routing + OSC1.Enable",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "Structural routing unavailable; needs OSC active"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000013",
+      "target": "Env1.Attack",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "Env0 routing + OSC1.Enable",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "Structural routing unavailable; needs OSC active"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000014",
+      "target": "Env1.Attack",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "Env0 routing + OSC1.Enable",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "Structural routing unavailable; needs OSC active"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000015",
+      "target": "Filter.Resonance",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "OSC1 audio input",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "Needs OSC1 active via MCP for testing"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000016",
+      "target": "FXDistortion.Drive",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "OSC1 audio input",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "Needs OSC1 active via MCP"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000017",
+      "target": "FXDistortion.Drive",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "OSC1 audio input",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "Needs OSC1 active via MCP"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000018",
+      "target": "Filter.Type",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "OSC1 audio input",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "Needs OSC1 active via MCP"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000019",
+      "target": "Env1.Decay",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "Env0 routing + OSC1.Enable",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "Structural routing unavailable; needs OSC active"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000020",
+      "target": "Env1.Attack",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "Env0 routing + OSC1.Enable",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "Structural routing unavailable; needs OSC active"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000021",
+      "target": "OSC1.Octave",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "OSC1.Enable (MCP Param 16)",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "OSC1 requires enable through Ableton MCP only"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000022",
+      "target": "OSC1.Wavetable",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "OSC1.Enable (MCP Param 16)",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "OSC1 requires enable through Ableton MCP"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000023",
+      "target": "OSC1.Wavetable",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "OSC1.Enable (MCP Param 16)",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "OSC1 requires enable through Ableton MCP"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000024",
+      "target": "OSC1.Octave",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "OSC1.Enable (MCP Param 16)",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "OSC1 requires enable through Ableton MCP only"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000025",
+      "target": "OSC1.Wavetable",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "OSC1.Enable (MCP Param 16)",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "OSC1 requires enable through Ableton MCP"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000026",
+      "target": "OSC1.Wavetable",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "OSC1.Enable (MCP Param 16)",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "OSC1 requires enable through Ableton MCP"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    },
+    {
+      "experiment_candidate_id": "exp_cand_000027",
+      "target": "OSC1.Wavetable",
+      "execution_route": "ABLETON_MCP",
+      "route_details": {
+        "requires": "OSC1.Enable (MCP Param 16)",
+        "mcp_parameter": 16,
+        "mcp_name": "A Enable",
+        "reason": "OSC1 requires enable through Ableton MCP"
+      },
+      "admission_status": "BLOCKED_PRECONDITION"
+    }
+  ],
+  "status": "AWAITING_ABLETON"
+}

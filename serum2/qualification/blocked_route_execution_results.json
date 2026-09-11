@@ -1,0 +1,349 @@
+{
+  "timestamp": "2026-09-12T00:20:38.845624",
+  "results": [
+    {
+      "success": true,
+      "experiment_id": "seed_filter2_cutoff_002",
+      "behavior_observation": {
+        "experiment_id": "seed_filter2_cutoff_002",
+        "timestamp": "2026-09-11T18:50:34.091199+00:00",
+        "semantic_target": "Filter2.Cutoff",
+        "operation": "SET_PARAMETER",
+        "context": {
+          "Filter 2 On": 1.0
+        },
+        "context_provenance": "Filter 2 must be active (host param) to observe cutoff effect",
+        "baseline_intervention": {
+          "cbor_overrides": {},
+          "host_context": []
+        },
+        "treatment_intervention": {
+          "cbor_path": null,
+          "cbor_value": null,
+          "host_param_name": "Filter 2 Freq",
+          "host_param_value": 0.75,
+          "host_context": []
+        },
+        "baseline_rendered": true,
+        "treatment_rendered": true,
+        "baseline_render_time_sec": 0.309372,
+        "treatment_render_time_sec": 0.292687,
+        "measurements": [
+          {
+            "name": "spectral_centroid_hz",
+            "kernel": "spectral_centroid_hz",
+            "baseline": 4378.134622380464,
+            "treatment": 4378.134622380464,
+            "delta": 0.0,
+            "threshold": 50.0,
+            "status": "NO_OBSERVED_EFFECT"
+          }
+        ],
+        "isolation_level": "single_field",
+        "execution_notes": "{\"baseline_validity\": {\"peak\": 0.28331682085990906, \"nonzero_fraction\": 0.7662358276643991, \"valid\": true}, \"treatment_validity\": {\"peak\": 0.28331682085990906, \"nonzero_fraction\": 0.7662358276643991, \"valid\": true}}"
+      },
+      "exercise_qualification": null
+    },
+    {
+      "success": true,
+      "experiment_id": "seed_osc1_level_002",
+      "behavior_observation": {
+        "experiment_id": "seed_osc1_level_002",
+        "timestamp": "2026-09-11T18:50:34.898656+00:00",
+        "semantic_target": "OSC1.Level",
+        "operation": "SET_PARAMETER",
+        "context": {},
+        "context_provenance": "A Enable=1.0 by default; no additional context needed",
+        "baseline_intervention": {
+          "cbor_overrides": {},
+          "host_context": []
+        },
+        "treatment_intervention": {
+          "cbor_path": null,
+          "cbor_value": null,
+          "host_param_name": "A Level",
+          "host_param_value": 0.25,
+          "host_context": []
+        },
+        "baseline_rendered": true,
+        "treatment_rendered": true,
+        "baseline_render_time_sec": 0.279176,
+        "treatment_render_time_sec": 0.37477,
+        "measurements": [
+          {
+            "name": "rms_db",
+            "kernel": "rms_db",
+            "baseline": -20.054929131203785,
+            "treatment": -39.139778668735595,
+            "delta": -19.08484953753181,
+            "threshold": 1.0,
+            "status": "EFFECT_OBSERVED"
+          }
+        ],
+        "isolation_level": "single_field",
+        "execution_notes": "{\"baseline_validity\": {\"peak\": 0.28331682085990906, \"nonzero_fraction\": 0.7662358276643991, \"valid\": true}, \"treatment_validity\": {\"peak\": 0.03147964924573898, \"nonzero_fraction\": 0.7604308390022676, \"valid\": true}}"
+      },
+      "exercise_qualification": {
+        "target_semantic_id": "OSC1.Level",
+        "target_cbor_path": "host_param:A Level",
+        "frozen_context": {},
+        "mutation_value": 0.25,
+        "causal_measurement": {
+          "metric": "rms_db",
+          "baseline": -20.054929131203785,
+          "treatment": -39.139778668735595,
+          "delta": -19.08484953753181,
+          "expected_direction": "decrease",
+          "observed_direction": "decrease",
+          "threshold": 1.0,
+          "status": "EFFECT_OBSERVED"
+        },
+        "isolation_level": "single_field",
+        "scope": "single_run_non_reusable",
+        "experiment_id": "seed_osc1_level_002",
+        "is_valid": true
+      }
+    },
+    {
+      "success": true,
+      "experiment_id": "seed_osc1_detune_002",
+      "behavior_observation": {
+        "experiment_id": "seed_osc1_detune_002",
+        "timestamp": "2026-09-11T18:50:36.182073+00:00",
+        "semantic_target": "OSC1.Detune",
+        "operation": "SET_PARAMETER",
+        "context": {},
+        "context_provenance": "A Enable=1.0 by default",
+        "baseline_intervention": {
+          "cbor_overrides": {},
+          "host_context": []
+        },
+        "treatment_intervention": {
+          "cbor_path": null,
+          "cbor_value": null,
+          "host_param_name": "A Fine",
+          "host_param_value": 0.75,
+          "host_context": []
+        },
+        "baseline_rendered": true,
+        "treatment_rendered": true,
+        "baseline_render_time_sec": 0.265422,
+        "treatment_render_time_sec": 0.277735,
+        "measurements": [
+          {
+            "name": "fundamental_frequency_hz",
+            "kernel": "fundamental_frequency_hz",
+            "baseline": 261.5,
+            "treatment": 269.0,
+            "delta": 7.5,
+            "threshold": 1.0,
+            "status": "EFFECT_OBSERVED"
+          },
+          {
+            "name": "pitch_shift_semitones",
+            "kernel": "pitch_shift_semitones",
+            "baseline": 0.0,
+            "treatment": 0.48954271571619273,
+            "delta": 0.48954271571619273,
+            "threshold": 0.1,
+            "status": "EFFECT_OBSERVED"
+          }
+        ],
+        "isolation_level": "single_field",
+        "execution_notes": "{\"baseline_validity\": {\"peak\": 0.28331682085990906, \"nonzero_fraction\": 0.7662358276643991, \"valid\": true}, \"treatment_validity\": {\"peak\": 0.2831871509552002, \"nonzero_fraction\": 0.7604308390022676, \"valid\": true}}"
+      },
+      "exercise_qualification": {
+        "target_semantic_id": "OSC1.Detune",
+        "target_cbor_path": "host_param:A Fine",
+        "frozen_context": {},
+        "mutation_value": 0.75,
+        "causal_measurement": {
+          "metric": "fundamental_frequency_hz",
+          "baseline": 261.5,
+          "treatment": 269.0,
+          "delta": 7.5,
+          "expected_direction": "change",
+          "observed_direction": "increase",
+          "threshold": 1.0,
+          "status": "EFFECT_OBSERVED"
+        },
+        "isolation_level": "single_field",
+        "scope": "single_run_non_reusable",
+        "experiment_id": "seed_osc1_detune_002",
+        "is_valid": true
+      }
+    },
+    {
+      "success": true,
+      "experiment_id": "seed_osc2_detune_002",
+      "behavior_observation": {
+        "experiment_id": "seed_osc2_detune_002",
+        "timestamp": "2026-09-11T18:50:37.510835+00:00",
+        "semantic_target": "OSC2.Detune",
+        "operation": "SET_PARAMETER",
+        "context": {
+          "B Enable": 1.0
+        },
+        "context_provenance": "B Enable must be on (default=0); B Fine controls OSC2 fine-tune",
+        "baseline_intervention": {
+          "cbor_overrides": {},
+          "host_context": []
+        },
+        "treatment_intervention": {
+          "cbor_path": null,
+          "cbor_value": null,
+          "host_param_name": "B Fine",
+          "host_param_value": 0.75,
+          "host_context": []
+        },
+        "baseline_rendered": true,
+        "treatment_rendered": true,
+        "baseline_render_time_sec": 0.28087,
+        "treatment_render_time_sec": 0.300939,
+        "measurements": [
+          {
+            "name": "fundamental_frequency_hz",
+            "kernel": "fundamental_frequency_hz",
+            "baseline": 261.5,
+            "treatment": 261.5,
+            "delta": 0.0,
+            "threshold": 1.0,
+            "status": "NO_OBSERVED_EFFECT"
+          },
+          {
+            "name": "pitch_shift_semitones",
+            "kernel": "pitch_shift_semitones",
+            "baseline": 0.0,
+            "treatment": 0.0,
+            "delta": 0.0,
+            "threshold": 0.1,
+            "status": "NO_OBSERVED_EFFECT"
+          }
+        ],
+        "isolation_level": "single_field",
+        "execution_notes": "{\"baseline_validity\": {\"peak\": 0.5666336417198181, \"nonzero_fraction\": 0.7662358276643991, \"valid\": true}, \"treatment_validity\": {\"peak\": 0.5486364960670471, \"nonzero_fraction\": 0.7662358276643991, \"valid\": true}}"
+      },
+      "exercise_qualification": null
+    },
+    {
+      "success": true,
+      "experiment_id": "seed_env1_attack_002",
+      "behavior_observation": {
+        "experiment_id": "seed_env1_attack_002",
+        "timestamp": "2026-09-11T18:50:38.205573+00:00",
+        "semantic_target": "Env1.Attack",
+        "operation": "SET_PARAMETER",
+        "context": {},
+        "context_provenance": "Env 1 modulates amplitude by default; no extra context needed",
+        "baseline_intervention": {
+          "cbor_overrides": {},
+          "host_context": []
+        },
+        "treatment_intervention": {
+          "cbor_path": null,
+          "cbor_value": null,
+          "host_param_name": "Env 1 Attack",
+          "host_param_value": 0.6,
+          "host_context": []
+        },
+        "baseline_rendered": true,
+        "treatment_rendered": true,
+        "baseline_render_time_sec": 0.259859,
+        "treatment_render_time_sec": 0.268374,
+        "measurements": [
+          {
+            "name": "rms_db",
+            "kernel": "rms_db",
+            "baseline": -20.054929131203785,
+            "treatment": -29.20805300220916,
+            "delta": -9.153123871005374,
+            "threshold": 0.5,
+            "status": "EFFECT_OBSERVED"
+          }
+        ],
+        "isolation_level": "single_field",
+        "execution_notes": "{\"baseline_validity\": {\"peak\": 0.28331682085990906, \"nonzero_fraction\": 0.7662358276643991, \"valid\": true}, \"treatment_validity\": {\"peak\": 0.16837432980537415, \"nonzero_fraction\": 0.7662358276643991, \"valid\": true}}"
+      },
+      "exercise_qualification": {
+        "target_semantic_id": "Env1.Attack",
+        "target_cbor_path": "host_param:Env 1 Attack",
+        "frozen_context": {},
+        "mutation_value": 0.6,
+        "causal_measurement": {
+          "metric": "rms_db",
+          "baseline": -20.054929131203785,
+          "treatment": -29.20805300220916,
+          "delta": -9.153123871005374,
+          "expected_direction": "decrease",
+          "observed_direction": "decrease",
+          "threshold": 0.5,
+          "status": "EFFECT_OBSERVED"
+        },
+        "isolation_level": "single_field",
+        "scope": "single_run_non_reusable",
+        "experiment_id": "seed_env1_attack_002",
+        "is_valid": true
+      }
+    },
+    {
+      "success": true,
+      "experiment_id": "seed_env1_release_002",
+      "behavior_observation": {
+        "experiment_id": "seed_env1_release_002",
+        "timestamp": "2026-09-11T18:50:38.844908+00:00",
+        "semantic_target": "Env1.Release",
+        "operation": "SET_PARAMETER",
+        "context": {},
+        "context_provenance": "Env 1 modulates amplitude by default; no extra context needed",
+        "baseline_intervention": {
+          "cbor_overrides": {},
+          "host_context": []
+        },
+        "treatment_intervention": {
+          "cbor_path": null,
+          "cbor_value": null,
+          "host_param_name": "Env 1 Release",
+          "host_param_value": 0.8,
+          "host_context": []
+        },
+        "baseline_rendered": true,
+        "treatment_rendered": true,
+        "baseline_render_time_sec": 0.230368,
+        "treatment_render_time_sec": 0.254725,
+        "measurements": [
+          {
+            "name": "tail_rms_db",
+            "kernel": "tail_rms_db",
+            "baseline": -20.71649517114178,
+            "treatment": -19.050182437103032,
+            "delta": 1.6663127340387476,
+            "threshold": 1.0,
+            "status": "EFFECT_OBSERVED"
+          }
+        ],
+        "isolation_level": "single_field",
+        "execution_notes": "{\"baseline_validity\": {\"peak\": 0.28331682085990906, \"nonzero_fraction\": 0.7662358276643991, \"valid\": true}, \"treatment_validity\": {\"peak\": 0.28331682085990906, \"nonzero_fraction\": 0.9999773242630385, \"valid\": true}}"
+      },
+      "exercise_qualification": {
+        "target_semantic_id": "Env1.Release",
+        "target_cbor_path": "host_param:Env 1 Release",
+        "frozen_context": {},
+        "mutation_value": 0.8,
+        "causal_measurement": {
+          "metric": "tail_rms_db",
+          "baseline": -20.71649517114178,
+          "treatment": -19.050182437103032,
+          "delta": 1.6663127340387476,
+          "expected_direction": "increase",
+          "observed_direction": "increase",
+          "threshold": 1.0,
+          "status": "EFFECT_OBSERVED"
+        },
+        "isolation_level": "single_field",
+        "scope": "single_run_non_reusable",
+        "experiment_id": "seed_env1_release_002",
+        "is_valid": true
+      }
+    }
+  ]
+}
