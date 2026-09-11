@@ -31,12 +31,12 @@ from serum2.evidence.spec import ExperimentSpec, Mutation, Prerequisite, SINGLE_
 
 H1_BOOLEAN = "OSC1.Enable"
 H1_ENUM = "Filter.Type"
-H1_SCALAR = "Filter.Cutoff"
+H1_SCALAR = "Filter.Resonance"
 
 # Concrete Serum state paths (derived from phase 1 + existing experiments)
 H1_BOOLEAN_PATH = "VoiceOsc0.plainParams.kParamEnable"
 H1_ENUM_PATH = "VoiceFilter0.plainParams.kParamType"
-H1_SCALAR_PATH = "VoiceFilter0.plainParams.kParamCutoff"
+H1_SCALAR_PATH = "VoiceFilter0.plainParams.kParamReso"
 
 
 # ---------------------------------------------------------------------------
@@ -114,19 +114,19 @@ def build_enum_plan() -> ExperimentSpec:
 # ---------------------------------------------------------------------------
 
 def build_scalar_plan() -> ExperimentSpec:
-    """H1 SCALAR pilot: Filter.Cutoff (VoiceFilter0.plainParams.kParamCutoff).
+    """H1 SCALAR pilot: Filter.Resonance (VoiceFilter0.plainParams.kParamReso).
 
-    The semantic target is Filter.Cutoff.
-    The concrete state path is VoiceFilter0.plainParams.kParamCutoff.
+    The semantic target is Filter.Resonance.
+    The concrete state path is VoiceFilter0.plainParams.kParamReso.
 
-    Value 5000.0 is mid-high cutoff frequency for clarity.
+    Value 90.0 is high resonance for clarity.
     """
 
     return _build_h1_spec(
-        experiment_id="A3-H1-SCALAR-FILTER-CUTOFF",
+        experiment_id="A3-H1-SCALAR-FILTER-RESONANCE",
         semantic_id=H1_SCALAR,
         target_path=H1_SCALAR_PATH,
-        value=5000.0,
+        value=90.0,
     )
 
 
