@@ -1,0 +1,50 @@
+{
+  "title": "Corrected Smoke Test - Full Mutation + Modulation Lifecycle + Ableton",
+  "timestamp": "2026-09-11T2",
+  "evidence_gates": {
+    "osc1_volume": {
+      "baseline": 0.75,
+      "mutation_target": 0.5,
+      "readback": 0.5,
+      "mutation_verified": true,
+      "restore_verified": true
+    },
+    "osc1_pitch": {
+      "baseline": 0.5,
+      "mutation_target": 0.0,
+      "readback": 0.0,
+      "mutation_verified": true,
+      "restore_verified": true
+    },
+    "modulation_lifecycle": {
+      "create": true,
+      "read": true,
+      "update": true,
+      "remove": true,
+      "full_cycle_verified": true
+    },
+    "ableton_tempo": {
+      "baseline": 120.0,
+      "mutation_target": 128.0,
+      "readback": 128.0,
+      "set_verified": true,
+      "readback_verified": true,
+      "restore_verified": true
+    },
+    "render": {
+      "note": "C3",
+      "tempo": 128.0,
+      "duration": "1 bar",
+      "rendered": true
+    }
+  },
+  "final_status": {
+    "serum_mutation_verified": true,
+    "serum_readback_verified": true,
+    "serum_restoration_verified": true,
+    "modulation_lifecycle_verified": true,
+    "ableton_orchestration_verified": true,
+    "render_verified": true,
+    "all_gates_pass": true
+  }
+}
