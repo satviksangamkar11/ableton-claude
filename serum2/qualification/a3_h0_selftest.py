@@ -12,8 +12,8 @@ interprets evidence correctly.
 
 from __future__ import annotations
 
-from a3_evaluator import evaluate_record
-from a3_receipts import PASS, FAIL, NOT_RUN
+from serum2.qualification.a3_evaluator import evaluate_record
+from serum2.qualification.a3_receipts import PASS, FAIL, NOT_RUN
 
 
 TARGET = {
