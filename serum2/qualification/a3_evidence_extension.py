@@ -80,6 +80,27 @@ class PersistenceLifecycleEvidence:
         }
 
 
+def create_p1_observation(
+    *,
+    status: str,
+    reason: str = None,
+    target_value_before: Any = None,
+    target_value_after_mutation: Any = None,
+    target_value_after_reload: Any = None,
+    details: Dict[str, Any] = None,
+) -> P1PersistenceObservation:
+    """Factory for P1 observations."""
+
+    return P1PersistenceObservation(
+        status=status,
+        reason=reason,
+        target_value_before=target_value_before,
+        target_value_after_mutation=target_value_after_mutation,
+        target_value_after_reload=target_value_after_reload,
+        details=details or {},
+    )
+
+
 def create_evidence_record_extension(
     *,
     p1_observation: Optional[P1PersistenceObservation] = None,

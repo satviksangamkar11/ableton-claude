@@ -1,6 +1,6 @@
 {
   "registry_phase": "16.5.69.1c",
-  "resolved_count": 11,
+  "resolved_count": 12,
   "unresolved_summary": {
     "UNMAPPED": 8,
     "VST3_NAME_NOT_FOUND": 1
@@ -170,6 +170,21 @@
       "min_val": 0.0,
       "max_val": 100.0,
       "default_val": 0.75
+    },
+    {
+      "semantic_id": "Filter.Resonance",
+      "capability_key": "filter_field_resonance",
+      "vst3_name": "Filter 1 Res",
+      "vst3_index": 206,
+      "vst3_transport_kind": "SCALAR",
+      "is_discrete": false,
+      "num_steps": 2147483647,
+      "semantic_mutation_class": "SCALAR",
+      "resolution_status": "RESOLVED",
+      "mapping_basis": "a3_h1_pilot_evidence_correction",
+      "min_val": 0.0,
+      "max_val": 100.0,
+      "default_val": 0.10000000149011612
     }
   ],
   "unresolved_by_status": {
