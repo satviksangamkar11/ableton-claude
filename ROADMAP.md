@@ -287,6 +287,65 @@ admission provenance, not frontier counts alone.
 
 ---
 
+## 16.5.69 — DawDreamer Production Qualification (`FROZEN ARCHITECTURE`)
+
+**Decision:** [[dual-engine-production-architecture]] committed (2026-09-11). Serum Execution Engine (DawDreamer) is authoritative for full Serum control (2,623 VST3 parameters proven by A1.1); Ableton/MCP 127-parameter surface is optional live-controls layer, not canonical. VST3 parameter indices are execution addresses only; semantic authority remains in `targets.py::SEMANTIC_TARGETS`. Full-control claims measured against **audited semantic target inventory**, not raw VST3 count.
+
+**Closed paths (NEGATIVE_EVIDENCE):** vst~ parameter enumeration/write-by-index (A1.2pre). Static `.als` XML rebinding (A1.2 LOM-write-tested). Live Configure GUI-drag deferred due to 127-slot hard-cap (architectural ceiling, not routable). M4L-as-host deferred pending new requirement.
+
+**Phase: DawDreamer Production Qualification v1**
+
+Seven discrete deliverables; gate-passing sequence (no exploratory sweeps until measurement protocol proven on representative cases):
+
+1. **16.5.69.1 — SERUM_SEMANTIC_TARGET_INVENTORY.json**
+   - Audit semantic targets (existing `targets.py` + new entries as A3–A7 discover)
+   - Structure: semantic_id, display_name, family, value_kind, vst3_parameter_ids[], mutation_class
+   - Mutation classes: SCALAR, ENUM, BOOLEAN, REFERENCE, ARRAY_ELEMENT, ARRAY_TRANSACTION, OBJECT_FIELD, TOPOLOGY_TRANSACTION, COMPOSITE, DEPENDENT, CONTEXTUAL
+
+2. **16.5.69.2 — SERUM_VST3_RESOLVER.py**
+   - Never allow `set_parameter(100, 0.8)` in production code
+   - Always: `set_target("oscillator_b.unison.stack", 4)` → semantic → VST3 index → DawDreamer
+   - Protects against index instability and generic-name opacity
+
+3. **16.5.69.3 — Mutation qualification harness**
+   - Representative test for each mutation class (SCALAR, ENUM, BOOLEAN, TOPOLOGY, REFERENCE)
+   - Per test: initial_state → apply_mutation → read_back → compare_intended → check_collateral
+   - Classification: GENERATION_PASS | GENERATION_FAIL | UNSUPPORTED | AMBIGUOUS
+
+4. **16.5.69.4 — Persistence qualification harness**
+   - Same-process reload, new-process reload, fresh-instance reload
+   - For each mutation mechanism
+   - Classification: PERSISTENCE_PASS | PERSISTENCE_FAIL | PERSISTENCE_UNKNOWN
+   - Non-negotiable: mutations must survive process death to be production-grade
+
+5. **16.5.69.5 — Audio verification engine**
+   - Measurement-backed causality proof independent of mutation success
+   - Per target type: RMS/LUFS/spectral-energy/fundamental/transient-delta (not one metric)
+   - Gate: mutation_PASS AND causal_PASS required for CAUSAL_VERIFIED
+   - Classification: CAUSAL_VERIFIED | NO_OBSERVED_EFFECT | INCONCLUSIVE | UNKNOWN
+
+6. **16.5.69.6 — Collateral-change detector**
+   - When changing target A, catalog all state changes
+   - Classification: INTENDED_ONLY | INTENDED_PLUS_EXPECTED | UNINTENDED_SIDE_EFFECT | UNKNOWN
+   - Detects dangerous parameter coupling
+
+7. **16.5.69.7 — Production qualification report**
+   - Matrix: representative controls × mutation classes × all 7 harnesses
+   - Gate: all seven green before 2,623-surface automated sweep
+   - Output: honest coverage number
+     ```
+     total_semantic_targets
+       → resolved (VST3_found)
+       → mutable (GENERATION_PASS)
+       → persistent (PERSISTENCE_PASS)
+       → causally_verified (CAUSAL_VERIFIED)
+       vs UNKNOWN | UNSUPPORTED
+     ```
+
+**Blockers:** None. Can begin immediately after this step is frozen.
+
+---
+
 ## Deferred until after 16.6
 
 Not blockers. Revisit only if a concrete production goal hits the specific gap.

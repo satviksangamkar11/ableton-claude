@@ -1,0 +1,33 @@
+{
+  "count": 28,
+  "parameters": [
+    "A>BUS1",
+    "A>BUS2",
+    "A>Filter Balance",
+    "Arp Velo Decay",
+    "B>BUS1",
+    "B>BUS2",
+    "B>Filter Balance",
+    "C>BUS1",
+    "C>BUS2",
+    "C>Filter Balance",
+    "Noise Enable",
+    "Noise Level",
+    "Noise Pan",
+    "Noise Pitch",
+    "Noise Pitch Track",
+    "Noise>BUS1",
+    "Noise>BUS2",
+    "Noise>Filter Balance",
+    "Osc Detune Rnd",
+    "Osc Pan Rand",
+    "Sub Coarse Pitch",
+    "Sub Enable",
+    "Sub Level",
+    "Sub Osc>BUS1",
+    "Sub Osc>BUS2",
+    "Sub Osc>Filter Balance",
+    "Sub Pan",
+    "Sub Pitch Track"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "audit_phase": "16.5.69.1a",
+  "source": "D:\\ableton claude\\experiments\\A1_1_vst3_parameter_surface.json",
+  "schema_status": "PASS",
+  "errors": [],
+  "warnings": [
+    "2 names appear multiple times"
+  ],
+  "parameter_count": 2623,
+  "metadata": {
+    "experiment": "16_5_A1.1",
+    "mechanism": "DawDreamer get_parameters_description() -> VST3 IEditController, independent of vst~ message layer",
+    "plugin": {
+      "name": "Serum 2",
+      "version": "2.0.21",
+      "format": "VST3",
+      "path": "C:\\Program Files\\Common Files\\VST3\\Serum2.vst3"
+    }
+  },
+  "unique_index_count": 2623,
+  "duplicate_indices": {},
+  "unique_name_count": 2621,
+  "duplicate_names": {
+    "Pitch Bend": {
+      "count": 2,
+      "indices": [
+        7,
+        2622
+      ]
+    },
+    "Mod Wheel": {
+      "count": 2,
+      "indices": [
+        8,
+        2621
+      ]
+    }
+  },
+  "transport_metadata": {
+    "boolean_parameters": 0,
+    "discrete_parameters": 70,
+    "continuous_scalar_parameters": 2553
+  },
+  "domain_metadata": {
+    "with_min_max": 2623,
+    "with_numsteps": 2623
+  }
+}

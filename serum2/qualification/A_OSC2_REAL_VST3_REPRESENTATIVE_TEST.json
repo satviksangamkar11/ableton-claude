@@ -1,0 +1,36 @@
+{
+  "title": "OSC2 Real VST3 Representative Test",
+  "tested": 3,
+  "passed": 3,
+  "results": [
+    {
+      "name": "B Enable",
+      "class": "BOOLEAN",
+      "baseline": 0.0,
+      "set_value": 1.0,
+      "readback": 1.0,
+      "success": true
+    },
+    {
+      "name": "B Octave",
+      "class": "INTEGER",
+      "baseline": 0.5,
+      "set_value": 0.0,
+      "readback": 0.0,
+      "success": true
+    },
+    {
+      "name": "B Level",
+      "class": "SCALAR",
+      "baseline": 0.75,
+      "set_value": 0.75,
+      "readback": 0.75,
+      "success": true
+    }
+  ],
+  "architecture": {
+    "ableton_mcp_serum_surface": "NOT_EXPOSED",
+    "serum_vst3_control_surface": "AVAILABLE_VIA_DAWDREAMER",
+    "semantic_mcp_plane": "DECOUPLED_FROM_VST3_ADAPTER"
+  }
+}

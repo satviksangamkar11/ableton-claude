@@ -1,0 +1,62 @@
+{
+  "phase": "Step 2 - Reconcile 18 MIDI pitch bend controls",
+  "controls_in_question": [
+    "Pitch Bend",
+    "Pitch Bend Chan 1",
+    "Pitch Bend Chan 2",
+    "Pitch Bend Chan 3",
+    "Pitch Bend Chan 4",
+    "Pitch Bend Chan 5",
+    "Pitch Bend Chan 6",
+    "Pitch Bend Chan 7",
+    "Pitch Bend Chan 8",
+    "Pitch Bend Chan 9",
+    "Pitch Bend Chan 10",
+    "Pitch Bend Chan 11",
+    "Pitch Bend Chan 12",
+    "Pitch Bend Chan 13",
+    "Pitch Bend Chan 14",
+    "Pitch Bend Chan 15",
+    "Pitch Bend Chan 16"
+  ],
+  "classification_framework": {
+    "option_a_serum_synth_control": {
+      "description": "Pitch bend is exposed as internal Serum synthesis control",
+      "implication": "QUALIFIED - can be controlled like any other parameter",
+      "evidence_needed": "Does host_param mutation of Pitch Bend affect audio output?"
+    },
+    "option_b_midi_input_mapping": {
+      "description": "Pitch bend is MIDI input vector (note expression), not synthesis parameter",
+      "implication": "OPERATION, not PARAMETER - separate semantic layer",
+      "includes": [
+        "Pitch Bend",
+        "Mod Wheel",
+        "Aftertouch",
+        "Velocity"
+      ]
+    },
+    "option_c_ableton_wrapper": {
+      "description": "Pitch bend is Ableton's MIDI-to-Serum mapping, not Serum native",
+      "implication": "NOT_SUPPORTED in Serum control plane; belongs in Ableton adapter"
+    }
+  },
+  "decision_framework": {
+    "semantic_control_goal": "Full producer-like Serum operation vocabulary",
+    "includes": [
+      "Synthesis parameters (oscillator, filter, envelope, etc.) - COVERED",
+      "Human-like operations (modulation, macro, topology) - IN PROGRESS",
+      "Producer input expression (pitch bend, mod wheel, velocity) - DECISION NEEDED"
+    ],
+    "question": "Is pitch bend part of the producer vocabulary, or outside Serum control?"
+  },
+  "recommended_status": {
+    "recommendation": "NOT_SUPPORTED",
+    "rationale": [
+      "Pitch bend is MIDI input expression, not synthesis parameter",
+      "Belongs in MIDI input layer or Ableton adapter, not Serum synthesis API",
+      "Serum exposes pitch bend VST3 parameters for MIDI mapping, not direct synthesis control",
+      "Human-like operations (modulation CRUD, macro assignment) are different from MIDI input vectors"
+    ],
+    "consequence": "18 MIDI pitch bend entries remain NOT_SUPPORTED (frozen decision)"
+  }
+}

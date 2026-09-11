@@ -1,0 +1,71 @@
+{
+  "phase": "Bucket B Representative Testing",
+  "objective": "Determine route mechanism for new parameter types",
+  "representatives_tested": 6,
+  "representatives_passed": 6,
+  "route_pattern_found": "host_param (all categories)",
+  "bucket_b_total_to_qualify": 14,
+  "representative_results": [
+    {
+      "name": "A>Filter Balance",
+      "class": "SCALAR",
+      "category": "filter_balance",
+      "baseline": 0.5,
+      "test_value": 0.5,
+      "readback": 0.5,
+      "success": true,
+      "route": "host_param"
+    },
+    {
+      "name": "Sub Osc>BUS1",
+      "class": "SCALAR",
+      "category": "osc_routing",
+      "baseline": 0.5,
+      "test_value": 0.75,
+      "readback": 0.75,
+      "success": true,
+      "route": "host_param"
+    },
+    {
+      "name": "Noise Pitch",
+      "class": "SCALAR",
+      "category": "pitch_control",
+      "baseline": 0.5,
+      "test_value": 0.25,
+      "readback": 0.25,
+      "success": true,
+      "route": "host_param"
+    },
+    {
+      "name": "Noise Pitch Track",
+      "class": "BOOLEAN",
+      "category": "toggle",
+      "baseline": 0.5,
+      "test_value": 1.0,
+      "readback": 1.0,
+      "success": true,
+      "route": "host_param"
+    },
+    {
+      "name": "Cutoff Rand",
+      "class": "SCALAR",
+      "category": "randomization",
+      "baseline": 0.5,
+      "test_value": 0.3,
+      "readback": 0.3,
+      "success": true,
+      "route": "host_param"
+    },
+    {
+      "name": "Arp Velo Decay",
+      "class": "SCALAR",
+      "category": "arp_parameter",
+      "baseline": 0.5,
+      "test_value": 0.5,
+      "readback": 0.5,
+      "success": true,
+      "route": "host_param"
+    }
+  ],
+  "ready_for_bulk_qualification": true
+}

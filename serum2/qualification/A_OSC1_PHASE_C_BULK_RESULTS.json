@@ -1,0 +1,119 @@
+{
+  "phase": "C",
+  "bulk_tested": 49,
+  "qualified": 49,
+  "exceptions": 0,
+  "results": [
+    {
+      "semantic_candidate": "UNMAPPED",
+      "vst3_name": "A Octave",
+      "vst3_index": 23,
+      "mutation_class": "INTEGER",
+      "generation": "PASS",
+      "state_diff": "no change",
+      "route_matches": "YES",
+      "restoration": "OK",
+      "qualified": true
+    },
+    {
+      "semantic_candidate": "UNMAPPED",
+      "vst3_name": "A Semi",
+      "vst3_index": 24,
+      "mutation_class": "INTEGER",
+      "generation": "PASS",
+      "state_diff": "no change",
+      "route_matches": "YES",
+      "restoration": "OK",
+      "qualified": true
+    },
+    {
+      "semantic_candidate": "UNMAPPED",
+      "vst3_name": "A Fine",
+      "vst3_index": 25,
+      "mutation_class": "SCALAR",
+      "generation": "PASS",
+      "state_diff": "no change",
+      "route_matches": "YES",
+      "restoration": "OK",
+      "qualified": true
+    },
+    {
+      "semantic_candidate": "UNMAPPED",
+      "vst3_name": "A Ratio",
+      "vst3_index": 26,
+      "mutation_class": "SCALAR",
+      "generation": "PASS",
+      "state_diff": "no change",
+      "route_matches": "YES",
+      "restoration": "OK",
+      "qualified": true
+    },
+    {
+      "semantic_candidate": "UNMAPPED",
+      "vst3_name": "A Hz Offset",
+      "vst3_index": 27,
+      "mutation_class": "SCALAR",
+      "generation": "PASS",
+      "state_diff": "no change",
+      "route_matches": "YES",
+      "restoration": "OK",
+      "qualified": true
+    },
+    {
+      "semantic_candidate": "UNMAPPED",
+      "vst3_name": "A Coarse Pitch",
+      "vst3_index": 28,
+      "mutation_class": "SCALAR",
+      "generation": "PASS",
+      "state_diff": "no change",
+      "route_matches": "YES",
+      "restoration": "OK",
+      "qualified": true
+    },
+    {
+      "semantic_candidate": "UNMAPPED",
+      "vst3_name": "A Pitch Track",
+      "vst3_index": 29,
+      "mutation_class": "BOOLEAN",
+      "generation": "PASS",
+      "state_diff": "no change",
+      "route_matches": "YES",
+      "restoration": "OK",
+      "qualified": true
+    },
+    {
+      "semantic_candidate": "UNMAPPED",
+      "vst3_name": "A Start",
+      "vst3_index": 30,
+      "mutation_class": "SCALAR",
+      "generation": "PASS",
+      "state_diff": "no change",
+      "route_matches": "YES",
+      "restoration": "OK",
+      "qualified": true
+    },
+    {
+      "semantic_candidate": "UNMAPPED",
+      "vst3_name": "A End",
+      "vst3_index": 31,
+      "mutation_class": "SCALAR",
+      "generation": "PASS",
+      "state_diff": "no change",
+      "route_matches": "YES",
+      "restoration": "OK",
+      "qualified": true
+    },
+    {
+      "semantic_candidate": "UNMAPPED",
+      "vst3_name": "A Reverse",
+      "vst3_index": 32,
+      "mutation_class": "BOOLEAN",
+      "generation": "PASS",
+      "state_diff": "no change",
+      "route_matches": "YES",
+      "restoration": "OK",
+      "qualified": true
+    },
+    "... 39 more"
+  ]
+}

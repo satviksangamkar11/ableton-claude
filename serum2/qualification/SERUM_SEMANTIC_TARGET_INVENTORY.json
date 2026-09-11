@@ -1,0 +1,301 @@
+{
+  "inventory_phase": "16.5.69.1",
+  "timestamp": "2026-09-11T03:19:27.271089",
+  "total_semantic_targets": 20,
+  "total_vst3_parameters": 2623,
+  "mapping_file": "D:\\ableton claude\\serum2\\qualification\\semantic_vst3_mapping.json",
+  "semantic_targets": [
+    {
+      "semantic_id": "Env1.Attack",
+      "capability_key": "envelope_field_attack",
+      "display_name": "Env1.Attack",
+      "family": "unknown",
+      "value_kind": "scalar",
+      "mutation_class": "SCALAR",
+      "vst3_parameter_ids": [
+        224
+      ],
+      "vst3_parameter_name": "Env 1 Attack",
+      "resolution_status": "RESOLVED",
+      "notes": []
+    },
+    {
+      "semantic_id": "Env1.Decay",
+      "capability_key": "envelope_field_decay",
+      "display_name": "Env1.Decay",
+      "family": "unknown",
+      "value_kind": "scalar",
+      "mutation_class": "SCALAR",
+      "vst3_parameter_ids": [
+        226
+      ],
+      "vst3_parameter_name": "Env 1 Decay",
+      "resolution_status": "RESOLVED",
+      "notes": []
+    },
+    {
+      "semantic_id": "Env1.Release",
+      "capability_key": "envelope_field_release",
+      "display_name": "Env1.Release",
+      "family": "unknown",
+      "value_kind": "scalar",
+      "mutation_class": "SCALAR",
+      "vst3_parameter_ids": [
+        228
+      ],
+      "vst3_parameter_name": "Env 1 Release",
+      "resolution_status": "RESOLVED",
+      "notes": []
+    },
+    {
+      "semantic_id": "Env1.Sustain",
+      "capability_key": "envelope_field_sustain",
+      "display_name": "Env1.Sustain",
+      "family": "unknown",
+      "value_kind": "scalar",
+      "mutation_class": "SCALAR",
+      "vst3_parameter_ids": [
+        227
+      ],
+      "vst3_parameter_name": "Env 1 Sustain",
+      "resolution_status": "RESOLVED",
+      "notes": []
+    },
+    {
+      "semantic_id": "FXDistortion.Drive",
+      "capability_key": "fx_field_dist_drive",
+      "display_name": "FXDistortion.Drive",
+      "family": "unknown",
+      "value_kind": "scalar",
+      "mutation_class": "SCALAR",
+      "vst3_parameter_ids": [
+        207
+      ],
+      "vst3_parameter_name": "Filter 1 Drive",
+      "resolution_status": "RESOLVED",
+      "notes": []
+    },
+    {
+      "semantic_id": "FXEQ.Freq1",
+      "capability_key": "fx_field_eq_freq1",
+      "display_name": "FXEQ.Freq1",
+      "family": "unknown",
+      "value_kind": "unknown",
+      "mutation_class": "UNKNOWN",
+      "vst3_parameter_ids": [],
+      "vst3_parameter_name": null,
+      "resolution_status": "UNRESOLVED",
+      "notes": [
+        "No VST3 mapping for capability_key 'fx_field_eq_freq1'"
+      ]
+    },
+    {
+      "semantic_id": "FXEQ.Freq2",
+      "capability_key": "fx_field_eq_freq2",
+      "display_name": "FXEQ.Freq2",
+      "family": "unknown",
+      "value_kind": "unknown",
+      "mutation_class": "UNKNOWN",
+      "vst3_parameter_ids": [],
+      "vst3_parameter_name": null,
+      "resolution_status": "UNRESOLVED",
+      "notes": [
+        "No VST3 mapping for capability_key 'fx_field_eq_freq2'"
+      ]
+    },
+    {
+      "semantic_id": "FXEQ.Gain1",
+      "capability_key": "fx_field_eq_gain1",
+      "display_name": "FXEQ.Gain1",
+      "family": "unknown",
+      "value_kind": "unknown",
+      "mutation_class": "UNKNOWN",
+      "vst3_parameter_ids": [],
+      "vst3_parameter_name": null,
+      "resolution_status": "UNRESOLVED",
+      "notes": [
+        "No VST3 mapping for capability_key 'fx_field_eq_gain1'"
+      ]
+    },
+    {
+      "semantic_id": "FXEQ.Gain2",
+      "capability_key": "fx_field_eq_gain2",
+      "display_name": "FXEQ.Gain2",
+      "family": "unknown",
+      "value_kind": "unknown",
+      "mutation_class": "UNKNOWN",
+      "vst3_parameter_ids": [],
+      "vst3_parameter_name": null,
+      "resolution_status": "UNRESOLVED",
+      "notes": [
+        "No VST3 mapping for capability_key 'fx_field_eq_gain2'"
+      ]
+    },
+    {
+      "semantic_id": "FXEQ.LevelOut",
+      "capability_key": "fx_field_eq_level_out",
+      "display_name": "FXEQ.LevelOut",
+      "family": "unknown",
+      "value_kind": "unknown",
+      "mutation_class": "UNKNOWN",
+      "vst3_parameter_ids": [],
+      "vst3_parameter_name": null,
+      "resolution_status": "UNRESOLVED",
+      "notes": [
+        "No VST3 mapping for capability_key 'fx_field_eq_level_out'"
+      ]
+    },
+    {
+      "semantic_id": "FXEQ.Reso1",
+      "capability_key": "fx_field_eq_reso1",
+      "display_name": "FXEQ.Reso1",
+      "family": "unknown",
+      "value_kind": "unknown",
+      "mutation_class": "UNKNOWN",
+      "vst3_parameter_ids": [],
+      "vst3_parameter_name": null,
+      "resolution_status": "UNRESOLVED",
+      "notes": [
+        "No VST3 mapping for capability_key 'fx_field_eq_reso1'"
+      ]
+    },
+    {
+      "semantic_id": "FXEQ.Reso2",
+      "capability_key": "fx_field_eq_reso2",
+      "display_name": "FXEQ.Reso2",
+      "family": "unknown",
+      "value_kind": "unknown",
+      "mutation_class": "UNKNOWN",
+      "vst3_parameter_ids": [],
+      "vst3_parameter_name": null,
+      "resolution_status": "UNRESOLVED",
+      "notes": [
+        "No VST3 mapping for capability_key 'fx_field_eq_reso2'"
+      ]
+    },
+    {
+      "semantic_id": "Filter.Cutoff",
+      "capability_key": "filter_field_cutoff",
+      "display_name": "Filter.Cutoff",
+      "family": "unknown",
+      "value_kind": "scalar",
+      "mutation_class": "SCALAR",
+      "vst3_parameter_ids": [
+        205
+      ],
+      "vst3_parameter_name": "Filter 1 Freq",
+      "resolution_status": "RESOLVED",
+      "notes": []
+    },
+    {
+      "semantic_id": "Filter.Resonance",
+      "capability_key": "filter_field_reso",
+      "display_name": "Filter.Resonance",
+      "family": "unknown",
+      "value_kind": "unknown",
+      "mutation_class": "UNKNOWN",
+      "vst3_parameter_ids": [],
+      "vst3_parameter_name": null,
+      "resolution_status": "UNRESOLVED",
+      "notes": [
+        "Mapped to VST3 name 'Filter 1 Reso' but parameter not found in dump"
+      ]
+    },
+    {
+      "semantic_id": "Filter.Type",
+      "capability_key": "filter_field_type",
+      "display_name": "Filter.Type",
+      "family": "unknown",
+      "value_kind": "enum",
+      "mutation_class": "ENUM",
+      "vst3_parameter_ids": [
+        204
+      ],
+      "vst3_parameter_name": "Filter 1 Type",
+      "resolution_status": "RESOLVED",
+      "notes": [
+        "numSteps=107"
+      ]
+    },
+    {
+      "semantic_id": "Global.MasterVolume",
+      "capability_key": "global_field_mastervolume",
+      "display_name": "Global.MasterVolume",
+      "family": "unknown",
+      "value_kind": "scalar",
+      "mutation_class": "SCALAR",
+      "vst3_parameter_ids": [
+        0
+      ],
+      "vst3_parameter_name": "Main Vol",
+      "resolution_status": "RESOLVED",
+      "notes": []
+    },
+    {
+      "semantic_id": "OSC1.Enable",
+      "capability_key": "oscillator_field_OSC-ENABLE",
+      "display_name": "OSC1.Enable",
+      "family": "unknown",
+      "value_kind": "enum",
+      "mutation_class": "BOOLEAN",
+      "vst3_parameter_ids": [
+        20
+      ],
+      "vst3_parameter_name": "A Enable",
+      "resolution_status": "RESOLVED",
+      "notes": [
+        "numSteps=2"
+      ]
+    },
+    {
+      "semantic_id": "OSC1.Octave",
+      "capability_key": "oscillator_field_OSC-OCTAVE",
+      "display_name": "OSC1.Octave",
+      "family": "unknown",
+      "value_kind": "enum",
+      "mutation_class": "ENUM",
+      "vst3_parameter_ids": [
+        23
+      ],
+      "vst3_parameter_name": "A Octave",
+      "resolution_status": "RESOLVED",
+      "notes": [
+        "numSteps=9"
+      ]
+    },
+    {
+      "semantic_id": "OSC1.Volume",
+      "capability_key": "oscillator_field_OSC-VOLUME",
+      "display_name": "OSC1.Volume",
+      "family": "unknown",
+      "value_kind": "scalar",
+      "mutation_class": "SCALAR",
+      "vst3_parameter_ids": [
+        21
+      ],
+      "vst3_parameter_name": "A Level",
+      "resolution_status": "RESOLVED",
+      "notes": []
+    },
+    {
+      "semantic_id": "OSC1.Wavetable",
+      "capability_key": "oscillator_field_OSC-WAVETABLE",
+      "display_name": "OSC1.Wavetable",
+      "family": "unknown",
+      "value_kind": "unknown",
+      "mutation_class": "UNKNOWN",
+      "vst3_parameter_ids": [],
+      "vst3_parameter_name": null,
+      "resolution_status": "UNRESOLVED",
+      "notes": [
+        "No VST3 mapping for capability_key 'oscillator_field_OSC-WAVETABLE'"
+      ]
+    }
+  ],
+  "resolution_summary": {
+    "total": 20,
+    "resolved": 11,
+    "unresolved": 9,
+    "resolution_rate": "55.0%"
+  }
+}

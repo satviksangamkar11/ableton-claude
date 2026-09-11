@@ -1,0 +1,255 @@
+{
+  "phase": "A3-H1",
+  "title": "A3 H1 Pilot Qualification Matrix",
+  "description": "Complete qualification results for three H1 mutation classes: BOOLEAN, ENUM, SCALAR",
+  "execution_date": "2026-09-11",
+  "total_experiments": 3,
+  "infrastructure_gate": "PASS",
+  "experiments": [
+    {
+      "experiment_id": "A3-H1-BOOLEAN-OSC1-ENABLE",
+      "semantic_id": "OSC1.Enable",
+      "mutation_class": "BOOLEAN",
+      "capability_key": "oscillator_field_OSC-ENABLE",
+      "vst3_name": "A Enable",
+      "vst3_index": 20,
+      "mutation_value": true,
+      "state_path": "VoiceOsc0.plainParams.kParamEnable",
+      "gates": {
+        "generation": {
+          "status": "PASS",
+          "reason": "State observation matches declared mutation intent.",
+          "details": {
+            "top_level_ok": true,
+            "fine_grained_ok": true,
+            "diff_keys": ["VoiceOsc0"]
+          }
+        },
+        "collateral": {
+          "status": "PASS",
+          "reason": "Observed state diff contains only the declared mutation target(s).",
+          "details": {
+            "diff_keys": ["VoiceOsc0"],
+            "intended_targets": ["VoiceOsc0.plainParams.kParamEnable"]
+          }
+        },
+        "behavior": {
+          "status": "NOT_RUN",
+          "reason": "No causal measurements were recorded."
+        },
+        "persistence": {
+          "p1_same_engine": "NOT_RUN",
+          "p2_new_instance": "NOT_RUN",
+          "p3_fresh_process": "NOT_RUN",
+          "overall": {
+            "status": "FAIL",
+            "reason": "Persistence check failed (resave/load identity mismatch).",
+            "detail": {
+              "VoiceOsc0.plainParams.kParamEnable": false
+            }
+          }
+        },
+        "restoration": "NOT_RUN"
+      },
+      "evidence_record_id": "A3-H1-BOOLEAN-OSC1-ENABLE",
+      "derived_claims": {
+        "transport_mutable": true,
+        "generation_verified": true,
+        "persistent_p1": false,
+        "persistent_p2": false,
+        "persistent_p3": false,
+        "collateral_safe": true,
+        "behavior_verified": false
+      },
+      "infrastructure_verified": true,
+      "notes": [
+        "Generation PASS + Persistence FAIL is expected and informative.",
+        "Boolean parameter can be mutated but does not persist across save/load."
+      ]
+    },
+    {
+      "experiment_id": "A3-H1-ENUM-FILTER-TYPE",
+      "semantic_id": "Filter.Type",
+      "mutation_class": "ENUM",
+      "capability_key": "filter_field_type",
+      "vst3_name": "Filter 1 Type",
+      "vst3_index": 204,
+      "mutation_value": "BP12",
+      "state_path": "VoiceFilter0.plainParams.kParamType",
+      "gates": {
+        "generation": {
+          "status": "PASS",
+          "reason": "State observation matches declared mutation intent.",
+          "details": {
+            "top_level_ok": true,
+            "fine_grained_ok": true,
+            "diff_keys": ["VoiceFilter0"]
+          }
+        },
+        "collateral": {
+          "status": "PASS",
+          "reason": "Observed state diff contains only the declared mutation target(s).",
+          "details": {
+            "diff_keys": ["VoiceFilter0"],
+            "intended_targets": ["VoiceFilter0.plainParams.kParamType"]
+          }
+        },
+        "behavior": {
+          "status": "NOT_RUN",
+          "reason": "No causal measurements were recorded."
+        },
+        "persistence": {
+          "p1_same_engine": "NOT_RUN",
+          "p2_new_instance": "NOT_RUN",
+          "p3_fresh_process": "NOT_RUN",
+          "overall": {
+            "status": "PASS",
+            "reason": "Persistence check passed (resave/load identity match).",
+            "detail": {
+              "VoiceFilter0.plainParams.kParamType": true
+            }
+          }
+        },
+        "restoration": "NOT_RUN"
+      },
+      "evidence_record_id": "A3-H1-ENUM-FILTER-TYPE",
+      "derived_claims": {
+        "transport_mutable": true,
+        "generation_verified": true,
+        "persistent_p1": false,
+        "persistent_p2": false,
+        "persistent_p3": false,
+        "collateral_safe": true,
+        "behavior_verified": false
+      },
+      "infrastructure_verified": true,
+      "notes": [
+        "Enum value preserved as string (not reinterpreted as numeric).",
+        "Enum parameter persists correctly across save/load cycles.",
+        "Contrast with BOOLEAN: Filter.Type serialization successful, OSC1.Enable not."
+      ]
+    },
+    {
+      "experiment_id": "A3-H1-SCALAR-FILTER-RESONANCE",
+      "semantic_id": "Filter.Resonance",
+      "mutation_class": "SCALAR",
+      "capability_key": "filter_field_resonance",
+      "vst3_name": "Filter 1 Res",
+      "vst3_index": 206,
+      "mutation_value": 90.0,
+      "state_path": "VoiceFilter0.plainParams.kParamReso",
+      "gates": {
+        "generation": {
+          "status": "PASS",
+          "reason": "State observation matches declared mutation intent.",
+          "details": {
+            "top_level_ok": true,
+            "fine_grained_ok": true,
+            "diff_keys": ["VoiceFilter0"]
+          }
+        },
+        "collateral": {
+          "status": "PASS",
+          "reason": "Observed state diff contains only the declared mutation target(s).",
+          "details": {
+            "diff_keys": ["VoiceFilter0"],
+            "intended_targets": ["VoiceFilter0.plainParams.kParamReso"]
+          }
+        },
+        "behavior": {
+          "status": "NOT_RUN",
+          "reason": "No causal measurements were recorded."
+        },
+        "persistence": {
+          "p1_same_engine": "NOT_RUN",
+          "p2_new_instance": "NOT_RUN",
+          "p3_fresh_process": "NOT_RUN",
+          "overall": {
+            "status": "PASS",
+            "reason": "Persistence check passed (resave/load identity match).",
+            "detail": {
+              "VoiceFilter0.plainParams.kParamReso": true
+            }
+          }
+        },
+        "restoration": "NOT_RUN"
+      },
+      "evidence_record_id": "A3-H1-SCALAR-FILTER-RESONANCE",
+      "derived_claims": {
+        "transport_mutable": true,
+        "generation_verified": true,
+        "persistent_p1": false,
+        "persistent_p2": false,
+        "persistent_p3": false,
+        "collateral_safe": true,
+        "behavior_verified": false
+      },
+      "infrastructure_verified": true,
+      "notes": [
+        "Scalar parameter resolved from VST3 evidence after Phase 1 mapping correction.",
+        "Numeric value (90.0) correctly mutated and persisted.",
+        "Range: 0.0—100.0; default 0.1."
+      ]
+    }
+  ],
+  "summary": {
+    "infrastructure_results": {
+      "all_targets_resolved": true,
+      "all_specs_valid": true,
+      "orchestration_correct": true,
+      "gates_independent": true,
+      "no_fabricated_evidence": true
+    },
+    "gate_counts": {
+      "generation": {
+        "PASS": 3,
+        "FAIL": 0,
+        "NOT_RUN": 0
+      },
+      "collateral": {
+        "PASS": 3,
+        "FAIL": 0,
+        "NOT_RUN": 0
+      },
+      "behavior": {
+        "PASS": 0,
+        "FAIL": 0,
+        "NOT_RUN": 3
+      },
+      "persistence_overall": {
+        "PASS": 2,
+        "FAIL": 1,
+        "NOT_RUN": 0
+      },
+      "p1_p2_p3": {
+        "PASS": 0,
+        "FAIL": 0,
+        "NOT_RUN": 9
+      },
+      "restoration": {
+        "PASS": 0,
+        "FAIL": 0,
+        "NOT_RUN": 3
+      }
+    },
+    "key_findings": [
+      "All three mutation classes (BOOLEAN, ENUM, SCALAR) successfully generate state changes.",
+      "Collateral isolation verified: each mutation affects only its declared target.",
+      "Persistence behavior diverges by parameter type: BOOLEAN fails, ENUM+SCALAR pass.",
+      "Behavior gates remain NOT_RUN (causal measurement pipeline not integrated).",
+      "P1/P2/P3 lifecycle identity correctly preserved as NOT_RUN (not fabricated).",
+      "Restoration gate correctly NOT_RUN (restoration evidence not yet implemented)."
+    ],
+    "architecture_integrity": [
+      "Gates remain fully independent: generation result does not constrain persistence.",
+      "Evidence authority respected: MutationReceipt interprets EvidenceRecord, does not fabricate.",
+      "ResolvedTarget identity explicit throughout: no inference from state paths.",
+      "Registry defect corrected: Filter.Resonance mapping typo fixed from VST3 evidence."
+    ]
+  },
+  "next_steps": [
+    "Step 11: Build bulk qualification engine (a3_bulk_qualifier.py)",
+    "Step 12: Implement restoration lifecycle evidence (P1/P2/P3 independent)",
+    "Step 13: Expand beyond VST3 parameters to semantic coverage (state-only, arrays, topology, etc.)"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "phase": "16.5.69.1-R / R2",
+  "title": "Mapping Corrections Record",
+  "description": "Corrections to semantic_vst3_mapping.json discovered and fixed during R2 hardened audit",
+  "corrections": [
+    {
+      "capability_key": "filter_field_reso",
+      "old_vst3_name": "Filter 1 Reso",
+      "new_vst3_name": "Filter 1 Res",
+      "vst3_index": 206,
+      "basis": "A1.1 VST3 surface exact-name match; VST3 parameter at index 206 is 'Filter 1 Res' not 'Filter 1 Reso'",
+      "discovery_method": "R2 adversarial fixture testing revealed VST3_NAME_NOT_FOUND on original mapping",
+      "validation": "grep -i 'Filter 1' A1_1_vst3_parameter_surface.json confirmed no 'Reso' entry; only 'Res' exists",
+      "status": "CORRECTED",
+      "semantic_id": "Filter.Resonance"
+    }
+  ],
+  "impact": {
+    "before_correction": {
+      "RESOLVED": 11,
+      "UNMAPPED": 8,
+      "VST3_NAME_NOT_FOUND": 1
+    },
+    "after_correction": {
+      "RESOLVED": 12,
+      "UNMAPPED": 8,
+      "VST3_NAME_NOT_FOUND": 0
+    }
+  },
+  "gate_enforcement": "Correction was mandatory to achieve R2 PASS; VST3_NAME_NOT_FOUND entries cause validation_status=FAIL"
+}

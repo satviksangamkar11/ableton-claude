@@ -1,0 +1,27 @@
+{
+  "total_vst3": 2623,
+  "meaningful_candidates": 330,
+  "family_count": 20,
+  "families": {
+    "Residual": 43,
+    "Osc1": 55,
+    "Osc2": 55,
+    "Osc3": 55,
+    "Filter1": 14,
+    "Filter2": 12,
+    "Env1": 8,
+    "Env2": 10,
+    "Env3": 10,
+    "Env4": 10,
+    "LFO1": 10,
+    "LFO2": 5,
+    "LFO3": 5,
+    "LFO4": 5,
+    "LFO5": 5,
+    "LFO6": 5,
+    "LFO7": 5,
+    "LFO8": 5,
+    "LFO9": 5,
+    "Macro": 8
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "title": "Serum 2.0.21 - Comprehensive Final Control Plane Audit",
+  "timestamp": "2026-09-11",
+  "scope": "ALL 2,623 VST3 entries + human-like operations",
+  "honesty_note": "Previous claim of 310 qualified was projection; actual proven qualification is 259",
+  "all_2623_vst3_entries": {
+    "total": 2623,
+    "categorized": {
+      "SERUM_PARAMETER": {
+        "count": 324,
+        "qualified": 259,
+        "remaining": 65,
+        "status": "QUALIFYING IN PROGRESS"
+      },
+      "MIDI_EXPRESSION_INPUT": {
+        "count": 2084,
+        "qualified": 1,
+        "remaining": 2083,
+        "status": "CLASSIFY (most NOT_SUPPORTED)"
+      },
+      "NON_SYNTHESIS": {
+        "count": 215,
+        "qualified": 0,
+        "status": "JUSTIFIED AS OUT_OF_SCOPE"
+      }
+    }
+  },
+  "human_like_operations": {
+    "total": 17,
+    "qualified": 17,
+    "status": "COMPLETE"
+  },
+  "current_honest_status": {
+    "serum_parameters_qualified": 259,
+    "serum_parameters_remaining": 65,
+    "serum_operations_qualified": 17,
+    "midi_expressions_classified": 1,
+    "midi_expressions_remaining": 2083,
+    "non_synthesis_excluded": 215,
+    "unknown": 0
+  },
+  "path_to_completion": {
+    "step_1": "Qualify remaining 65 SERUM_PARAMETERs (use proven host_param routes)",
+    "step_2": "Classify 2,083 MIDI_EXPRESSION entries (mostly NOT_SUPPORTED, except root)",
+    "step_3": "Justify 215 NON_SYNTHESIS exclusions (Main Vol, Main Tuning, Amp, etc.)",
+    "step_4": "Final comprehensive audit: 2,623/2,623 with terminal disposition"
+  },
+  "target_finish_state": {
+    "serum_parameters": "All controllable, or explicitly UNKNOWN/NOT_SUPPORTED",
+    "human_operations": "All qualified or explicitly UNKNOWN/NOT_SUPPORTED",
+    "complete_accounting": "2,623/2,623 entries with terminal status",
+    "claim": "FULL SERUM CONTROL SURFACE COMPLETE"
+  }
+}

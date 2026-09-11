@@ -1,0 +1,228 @@
+{
+  "audit_phase": "16.5.69.1b",
+  "mapping_source": "D:\\ableton claude\\serum2\\qualification\\semantic_vst3_mapping.json",
+  "semantic_targets": 20,
+  "mappings_provided": 12,
+  "mappings": [
+    {
+      "semantic_id": "Env1.Attack",
+      "capability_key": "envelope_field_attack",
+      "mapped_vst3_name": "Env 1 Attack",
+      "resolution_status": "RESOLVED",
+      "vst3_indices": [
+        224
+      ],
+      "issues": [],
+      "mapping_basis": "explicit_mapping"
+    },
+    {
+      "semantic_id": "Env1.Decay",
+      "capability_key": "envelope_field_decay",
+      "mapped_vst3_name": "Env 1 Decay",
+      "resolution_status": "RESOLVED",
+      "vst3_indices": [
+        226
+      ],
+      "issues": [],
+      "mapping_basis": "explicit_mapping"
+    },
+    {
+      "semantic_id": "Env1.Release",
+      "capability_key": "envelope_field_release",
+      "mapped_vst3_name": "Env 1 Release",
+      "resolution_status": "RESOLVED",
+      "vst3_indices": [
+        228
+      ],
+      "issues": [],
+      "mapping_basis": "explicit_mapping"
+    },
+    {
+      "semantic_id": "Env1.Sustain",
+      "capability_key": "envelope_field_sustain",
+      "mapped_vst3_name": "Env 1 Sustain",
+      "resolution_status": "RESOLVED",
+      "vst3_indices": [
+        227
+      ],
+      "issues": [],
+      "mapping_basis": "explicit_mapping"
+    },
+    {
+      "semantic_id": "FXDistortion.Drive",
+      "capability_key": "fx_field_dist_drive",
+      "mapped_vst3_name": "Filter 1 Drive",
+      "resolution_status": "RESOLVED",
+      "vst3_indices": [
+        207
+      ],
+      "issues": [],
+      "mapping_basis": "explicit_mapping"
+    },
+    {
+      "semantic_id": "FXEQ.Freq1",
+      "capability_key": "fx_field_eq_freq1",
+      "mapped_vst3_name": null,
+      "resolution_status": "UNMAPPED",
+      "vst3_indices": [],
+      "issues": [
+        "No mapping provided in semantic_vst3_mapping.json"
+      ]
+    },
+    {
+      "semantic_id": "FXEQ.Freq2",
+      "capability_key": "fx_field_eq_freq2",
+      "mapped_vst3_name": null,
+      "resolution_status": "UNMAPPED",
+      "vst3_indices": [],
+      "issues": [
+        "No mapping provided in semantic_vst3_mapping.json"
+      ]
+    },
+    {
+      "semantic_id": "FXEQ.Gain1",
+      "capability_key": "fx_field_eq_gain1",
+      "mapped_vst3_name": null,
+      "resolution_status": "UNMAPPED",
+      "vst3_indices": [],
+      "issues": [
+        "No mapping provided in semantic_vst3_mapping.json"
+      ]
+    },
+    {
+      "semantic_id": "FXEQ.Gain2",
+      "capability_key": "fx_field_eq_gain2",
+      "mapped_vst3_name": null,
+      "resolution_status": "UNMAPPED",
+      "vst3_indices": [],
+      "issues": [
+        "No mapping provided in semantic_vst3_mapping.json"
+      ]
+    },
+    {
+      "semantic_id": "FXEQ.LevelOut",
+      "capability_key": "fx_field_eq_level_out",
+      "mapped_vst3_name": null,
+      "resolution_status": "UNMAPPED",
+      "vst3_indices": [],
+      "issues": [
+        "No mapping provided in semantic_vst3_mapping.json"
+      ]
+    },
+    {
+      "semantic_id": "FXEQ.Reso1",
+      "capability_key": "fx_field_eq_reso1",
+      "mapped_vst3_name": null,
+      "resolution_status": "UNMAPPED",
+      "vst3_indices": [],
+      "issues": [
+        "No mapping provided in semantic_vst3_mapping.json"
+      ]
+    },
+    {
+      "semantic_id": "FXEQ.Reso2",
+      "capability_key": "fx_field_eq_reso2",
+      "mapped_vst3_name": null,
+      "resolution_status": "UNMAPPED",
+      "vst3_indices": [],
+      "issues": [
+        "No mapping provided in semantic_vst3_mapping.json"
+      ]
+    },
+    {
+      "semantic_id": "Filter.Cutoff",
+      "capability_key": "filter_field_cutoff",
+      "mapped_vst3_name": "Filter 1 Freq",
+      "resolution_status": "RESOLVED",
+      "vst3_indices": [
+        205
+      ],
+      "issues": [],
+      "mapping_basis": "explicit_mapping"
+    },
+    {
+      "semantic_id": "Filter.Resonance",
+      "capability_key": "filter_field_reso",
+      "mapped_vst3_name": "Filter 1 Reso",
+      "resolution_status": "VST3_NAME_NOT_FOUND",
+      "vst3_indices": [],
+      "issues": [
+        "VST3 name 'Filter 1 Reso' not found in dump (mapped by filter_field_reso)"
+      ]
+    },
+    {
+      "semantic_id": "Filter.Type",
+      "capability_key": "filter_field_type",
+      "mapped_vst3_name": "Filter 1 Type",
+      "resolution_status": "RESOLVED",
+      "vst3_indices": [
+        204
+      ],
+      "issues": [],
+      "mapping_basis": "explicit_mapping"
+    },
+    {
+      "semantic_id": "Global.MasterVolume",
+      "capability_key": "global_field_mastervolume",
+      "mapped_vst3_name": "Main Vol",
+      "resolution_status": "RESOLVED",
+      "vst3_indices": [
+        0
+      ],
+      "issues": [],
+      "mapping_basis": "explicit_mapping"
+    },
+    {
+      "semantic_id": "OSC1.Enable",
+      "capability_key": "oscillator_field_OSC-ENABLE",
+      "mapped_vst3_name": "A Enable",
+      "resolution_status": "RESOLVED",
+      "vst3_indices": [
+        20
+      ],
+      "issues": [],
+      "mapping_basis": "explicit_mapping"
+    },
+    {
+      "semantic_id": "OSC1.Octave",
+      "capability_key": "oscillator_field_OSC-OCTAVE",
+      "mapped_vst3_name": "A Octave",
+      "resolution_status": "RESOLVED",
+      "vst3_indices": [
+        23
+      ],
+      "issues": [],
+      "mapping_basis": "explicit_mapping"
+    },
+    {
+      "semantic_id": "OSC1.Volume",
+      "capability_key": "oscillator_field_OSC-VOLUME",
+      "mapped_vst3_name": "A Level",
+      "resolution_status": "RESOLVED",
+      "vst3_indices": [
+        21
+      ],
+      "issues": [],
+      "mapping_basis": "explicit_mapping"
+    },
+    {
+      "semantic_id": "OSC1.Wavetable",
+      "capability_key": "oscillator_field_OSC-WAVETABLE",
+      "mapped_vst3_name": null,
+      "resolution_status": "UNMAPPED",
+      "vst3_indices": [],
+      "issues": [
+        "No mapping provided in semantic_vst3_mapping.json"
+      ]
+    }
+  ],
+  "summary": {
+    "RESOLVED": 11,
+    "UNMAPPED": 8,
+    "VST3_NAME_NOT_FOUND": 1,
+    "AMBIGUOUS_VST3_NAME": 0,
+    "total": 20
+  },
+  "validation_status": "PASS",
+  "validation_issues": []
+}

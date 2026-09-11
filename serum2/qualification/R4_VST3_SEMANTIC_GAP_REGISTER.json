@@ -1,0 +1,169 @@
+{
+  "gap_register_phase": "16.5.69.1-R / R4",
+  "title": "VST3 Parameters Not Yet Semantically Mapped",
+  "description": "Queue for semantic inventory expansion",
+  "total_gaps": 2611,
+  "entries": [
+    {
+      "vst3_index": 1,
+      "vst3_name": "Main Tuning",
+      "classification": "UNKNOWN",
+      "status": "UNCLASSIFIED",
+      "basis": null,
+      "next_action": "investigate"
+    },
+    {
+      "vst3_index": 2,
+      "vst3_name": "Amp",
+      "classification": "UNKNOWN",
+      "status": "UNCLASSIFIED",
+      "basis": null,
+      "next_action": "investigate"
+    },
+    {
+      "vst3_index": 3,
+      "vst3_name": "Porta Time",
+      "classification": "UNKNOWN",
+      "status": "UNCLASSIFIED",
+      "basis": null,
+      "next_action": "investigate"
+    },
+    {
+      "vst3_index": 4,
+      "vst3_name": "Porta Curve",
+      "classification": "UNKNOWN",
+      "status": "UNCLASSIFIED",
+      "basis": null,
+      "next_action": "investigate"
+    },
+    {
+      "vst3_index": 5,
+      "vst3_name": "Bend Up",
+      "classification": "UNKNOWN",
+      "status": "UNCLASSIFIED",
+      "basis": null,
+      "next_action": "investigate"
+    },
+    {
+      "vst3_index": 6,
+      "vst3_name": "Bend Down",
+      "classification": "UNKNOWN",
+      "status": "UNCLASSIFIED",
+      "basis": null,
+      "next_action": "investigate"
+    },
+    {
+      "vst3_index": 7,
+      "vst3_name": "Pitch Bend",
+      "classification": "UNKNOWN",
+      "status": "UNCLASSIFIED",
+      "basis": null,
+      "next_action": "investigate"
+    },
+    {
+      "vst3_index": 8,
+      "vst3_name": "Mod Wheel",
+      "classification": "UNKNOWN",
+      "status": "UNCLASSIFIED",
+      "basis": null,
+      "next_action": "investigate"
+    },
+    {
+      "vst3_index": 9,
+      "vst3_name": "Mono Toggle",
+      "classification": "UNKNOWN",
+      "status": "UNCLASSIFIED",
+      "basis": null,
+      "next_action": "investigate"
+    },
+    {
+      "vst3_index": 10,
+      "vst3_name": "Legato",
+      "classification": "UNKNOWN",
+      "status": "UNCLASSIFIED",
+      "basis": null,
+      "next_action": "investigate"
+    },
+    {
+      "vst3_index": 11,
+      "vst3_name": "Porta Always",
+      "classification": "UNKNOWN",
+      "status": "UNCLASSIFIED",
+      "basis": null,
+      "next_action": "investigate"
+    },
+    {
+      "vst3_index": 12,
+      "vst3_name": "Porta Scaled",
+      "classification": "UNKNOWN",
+      "status": "UNCLASSIFIED",
+      "basis": null,
+      "next_action": "investigate"
+    },
+    {
+      "vst3_index": 13,
+      "vst3_name": "Swing",
+      "classification": "UNKNOWN",
+      "status": "UNCLASSIFIED",
+      "basis": null,
+      "next_action": "investigate"
+    },
+    {
+      "vst3_index": 14,
+      "vst3_name": "Swing Div",
+      "classification": "UNKNOWN",
+      "status": "UNCLASSIFIED",
+      "basis": null,
+      "next_action": "investigate"
+    },
+    {
+      "vst3_index": 15,
+      "vst3_name": "Transpose",
+      "classification": "UNKNOWN",
+      "status": "UNCLASSIFIED",
+      "basis": null,
+      "next_action": "investigate"
+    },
+    {
+      "vst3_index": 16,
+      "vst3_name": "Bypass",
+      "classification": "UNKNOWN",
+      "status": "UNCLASSIFIED",
+      "basis": null,
+      "next_action": "investigate"
+    },
+    {
+      "vst3_index": 17,
+      "vst3_name": "Direct Vol",
+      "classification": "UNKNOWN",
+      "status": "UNCLASSIFIED",
+      "basis": null,
+      "next_action": "investigate"
+    },
+    {
+      "vst3_index": 18,
+      "vst3_name": "Bus 1 Vol",
+      "classification": "UNKNOWN",
+      "status": "UNCLASSIFIED",
+      "basis": null,
+      "next_action": "investigate"
+    },
+    {
+      "vst3_index": 19,
+      "vst3_name": "Bus 2 Vol",
+      "classification": "UNKNOWN",
+      "status": "UNCLASSIFIED",
+      "basis": null,
+      "next_action": "investigate"
+    },
+    {
+      "vst3_index": 22,
+      "vst3_name": "A Pan",
+      "classification": "UNKNOWN",
+      "status": "UNCLASSIFIED",
+      "basis": null,
+      "next_action": "investigate"
+    }
+  ],
+  "note": "... and 2591 more entries"
+}

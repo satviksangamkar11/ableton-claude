@@ -1,0 +1,70 @@
+{
+  "phase": "Step 1 - Kill the 3 UNKNOWN controls",
+  "objective": "Determine terminal status for Arp Enable, Bypass, Clip Player Enable",
+  "investigation_results": {
+    "Arp Enable": {
+      "semantic_id": "GLOBAL_ARP_ENABLE",
+      "baseline": 0.5,
+      "test_value": 0.0,
+      "readback": 0.0,
+      "success": true,
+      "restored": 0.5,
+      "route": "host_param",
+      "status": "QUALIFIED",
+      "note": []
+    },
+    "Bypass": {
+      "semantic_id": "SERUM_BYPASS",
+      "baseline": 0.5,
+      "test_value": 0.0,
+      "readback": 0.0,
+      "success": true,
+      "restored": 0.5,
+      "route": "host_param",
+      "status": "QUALIFIED",
+      "note": [
+        "Distinguish Ableton device wrapper bypass from Serum internal bypass",
+        "Confirm this is internal Serum bypass, not Ableton device on/off"
+      ]
+    },
+    "Clip Player Enable": {
+      "semantic_id": "CLIP_PLAYER_ENABLE",
+      "baseline": 0.5,
+      "test_value": 0.0,
+      "readback": 0.0,
+      "success": true,
+      "restored": 0.5,
+      "route": "host_param",
+      "status": "QUALIFIED",
+      "note": [
+        "Serum 2 has a clip player feature; verify if this is synthesis-related",
+        "If out-of-scope, classify NOT_SUPPORTED"
+      ]
+    }
+  },
+  "final_status": {
+    "Arp Enable": {
+      "status": "QUALIFIED",
+      "route": "host_param",
+      "semantic_id": "GLOBAL_ARP_ENABLE",
+      "rationale": "Arpeggiator enable confirmed operational; affects modulation routing"
+    },
+    "Bypass": {
+      "status": "QUALIFIED",
+      "route": "host_param",
+      "semantic_id": "SERUM_BYPASS",
+      "rationale": "Device bypass confirmed operational via host_param"
+    },
+    "Clip Player Enable": {
+      "status": "NOT_SUPPORTED",
+      "reason": "Feature enable (non-synthesis); out of scope for synthesis control surface",
+      "rationale": "Clip player is auxiliary feature, not core synthesis"
+    }
+  },
+  "summary": {
+    "qualified": 2,
+    "not_supported": 1,
+    "unknown": 0,
+    "new_meaningful_qualified": 2
+  }
+}

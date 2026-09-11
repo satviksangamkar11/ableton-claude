@@ -1,0 +1,71 @@
+{
+  "bucket_a": {
+    "count": 7,
+    "description": "Existing host_param route - can bulk qualify immediately",
+    "controls": [
+      "Sub Enable",
+      "Sub Level",
+      "Sub Pan",
+      "Sub Coarse Pitch",
+      "Noise Enable",
+      "Noise Level",
+      "Noise Pan"
+    ]
+  },
+  "bucket_b": {
+    "count": 14,
+    "description": "New route or new class - need representative test",
+    "controls": [
+      "A>Filter Balance",
+      "B>Filter Balance",
+      "C>Filter Balance",
+      "Noise>Filter Balance",
+      "Sub Osc>BUS1",
+      "Sub Osc>BUS2",
+      "Sub Osc>Filter Balance",
+      "Noise Pitch",
+      "Noise Pitch Track",
+      "Cutoff Rand",
+      "Env Rand",
+      "Osc Detune Rnd",
+      "Osc Pan Rand",
+      "Arp Velo Decay"
+    ]
+  },
+  "bucket_c": {
+    "count": 21,
+    "description": "Structural, MIDI, or terminal status",
+    "structural": [
+      "Arp Enable",
+      "Bypass",
+      "Clip Player Enable"
+    ],
+    "midi_pitch_bend": [
+      "Pitch Bend",
+      "Pitch Bend Chan 1",
+      "Pitch Bend Chan 2",
+      "Pitch Bend Chan 3",
+      "Pitch Bend Chan 4",
+      "Pitch Bend Chan 5",
+      "Pitch Bend Chan 6",
+      "Pitch Bend Chan 7",
+      "Pitch Bend Chan 8",
+      "Pitch Bend Chan 9",
+      "Pitch Bend Chan 10",
+      "Pitch Bend Chan 11",
+      "Pitch Bend Chan 12",
+      "Pitch Bend Chan 13",
+      "Pitch Bend Chan 14",
+      "Pitch Bend Chan 15",
+      "Pitch Bend Chan 16",
+      "Pitch Bend"
+    ]
+  },
+  "summary": {
+    "bucket_a_qualify_now": 7,
+    "bucket_b_representative_then_bulk": 14,
+    "bucket_c_structural": 3,
+    "bucket_c_midi": 18,
+    "total": 42
+  }
+}

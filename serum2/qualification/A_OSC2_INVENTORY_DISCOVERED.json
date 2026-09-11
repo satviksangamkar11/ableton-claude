@@ -1,0 +1,501 @@
+{
+  "title": "Oscillator B (Osc2) Inventory Discovery",
+  "count": 55,
+  "inventory": [
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Enable",
+      "vst3_index": 75,
+      "mutation_class": "BOOLEAN",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Level",
+      "vst3_index": 76,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Pan",
+      "vst3_index": 77,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Octave",
+      "vst3_index": 78,
+      "mutation_class": "INTEGER",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Semi",
+      "vst3_index": 79,
+      "mutation_class": "INTEGER",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Fine",
+      "vst3_index": 80,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Ratio",
+      "vst3_index": 81,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Hz Offset",
+      "vst3_index": 82,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Coarse Pitch",
+      "vst3_index": 83,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Pitch Track",
+      "vst3_index": 84,
+      "mutation_class": "BOOLEAN",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Start",
+      "vst3_index": 85,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B End",
+      "vst3_index": 86,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Reverse",
+      "vst3_index": 87,
+      "mutation_class": "BOOLEAN",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Scan Rate",
+      "vst3_index": 88,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Scan BPM Rate",
+      "vst3_index": 89,
+      "mutation_class": "INTEGER",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Scan Key Track",
+      "vst3_index": 90,
+      "mutation_class": "BOOLEAN",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Position",
+      "vst3_index": 91,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Loop Start",
+      "vst3_index": 92,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Loop End",
+      "vst3_index": 93,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Loop X-Fade",
+      "vst3_index": 94,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Loop Mode",
+      "vst3_index": 95,
+      "mutation_class": "INTEGER",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Relative Loop",
+      "vst3_index": 96,
+      "mutation_class": "BOOLEAN",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Single Slice",
+      "vst3_index": 97,
+      "mutation_class": "INTEGER",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Slice Play Mode",
+      "vst3_index": 98,
+      "mutation_class": "BOOLEAN",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Unison",
+      "vst3_index": 99,
+      "mutation_class": "INTEGER",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Uni Stack",
+      "vst3_index": 100,
+      "mutation_class": "INTEGER",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Uni Detune",
+      "vst3_index": 101,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Uni Blend",
+      "vst3_index": 102,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Uni Width",
+      "vst3_index": 103,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Uni Span",
+      "vst3_index": 104,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Uni Rand Start",
+      "vst3_index": 105,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Uni Warp",
+      "vst3_index": 106,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Uni Warp 2",
+      "vst3_index": 107,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Warp",
+      "vst3_index": 108,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Warp Var",
+      "vst3_index": 109,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Warp Mode",
+      "vst3_index": 110,
+      "mutation_class": "INTEGER",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Warp 2",
+      "vst3_index": 111,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Warp 2 Var",
+      "vst3_index": 112,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Warp 2 Mode",
+      "vst3_index": 113,
+      "mutation_class": "INTEGER",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B WT Pos",
+      "vst3_index": 114,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Uni WT Pos",
+      "vst3_index": 115,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Phase",
+      "vst3_index": 116,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Rand Phase",
+      "vst3_index": 117,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Param44",
+      "vst3_index": 118,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Param45",
+      "vst3_index": 119,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Param46",
+      "vst3_index": 120,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Param47",
+      "vst3_index": 121,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Param48",
+      "vst3_index": 122,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Param49",
+      "vst3_index": 123,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Param50",
+      "vst3_index": 124,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Param51",
+      "vst3_index": 125,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Param52",
+      "vst3_index": 126,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Param53",
+      "vst3_index": 127,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Param54",
+      "vst3_index": 128,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    },
+    {
+      "family": "Osc2",
+      "semantic_id": "UNMAPPED",
+      "vst3_name": "B Param55",
+      "vst3_index": 129,
+      "mutation_class": "SCALAR",
+      "capability_key": null,
+      "surface_class": "UNKNOWN"
+    }
+  ]
+}

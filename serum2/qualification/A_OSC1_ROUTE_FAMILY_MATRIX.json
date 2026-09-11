@@ -1,0 +1,66 @@
+{
+  "phase": "B",
+  "objective": "Route-family candidate matrix",
+  "osc1_inventory_count": 55,
+  "representatives": [
+    {
+      "representative": "A Enable",
+      "class": "BOOLEAN",
+      "suspected_route": "host_param",
+      "existing_evidence": true,
+      "semantic_candidate": "OSC1.Enable",
+      "why": "Step 17: CAUSAL_VERIFIED; behavior proven; divergence (CBOR path known but behavior via host param)",
+      "experiment_required": false
+    },
+    {
+      "representative": "A Unison",
+      "class": "INTEGER",
+      "suspected_route": "host_param",
+      "existing_evidence": true,
+      "semantic_candidate": "OSC1.Unison",
+      "why": "Step 18: host_param_only, no CBOR path; generation PASS confirmed",
+      "experiment_required": false
+    },
+    {
+      "representative": "A Volume",
+      "class": "SCALAR",
+      "suspected_route": "host_param",
+      "existing_evidence": false,
+      "semantic_candidate": "OSC1.Volume",
+      "why": "Ordinary scalar; not yet proven; will show RMS/energy effect if working",
+      "experiment_required": true
+    },
+    {
+      "representative": "A Pan",
+      "class": "SCALAR",
+      "suspected_route": "host_param",
+      "existing_evidence": false,
+      "semantic_candidate": "OSC1.Pan",
+      "why": "Stereo control; will show channel-energy balance if working",
+      "experiment_required": true
+    },
+    {
+      "representative": "A Warp Mode",
+      "class": "INTEGER",
+      "suspected_route": "host_param",
+      "existing_evidence": false,
+      "semantic_candidate": "OSC1.WarpMode",
+      "why": "ENUM-like discrete; represents mode/selection controls",
+      "experiment_required": true
+    },
+    {
+      "representative": "A WT Pos",
+      "class": "SCALAR",
+      "suspected_route": "host_param (or reference-like?)",
+      "existing_evidence": false,
+      "semantic_candidate": "OSC1.WTPosition",
+      "why": "Wavetable position; scalar but may diverge from ordinary scalar if reference-type",
+      "experiment_required": true
+    }
+  ],
+  "summary": {
+    "total_representatives": 6,
+    "reuse_existing_evidence": 2,
+    "new_experiments_required": 4
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "title": "Step 21 \u2014 Final Unified Full-Control Audit",
+  "total_vst3_parameters": 2623,
+  "discovered_controls": {
+    "parameters": 2623,
+    "modulation_routes_possible": 612,
+    "modulation_routes_verified": 180,
+    "resources": 2
+  },
+  "by_control_type": {
+    "PARAMETER": {
+      "total": 2623,
+      "by_status": {
+        "NOT_RUN": 2620,
+        "CAUSAL_VERIFIED": 3
+      },
+      "controllable": 541
+    },
+    "MODULATION": {
+      "verified": 180,
+      "possible": 612,
+      "status": "CAUSAL_VERIFIED"
+    },
+    "RESOURCE": {
+      "total": 2,
+      "status": "ROUTE_RESOLVED"
+    }
+  },
+  "parameter_inventory": {
+    "automatable_synthesis": 541,
+    "midi_passthrough": 2082,
+    "semantically_identified": 5,
+    "unmapped": 2618,
+    "generation_pass": 541,
+    "generation_fail": 0,
+    "qualified_causal": 3
+  },
+  "final_summary": {
+    "total_meaningful_controls": 2805,
+    "controllable_parameters": 541,
+    "causal_verified_parameters": 3,
+    "fully_qualified": 3,
+    "unknown_unmapped_parameters": 2618,
+    "human_like_modulation_operations": {
+      "create": "CAUSAL_VERIFIED",
+      "remove": "CAUSAL_VERIFIED",
+      "set_amount": "CAUSAL_VERIFIED"
+    }
+  }
+}

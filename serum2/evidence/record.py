@@ -9,7 +9,10 @@ NO_OBSERVED_EFFECT is a causal-measurement status, NOT a record status, and
 never implies NON_AUDIBLE_BY_DESIGN.
 """
 from dataclasses import dataclass, field, asdict
-from typing import Any, Dict, Optional, Tuple
+from typing import Any, Dict, Optional, Tuple, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from serum2.qualification.a3_evidence_extension import PersistenceLifecycleEvidence
 
 # ---- gate statuses ----
 NOT_RUN = "NOT_RUN"
@@ -36,7 +39,7 @@ OUTCOMES = (OUTCOME_EFFECT, OUTCOME_NO_OBSERVED_EFFECT,
 # ---- sentinel for historical data that was genuinely never captured ----
 NOT_RECORDED = "NOT_RECORDED"
 
-GATES = ("generation", "load", "render", "causal", "persistence")
+GATES = ("generation", "load", "render", "causal", "persistence", "exercise")
 
 
 @dataclass(frozen=True)
@@ -105,12 +108,21 @@ class EvidenceRecord:
     # Populated only when spec.probe_semantics == "NUMERIC_CLAMP_RANGE".
     # Empty dict on all non-clamp records; never inferred from persistence failures.
     structural_observation: Dict[str, Any] = field(default_factory=dict)
+    exercise_measurements: Tuple[CausalMeasurement, ...] = field(default_factory=tuple)
+    persistence_lifecycle: Optional["PersistenceLifecycleEvidence"] = None
 
     def __getattr__(self, name: str):
         # Old pickled records lack structural_observation. Return the correct
         # default rather than AttributeError so existing pkl files stay usable.
         if name == "structural_observation":
             return {}
+        # Old pickled records lack exercise_measurements. Return empty tuple.
+        if name == "exercise_measurements":
+            return ()
+        # Old pickled records lack persistence_lifecycle. Return default (all NOT_RUN).
+        if name == "persistence_lifecycle":
+            from serum2.qualification.a3_evidence_extension import DEFAULT_PERSISTENCE_LIFECYCLE
+            return DEFAULT_PERSISTENCE_LIFECYCLE
         raise AttributeError(name)
 
     # ---- gate readings: observations, not verdicts ----
@@ -125,6 +137,17 @@ class EvidenceRecord:
             if not self.causal_measurements:
                 return NOT_RUN
             statuses = [m.status for m in self.causal_measurements]
+            if all(s == EFFECT_OBSERVED for s in statuses):
+                return PASS
+            if any(s == WRONG_DIRECTION for s in statuses):
+                return FAIL
+            if all(s == NO_OBSERVED_EFFECT for s in statuses):
+                return FAIL
+            return INCONCLUSIVE
+        if name == "exercise":
+            if not self.exercise_measurements:
+                return NOT_RUN
+            statuses = [m.status for m in self.exercise_measurements]
             if all(s == EFFECT_OBSERVED for s in statuses):
                 return PASS
             if any(s == WRONG_DIRECTION for s in statuses):

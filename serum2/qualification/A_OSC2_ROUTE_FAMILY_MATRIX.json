@@ -1,0 +1,39 @@
+{
+  "phase": "B",
+  "objective": "Route-family candidate matrix",
+  "osc2_inventory_count": 55,
+  "representatives": [
+    {
+      "representative": "B Boolean",
+      "class": "BOOLEAN",
+      "suspected_route": "host_param",
+      "existing_evidence": false,
+      "semantic_candidate": "OSC2.BOOLEAN",
+      "why": "Osc2 boolean control; reusing proven Osc1 boolean host_param route",
+      "experiment_required": true
+    },
+    {
+      "representative": "B Integer",
+      "class": "INTEGER",
+      "suspected_route": "host_param",
+      "existing_evidence": false,
+      "semantic_candidate": "OSC2.INTEGER",
+      "why": "Osc2 integer control; reusing proven Osc1 integer host_param route",
+      "experiment_required": true
+    },
+    {
+      "representative": "B Scalar",
+      "class": "SCALAR",
+      "suspected_route": "host_param",
+      "existing_evidence": false,
+      "semantic_candidate": "OSC2.SCALAR",
+      "why": "Osc2 scalar control; reusing proven Osc1 scalar host_param route",
+      "experiment_required": true
+    }
+  ],
+  "summary": {
+    "total_representatives": 3,
+    "reuse_existing_evidence": 0,
+    "new_experiments_required": 3
+  }
+}
