@@ -1,0 +1,20 @@
+{
+  "phase": "Exhaustive Surface Reconciliation - Categorization",
+  "total_entries": 2623,
+  "categories": {
+    "SERUM_PARAMETER": 324,
+    "SERUM_HUMAN_OPERATION_INPUT": 0,
+    "MIDI_EXPRESSION_INPUT": 2084,
+    "ABLETON_ORCHESTRATION": 0,
+    "HOST_INTERNAL": 0,
+    "DUPLICATE_ALIAS": 0,
+    "MIDI_PASSTHROUGH": 0,
+    "NON_SYNTHESIS": 215,
+    "UNKNOWN": 0
+  },
+  "serum_parameters_to_qualify": 324,
+  "serum_operations_to_qualify": 0,
+  "midi_expressions_to_classify": 2084,
+  "exclusions_justified": 215,
+  "unknowns_to_investigate": 0
+}

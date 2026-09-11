@@ -1,0 +1,83 @@
+{
+  "items_to_close": {
+    "phase": "Boundary Closure - 19 NOT_SUPPORTED Items",
+    "objective": "Classify each item with explicit reasoning",
+    "clip_player_enable": {
+      "name": "Clip Player Enable",
+      "vst3_exposed": true,
+      "classification": "OUT_OF_SCOPE_FEATURE",
+      "reasoning": [
+        "Serum 2 includes audio clip playback integration",
+        "Feature enable is orthogonal to synthesis",
+        "Does not affect oscillator/filter/envelope/modulation behavior",
+        "Not producer-relevant for Serum synthesis control"
+      ],
+      "final_status": "NOT_SUPPORTED",
+      "rationale": "Feature control, not synthesis parameter"
+    },
+    "pitch_bend_root": {
+      "name": "Pitch Bend",
+      "vst3_exposed": true,
+      "classification": "MIDI_EXPRESSION",
+      "reasoning": [
+        "Pitch bend is MIDI note expression, not synthesis parameter",
+        "Serum exposes it as VST3 parameter for MIDI-to-modulation routing",
+        "But it is fundamentally an input vector, not an internal Serum control",
+        "Producer would use this for live expression, not semantic control"
+      ],
+      "producer_relevant": true,
+      "final_status": "MIDI_EXPRESSION_OPERATION",
+      "action": "Consider semantic operation: send_pitch_bend(amount)"
+    },
+    "pitch_bend_channels": {
+      "name": "Pitch Bend Chan 1-16",
+      "vst3_exposed": true,
+      "count": 16,
+      "classification": "MIDI_EXPRESSION",
+      "reasoning": [
+        "Per-channel MIDI pitch bend expression",
+        "Not Serum synthesis control; pure MIDI input mapping",
+        "Belongs in MIDI orchestration layer (Ableton), not Serum semantic API",
+        "Not producer-relevant for Serum synthesis operation vocabulary"
+      ],
+      "producer_relevant": false,
+      "final_status": "NOT_SUPPORTED",
+      "rationale": "MIDI input layer (belongs in Ableton adapter), not Serum synthesis"
+    }
+  },
+  "decision_framework": {
+    "serum_parameter": {
+      "definition": "Internal Serum synthesis control (oscillator, filter, envelope, LFO, etc.)",
+      "action_if_found": "QUALIFY immediately",
+      "status": "QUALIFIED or UNKNOWN"
+    },
+    "midi_expression": {
+      "definition": "Producer input expression (pitch bend, mod wheel, velocity, aftertouch)",
+      "action_if_found": "Create semantic OPERATION (not parameter write)",
+      "examples": [
+        "send_pitch_bend(amount=0.5)",
+        "send_mod_wheel(amount=0.7)",
+        "send_velocity(note_id, velocity)"
+      ],
+      "status": "OPERATION_QUALIFIED or NOT_SUPPORTED"
+    },
+    "ableton_orchestration": {
+      "definition": "Ableton Live wrapper (device on/off, track automation, etc.)",
+      "action_if_found": "Mark NOT_SUPPORTED in Serum plane; belongs in Ableton adapter",
+      "status": "NOT_SUPPORTED"
+    },
+    "out_of_scope_feature": {
+      "definition": "Serum feature orthogonal to synthesis (clip player, visual display, etc.)",
+      "action_if_found": "Mark NOT_SUPPORTED with explicit reason",
+      "status": "NOT_SUPPORTED"
+    }
+  },
+  "summary": {
+    "total_19_items": 19,
+    "out_of_scope_feature": 1,
+    "midi_expression": 18,
+    "serum_parameter": 0,
+    "ableton_orchestration": 0
+  },
+  "critical_decision": "Should Pitch Bend (root) be a semantic MIDI_EXPRESSION operation, or NOT_SUPPORTED?"
+}

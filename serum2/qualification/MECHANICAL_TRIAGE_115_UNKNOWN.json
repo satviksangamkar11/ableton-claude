@@ -1,0 +1,32 @@
+{
+  "phase": "Mechanical Triage of 115 UNKNOWN",
+  "original_unknown": 115,
+  "triaged_results": {
+    "serum_parameter": 128,
+    "serum_routing": 6,
+    "midi_passthrough": 0,
+    "host_internal": 1,
+    "still_unknown": 18
+  },
+  "updated_serum_control_count": 489,
+  "remaining_investigation": [
+    "Bend Down",
+    "Swing Div",
+    "Bus 2 Vol",
+    "Scale",
+    "Clip Player Transpose",
+    "Legato",
+    "Bank",
+    "Porta Scaled",
+    "Porta Always",
+    "Bend Up",
+    "Key",
+    "Direct Vol",
+    "Bus 1 Vol",
+    "Transpose",
+    "Porta Curve",
+    "Clip Player Offset",
+    "Swing",
+    "Mono Toggle"
+  ]
+}

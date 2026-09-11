@@ -1,0 +1,73 @@
+{
+  "phase": "Bucket C Terminal Classification",
+  "objective": "Classify remaining 21 controls as UNKNOWN or NOT_SUPPORTED",
+  "bucket_c": {
+    "structural": {
+      "count": 3,
+      "status": "UNKNOWN",
+      "reason": "High-level state operations; not synthesis parameter mutations",
+      "controls": [
+        {
+          "name": "Arp Enable",
+          "class": "BOOLEAN",
+          "note": "Arpeggiator enable - affects synth behavior, not parameter value",
+          "route": "UNKNOWN",
+          "status": "UNKNOWN"
+        },
+        {
+          "name": "Bypass",
+          "class": "BOOLEAN",
+          "note": "Synth bypass - structural operation, not synthesis control",
+          "route": "UNKNOWN",
+          "status": "UNKNOWN"
+        },
+        {
+          "name": "Clip Player Enable",
+          "class": "BOOLEAN",
+          "note": "Clip player feature - not synthesis oscillator/filter control",
+          "route": "UNKNOWN",
+          "status": "UNKNOWN"
+        }
+      ]
+    },
+    "midi_pitch_bend": {
+      "count": 18,
+      "status": "NOT_SUPPORTED",
+      "reason": "MIDI pitch bend per channel; not synthesis parameter mutation",
+      "note": "These are MIDI CC mappings, not Serum synthesis controls",
+      "controls": [
+        "Pitch Bend",
+        "Pitch Bend Chan 1",
+        "Pitch Bend Chan 2",
+        "Pitch Bend Chan 3",
+        "Pitch Bend Chan 4",
+        "Pitch Bend Chan 5",
+        "Pitch Bend Chan 6",
+        "Pitch Bend Chan 7",
+        "Pitch Bend Chan 8",
+        "Pitch Bend Chan 9",
+        "Pitch Bend Chan 10",
+        "Pitch Bend Chan 11",
+        "Pitch Bend Chan 12",
+        "Pitch Bend Chan 13",
+        "Pitch Bend Chan 14",
+        "Pitch Bend Chan 15",
+        "Pitch Bend Chan 16"
+      ]
+    }
+  },
+  "summary": {
+    "structural_unknown": 3,
+    "midi_not_supported": 18,
+    "total_bucket_c": 21,
+    "all_meaningful_candidates": {
+      "qualified_bucket_a": 7,
+      "qualified_bucket_b": 14,
+      "qualified_earlier": 287,
+      "qualified_total": 308,
+      "unknown_bucket_c": 3,
+      "not_supported_bucket_c": 18,
+      "total_classified": 329
+    }
+  }
+}

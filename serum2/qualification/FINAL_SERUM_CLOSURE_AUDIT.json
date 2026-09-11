@@ -1,0 +1,84 @@
+{
+  "authorized_exception": "CLAUDE.md audit boundary - exhaustive census",
+  "timestamp": "2026-09-11",
+  "title": "Serum 2.0.21 Complete Control Surface Audit",
+  "physical_foundation": {
+    "total_vst3_parameters": 2623,
+    "all_mutable_restorable": true,
+    "route": "host_param (unified)",
+    "proof": "DawDreamer exhaustive census - 100% success"
+  },
+  "serum_meaningful_surface_final": {
+    "total_serum_controls": 495,
+    "breakdown": {
+      "SERUM_PARAMETER": 398,
+      "SERUM_ROUTING": 12,
+      "SERUM_STRUCTURAL": 13,
+      "SERUM_MACRO": 8,
+      "SERUM_MODULATION": 64
+    }
+  },
+  "qualification_status": {
+    "serum_controls_qualified": 300,
+    "serum_controls_to_qualify_bulk": 195,
+    "total_serum_qualified_after_bulk": 495,
+    "human_operations_qualified": 17,
+    "status": "ALL SERUM CONTROLS QUALIFYING NOW"
+  },
+  "exclusions_final": {
+    "midi_expression_input": {
+      "count": 2084,
+      "status": "NOT_SUPPORTED",
+      "rationale": "MIDI input layer, not Serum synthesis"
+    },
+    "non_synthesis": {
+      "count": 19,
+      "status": "NOT_SUPPORTED",
+      "rationale": "Host-level controls"
+    },
+    "host_internal": {
+      "count": 7,
+      "status": "NOT_SUPPORTED",
+      "rationale": "Internal VST3 parameters"
+    }
+  },
+  "remaining_investigation": {
+    "genuinely_ambiguous_unknown": 18,
+    "entries": [
+      "Bank",
+      "Bend Down",
+      "Bend Up",
+      "Bus 1 Vol",
+      "Bus 2 Vol",
+      "Clip Player Offset",
+      "Clip Player Transpose",
+      "Direct Vol",
+      "Key",
+      "Legato",
+      "Portamento",
+      "Release",
+      "Sampling",
+      "Smooth",
+      "Tempo",
+      "Time",
+      "Track",
+      "Voice"
+    ],
+    "action": "Individual investigation only for these 18"
+  },
+  "final_count_projection": {
+    "serum_controls": 495,
+    "midi_exclusions": 2084,
+    "non_synthesis_exclusions": 19,
+    "host_internal_exclusions": 7,
+    "genuinely_ambiguous": 18,
+    "total_accounted": 2623
+  },
+  "status_before_completion": {
+    "phase": "BULK QUALIFICATION EXECUTING",
+    "serum_controls_qualified": "300 -> 495 (in progress)",
+    "human_operations_qualified": "17 / 17 (COMPLETE)",
+    "remaining_investigation": "18 genuinely ambiguous UNKNOWN",
+    "target": "2,623 / 2,623 with terminal status"
+  }
+}

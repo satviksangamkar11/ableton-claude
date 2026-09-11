@@ -1,0 +1,51 @@
+{
+  "action_id": "fcfff614",
+  "request": {
+    "action_id": "fcfff614",
+    "description": "Producer intent: brighten OSC1 and sync session tempo",
+    "serum": {
+      "parameter": "A Level",
+      "target_value": 0.6
+    },
+    "ableton": {
+      "operation": "set_tempo",
+      "target_value": 128.0
+    }
+  },
+  "serum_dispatch": {
+    "param_name": "A Level",
+    "vst3_index": 21,
+    "baseline": 0.75,
+    "target_value": 0.6,
+    "readback": 0.6000000238418579,
+    "verified": true,
+    "restored": 0.75,
+    "restore_verified": true
+  },
+  "ableton_dispatch": {
+    "instruction_executed": "mcp__AbletonMCP__set_tempo + mcp__AbletonMCP__get_session_info",
+    "action_id": "fcfff614",
+    "baseline": 120.0,
+    "baseline_source": "get_session_info -> observed tempo: 120.0",
+    "set_command": "set_tempo(128)",
+    "set_response": "Set tempo to 128.0 BPM",
+    "readback_command": "get_session_info",
+    "readback": 128.0,
+    "readback_source": "get_session_info -> observed tempo: 128.0",
+    "verified": true,
+    "restore_command": "set_tempo(120)",
+    "restore_response": "Set tempo to 120.0 BPM",
+    "restore_readback": 120.0,
+    "restore_readback_source": "get_session_info -> observed tempo: 120.0",
+    "restore_verified": true,
+    "status": "complete"
+  },
+  "integration_gate": {
+    "action_id": "fcfff614",
+    "serum_dispatch_verified": true,
+    "ableton_dispatch_verified": true,
+    "both_backends_dispatched_from_one_request": true,
+    "caveat": "Dispatch executed sequentially (DawDreamer then MCP), not atomically. Both results are real observed values under action_id fcfff614.",
+    "supported_claim": "Real Serum control path + real Ableton orchestration path both executed from a single semantic request object. Atomic joint dispatch not independently verified."
+  }
+}

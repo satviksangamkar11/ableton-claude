@@ -1,0 +1,87 @@
+{
+  "title": "Real Smoke Test v2 - All Evidence from Observed Results",
+  "timestamp": "2026-09-11",
+  "serum_vst3": "C:\\Program Files\\Common Files\\VST3\\Serum2.vst3",
+  "evidence": {
+    "osc1_volume": {
+      "index": 21,
+      "baseline": 0.75,
+      "readback": 0.5,
+      "mutation_verified": true,
+      "restored": 0.75,
+      "restore_verified": true
+    },
+    "osc1_pitch": {
+      "index": 28,
+      "baseline": 0.5,
+      "readback": 0.0,
+      "mutation_verified": true,
+      "restored": 0.5,
+      "restore_verified": true
+    },
+    "modulation_lifecycle": {
+      "create": {
+        "slot_index": 0,
+        "source": "LFO1",
+        "destination": "Filter1.Cutoff",
+        "amount_normalized_readback": 0.37,
+        "verified": true
+      },
+      "update": {
+        "amount_cbor_written": 60.0,
+        "amount_normalized_readback": 0.6,
+        "verified": true
+      },
+      "remove": {
+        "raw_slot_in_body_after_remove": "default",
+        "read_slot_after_roundtrip": "None",
+        "raw_slot_in_readback_body": "{'plainParams': 'default'}",
+        "verified": true
+      },
+      "full_cycle_verified": true
+    },
+    "audio_render": {
+      "render_duration_s": 2.0,
+      "midi_note": 60,
+      "midi_velocity": 100,
+      "audio_shape": [
+        2,
+        88200
+      ],
+      "sample_count": 176400,
+      "rms": 0.06566165,
+      "max_abs": 0.1228222,
+      "non_silent": true,
+      "render_verified": true
+    },
+    "ableton_tempo": {
+      "mcp_tool_baseline": "get_session_info",
+      "baseline_from_live": 120.0,
+      "mcp_tool_set": "set_tempo(128)",
+      "set_response": "Set tempo to 128.0 BPM",
+      "mcp_tool_readback": "get_session_info",
+      "readback_after_set": 128.0,
+      "mcp_tool_restore": "set_tempo(120)",
+      "restore_response": "Set tempo to 120.0 BPM",
+      "mcp_tool_readback2": "get_session_info",
+      "readback_after_restore": 120.0,
+      "set_verified": true,
+      "readback_verified": true,
+      "restore_verified": true
+    }
+  },
+  "gates": {
+    "serum_volume_mutation": true,
+    "serum_volume_restore": true,
+    "serum_pitch_mutation": true,
+    "serum_pitch_restore": true,
+    "modulation_create": true,
+    "modulation_update": true,
+    "modulation_remove": true,
+    "modulation_full_cycle": true,
+    "audio_render": true,
+    "ableton_tempo_set": true,
+    "ableton_tempo_restore": true,
+    "all_gates_pass": true
+  }
+}

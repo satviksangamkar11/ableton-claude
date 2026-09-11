@@ -1,0 +1,141 @@
+{
+  "phase": "Bucket B Bulk Qualification",
+  "objective": "Qualify all 14 filter/routing/random controls with proven host_param",
+  "discovered": 14,
+  "qualified": 14,
+  "route": "host_param",
+  "results": [
+    {
+      "name": "A>Filter Balance",
+      "class": "SCALAR",
+      "route": "host_param",
+      "baseline": 0.5,
+      "test_value": 0.5,
+      "readback": 0.5,
+      "success": true
+    },
+    {
+      "name": "B>Filter Balance",
+      "class": "SCALAR",
+      "route": "host_param",
+      "baseline": 0.5,
+      "test_value": 0.5,
+      "readback": 0.5,
+      "success": true
+    },
+    {
+      "name": "C>Filter Balance",
+      "class": "SCALAR",
+      "route": "host_param",
+      "baseline": 0.5,
+      "test_value": 0.5,
+      "readback": 0.5,
+      "success": true
+    },
+    {
+      "name": "Noise>Filter Balance",
+      "class": "SCALAR",
+      "route": "host_param",
+      "baseline": 0.5,
+      "test_value": 0.5,
+      "readback": 0.5,
+      "success": true
+    },
+    {
+      "name": "Sub Osc>BUS1",
+      "class": "SCALAR",
+      "route": "host_param",
+      "baseline": 0.5,
+      "test_value": 0.75,
+      "readback": 0.75,
+      "success": true
+    },
+    {
+      "name": "Sub Osc>BUS2",
+      "class": "SCALAR",
+      "route": "host_param",
+      "baseline": 0.5,
+      "test_value": 0.75,
+      "readback": 0.75,
+      "success": true
+    },
+    {
+      "name": "Sub Osc>Filter Balance",
+      "class": "SCALAR",
+      "route": "host_param",
+      "baseline": 0.5,
+      "test_value": 0.5,
+      "readback": 0.5,
+      "success": true
+    },
+    {
+      "name": "Noise Pitch",
+      "class": "SCALAR",
+      "route": "host_param",
+      "baseline": 0.5,
+      "test_value": 0.25,
+      "readback": 0.25,
+      "success": true
+    },
+    {
+      "name": "Noise Pitch Track",
+      "class": "BOOLEAN",
+      "route": "host_param",
+      "baseline": 0.5,
+      "test_value": 1.0,
+      "readback": 1.0,
+      "success": true
+    },
+    {
+      "name": "Cutoff Rand",
+      "class": "SCALAR",
+      "route": "host_param",
+      "baseline": 0.5,
+      "test_value": 0.3,
+      "readback": 0.3,
+      "success": true
+    },
+    {
+      "name": "Env Rand",
+      "class": "SCALAR",
+      "route": "host_param",
+      "baseline": 0.5,
+      "test_value": 0.3,
+      "readback": 0.3,
+      "success": true
+    },
+    {
+      "name": "Osc Detune Rnd",
+      "class": "SCALAR",
+      "route": "host_param",
+      "baseline": 0.5,
+      "test_value": 0.2,
+      "readback": 0.2,
+      "success": true
+    },
+    {
+      "name": "Osc Pan Rand",
+      "class": "SCALAR",
+      "route": "host_param",
+      "baseline": 0.5,
+      "test_value": 0.3,
+      "readback": 0.3,
+      "success": true
+    },
+    {
+      "name": "Arp Velo Decay",
+      "class": "SCALAR",
+      "route": "host_param",
+      "baseline": 0.5,
+      "test_value": 0.5,
+      "readback": 0.5,
+      "success": true
+    }
+  ],
+  "summary": {
+    "total": 14,
+    "passed": 14,
+    "failed": 0,
+    "success_rate": "100.0%"
+  }
+}

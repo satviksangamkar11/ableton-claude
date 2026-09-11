@@ -1,0 +1,17 @@
+{
+  "sub_oscillator": {
+    "discovered": 0,
+    "qualified": 0,
+    "route": "host_param",
+    "exceptions": 0
+  },
+  "noise_oscillator": {
+    "discovered": 0,
+    "qualified": 0,
+    "route": "host_param",
+    "exceptions": 0
+  },
+  "combined_total": 0,
+  "new_coverage": 287,
+  "remaining_after": 42
+}

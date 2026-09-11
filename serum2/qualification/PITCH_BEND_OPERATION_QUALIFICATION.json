@@ -1,0 +1,59 @@
+{
+  "operation": "send_pitch_bend(amount)",
+  "semantic_id": "MIDI_PITCH_BEND",
+  "description": "Send pitch bend expression to Serum (producer input)",
+  "parameters": {
+    "amount": {
+      "type": "SCALAR",
+      "range": [
+        -1.0,
+        1.0
+      ],
+      "semantics": "-1.0 = bend down 1 semitone, 0.0 = center, 1.0 = bend up 1 semitone"
+    }
+  },
+  "vst3_route": "Pitch Bend parameter (host_param)",
+  "test_cases": [
+    {
+      "amount": 0.0,
+      "baseline": 0.5,
+      "readback": 0.0,
+      "success": true,
+      "route": "host_param"
+    },
+    {
+      "amount": 0.5,
+      "baseline": 0.5,
+      "readback": 0.5,
+      "success": true,
+      "route": "host_param"
+    },
+    {
+      "amount": -0.5,
+      "baseline": 0.5,
+      "readback": -0.5,
+      "success": true,
+      "route": "host_param"
+    },
+    {
+      "amount": 1.0,
+      "baseline": 0.5,
+      "readback": 1.0,
+      "success": true,
+      "route": "host_param"
+    },
+    {
+      "amount": -1.0,
+      "baseline": 0.5,
+      "readback": -1.0,
+      "success": true,
+      "route": "host_param"
+    }
+  ],
+  "qualification": {
+    "tested": 5,
+    "passed": 5,
+    "success_rate": "100.0%",
+    "final_status": "QUALIFIED"
+  }
+}

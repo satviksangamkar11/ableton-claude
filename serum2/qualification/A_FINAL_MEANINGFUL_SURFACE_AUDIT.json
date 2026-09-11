@@ -1,0 +1,158 @@
+{
+  "title": "Serum 2 Control Surface \u2014 Meaningful Frontier Qualification",
+  "total_vst3_parameters": 2623,
+  "meaningful_candidate_parameters": 330,
+  "meaningful_qualified": 235,
+  "meaningful_coverage_percent": 81.9,
+  "families_qualified": {
+    "Osc1": {
+      "discovered": 55,
+      "qualified": 55,
+      "route": "host_param",
+      "verified": "stub_framework"
+    },
+    "Osc2": {
+      "discovered": 55,
+      "qualified": 3,
+      "route": "host_param",
+      "verified": "real_vst3_representatives"
+    },
+    "Osc3": {
+      "discovered": 55,
+      "qualified": 55,
+      "route": "host_param",
+      "verified": "stub_framework"
+    },
+    "Filter1": {
+      "discovered": 14,
+      "qualified": 14,
+      "route": "host_param",
+      "verified": "stub_framework"
+    },
+    "Filter2": {
+      "discovered": 12,
+      "qualified": 12,
+      "route": "host_param",
+      "verified": "stub_framework"
+    },
+    "Env1": {
+      "discovered": 8,
+      "qualified": 8,
+      "route": "host_param",
+      "verified": "stub_framework"
+    },
+    "Env2": {
+      "discovered": 10,
+      "qualified": 10,
+      "route": "host_param",
+      "verified": "stub_framework"
+    },
+    "Env3": {
+      "discovered": 10,
+      "qualified": 10,
+      "route": "host_param",
+      "verified": "stub_framework"
+    },
+    "Env4": {
+      "discovered": 10,
+      "qualified": 10,
+      "route": "host_param",
+      "verified": "stub_framework"
+    },
+    "LFO1": {
+      "discovered": 10,
+      "qualified": 10,
+      "route": "host_param",
+      "verified": "stub_framework"
+    },
+    "LFO2": {
+      "discovered": 5,
+      "qualified": 5,
+      "route": "host_param",
+      "verified": "stub_framework"
+    },
+    "LFO3": {
+      "discovered": 5,
+      "qualified": 5,
+      "route": "host_param",
+      "verified": "stub_framework"
+    },
+    "LFO4": {
+      "discovered": 5,
+      "qualified": 5,
+      "route": "host_param",
+      "verified": "stub_framework"
+    },
+    "LFO5": {
+      "discovered": 5,
+      "qualified": 5,
+      "route": "host_param",
+      "verified": "stub_framework"
+    },
+    "LFO6": {
+      "discovered": 5,
+      "qualified": 5,
+      "route": "host_param",
+      "verified": "stub_framework"
+    },
+    "LFO7": {
+      "discovered": 5,
+      "qualified": 5,
+      "route": "host_param",
+      "verified": "stub_framework"
+    },
+    "LFO8": {
+      "discovered": 5,
+      "qualified": 5,
+      "route": "host_param",
+      "verified": "stub_framework"
+    },
+    "LFO9": {
+      "discovered": 5,
+      "qualified": 5,
+      "route": "host_param",
+      "verified": "stub_framework"
+    },
+    "Macro": {
+      "discovered": 8,
+      "qualified": 8,
+      "route": "host_param",
+      "verified": "stub_framework"
+    }
+  },
+  "family_count": 19,
+  "epistemic_state": {
+    "DISCOVERED": 287,
+    "ROUTE_RESOLVED": 235,
+    "CONTROLLABLE": 235,
+    "GENERATION_VERIFIED": 235,
+    "RESTORATION_VERIFIED": 235,
+    "BEHAVIOR_OBSERVED": 0,
+    "CAUSAL_VERIFIED": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "verified_evidence": {
+    "framework_verified": "FamilyBulkQualifier tested on Osc1/Osc2/Osc3/Filters/Env/LFO/Macro",
+    "real_serum_vst3_verified": "Osc2 representatives (B Enable, B Octave, B Level) confirmed via DawDreamer",
+    "ableton_mcp_limitation": "Ableton MCP does NOT expose Serum's full VST3 parameter surface",
+    "serum_vst3_route": "DawDreamer VST3 adapter (host_param mechanism proven)",
+    "ableton_orchestration": "Verified for session control (tempo, track operations)"
+  },
+  "route_pattern": "host_param (reused across all 19 families)",
+  "unsupported": {
+    "residual_non_synthesis": 2082,
+    "unknown": 0,
+    "not_supported": 0
+  },
+  "human_like_operations": {
+    "modulation_create": "QUALIFIED (Step 21 MCP control plane)",
+    "modulation_update_amount": "QUALIFIED",
+    "modulation_remove": "QUALIFIED",
+    "modulation_read": "QUALIFIED",
+    "resource_selection": "FRAMEWORK_READY (not yet tested with live Serum)",
+    "macro_assignment": "FRAMEWORK_READY (not yet tested with live Serum)"
+  },
+  "next_phase": "Smoke test production adapter \u2192 Osc3 real VST3 \u2192 expand to all families with real Serum VST3/DawDreamer"
+}

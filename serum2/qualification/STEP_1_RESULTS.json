@@ -1,0 +1,44 @@
+{
+  "phase": "Step 1 - Investigate 3 UNKNOWN Controls",
+  "findings": {
+    "Arp Enable": {
+      "semantic_id": "GLOBAL_ARP_ENABLE",
+      "baseline": 0.5,
+      "test_value": 0.0,
+      "readback": 0.0,
+      "restored": 0.5,
+      "route": "host_param",
+      "success": true,
+      "final_status": "QUALIFIED",
+      "rationale": "Arpeggiator enable control - responds to host_param, affects synthesis routing"
+    },
+    "Bypass": {
+      "semantic_id": "SERUM_DEVICE_BYPASS",
+      "baseline": 0.5,
+      "test_value": 0.0,
+      "readback": 0.0,
+      "restored": 0.5,
+      "route": "host_param",
+      "success": true,
+      "final_status": "QUALIFIED",
+      "rationale": "Serum device bypass - responds to host_param, mutes synthesis output"
+    },
+    "Clip Player Enable": {
+      "semantic_id": "CLIP_PLAYER_ENABLE",
+      "baseline": 0.5,
+      "test_value": 0.0,
+      "readback": 0.0,
+      "restored": 0.5,
+      "route": "host_param",
+      "success": true,
+      "final_status": "NOT_SUPPORTED",
+      "rationale": "Feature control (audio playback), not synthesis parameter - out of scope"
+    }
+  },
+  "summary": {
+    "unknown_controls_remaining": 0,
+    "newly_qualified": 2,
+    "newly_not_supported": 1,
+    "all_3_now_classified": true
+  }
+}

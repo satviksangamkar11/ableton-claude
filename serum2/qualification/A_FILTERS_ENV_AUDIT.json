@@ -1,0 +1,36 @@
+{
+  "families": {
+    "Filter1": {
+      "discovered": 14,
+      "qualified": 14,
+      "exceptions": 0
+    },
+    "Filter2": {
+      "discovered": 12,
+      "qualified": 12,
+      "exceptions": 0
+    },
+    "Env1": {
+      "discovered": 8,
+      "qualified": 8,
+      "exceptions": 0
+    },
+    "Env2": {
+      "discovered": 10,
+      "qualified": 10,
+      "exceptions": 0
+    },
+    "Env3": {
+      "discovered": 10,
+      "qualified": 10,
+      "exceptions": 0
+    },
+    "Env4": {
+      "discovered": 10,
+      "qualified": 10,
+      "exceptions": 0
+    }
+  },
+  "total_discovered": 64,
+  "total_qualified": 64
+}

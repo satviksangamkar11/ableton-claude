@@ -1,0 +1,78 @@
+{
+  "phase": "Bucket A Bulk Qualification",
+  "objective": "Sub + Noise oscillators with proven host_param route",
+  "discovered": 7,
+  "qualified": 7,
+  "route": "host_param",
+  "results": [
+    {
+      "name": "Sub Enable",
+      "class": "BOOLEAN",
+      "baseline": 0.5,
+      "test_value": 1.0,
+      "readback": 1.0,
+      "success": true,
+      "route": "host_param"
+    },
+    {
+      "name": "Sub Level",
+      "class": "SCALAR",
+      "baseline": 0.5,
+      "test_value": 0.5,
+      "readback": 0.5,
+      "success": true,
+      "route": "host_param"
+    },
+    {
+      "name": "Sub Pan",
+      "class": "SCALAR",
+      "baseline": 0.5,
+      "test_value": 0.25,
+      "readback": 0.25,
+      "success": true,
+      "route": "host_param"
+    },
+    {
+      "name": "Sub Coarse Pitch",
+      "class": "INTEGER",
+      "baseline": 0.5,
+      "test_value": 0,
+      "readback": 0,
+      "success": true,
+      "route": "host_param"
+    },
+    {
+      "name": "Noise Enable",
+      "class": "BOOLEAN",
+      "baseline": 0.5,
+      "test_value": 1.0,
+      "readback": 1.0,
+      "success": true,
+      "route": "host_param"
+    },
+    {
+      "name": "Noise Level",
+      "class": "SCALAR",
+      "baseline": 0.5,
+      "test_value": 0.75,
+      "readback": 0.75,
+      "success": true,
+      "route": "host_param"
+    },
+    {
+      "name": "Noise Pan",
+      "class": "SCALAR",
+      "baseline": 0.5,
+      "test_value": 0.5,
+      "readback": 0.5,
+      "success": true,
+      "route": "host_param"
+    }
+  ],
+  "summary": {
+    "total": 7,
+    "passed": 7,
+    "failed": 0,
+    "success_rate": "100.0%"
+  }
+}

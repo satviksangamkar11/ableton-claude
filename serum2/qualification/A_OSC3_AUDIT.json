@@ -1,0 +1,12 @@
+{
+  "family": "Osc3",
+  "discovered": 55,
+  "qualified": 55,
+  "exceptions": 0,
+  "epistemic_state": {
+    "discovered": "55/55",
+    "route_resolved": "55/55",
+    "controllable": "55/55"
+  },
+  "route_pattern": "host_param (reused from Osc1/Osc2)"
+}

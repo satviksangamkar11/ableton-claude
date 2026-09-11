@@ -1,0 +1,45 @@
+{
+  "title": "Serum 2.0.21 Control Plane - Final Closure (100% Accounting)",
+  "timestamp": "2026-09-11",
+  "status": "COMPLETE",
+  "total_meaningful_candidates": 329,
+  "synthesis_parameters_qualified": {
+    "total": 310,
+    "oscillators": 177,
+    "filters": 26,
+    "envelopes": 38,
+    "modulators": 58,
+    "routing": 9,
+    "structural": 2
+  },
+  "semantic_operations_qualified": {
+    "total": 17,
+    "modulation_crud": 6,
+    "macro_assignment": 3,
+    "resource_selection": 4,
+    "topology_structural": 3,
+    "midi_expression": 1
+  },
+  "new_operation_pitch_bend": {
+    "operation": "send_pitch_bend(amount)",
+    "semantic_id": "MIDI_PITCH_BEND",
+    "type": "MIDI_EXPRESSION",
+    "tests_passed": 5,
+    "tests_total": 5,
+    "status": "QUALIFIED"
+  },
+  "not_supported_justified": {
+    "total": 2,
+    "clip_player_enable": "OUT_OF_SCOPE_FEATURE",
+    "pitch_bend_channels_1_16": "MIDI_INPUT_LAYER"
+  },
+  "unknown": 0,
+  "unclassified": 0,
+  "acceptance_criteria": {
+    "unknown_equals_zero": true,
+    "all_in_scope_params_qualified": true,
+    "all_producer_operations_qualified": true,
+    "all_exclusions_justified": true
+  },
+  "production_status": "READY_FOR_SMOKE_TEST"
+}

@@ -1,0 +1,58 @@
+{
+  "families": {
+    "LFO1": {
+      "discovered": 10,
+      "qualified": 10,
+      "exceptions": 0
+    },
+    "LFO2": {
+      "discovered": 5,
+      "qualified": 5,
+      "exceptions": 0
+    },
+    "LFO3": {
+      "discovered": 5,
+      "qualified": 5,
+      "exceptions": 0
+    },
+    "LFO4": {
+      "discovered": 5,
+      "qualified": 5,
+      "exceptions": 0
+    },
+    "LFO5": {
+      "discovered": 5,
+      "qualified": 5,
+      "exceptions": 0
+    },
+    "LFO6": {
+      "discovered": 5,
+      "qualified": 5,
+      "exceptions": 0
+    },
+    "LFO7": {
+      "discovered": 5,
+      "qualified": 5,
+      "exceptions": 0
+    },
+    "LFO8": {
+      "discovered": 5,
+      "qualified": 5,
+      "exceptions": 0
+    },
+    "LFO9": {
+      "discovered": 5,
+      "qualified": 5,
+      "exceptions": 0
+    },
+    "Macro": {
+      "discovered": 8,
+      "qualified": 8,
+      "exceptions": 0
+    }
+  },
+  "total": {
+    "discovered": 58,
+    "qualified": 58
+  }
+}

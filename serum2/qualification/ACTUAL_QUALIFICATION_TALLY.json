@@ -1,0 +1,7 @@
+{
+  "summary": "Tally of actual qualification vs. earlier claims",
+  "actual_qualified": 259,
+  "previous_claim": 310,
+  "discrepancy": 51,
+  "reason": "Earlier 310 was projection; actual is 259"
+}
