@@ -22,6 +22,13 @@ from serum2.qualification.a3_receipts import (
     gate_pass,
 )
 
+try:
+    from serum2.qualification.a3_evidence_extension import (
+        PersistenceLifecycleEvidence,
+    )
+except ImportError:
+    PersistenceLifecycleEvidence = None  # Type checking only
+
 
 def evaluate_generation(
     state_observation: dict[str, Any],
@@ -59,15 +66,12 @@ def evaluate_generation(
 
 def evaluate_persistence(
     persistence_observation: dict[str, Any],
+    persistence_lifecycle: Any = None,
 ) -> PersistenceResult:
-    """Evaluate currently available persistence evidence conservatively.
+    """Evaluate persistence evidence, including P1/P2/P3 lifecycle when available.
 
-    The current evidence harness exposes one persistence observation.
-    It does NOT establish P1/P2/P3 separately.
-
-    Therefore:
-      P1/P2/P3 remain NOT_RUN.
-      overall reflects the observed persistence result only.
+    If persistence_lifecycle is provided, extract independent P1/P2/P3 observations.
+    Otherwise, all lifecycle gates remain NOT_RUN.
     """
 
     if not persistence_observation:
@@ -91,15 +95,81 @@ def evaluate_persistence(
             details=persistence_observation,
         )
 
-    not_run = gate_not_run(
-        "P1/P2/P3 lifecycle identity is not separately established "
-        "by the current EvidenceRecord."
-    )
+    # Extract P1/P2/P3 from lifecycle evidence if available
+    p1_result = gate_not_run("P1 lifecycle not separately measured.")
+    p2_result = gate_not_run("P2 lifecycle not separately measured.")
+    p3_result = gate_not_run("P3 lifecycle not separately measured.")
+
+    if persistence_lifecycle is not None:
+        # Extract P1
+        if hasattr(persistence_lifecycle, "p1") and persistence_lifecycle.p1:
+            p1_status = persistence_lifecycle.p1.status
+            if p1_status == PASS:
+                p1_result = gate_pass(
+                    "P1 (same-engine) persistence confirmed.",
+                    details={
+                        "target_value_after_reload": persistence_lifecycle.p1.target_value_after_reload,
+                        "reason": persistence_lifecycle.p1.reason,
+                    },
+                )
+            elif p1_status == FAIL:
+                p1_result = gate_fail(
+                    "P1 (same-engine) persistence failed.",
+                    details={
+                        "target_value_after_mutation": persistence_lifecycle.p1.target_value_after_mutation,
+                        "target_value_after_reload": persistence_lifecycle.p1.target_value_after_reload,
+                        "reason": persistence_lifecycle.p1.reason,
+                    },
+                )
+
+        # Extract P2
+        if hasattr(persistence_lifecycle, "p2") and persistence_lifecycle.p2:
+            p2_status = persistence_lifecycle.p2.status
+            if p2_status == PASS:
+                p2_result = gate_pass(
+                    "P2 (fresh-instance) persistence confirmed.",
+                    details={
+                        "target_value_in_fresh_instance": persistence_lifecycle.p2.target_value_in_fresh_instance,
+                        "fresh_instance_created": persistence_lifecycle.p2.fresh_instance_created,
+                        "reason": persistence_lifecycle.p2.reason,
+                    },
+                )
+            elif p2_status == FAIL:
+                p2_result = gate_fail(
+                    "P2 (fresh-instance) persistence failed.",
+                    details={
+                        "target_value_after_mutation": persistence_lifecycle.p2.target_value_after_mutation,
+                        "target_value_in_fresh_instance": persistence_lifecycle.p2.target_value_in_fresh_instance,
+                        "reason": persistence_lifecycle.p2.reason,
+                    },
+                )
+
+        # Extract P3
+        if hasattr(persistence_lifecycle, "p3") and persistence_lifecycle.p3:
+            p3_status = persistence_lifecycle.p3.status
+            if p3_status == PASS:
+                p3_result = gate_pass(
+                    "P3 (fresh-process) persistence confirmed.",
+                    details={
+                        "target_value_in_fresh_process": persistence_lifecycle.p3.target_value_in_fresh_process,
+                        "process_boundary_crossed": persistence_lifecycle.p3.process_boundary_crossed,
+                        "reason": persistence_lifecycle.p3.reason,
+                    },
+                )
+            elif p3_status == FAIL:
+                p3_result = gate_fail(
+                    "P3 (fresh-process) persistence failed.",
+                    details={
+                        "target_value_after_mutation": persistence_lifecycle.p3.target_value_after_mutation,
+                        "target_value_in_fresh_process": persistence_lifecycle.p3.target_value_in_fresh_process,
+                        "reason": persistence_lifecycle.p3.reason,
+                    },
+                )
 
     return PersistenceResult(
-        p1_same_engine=not_run,
-        p2_new_instance=not_run,
-        p3_fresh_process=not_run,
+        p1_same_engine=p1_result,
+        p2_new_instance=p2_result,
+        p3_fresh_process=p3_result,
         overall=overall,
     )
 
@@ -186,11 +256,12 @@ def evaluate_record(
     state_observation: dict[str, Any],
     persistence_observation: dict[str, Any],
     causal_measurements: Sequence[dict[str, Any]],
+    persistence_lifecycle: Any = None,
 ) -> MutationReceipt:
     """Convert qualification observations into one MutationReceipt."""
 
     generation = evaluate_generation(state_observation)
-    persistence = evaluate_persistence(persistence_observation)
+    persistence = evaluate_persistence(persistence_observation, persistence_lifecycle)
     behavior = evaluate_behavior(causal_measurements)
     collateral = evaluate_collateral(state_observation)
     restoration = evaluate_restoration()

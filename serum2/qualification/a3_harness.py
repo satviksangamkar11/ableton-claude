@@ -61,6 +61,7 @@ def qualify_plan(
     state_observation = getattr(record, "state_observation", None) or {}
     persistence_observation = getattr(record, "persistence_observation", None) or {}
     causal_measurements = list(getattr(record, "causal_measurements", []))
+    persistence_lifecycle = getattr(record, "persistence_lifecycle", None)
 
     # Evaluate through A3 interpretation layer.
     return evaluate_record(
@@ -69,6 +70,7 @@ def qualify_plan(
         state_observation=state_observation,
         persistence_observation=persistence_observation,
         causal_measurements=causal_measurements,
+        persistence_lifecycle=persistence_lifecycle,
     )
 
 

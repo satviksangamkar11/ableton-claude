@@ -9,7 +9,10 @@ NO_OBSERVED_EFFECT is a causal-measurement status, NOT a record status, and
 never implies NON_AUDIBLE_BY_DESIGN.
 """
 from dataclasses import dataclass, field, asdict
-from typing import Any, Dict, Optional, Tuple
+from typing import Any, Dict, Optional, Tuple, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from serum2.qualification.a3_evidence_extension import PersistenceLifecycleEvidence
 
 # ---- gate statuses ----
 NOT_RUN = "NOT_RUN"
@@ -106,6 +109,7 @@ class EvidenceRecord:
     # Empty dict on all non-clamp records; never inferred from persistence failures.
     structural_observation: Dict[str, Any] = field(default_factory=dict)
     exercise_measurements: Tuple[CausalMeasurement, ...] = field(default_factory=tuple)
+    persistence_lifecycle: Optional["PersistenceLifecycleEvidence"] = None
 
     def __getattr__(self, name: str):
         # Old pickled records lack structural_observation. Return the correct
@@ -115,6 +119,10 @@ class EvidenceRecord:
         # Old pickled records lack exercise_measurements. Return empty tuple.
         if name == "exercise_measurements":
             return ()
+        # Old pickled records lack persistence_lifecycle. Return default (all NOT_RUN).
+        if name == "persistence_lifecycle":
+            from serum2.qualification.a3_evidence_extension import DEFAULT_PERSISTENCE_LIFECYCLE
+            return DEFAULT_PERSISTENCE_LIFECYCLE
         raise AttributeError(name)
 
     # ---- gate readings: observations, not verdicts ----
